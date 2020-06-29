@@ -1,87 +1,73 @@
-import React, { useEffect,useState ,useRef,useCallback} from 'react';
-import axios from 'axios'
+import React, { useEffect } from "react";
+import axios from "axios";
+const RAZORPAY_ID ="rzp_test_2QHPO79ACxzRQl"
 const PayByRazorPay = () => {
-    const[order_id,SetOrder_id] = useState('')
-    const[payment_id,SetPayment_id] = useState('')
-    const[singnature,SetSignature] = useState('')
+ const verifyPayment =(data)=> {
+    axios.post(
+      "https://pdhnatu.herokuapp.com/verifyRazorpaySucces",
+      data)
+    .then(res=>{
+        if (res.data.isSuccess) {
+            alert("Payment Success");
+          } else {
+            alert("Payment Failure");
+          }
+    }).catch=(error)=>{
+        console.log(error)
+    }
     
-    const isFirstrun = useRef(true)
-   const createOpton =(order_id) =>{
-    return {
-        key: 'rzp_test_2QHPO79ACxzRQl',
-        amount: '100', //  = INR 1
-        name: 'Acme shop',
-        description: 'some description',
-        image: 'https://cdn.razorpay.com/logos/7K3b6d18wHwKzL_medium.png',
-        order_id:order_id,
-        handler: function(response) {
-            console.log(response)
-            alert(response.razorpay_payment_id);
-            alert(response.razorpay_order_id);
-            alert(response.razorpay_signature)
-            SetPayment_id(response.razorpay_payment_id)
-            SetOrder_id(response.razorpay_order_id)
-            SetSignature(response.razorpay_signature)
-           
-        },
-        prefill: {
-            name: 'Gaurav',
-            
-        },
-        notes: {
-            address: 'some address'
-        },
-        theme: {
-            color: 'blue',
-            hide_topbar: false
+  }  
+ const processPayment=async ()=> {
+    const Razorpay = window.Razorpay
+    let orderId = ''
+    const apiResponse = await axios.post(
+        "https://pdhnatu.herokuapp.com/createOrder"
+      )
+    if (apiResponse) {
+      orderId = apiResponse.data
+    }
+    if (!orderId) return
+    const prefill = {}
+    const options = {
+      key: RAZORPAY_ID,
+      name: 'CredR',
+      amount: 20000 * 100,
+      description: 'Pdhantu Classes. Ltd.',
+      order_id: orderId,
+      handler: function (response) {
+        const paymentData = {
+          order_id: response.razorpay_order_id,
+          payment_id: response.razorpay_payment_id,
+          singnature: response.razorpay_signature
+          
         }
-    };
-    
-   }
-   async function  verifyPayment(){
-       let params={
-        order_id,
-        payment_id,
-        singnature
-       }
-       console.log(params)
-     const payStatus = await axios.post("https://pdhnatu.herokuapp.com/verifyRazorpaySucces",params)
-     if(payStatus.data.isSuccess){
-         alert('Payment Success')
-     }
-     else{
-         alert('Payment Failure')
-     }
+        verifyPayment(paymentData)
+      },
+      prefill: {
+        name: 'Gaurav Kumar',
+        email: 'gaurav.kumar@example.com',
+        contact: 9999999999
+    },
 
-   }
-    const openPayModal = async () => {
-        const responseData = await axios.post("https://pdhnatu.herokuapp.com/createOrder")
-        SetOrder_id(responseData.data)
-        console.log('order is',order_id)
-        var rzp1 = new window.Razorpay(createOpton(responseData.data));
-        rzp1.open();
-        
-    };
-    const verify = useCallback(() => {
-        verifyPayment()
-      }, [verifyPayment])
-    useEffect(() => {
-        const script = document.createElement('script');
-        script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-        script.async = true;
-        document.body.appendChild(script);
-        if(isFirstrun.current){
-            isFirstrun.current=false
-            return
-        }
-        verify()
-    }, [singnature,verify]);
+    }
+    const razorpay = new Razorpay(options)
+    razorpay.open()
+    razorpay.on('payment.failed', (res) => {
+    alert(res.error.description)
+    })
+}
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.async = true;
+    document.body.appendChild(script);
+}, []);
 
-    return (
-        <>
-            <button onClick={openPayModal}>Pay with Razorpay</button>
-        </>
-    );
-};
+  return (
+    <>
+      <button onClick={processPayment}>Pay with Razorpay</button>
+    </>
+  );
 
+  }
 export default PayByRazorPay;

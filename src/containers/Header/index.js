@@ -26,7 +26,7 @@ const Menu=() =>(
                     <Link to='/signup' className='nav-link'><button type="button" className="btn btn-primary">Sign Up</button></Link>
                   </li>
                   <li className="nav-item">
-                    <Link to='/signin' className='nav-link'><button type="button" className="btn btn-primary">Sign In</button></Link>
+                    <Link to='/login' className='nav-link'><button type="button" className="btn btn-primary">Sign In</button></Link>
                   </li>
                 </ul>
       </div>

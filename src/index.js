@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Routes from './Routes'
+import Payment from './pages/Payment'
 ReactDOM.render(
   <React.StrictMode>
     <Routes />
+    <Payment/>
   </React.StrictMode>,
   document.getElementById('root')
 );
