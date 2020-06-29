@@ -1,6 +1,5 @@
 import React from 'react'
-
-import '../landingpage.css'
+import '../../../../css/LandingPage.css'
 function showcase(){
    return(
     <section id="showcase" className="py-5">
@@ -16,7 +15,7 @@ function showcase(){
               <i className="fa fa-arrow-right"></i> Read More</a>
           </div>
           <div className="col-lg-6">
-            {/* <img src= {book} alt="" className="img-fluid d-none d-lg-block"/> */}
+          
           </div>
         </div>
       </div>
