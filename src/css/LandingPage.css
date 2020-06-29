@@ -11,7 +11,7 @@ body {
   
   #showcase {
     position: relative;
-    background: url("../asset/mountains.jpg");
+    background: url("../asset/UI-Content/mountains.jpg");
     min-height: 600px; }
     #showcase .primary-overlay {
       background: rgba(50, 146, 166, 0.8);

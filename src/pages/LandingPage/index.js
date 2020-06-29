@@ -1,9 +1,9 @@
 import React from 'react'
-import Showcase from './Subcomponent/showcase'
-import Boxes from './Subcomponent/boxes'
-import WhyUs from './Subcomponent/whyus'
-import Teachers from './Subcomponent/teachers'
-import ContactUs from './Subcomponent/contactus'
+import Showcase from './Components/Showcase'
+import Boxes from './Components/Boxes'
+import WhyUs from './Components/Why-Us'
+import Teachers from './Components/Instructor'
+import ContactUs from './Components/Contact-Us'
 
 function landingPage(){
     return(

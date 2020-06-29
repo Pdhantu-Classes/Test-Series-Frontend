@@ -1,13 +1,14 @@
 import React from 'react'
 import {BrowserRouter,Switch,Route} from 'react-router-dom'
-import Menu from './pages/core/Menu'
-import LandingPage from './pages/core/LandingPage/LandingPage'
-import Footer from './pages/core/footer'
+import Header from './containers/Header'
+import Footer from './containers/Footer'
+import LandingPage from './pages/LandingPage'
+
   const Routes = () =>{
 
     return(
         <BrowserRouter>
-        <Menu />
+        <Header />
             <Switch>
                 {/* <Route path="/signin" exact component={Signin} />
                 <Route path="/signup" exact component={Signup} /> */}

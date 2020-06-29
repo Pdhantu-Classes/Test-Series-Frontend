@@ -1,8 +1,8 @@
 import React from 'react'
-import person1 from '../../../../asset/person1.jpeg'
-import person2 from '../../../../asset/person2.jpeg'
-import person3 from '../../../../asset/person3.jpeg'
-import person4 from '../../../../asset/person4.jpeg'
+import person1 from '../../../../asset/Instructor/person1.jpeg'
+import person2 from '../../../../asset/Instructor/person2.jpeg'
+import person3 from '../../../../asset/Instructor/person3.jpeg'
+import person4 from '../../../../asset/Instructor/person4.jpeg'
 function techers()
 {
    return(

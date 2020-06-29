@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link,withRouter}  from 'react-router-dom'
-import logo from '../../asset/logo.jpeg'
+import logo from '../../asset/UI-Content/logo.jpeg'
 const Menu=() =>(
     <nav className="navbar navbar-expand-md navbar-light fixed-top py-4">
         <div className='container'>
