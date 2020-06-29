@@ -29,17 +29,7 @@ function techers()
               <h3>Satish Tripathi</h3>
               <h5 className="text-muted">Lead Writer</h5>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae molestiae alias expedita quae esse ut.</p>
-              <div className="d-flex flex-row justify-content-center">
-                <div className="p-4">
-                  <a href="#"><i className="fa fa-facebook"></i></a>
-                </div>
-                <div className="p-4">
-                  <a href="#"><i className="fa fa-twitter"></i></a>
-                </div>
-                <div className="p-4">
-                  <a href="#"><i className="fa fa-instagram"></i></a>
-                </div>
-              </div>
+              
             </div>
           </div>
     </div>
@@ -50,17 +40,7 @@ function techers()
               <h3>Praveen Dewangan</h3>
               <h5 className="text-muted">Lead Writer</h5>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae molestiae alias expedita quae esse ut.</p>
-              <div className="d-flex flex-row justify-content-center">
-                <div className="p-4">
-                  <a href="#"><i className="fa fa-facebook"></i></a>
-                </div>
-                <div className="p-4">
-                  <a href="#"><i className="fa fa-twitter"></i></a>
-                </div>
-                <div className="p-4">
-                  <a href="#"><i className="fa fa-instagram"></i></a>
-                </div>
-              </div>
+              
             </div>
           </div>
     </div>
@@ -71,17 +51,7 @@ function techers()
               <h3>Grish Kumar Sahu</h3>
               <h5 className="text-muted">Lead Writer</h5>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae molestiae alias expedita quae esse ut.</p>
-              <div className="d-flex flex-row justify-content-center">
-                <div className="p-4">
-                  <a href="#"><i className="fa fa-facebook"></i></a>
-                </div>
-                <div className="p-4">
-                  <a href="#"><i className="fa fa-twitter"></i></a>
-                </div>
-                <div className="p-4">
-                  <a href="#"><i className="fa fa-instagram"></i></a>
-                </div>
-              </div>
+              
             </div>
           </div>
     </div>
@@ -92,17 +62,7 @@ function techers()
               <h3>Jaynendra Patel</h3>
               <h5 className="text-muted">Lead Writer</h5>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae molestiae alias expedita quae esse ut.</p>
-              <div className="d-flex flex-row justify-content-center">
-                <div className="p-4">
-                  <a href="#"><i className="fa fa-facebook"></i></a>
-                </div>
-                <div className="p-4">
-                  <a href="#"><i className="fa fa-twitter"></i></a>
-                </div>
-                <div className="p-4">
-                  <a href="#"><i className="fa fa-instagram"></i></a>
-                </div>
-              </div>
+              
             </div>
           </div>
     </div>

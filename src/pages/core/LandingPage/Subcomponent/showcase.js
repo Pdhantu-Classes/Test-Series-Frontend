@@ -12,7 +12,7 @@ function showcase(){
               So What You Dream Of...
             </h1>
             <p className="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, quas.</p>
-            <a href="#" className="btn btn-outline-secondary btn-lg text-white">
+            <a href="index.html" className="btn btn-outline-secondary btn-lg text-white">
               <i className="fa fa-arrow-right"></i> Read More</a>
           </div>
           <div className="col-lg-6">

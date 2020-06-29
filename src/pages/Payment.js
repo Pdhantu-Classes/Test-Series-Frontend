@@ -1,10 +1,10 @@
-import React, { useEffect,useState ,useRef} from 'react';
+import React, { useEffect,useState ,useRef,useCallback} from 'react';
 import axios from 'axios'
 const PayByRazorPay = () => {
     const[order_id,SetOrder_id] = useState('')
     const[payment_id,SetPayment_id] = useState('')
     const[singnature,SetSignature] = useState('')
-    const[isSuccess,SetIsSuccess]=useState(false)
+    
     const isFirstrun = useRef(true)
    const createOpton =(order_id) =>{
     return {
@@ -62,6 +62,9 @@ const PayByRazorPay = () => {
         rzp1.open();
         
     };
+    const verify = useCallback(() => {
+        verifyPayment()
+      }, [verifyPayment])
     useEffect(() => {
         const script = document.createElement('script');
         script.src = 'https://checkout.razorpay.com/v1/checkout.js';
@@ -71,8 +74,8 @@ const PayByRazorPay = () => {
             isFirstrun.current=false
             return
         }
-        verifyPayment()
-    }, [singnature]);
+        verify()
+    }, [singnature,verify]);
 
     return (
         <>
