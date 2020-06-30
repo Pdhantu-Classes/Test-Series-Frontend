@@ -1,14 +1,14 @@
 import React from 'react';
 
 import './App.css';
-import Payement from './pages/Payment'
+import Payment from '../src/containers/Payment'
 
 
 function App() {
   return (
     
     <div className="App">
-     <Payement />
+     <Payment />
     </div>
 
   )
