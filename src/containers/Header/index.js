@@ -1,7 +1,11 @@
 import React from 'react'
 import {Link,withRouter}  from 'react-router-dom'
 import logo from '../../asset/UI-Content/logo.jpeg'
-const Menu=() =>(
+import {getRole} from '../../core/utility/authHeader'
+const Menu=() =>{
+  const role = getRole()
+  console.log(role)
+   return(
     <nav className="navbar navbar-expand-md navbar-light fixed-top py-4">
         <div className='container'>
             <Link  to="/" className='navbar-brand'>
@@ -32,5 +36,6 @@ const Menu=() =>(
       </div>
         </div>
     </nav>
-)
+   )
+}
 export default withRouter(Menu)

@@ -4,6 +4,7 @@ import Header from './containers/Header'
 import Footer from './containers/Footer'
 import LandingPage from './pages/LandingPage'
 import Login  from './containers/Login'
+import Signup from './containers/signup'
 
   const Routes = () =>{
 
@@ -12,7 +13,7 @@ import Login  from './containers/Login'
         <Header />
             <Switch>
                 <Route path="/login" exact component={Login} />
-                {/* <Route path="/signup" exact component={Signup} /> */}
+                <Route path="/signup" exact component={Signup} /> 
                 <Route path="/" exact component={LandingPage} />
 
             </Switch>
