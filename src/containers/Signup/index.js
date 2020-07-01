@@ -68,6 +68,22 @@ function Signup() {
   const clickSubmit = (e) => { 
     e.preventDefault();
 
+    let mobileNo = mobile.toString()
+    let mailformat = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
+    let a = false
+    let b = false
+
+
+    if(mobileNo.length === 10){
+      if(Number(mobileNo[0]) > 5){
+        a = true
+      }
+    }
+    if(email.match(mailformat)){
+      b = true
+    }
+    
+    if(a && b){
       signup({ firstname, lastname, email,  mobile, password }).then(data => {
          if (!data.isValid) {
               console.log('ifpart')
@@ -78,9 +94,14 @@ function Signup() {
             setSuccess(data.message)
           }
       });
+    }
+    else{
+      setError('Mobile or Email is not Valid')
+    }
+
+     
   
 };
-
 
   const showError = () => (
     <div
@@ -100,7 +121,6 @@ function Signup() {
     </div>
   );
 
-  
 
   const signUpForm = () => (
     <form>
@@ -109,7 +129,7 @@ function Signup() {
           src = "http://keapu-webpp01-centin-r46j07o2.cloudapp.net/PU-LECT-2019/images/user_add.png"
           alt = "signup"
           style = {{ height: "60px", marginLeft: "120px" }}
-        >ya
+        >
         </img>
         <span>
           <h2 className="text-center">Sign Up</h2>
@@ -120,6 +140,7 @@ function Signup() {
         Please fill in this form to create an account!
       </p>
       <hr></hr>
+
       <div className="form-group ">
         <div className="input-group ">
           <span className="input-group-addon">
@@ -135,6 +156,7 @@ function Signup() {
           />
         </div>
       </div>
+
       <div className="form-group ">
         <div className="input-group ">
           <span className="input-group-addon">
@@ -150,6 +172,7 @@ function Signup() {
           />
         </div>
       </div>
+
       <div className="form-group">
         <div className="input-group">
           <span className="input-group-addon">
@@ -165,6 +188,7 @@ function Signup() {
           />
         </div>
       </div>
+
       <div className="form-group">
         <div className="input-group">
           <span className="input-group-addon">
@@ -181,6 +205,7 @@ function Signup() {
           />
         </div>
       </div>
+
       <div className="form-group">
         <div className="input-group">
           <span className="input-group-addon">
@@ -196,6 +221,7 @@ function Signup() {
           />
         </div>
       </div>
+
       <div className="form-group ">
         <div className="input-group">
           <span className="input-group-addon">
@@ -212,6 +238,7 @@ function Signup() {
           />
         </div>
       </div>
+
       <div className="form-group">
         <button
           disabled={disable}
@@ -222,14 +249,15 @@ function Signup() {
           Sign Up
         </button>
       </div>
+
     </form>
   );
   return (
     <div>
       <div className="signup-form" style={{ marginTop: "100px" }}>
         {showError()}
-        {showSuccess()}
         {signUpForm()}
+        {showSuccess()}
         <div className="text-center">
           Already have an account?{" "}
           <a href="./Login" className="text-danger">
