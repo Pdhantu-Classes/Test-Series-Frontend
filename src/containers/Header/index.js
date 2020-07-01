@@ -2,30 +2,40 @@ import React from 'react'
 import {Link,withRouter}  from 'react-router-dom'
 import logo from '../../asset/UI-Content/logo.jpeg'
 import {getRole} from '../../core/utility/authHeader'
-const Menu=() =>{
+import "../../css/LandingPage.css"
+const isActive = (history, path) => {
+  if (history.location.hash === path) {
+      return { color: "blue" };
+  } else {
+      return { color: "black" };
+  }
+};
+const Menu=({history}) =>{
+ 
   const role = getRole()
   console.log(role)
    return(
     <nav className="navbar navbar-expand-md navbar-light fixed-top py-4">
         <div className='container'>
-            <Link  to="/" className='navbar-brand'>
+            <a  href ="/" className='navbar-brand'>
             <img src={logo} width="50" height="50" alt=""/><h3 className="d-inline align-middle">The Pdhantu Classes</h3>
-            </Link>
+            </a>
             <button className="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span className="navbar-toggler-icon"></span></button>
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav ml-auto">
                  <li className="nav-item">
-                    <a href="#about" className="nav-link">About</a>
+                    <a href="#about"  style={isActive(history, "#about")}  className="nav-link">About</a>
                   </li>
                   <li className="nav-item">
-                    <a href="#authors" className="nav-link">Meet The Teachers</a>
+                    <a href="#authors"  style={isActive(history,"#authors")} className="nav-link">Meet The Teachers</a>
                   </li>
                   <li className="nav-item">
-                    <a href="#contact" className="nav-link">Contact</a>
+                    <a href='#videos' style={isActive(history,"#videos")} className='nav-link'>Videos</a>
                   </li>
                   <li className="nav-item">
-                    <Link to='/videos' className='nav-link'>Videos</Link>
+                    <a href="#contact" style={isActive(history,"#contact")} className="nav-link">Contact</a>
                   </li>
+                 
                   <li className="nav-item">
                     <Link to='/signup' className='nav-link'><button type="button" className="btn btn-primary">Sign Up</button></Link>
                   </li>
@@ -33,7 +43,7 @@ const Menu=() =>{
                     <Link to='/login' className='nav-link'><button type="button" className="btn btn-primary">Sign In</button></Link>
                   </li>
                 </ul>
-      </div>
+              </div>
         </div>
     </nav>
    )

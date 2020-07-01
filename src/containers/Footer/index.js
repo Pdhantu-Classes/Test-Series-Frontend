@@ -2,16 +2,17 @@ import React from 'react'
 
 function footer (){
     return(
-    <footer id="main-footer" className="py-2 bg-primary text-white">
-    <div className="container">
-      <div className="row text-center">
-        <div className="col-md-6 ml-auto">
-          <p className="lead">Copyright &copy; 2020</p>
-          <p className="lead">Designed BY Nitu ,Amit and Ashish</p>
-        </div>
+     
+      <footer className="page-footer font-small blue">
+
+    
+      <div className="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="https://mdbootstrap.com/">The pdhantu classes</a>
       </div>
-    </div>
-  </footer>
+    
+    
+    </footer>
+     
     )
 }
 export default footer;

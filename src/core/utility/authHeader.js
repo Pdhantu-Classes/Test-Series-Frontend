@@ -1,4 +1,4 @@
-import jwtDecode from "jwt-decode";
+
 const role= "PAPA"
 export const getRole =()=>{
     // const token= window.localStorage.getItem('token')

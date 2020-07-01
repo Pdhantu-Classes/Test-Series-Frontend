@@ -72,7 +72,7 @@ const Login = () => {
             </div>
             <div className="clearfix">
                 <label className="pull-left checkbox-inline"><input type="checkbox" /> Remember me</label>
-                <a href="#" className="pull-right">Forgot Password?</a>
+                
             </div>
         </form>
     )
