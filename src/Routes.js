@@ -4,7 +4,7 @@ import Header from './containers/Header'
 import Footer from './containers/Footer'
 import LandingPage from './pages/LandingPage'
 import Login  from './containers/Login'
-import Signup from './containers/signup'
+import Signup from './containers/Signup'
 
   const Routes = () =>{
 

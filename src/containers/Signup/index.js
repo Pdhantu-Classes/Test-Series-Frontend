@@ -2,29 +2,86 @@ import React, { useState ,useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../../css/Signup.css";
 import { signup } from "../auth/index";
+
+
 function Signup() {
-  const [values, setValues] = useState({
-    email: "",
-    password: "",
-    firstname:'',
-    lastname:'',
-    mobile:'',
-    confirmpassword:''
-});
-  const[success,SetSuccess]= useState(false)
-  const[error,SetError]=useState('')
-  const [disable,SetDisable] = useState(true)
-  const { email, password,firstname,lastname,mobile,confirmpassword } = values;
+
+  const [ success, setSuccess ]= useState(false)
+  const [ error, setError ]=useState('')
+  const [ disable, setDisable ] = useState(true)
+  const [ firstname, setFirstName] = useState('')
+  const [ lastname, setLastName ] = useState(null)
+  const [ email, setEmail ] = useState('')
+  const [ mobile, setMobile ] = useState(0)
+  const [ password, setPassword ] = useState('')
+  const [ confirmPassword, setConfirmPassword ] = useState('')
+
   useEffect(() => {
-   const isUser = Object.values(values).every(ele=>Boolean(ele))
-   isUser ? SetDisable(false):SetDisable(true)
-  }, [values])
-  const handleChange = (name) => (event) => {
-    setValues({ ...values, [name]: event.target.value });
-    console.log(password)
-    console.log(confirmpassword)
-  
+    if(firstname && email && mobile && password && confirmPassword){
+      if(password === confirmPassword){
+        setDisable(false)
+        setError('')
+      }
+      else{
+        setDisable(true)
+        setError('Password not matched')
+      }
+    }
+   else{
+     setDisable(true)
+     setError('')
+   }
+  }, [firstname, email, mobile, password, confirmPassword])
+
+
+  const handleFirstName = (e) => {
+    e.preventDefault();
+    setFirstName(e.target.value)
   };
+
+  const handleLastName = (e) => {
+    e.preventDefault();
+    setLastName(e.target.value)
+  };
+
+  const handleEmail = (e) => {
+    e.preventDefault();
+    setEmail(e.target.value)
+  };
+
+  const handleMobile = (e) => {
+    e.preventDefault();
+    setMobile(e.target.value)
+  };
+
+  const handlePassword = (e) => {
+    e.preventDefault();
+    setPassword(e.target.value)
+  };
+
+  const handleConfirmPassword = (e) => {
+    e.preventDefault();
+    setConfirmPassword(e.target.value)
+  };
+
+
+  const clickSubmit = (e) => { 
+    e.preventDefault();
+
+      signup({ firstname, lastname, email,  mobile, password }).then(data => {
+         if (!data.isValid) {
+              console.log('ifpart')
+              setError(data.message)
+          } 
+          else {
+            console.log('elsepart')
+            setSuccess(data.message)
+          }
+      });
+  
+};
+
+
   const showError = () => (
     <div
       className="alert alert-danger"
@@ -33,27 +90,6 @@ function Signup() {
       {error}
     </div>
   );
-  const clickSubmit = (event) => {
-    
-    event.preventDefault();
-    if(password!==confirmpassword){
-      setValues({error:'Password is not matching'})
-    }
-        setValues({ ...values, error: false });
-        // signup({email,firstname,lastname, password,mobile }).then(data => {
-        //    if (!data.isValid) {
-        //         console.log('ifpart')
-        //         setValues({ ...values, error: data.message });
-        //     } 
-        //     else {
-        //       console.log('elsepart')
-        //         setValues({
-        //           success: data.isValid
-        //         });
-        //     }
-        // });
-    
-  };
 
   const showSuccess = () => (
     <div
@@ -63,13 +99,18 @@ function Signup() {
       New account is created. Please <Link to="/login">Signin</Link>
     </div>
   );
+
+  
+
   const signUpForm = () => (
     <form>
       <div>
         <img
-          src="http://keapu-webpp01-centin-r46j07o2.cloudapp.net/PU-LECT-2019/images/user_add.png"
-          style={{ height: "60px", marginLeft: "120px" }}
-        ></img>
+          src = "http://keapu-webpp01-centin-r46j07o2.cloudapp.net/PU-LECT-2019/images/user_add.png"
+          alt = "signup"
+          style = {{ height: "60px", marginLeft: "120px" }}
+        >ya
+        </img>
         <span>
           <h2 className="text-center">Sign Up</h2>
         </span>
@@ -85,7 +126,7 @@ function Signup() {
             <i class="fa fa-user"></i>
           </span>
           <input
-            onChange={handleChange("firstname")}
+            onChange={handleFirstName}
             type="text"
             class="form-control"
             name="firstname"
@@ -100,7 +141,7 @@ function Signup() {
             <i class="fa fa-user"></i>
           </span>
           <input
-            onChange={handleChange("lastname")}
+            onChange={handleLastName}
             type="text"
             class="form-control"
             name="firstname"
@@ -115,7 +156,7 @@ function Signup() {
             <i className="fa fa-paper-plane"></i>
           </span>
           <input
-            onChange={handleChange("email")}
+            onChange={handleEmail}
             type="email"
             className="form-control"
             name="email"
@@ -130,7 +171,7 @@ function Signup() {
             <i className="fa fa-paper-plane"></i>
           </span>
           <input
-            onChange={handleChange("mobile")}
+            onChange={handleMobile}
             onInput={(e) => e.target.value = e.target.value.slice(0, 10)}
             type="number"
             className="form-control"
@@ -146,8 +187,8 @@ function Signup() {
             <i className="fa fa-lock"></i>
           </span>
           <input
-            onChange={handleChange("password")}
-            type="text"
+            onChange={handlePassword}
+            type="password"
             className="form-control"
             name="password"
             placeholder="Password"
@@ -162,24 +203,18 @@ function Signup() {
             <i className="fa fa-check"></i>
           </span>
           <input
-            type="text"
+            onChange={handleConfirmPassword}
+            type="password"
             className="form-control"
             name="confirm_password"
             placeholder="Confirm Password"
-            required="required"
-            onChange={handleChange('confirmpassword')}
+            required="required"     
           />
         </div>
       </div>
       <div className="form-group">
-        <label className="checkbox-inline">
-          <input type="checkbox" required="required" /> I accept the{" "}
-          <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a>
-        </label>
-      </div>
-      <div className="form-group">
         <button
-        disabled={disable}
+          disabled={disable}
           onClick={clickSubmit}
           type="submit"
           className="btn btn-primary btn-lg offset-3"

@@ -4,26 +4,27 @@ import '../../css/Login.css';
 import { signin,authenticate} from "../auth/index";
 const Login = () => {
     const [values, setValues] = useState({
-        value: "ashishkumar@gmail.com",
+        login_value: "ashishkumar@gmail.com",
         password: "1234",
         error: "",
         loading: false,
         redirectToReferrer: false
     });
-    const { value, password, loading, error, redirectToReferrer } = values;
+    const { login_value, password, loading, error, redirectToReferrer } = values;
+
     const handleChange = name => event => {
         setValues({ ...values, error: false, [name]: event.target.value });
     };
     const clickSubmit = event => {
         event.preventDefault();
         setValues({ ...values, error: false, loading: true });
-        signin({ value, password }).then(data => {
+        signin({ login_value, password }).then(data => {
             if (!data.isValid) {
                 setValues({ ...values, error: data.message, loading: false });
             } 
             else {
                 authenticate(data)
-                setValues({    ...values,    redirectToReferrer: true});
+                setValues({    ...values, redirectToReferrer: true});
                 
             }
         })
@@ -52,10 +53,16 @@ const redirectUser = () => {
 
 const SignInForm=()=>(
     <form>
-    <img src="http://img.clipartlook.com/user-user-clipart-528_594.png" style={{ height: "80px", marginLeft: "100px" }}></img>
+    <img 
+        src="http://img.clipartlook.com/user-user-clipart-528_594.png" 
+        alt="login" 
+        style={{ height: "80px", marginLeft: "100px" }}
+    >
+
+    </img>
     <h2 className="text-center">Log in</h2>
     <div className="form-group">
-        <input    onChange={handleChange("value")} type="text" className="form-control" value={value} placeholder="Username" required="required" />
+        <input    onChange={handleChange("login_value")} type="text" className="form-control" value={login_value} placeholder="Username" required="required" />
     </div>
     <div className="form-group">
         <input  onChange={handleChange("password")} type="password"  value={password} className="form-control" placeholder="Password" required="required" />
