@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 
-const RAZORPAY_ID ="rzp_test_2QHPO79ACxzRQl"
+const RAZORPAY_ID ="rzp_live_g3qUslCaiOdIJr"
 
 const PayByRazorPay = () => {
 
@@ -47,9 +47,9 @@ const PayByRazorPay = () => {
         verifyPayment(paymentData)
       },
       prefill: {
-        name: 'Gaurav Kumar',
-        email: 'gaurav.kumar@example.com',
-        contact: 9999999999
+        name: 'Amit Kumar',
+        email: 'amitstcet98@gmail.com',
+        contact: 7903297969
     },
 
     }

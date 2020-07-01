@@ -7,9 +7,11 @@ import ContactUs from './Components/Contact-Us'
 import Header from '../../containers/Header'
 import Footer from '../../containers/Footer'
 import Videos from './Components/Videos'
+
 function landingPage(){
     return(
         <div>
+        
        <Header />
         <Showcase />
         <Boxes />

@@ -144,12 +144,12 @@ function Signup() {
       <div className="form-group ">
         <div className="input-group ">
           <span className="input-group-addon">
-            <i class="fa fa-user"></i>
+            <i className="fa fa-user"></i>
           </span>
           <input
             onChange={handleFirstName}
             type="text"
-            class="form-control"
+            className="form-control"
             name="firstname"
             placeholder="First Name"
             required="required"
@@ -160,12 +160,12 @@ function Signup() {
       <div className="form-group ">
         <div className="input-group ">
           <span className="input-group-addon">
-            <i class="fa fa-user"></i>
+            <i className="fa fa-user"></i>
           </span>
           <input
             onChange={handleLastName}
             type="text"
-            class="form-control"
+            className="form-control"
             name="firstname"
             placeholder="Last Name"
             required="required"
