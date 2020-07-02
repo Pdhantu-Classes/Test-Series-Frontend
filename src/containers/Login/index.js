@@ -46,7 +46,7 @@ const Login = () => {
 
     const redirectUser = () => {
         if (redirectToReferrer) {
-            return <Redirect to="/user/dashboard" />;
+            return <Redirect to="/user/home" />;
         }
     }
 

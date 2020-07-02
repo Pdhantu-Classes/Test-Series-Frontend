@@ -8,30 +8,13 @@ import Alltest from '../User/AllTest'
 import Orders from '../User/Orders'
 import Report from '../User/Report';
 import UserNavBar from '../User/UserNavBar'
-const Dashboard = () => {
-    const[sideBarData,SetSideBar]=useState({
-        profile:false,
-        orders:false,
-        test:true,
-        report:false
-    })
-    const {profile,orders,test,report} =sideBarData
-    const handleClick = name =>event=>{
-        SetSideBar({[name]:true})
-       
-    }
-     
-   return(
+const Home = () => {
+  return(
  
     <div >
        <UserNavBar />
-    
-     <div class="container-fluid ">
-        
-       
-     
-    </div>
+       <Alltest />
     </div>
    )
 };
-export default Dashboard;
+export default Home;

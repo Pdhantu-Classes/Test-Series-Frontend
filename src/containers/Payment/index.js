@@ -1,20 +1,41 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { getUserId } from '../../core/utility/authHeader'
+import { useAlert ,types} from 'react-alert'
+import {useHistory } from 'react-router-dom'
+const RAZORPAY_ID ="rzp_test_2QHPO79ACxzRQl"
 
-const RAZORPAY_ID ="rzp_live_g3qUslCaiOdIJr"
-
-const PayByRazorPay = () => {
-
+const PayByRazorPay = (props) => {
+  const history = useHistory()
+  const[userId,setUserId]=useState()
+  const alert=useAlert()
+  const {testName} =props
+  useEffect(()=>{
+    setUserId(getUserId())
+  },[])
+console.log(userId)
  const verifyPayment =(payload)=> {
+  
+    let body={
+      user_id:userId,
+      payment_id:payload.payment_id,
+      order_id :payload.order_id,
+      signature: payload.signature,
+      test_name:testName
+    }
+    console.log(body)
     axios.post(
       "https://pdhnatu.herokuapp.com/verifyRazorpaySucces",
-      payload)
+      body)
     .then(res=>{
         if (res.data.isSuccess) {
-            alert("Payment Success");
+          alert.show('Payment Success',{type:types.SUCCESS})
+          setTimeout(()=>{
+            history.push('/user/orders')
+          },1500)
           } 
         else {
-            alert("Payment Failure");
+          alert.show('Payment Failure',{type:types.ERROR})
           }
     }).catch=(error)=>{
         console.log(error)
@@ -42,7 +63,7 @@ const PayByRazorPay = () => {
         const paymentData = {
           order_id: response.razorpay_order_id,
           payment_id: response.razorpay_payment_id,
-          singnature: response.razorpay_signature    
+          signature: response.razorpay_signature    
         }
         verifyPayment(paymentData)
       },
@@ -69,7 +90,9 @@ const PayByRazorPay = () => {
 
   return (
     <>
-      <button onClick={processPayment}>Pay with Razorpay</button>
+      {/* <button >Pay with Razorpay</button> */}
+      <button class="btn btn-primary ml-md-3 ml-sm-5" onClick={processPayment}>Buy @ &#8377;240 only</button>
+   
     </>
   );
 

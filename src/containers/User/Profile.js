@@ -3,7 +3,7 @@ import http from 'axios'
 import { API_ENDPOINTS } from '../../core/constants/apiConstant'
 import '../../css/Profile.css'
 import { getUserId } from '../../core/utility/authHeader'
-
+import UserNavBar from './UserNavBar'
 const UPLOAD_PHOTO = API_ENDPOINTS.USERS.UPLOAD_PHOTO
 const GET_USER_DETAILS = API_ENDPOINTS.USERS.GET_USER_DETAILS
 const POST_USER_DETAILS = API_ENDPOINTS.USERS.POST_USER_DETAILS
@@ -100,7 +100,8 @@ const Profile = () => {
     }  
 
   return (
-    
+    <>
+    <UserNavBar />
     <div className="py-5">
       {
         !loading?
@@ -248,7 +249,7 @@ const Profile = () => {
       }
       
     </div>
-
+      </>
   )
 }
 export default Profile
