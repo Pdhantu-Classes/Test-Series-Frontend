@@ -11,59 +11,27 @@ function whyus(){
             <h1 className="text-primary pb-3">
               Why US?
             </h1>
-            <p className="lead pb-3">
-            The Pdhantu classNamees will be a world leader in the integration of (a) teaching and learning, (b) advancement of the knowledge base through true contents , and (c) leadership in service of teaching. Further, The pdhantu classNamees will be a  leader in preparing public service examination who provide exemplary educational and related services to improve the educational quality of whole india as well as villages also and contributing for better society.
+           
+          </div>
+          <p>
+            “The Pdhantu” is an initiative to reach every corner of India providing education via online as well as offline. The main motive is to connect every individual who wants to learn, achieve or have a dream to reach a goal. We are here to provide education at a very nominal cost so that every individual of the society can get benefits from it. Our theme of work is “Invest Time not Money” which truly shows that our target is only those who want to learn or achieve but some hurdles stop them to get it so we named as “The Pdhantu”.
             </p>
-          </div>
-           <div id="accordion" role="tablist">
-            <div className="card">
-              <div className="card-header" id="heading1">
-                <h5 className="mb-0">
-                  <div href="#collapse1" data-toggle="collapse" data-parent="#accordion">
-                    <i className="fa fa-arrow-circle-down"></i> Get Inspired
-                  </div>
-                </h5>
-              </div>
-
-              <div id="collapse1" className="collapse show">
-                <div className="card-body">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi pariatur optio totam obcaecati facere nam nihil inventore dolorum consequuntur quis unde voluptatibus numquam velit veniam explicabo eveniet fugit hic, tenetur. Iusto, consequatur, obcaecati. Ab earum alias, placeat exercitationem possimus quidem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem officia officiis aliquam fugiat, omnis, corrupti dolorum ipsa laudantium sequi dolores!
-                </div>
-              </div>
-            </div>
-
-            <div className="card">
-              <div className="card-header" id="heading2">
-                <h5 className="mb-0">
-                  <div href="#collapse2" data-toggle="collapse" data-parent="#accordion">
-                    <i className="fa fa-arrow-circle-down"></i> Gain The Knowledge
-                  </div>
-                </h5>
-              </div>
-
-              <div id="collapse2" className="collapse">
-                <div className="card-body">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi pariatur optio totam obcaecati facere nam nihil inventore dolorum consequuntur quis unde voluptatibus numquam velit veniam explicabo eveniet fugit hic, tenetur. Iusto, consequatur, obcaecati. Ab earum alias, placeat exercitationem possimus quidem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem officia officiis aliquam fugiat, omnis, corrupti dolorum ipsa laudantium sequi dolores!
-                </div>
-              </div>
-            </div>
-
-            <div className="card">
-              <div className="card-header" id="heading3">
-                <h5 className="mb-0">
-                  <div href="#collapse3" data-toggle="collapse" data-parent="#accordion">
-                    <i className="fa fa-arrow-circle-down"></i> Open Your Mind
-                  </div>
-                </h5>
-              </div>
-
-              <div id="collapse3" className="collapse">
-                <div className="card-body">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi pariatur optio totam obcaecati facere nam nihil inventore dolorum consequuntur quis unde voluptatibus numquam velit veniam explicabo eveniet fugit hic, tenetur. Iusto, consequatur, obcaecati. Ab earum alias, placeat exercitationem possimus quidem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem officia officiis aliquam fugiat, omnis, corrupti dolorum ipsa laudantium sequi dolores!
-                </div>
-              </div>
-            </div>
-          </div>
+          <ul class="list-group list-group-flush">
+           <li class="list-group-item font-weight-bolder "><blockquote class="blockquote text-center">
+              <p class="mb-0">"To succeed in your mission, you must have single-minded devotion to your goal.” </p>
+              <footer class="blockquote-footer">A. P. J. Abdul Kalam</footer>
+            </blockquote></li>
+           <li class="list-group-item font-weight-bolder"><blockquote class="blockquote text-center">
+              <p class="mb-0">"The highest education is that which does not merely give us information but makes our life in harmony with all existence."</p>
+              <footer class="blockquote-footer">Rabindranath Tagore</footer>
+            </blockquote></li>
+           <li class="list-group-item font-weight-bolder"><blockquote class="blockquote text-center">
+              <p class="mb-0">उच्चतम शिक्षा वह है जो हमें केवल जानकारी नहीं देती है बल्कि हमारे जीवन को सभी अस्तित्व के साथ सामंजस्य बिठाती है</p>
+              <footer class="blockquote-footer">रविंद्रनाथ टैगोर</footer>
+            </blockquote></li>
+          
+          </ul>
+          <p className="lead pb-3 my-2">The pdhantu classNamees will be a  leader in preparing public service examination who provide exemplary educational and related services to improve the educational quality of whole india as well as villages also and contributing for better society.</p>
         </div>
       </div>
     </div>

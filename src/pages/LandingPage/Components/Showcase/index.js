@@ -10,9 +10,11 @@ function showcase(){
             <h1 className="display-2 mt-5 pt-5">
               So What You Dream Of...
             </h1>
-            <p className="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, quas.</p>
-            <a href="index.html" className="btn btn-outline-secondary btn-lg text-white">
-              <i className="fa fa-arrow-right"></i> Read More</a>
+            <blockquote class="blockquote text-center">
+              <p class="mb-0">The only hurdle in achieving your dream is YOU</p>
+              <footer class="blockquote-footer text-white">Pdhantu Gurus</footer>
+            </blockquote>
+            
           </div>
           <div className="col-lg-6">
           

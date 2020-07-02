@@ -6,7 +6,7 @@ function conactus(){
           <div className="row">
             <div className="col-lg-9">
               <h3>Get In Touch</h3>
-              <p className="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, et.</p>
+              <p className="lead">Please Fill The Form to Contact Us</p>
               <form>
                 <div className="form-group">
                   <div className="input-group input-group-lg">
