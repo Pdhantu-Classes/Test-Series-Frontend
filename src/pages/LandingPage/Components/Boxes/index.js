@@ -9,7 +9,7 @@ return(
         <div className="col-md-4 box-shadow ">
           <div className="card text-center bg-primary text-white" style={{background:'linear-gradient(180deg, #6A93CB 0%, rgba(255, 252, 253, 0) 96.35%)'}}>
             <div className="card-body" style={{height:'20vh'}}>
-              <h3 className="p-5">Entire Syllabus covered</h3>
+              <h3 className="p-3">Entire Syllabus covered</h3>
              
             </div>
           </div>
@@ -17,7 +17,7 @@ return(
         <div className="col-md-4">
           <div className="card text-center  bg-primary  text-white " style={{background:'linear-gradient(180deg, #6A93CB 0%, rgba(255, 252, 253, 0) 96.35%)'}}>
             <div className="card-body" style={{height:'20vh'}}>
-              <h3 className="p-5">Total 18 Mock test with 4 Model Paper </h3>
+              <h3 className="p-3">Total 18 Mock test with 4 Model Paper </h3>
               
             </div>
           </div>
@@ -25,7 +25,7 @@ return(
         <div className="col-md-4">
           <div className="card text-center bg-primary text-white" style={{background:'linear-gradient(180deg, #6A93CB 0%, rgba(255, 252, 253, 0) 96.35%)'}}>
             <div className="card-body" style={{height:'20vh'}}>
-              <h3 className="p-5" >Billingual questions</h3>
+              <h3 className="p-3" >Billingual questions</h3>
             
             </div>
           </div>
@@ -37,7 +37,7 @@ return(
         <div className="col-md-4" >
           <div className="card text-center bg-primary text-white" style={{background:'linear-gradient(180deg, #6A93CB 0%, rgba(255, 252, 253, 0) 96.35%)'}}>
             <div className="card-body" style={{height:'20vh'}}>
-              <h3 className="p-2">Matches Level & Orientattion for ACF/Ranger(CGPSC)</h3>
+              <h3 className="p-2 d-inline-block">Matches Level & Orientattion for ACF/Ranger(CGPSC)</h3>
              
             </div>
           </div>
@@ -45,7 +45,7 @@ return(
         <div className="col-md-4">
           <div className="card text-center bg-primary text-white" style={{background:'linear-gradient(180deg, #6A93CB 0%, rgba(255, 252, 253, 0) 96.35%)'}}>
             <div className="card-body" style={{height:'20vh'}}>
-              <h3 className="p-5">Subject Wise Test </h3>
+              <h3 className="p-3">Subject Wise Test </h3>
               
             </div>
           </div>
@@ -53,7 +53,7 @@ return(
         <div className="col-md-4">
           <div className="card text-center bg-primary text-white" style={{background:'linear-gradient(180deg, #6A93CB 0%, rgba(255, 252, 253, 0) 96.35%)'}}>
             <div className="card-body" style={{height:'20vh'}}>
-              <h3 className="p-5">Question Design by experts only</h3>
+              <h3 className="p-3">Question Design by experts only</h3>
             
             </div>
           </div>
