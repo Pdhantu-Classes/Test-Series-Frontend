@@ -4,7 +4,7 @@ import {BrowserRouter,Switch,Route} from 'react-router-dom'
 import LandingPage from './pages/LandingPage'
 import Login  from './containers/Login'
 import Signup from './containers/Signup'
-import DashBoard from './containers/user/UserDashborad'
+import DashBoard from './containers/User/UserDashborad'
   const Routes = () =>{
 
     return(
