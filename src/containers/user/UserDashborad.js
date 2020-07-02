@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import '../../css/LandingPage.css'
 import '../../css/DashBoard.css';
 import logo from '../../asset/UI-Content/logo.jpeg'
-import Profile from '../user/Profile'
-import Alltest from '../user/AllTest'
-import Orders from '../user/Orders'
-import Report from '../user/Report';
+import Profile from '../User/Profile'
+import Alltest from '../User/AllTest'
+import Orders from '../User/Orders'
+import Report from '../User/Report';
 const Dashboard = () => {
     const[sideBarData,SetSideBar]=useState({
         profile:false,
