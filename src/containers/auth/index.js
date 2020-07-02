@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 export const signup = user => {
-   return axios.post("http://localhost:5000/signup",
+   return axios.post("https://pdhnatu.herokuapp.com/signup",
     user)
         .then(response => {
             console.log(response.status)
@@ -15,7 +15,7 @@ export const signup = user => {
 
 export const signin = user => {
     console.log(user)
-    return axios.post("http://localhost:5000/login",
+    return axios.post("https://pdhnatu.herokuapp.com/login",
      user)
          .then(response => {
              return response.data;
