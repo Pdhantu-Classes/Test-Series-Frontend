@@ -6,5 +6,7 @@ export const API_ENDPOINTS = {
     SIGNUP: `${base_url}/signup`,
     LOGIN: `${base_url}/login`,
     UPLOAD_PHOTO: `${base_url}/upload-image`,
+    GET_USER_DETAILS: `${base_url}/userDetails/<USER_ID>`,
+    POST_USER_DETAILS: `${base_url}/userDetails/<USER_ID>`
   },
 };
