@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link,withRouter}  from 'react-router-dom'
 import logo from '../../asset/UI-Content/logo.jpeg'
-import {getUserId,getFirstName,getLastName,isTokenVaild} from '../../core/utility/authHeader'
+// import {getUserId,getFirstName,getLastName,isTokenVaild} from '../../core/utility/authHeader'
 import "../../css/LandingPage.css"
 const isActive = (history, path) => {
   if (history.location.hash === path) {
@@ -11,13 +11,13 @@ const isActive = (history, path) => {
   }
 };
 const Menu=({history}) =>{
-  const isToken = isTokenVaild()
-  const userId= getUserId()
-  const firstName = getFirstName()
-  const lastName = getLastName()
+  const isToken = false
+  // const userId= null
+  // const firstName = getFirstName()
+  // const lastName = getLastName()
   
   
-  console.log(userId)
+  // console.log(userId)
    return(
     <nav className="navbar navbar-expand-md navbar-light fixed-top py-4">
         <div className='container'>
@@ -46,7 +46,7 @@ const Menu=({history}) =>{
                   {!isToken && <li className="nav-item">
                     <Link to='/login' className='nav-link'><button type="button" className="btn btn-primary">Sign In</button></Link>
                   </li>}
-                  {isToken && <div>{firstName}</div>}
+                  {/* {isToken && <div>{firstName}</div>} */}
                   {isToken && <li className="nav-item">
                     <Link to='/login' className='nav-link'><button type="button" className="btn btn-primary">Log out</button></Link>
                   </li>}
