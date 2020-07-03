@@ -22,7 +22,7 @@ function footer (){
               <img style= {{ width: '50px', marginLeft:'20px'}} src={YouTube} alt="img"></img>
               </a>
               <div style={{float: 'right', color: 'white'}}>
-                Address here 
+                {/* Address here  */}
           </div>
             </div>
           </div>  
@@ -30,7 +30,7 @@ function footer (){
       </div>
       <div class="footer-copyright text-center py-3" style={{background: 'blue'}}><span style={{color:'white'}}> © 2020 Copyright:The Pdhnatu Classes </span>
         <a  style={{color: 'white'}} href="https://www.thepdhantu.com/"></a>
-        <div style={{color: 'white'}}>DEVLEOPER:NITU,AMIT & ASHISH</div>
+        {/* <div style={{color: 'white'}}>DEVLEOPER:NITU,AMIT & ASHISH</div> */}
       </div>
       </footer>
      </div>

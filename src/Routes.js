@@ -22,7 +22,7 @@ import ViewDetails from './containers/User/ViewDetails'
                 <Route path="/login" render ={()=>isTokenVaild()?(<Redirect to="/user/home" />):<Login />} />
                 <Route path="/signup" render ={()=>isTokenVaild()?(<Redirect to="/user/home" />):<Signup />} /> 
                 <Route path="/home"  render ={()=>isTokenVaild()?(<Redirect to="/user/home" />):<LandingPage />} />
-                <Route path="/home"  render ={()=>isTokenVaild()?(<Redirect to="/user/home/viewdetails" />):<ViewDetails />} />
+                <Route path="/user/home/viewdetails"  render ={()=>!isTokenVaild()?(<Redirect to="/" />):<ViewDetails />} />
                 <Route path="/user/dashboard" render ={()=>!isTokenVaild()?(<Redirect to="/" />):<Dashboard />}/>
                 <Route path="/user/home" render ={()=>!isTokenVaild()?(<Redirect to="/" />):<Home />}/>
                 <Route path="/user/profile" render ={()=>!isTokenVaild()?(<Redirect to="/" />):<Profile />} />

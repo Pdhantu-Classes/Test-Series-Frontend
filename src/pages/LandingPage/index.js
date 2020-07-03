@@ -14,8 +14,8 @@ function landingPage(){
         
        <Header />
         <Showcase />
-        <Boxes />
         <WhyUs />
+        <Boxes />
         <Teachers />
         <Videos />
         <ContactUs />

@@ -38,14 +38,14 @@ const Alltest = () => {
       <div className="container mt-5"></div>
     {
       !loading?
-      <div class="card offset-md-2 offset-xs-2  offset-lg-3 mb-5 card-width-package" style={{ background: 'linear-gradient(270.9deg, #FFBFBF 3.13%, rgba(255, 252, 253, 0) 95.62%)' }}>
-        <div class="row no-gutters">
-          <div class="col-sm-4">
-            <img class="card-img mt-4 ml-md-5 ml-sm-5 ml-lg-5 card-image-package" src={testImage} alt="TESTICON" />
+      <div className="card offset-md-2 offset-xs-2  offset-lg-3 mb-5 card-width-package" style={{ background: 'linear-gradient(270.9deg, #FFBFBF 3.13%, rgba(255, 252, 253, 0) 95.62%)' }}>
+        <div className="row no-gutters">
+          <div className="col-sm-4">
+            <img className="card-img mt-4 ml-md-5 ml-sm-5 ml-lg-5 card-image-package" src={testImage} alt="TESTICON" />
           </div>
-          <div class="col-sm-8">
-            <div class="card-body">
-              <h3 class="card-title">{testName}</h3>
+          <div className="col-sm-8">
+            <div className="card-body">
+              <h3 className="card-title">{testName}</h3>
               <ul className="list-unstyled mt-3 mb-4">
                 <li style={{ fontSize: '20px' }}><b>18</b> Mock Test</li>
                 <li style={{ fontSize: '20px' }}><b>14</b> Subject-Wise Test</li>
@@ -53,10 +53,10 @@ const Alltest = () => {
                 <li style={{ fontSize: '20px' }}>Starts From <b>15th July</b></li>
               </ul>
               {
-              isBuy ? <button className="btn btn-info" >Go to Dashboard</button>
+              isBuy ? <button className="btn btn-info" onClick={() => { history.push('/user/dashboard') }}>Go to Dashboard</button>
               :
               <div>
-                <button class="btn btn-primary mr-2" onClick={() => { history.push('/user/home/viewdetails') }}>View Details</button>
+                <button className="btn btn-primary mr-2" onClick={() => { history.push('/user/home/viewdetails') }}>View Details</button>
                 <PayButton testName={testName} />
               </div>
               }
@@ -66,9 +66,9 @@ const Alltest = () => {
         </div>
       </div>
       :
-      <div class="d-flex justify-content-center">
-        <div class="spinner-border" role="status">
-          <span class="sr-only">Loading...</span>
+      <div className="d-flex justify-content-center">
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
         </div>
       </div>
     }

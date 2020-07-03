@@ -25,18 +25,8 @@ function techers()
   </div>
  
   <div className="row">
-  <div className="col-lg-3 col-md-6">
-            <div className="card">
-                <div className="card-body" style={{height:'40vh'}}>
-                <img src={person5} alt="" className="img-fluid rounded-circle w-50 mb-3"/>
-                <h3>Dr. Animesh kumar sharma</h3>
-                <h5 className="text-muted">Teacher</h5>
-                <p>TEACHING EXPERIENCE : 16</p>
-              
-            </div>
-          </div>
-          </div>
-    <div className="col-lg-3 col-md-6">
+ 
+    <div className="col-lg-4 col-md-6">
           <div className="card">
             <div className="card-body" style={{height:'40vh'}}>
               <img src={person1} alt="" className="img-fluid rounded-circle w-50 mb-3"/>
@@ -48,7 +38,7 @@ function techers()
           </div>
     </div>
    
-    <div className="col-lg-3 col-md-6">
+    <div className="col-lg-4 col-md-6">
           <div className="card">
             <div className="card-body" style={{height:'40vh'}}>
               <img src={person3} alt="" className="img-fluid rounded-circle w-50 mb-3"/>
@@ -59,7 +49,7 @@ function techers()
             </div>
           </div>
     </div>
-    <div className="col-lg-3 col-md-6">
+    <div className="col-lg-4 col-md-6">
           <div className="card">
             <div className="card-body" style={{height:'40vh'}}>
               <img src={person4} alt="" className="img-fluid rounded-circle w-50 mb-3"/>
@@ -71,10 +61,22 @@ function techers()
           </div>
     </div>
    
+   
     </div>
     <div>
     <div className="row mb-3 my-5 align-items-center justify-content-center">
-    <div className="col-lg-3 col-md-6">
+    <div className="col-lg-4 col-md-6">
+            <div className="card">
+                <div className="card-body" style={{height:'40vh'}}>
+                <img src={person5} alt="" className="img-fluid rounded-circle w-50 mb-3"/>
+                <h3>Dr. Animesh kumar sharma</h3>
+                <h5 className="text-muted">Teacher</h5>
+                <p>TEACHING EXPERIENCE : 16</p>
+              
+            </div>
+          </div>
+          </div>
+    <div className="col-lg-4 col-md-6">
           <div className="card">
             <div className="card-body" style={{height:'40vh'}} >
               <img src={person2} alt="" className="img-fluid rounded-circle w-50 mb-3"/>
@@ -86,7 +88,7 @@ function techers()
           </div>
     </div>
             
-          <div className="col-lg-3 col-md-6">
+          <div className="col-lg-4 col-md-6">
             <div className="card">
                 <div className="card-body" style={{height:'40vh'}}>
                 <img src={person6} alt="" className="img-fluid rounded-circle w-50 mb-3" />

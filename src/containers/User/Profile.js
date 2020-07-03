@@ -77,7 +77,7 @@ const Profile = () => {
       .then(response => {
         const responseData = response.data.imageUrl
         setImageUrl(responseData)
-        window.localStorage.setItem('image_url', responseData)
+        window.localStorage.setItem('imgUrl', responseData)
       })
       .catch(err => console.log(err))
   };
@@ -105,14 +105,14 @@ const Profile = () => {
       <div className="py-5">
         {
           !loading ?
-            <div class="row">
-              <div class="col-md-3">
-                <div class="text-center">
+            <div className="row">
+              <div className="col-md-3">
+                <div className="text-center">
                   {
                     imageUrl ?
-                      <img src={imageUrl} style={{ width: '200px', height: '200px' }} class="avatar img-circle" alt="avatar" />
+                      <img src={imageUrl} style={{ width: '200px', height: '200px' }} className="avatar img-circle" alt="avatar" />
                       :
-                      <img src="//placehold.it/200" class="avatar img-circle" alt="avatar" />
+                      <img src="//placehold.it/200" className="avatar img-circle" alt="avatar" />
                   }
                   <div className="profile-image-container" onChange={handleImage}>
                     <label htmlFor="file-input">
@@ -130,50 +130,50 @@ const Profile = () => {
               </div>
 
 
-              <div class="col-md-9 personal-info">
+              <div className="col-md-9 personal-info">
                 <h3>Personal info</h3>
 
-                <div class="form-group">
-                  <label class="col-lg-3 control-label">First name</label>
-                  <div class="col-lg-8">
-                    <input class="form-control" type="text" value={firstName} disabled />
+                <div className="form-group">
+                  <label className="col-lg-3 control-label">First name</label>
+                  <div className="col-lg-8">
+                    <input className="form-control" type="text" value={firstName} disabled />
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="col-lg-3 control-label">Last name</label>
-                  <div class="col-lg-8">
-                    <input class="form-control" type="text" value={lastName} disabled />
+                <div className="form-group">
+                  <label className="col-lg-3 control-label">Last name</label>
+                  <div className="col-lg-8">
+                    <input className="form-control" type="text" value={lastName} disabled />
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="col-lg-3 control-label">Mobile</label>
-                  <div class="col-lg-8">
-                    <input class="form-control" type="text" value={"+91 " + mobile} disabled />
+                <div className="form-group">
+                  <label className="col-lg-3 control-label">Mobile</label>
+                  <div className="col-lg-8">
+                    <input className="form-control" type="text" value={"+91 " + mobile} disabled />
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="col-lg-3 control-label">Email</label>
-                  <div class="col-lg-8">
-                    <input class="form-control" type="text" value={email} disabled />
+                <div className="form-group">
+                  <label className="col-lg-3 control-label">Email</label>
+                  <div className="col-lg-8">
+                    <input className="form-control" type="text" value={email} disabled />
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="col-lg-3 control-label">Whatsapp Number</label>
-                  <div class="col-lg-8">
+                <div className="form-group">
+                  <label className="col-lg-3 control-label">Whatsapp Number</label>
+                  <div className="col-lg-8">
                     {
                       !whatsapp ?
-                        <input class="form-control" type="number" value={whatsapps} onChange={handleWhatsapp} onInput={(e) => e.target.value = e.target.value.slice(0, 10)} />
+                        <input className="form-control" type="number" value={whatsapps} onChange={handleWhatsapp} onInput={(e) => e.target.value = e.target.value.slice(0, 10)} />
                         :
-                        <input class="form-control" type="text" value={"+91 " + whatsapp} disabled />
+                        <input className="form-control" type="text" value={"+91 " + whatsapp} disabled />
                     }
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="col-lg-3 control-label">Graduation Year</label>
-                  <div class="col-lg-8">
+                <div className="form-group">
+                  <label className="col-lg-3 control-label">Graduation Year</label>
+                  <div className="col-lg-8">
                     {
                       !graduationYear ?
-                        <select class="form-control" onChange={handleGraduationYear} value={graduationYears}>
+                        <select className="form-control" onChange={handleGraduationYear} value={graduationYears}>
                           <option defaultValue>Select Year</option>
                           <option value="2005">2005</option>
                           <option value="2006">2006</option>
@@ -199,7 +199,7 @@ const Profile = () => {
                         </select>
 
                         :
-                        <select class="form-control" value={graduationYear} disabled>
+                        <select className="form-control" value={graduationYear} disabled>
                           <option value={graduationYear.toString} >{graduationYear}</option>
                         </select>
                     }
@@ -207,18 +207,18 @@ const Profile = () => {
                 </div>
 
 
-                <div class="form-group">
-                  <label class="col-lg-3 control-label">Course</label>
-                  <div class="col-lg-8">
+                <div className="form-group">
+                  <label className="col-lg-3 control-label">Course</label>
+                  <div className="col-lg-8">
                     {
                       !course ?
-                        <select class="form-control" onChange={handleCourse} value={courses}>
+                        <select className="form-control" onChange={handleCourse} value={courses}>
                           <option defaultValue>Select Course</option>
                           <option value="CGPSC">CGPSC</option>
                           <option value="CGACF">CGACF</option>
                         </select>
                         :
-                        <select class="form-control" value={course} disabled>
+                        <select className="form-control" value={course} disabled>
                           <option value={course.toString} >{course}</option>
                         </select>
                     }
@@ -229,10 +229,10 @@ const Profile = () => {
                   whatsapp && graduationYear && course ?
                     null
                     :
-                    <div class="form-group">
-                      <label class="col-md-3 control-label"></label>
-                      <div class="col-md-8">
-                        <button class="btn btn-primary" onClick={handleSubmit}>
+                    <div className="form-group">
+                      <label className="col-md-3 control-label"></label>
+                      <div className="col-md-8">
+                        <button className="btn btn-primary" onClick={handleSubmit}>
                           Save Changes
               </button>
                       </div>
@@ -241,9 +241,9 @@ const Profile = () => {
               </div>
             </div>
             :
-            <div class="d-flex justify-content-center">
-              <div class="spinner-border" role="status">
-                <span class="sr-only">Loading...</span>
+            <div className="d-flex justify-content-center">
+              <div className="spinner-border" role="status">
+                <span className="sr-only">Loading...</span>
               </div>
             </div>
         }

@@ -32,12 +32,12 @@ const Orders=()=>{
             !loading?
                 ordersDetails.map(data =>{
                     return(
-                        <div className="py-1">
-                        <div class="card offset-md-4 offset-lg-4 mb-5" style={{background:'linear-gradient(270.9deg, #FFBFBF 3.13%, rgba(255, 252, 253, 0) 95.62%)',width:'600px'}}>
-                            <div class="row no-gutters">
-                                <div class="col-sm-7 col-md-7 col-lg-7">
-                                    <div class="card-body">
-                                        <h3 class="card-title">{data.test_name}</h3>
+                        <div key={data.order_id} className="py-1">
+                        <div className="card offset-md-4 offset-lg-4 mb-5" style={{background:'linear-gradient(270.9deg, #FFBFBF 3.13%, rgba(255, 252, 253, 0) 95.62%)',width:'600px'}}>
+                            <div className="row no-gutters">
+                                <div className="col-sm-7 col-md-7 col-lg-7">
+                                    <div className="card-body">
+                                        <h3 className="card-title">{data.test_name}</h3>
                                         <ul className="list-unstyled mt-3 mb-4">
                                         <li style={{fontSize:'20px'}}><b>Price:</b> &#8377;{data.price}</li>
                                         <li style={{fontSize:'20px'}}><b>Order at:</b> {data.order_at}</li>  
@@ -50,9 +50,9 @@ const Orders=()=>{
                     </div>
                 )
             }):
-            <div class="d-flex justify-content-center">
-                <div class="spinner-border" role="status">
-                    <span class="sr-only">Loading...</span>
+            <div className="d-flex justify-content-center">
+                <div className="spinner-border" role="status">
+                    <span className="sr-only">Loading...</span>
                 </div>
             </div>
         } 

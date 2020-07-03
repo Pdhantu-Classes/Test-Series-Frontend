@@ -5,8 +5,7 @@ const SIGNUP = API_ENDPOINTS.USERS.SIGNUP
 const LOGIN = API_ENDPOINTS.USERS.LOGIN
 
 export const signup = user => {
-   return axios.post("https://pdhnatu.herokuapp.com/signup",
-    user)
+   return axios.post(SIGNUP,user)
         .then(response => {
             console.log(response.status)
             return response.data;
@@ -18,8 +17,7 @@ export const signup = user => {
 
 export const signin = user => {
     console.log(user)
-    return axios.post("https://pdhnatu.herokuapp.com/login",
-     user)
+    return axios.post(LOGIN,user)
          .then(response => {
              return response.data;
          })
@@ -30,6 +28,7 @@ export const signin = user => {
  export const authenticate = (data) => {
     if (typeof window !== 'undefined') {
         localStorage.setItem('token', data.token);
+        localStorage.setItem('imgUrl',data.image_url)
        
     }
 };

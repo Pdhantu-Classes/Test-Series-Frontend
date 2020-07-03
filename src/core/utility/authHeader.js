@@ -76,3 +76,7 @@ export const logout =() =>{
         window.localStorage.removeItem('token')
     }
 }
+export const userImage=()=>{
+    const imgUrl = window.localStorage.getItem('imgUrl')
+    return imgUrl
+}
