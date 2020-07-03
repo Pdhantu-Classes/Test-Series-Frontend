@@ -7,14 +7,15 @@ import { signup } from "../auth/index";
 function Signup() {
 
   const [ success, setSuccess ]= useState(false)
-  const [ error, setError ]=useState('')
+  const [ error, setError ]=useState(false)
   const [ disable, setDisable ] = useState(true)
   const [ firstname, setFirstName] = useState('')
   const [ lastname, setLastName ] = useState(null)
   const [ email, setEmail ] = useState('')
-  const [ mobile, setMobile ] = useState(0)
+  const [ mobile, setMobile ] = useState('')
   const [ password, setPassword ] = useState('')
   const [ confirmPassword, setConfirmPassword ] = useState('')
+  const [ loading, setLoading ] = useState()
 
   useEffect(() => {
     if(firstname && email && mobile && password && confirmPassword){
@@ -84,13 +85,27 @@ function Signup() {
     }
     
     if(a && b){
+      setLoading(true)
       signup({ firstname, lastname, email,  mobile, password }).then(data => {
+        setLoading(false)
          if (!data.isValid) {
               console.log('ifpart')
               setError(data.message)
+              setFirstName('')
+              setLastName('')
+              setMobile('')
+              setEmail('')
+              setPassword('')
+              setConfirmPassword('')
           } 
           else {
             console.log('elsepart')
+            setFirstName('')
+            setLastName('')
+            setMobile('')
+            setEmail('')
+            setPassword('')
+            setConfirmPassword('')
             setSuccess(data.message)
           }
       });
@@ -99,7 +114,7 @@ function Signup() {
       setError('Mobile or Email is not Valid')
     }
 
-     
+     console.log(error)
   
 };
 
@@ -150,6 +165,7 @@ function Signup() {
             onChange={handleFirstName}
             type="text"
             className="form-control"
+            value={firstname}
             name="firstname"
             placeholder="First Name"
             required="required"
@@ -166,6 +182,7 @@ function Signup() {
             onChange={handleLastName}
             type="text"
             className="form-control"
+            value={lastname}
             name="firstname"
             placeholder="Last Name"
             required="required"
@@ -182,6 +199,7 @@ function Signup() {
             onChange={handleEmail}
             type="email"
             className="form-control"
+            value={email}
             name="email"
             placeholder="Email Address"
             required="required"
@@ -199,6 +217,7 @@ function Signup() {
             onInput={(e) => e.target.value = e.target.value.slice(0, 10)}
             type="number"
             className="form-control"
+            value={mobile}
             name="email"
             placeholder="Mobile"
             required="required"
@@ -215,6 +234,7 @@ function Signup() {
             onChange={handlePassword}
             type="password"
             className="form-control"
+            value={password}
             name="password"
             placeholder="Password"
             required="required"
@@ -232,6 +252,7 @@ function Signup() {
             onChange={handleConfirmPassword}
             type="password"
             className="form-control"
+            value={confirmPassword}
             name="confirm_password"
             placeholder="Confirm Password"
             required="required"     
@@ -254,10 +275,23 @@ function Signup() {
   );
   return (
     <div>
-      <div className="signup-form" style={{ marginTop: "100px" }}>
+      <div className="signup-form" style={{ marginTop: "-100px" }}>
+      {
+          loading ?
+          <div style={{position:'absolute',transform:'translate(-50%,-50%)', top:'20%', left:'50%'}}>
+            <div className="d-flex justify-content-center">
+              <div className="spinner-border" role="status">
+                <span className="sr-only">Loading...</span>
+              </div>
+          </div>
+        </div>
+        :
+        null
+        }
         {showError()}
-        {signUpForm()}
         {showSuccess()}
+        {signUpForm()}
+       
         <div className="text-center">
           Already have an account?{" "}
           <a href="./Login" className="text-danger">

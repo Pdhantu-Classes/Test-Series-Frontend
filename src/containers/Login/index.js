@@ -4,8 +4,8 @@ import '../../css/Login.css';
 import { signin, authenticate } from "../auth/index";
 const Login = () => {
     const [values, setValues] = useState({
-        login_value: "ashishkumar@gmail.com",
-        password: "1234",
+        login_value: "",
+        password: "",
         error: "",
         loading: false,
         redirectToReferrer: false
@@ -39,9 +39,11 @@ const Login = () => {
     );
     const showLoading = () =>
         loading && (
-            <div className="alert alert-info">
-                <h2>Loading...</h2>
-            </div>
+            <div className="d-flex justify-content-center">
+                <div className="spinner-border" role="status">
+                    <span className="sr-only">Loading...</span>
+                </div>
+            </div>  
         );
 
     const redirectUser = () => {

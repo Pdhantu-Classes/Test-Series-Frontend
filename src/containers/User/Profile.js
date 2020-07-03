@@ -11,11 +11,15 @@ const UPLOAD_IMAGE = API_ENDPOINTS.USERS.UPLOAD_IMAGE
 const GET_USER_DETAILS = API_ENDPOINTS.USERS.GET_USER_DETAILS
 const POST_USER_DETAILS = API_ENDPOINTS.USERS.POST_USER_DETAILS
 
-const USER_ID = getUserId()
 
 const Profile = () => {
   const alert = useAlert()
   const history = useHistory()
+  const [ userId, setUserId ] = useState()
+
+  useEffect(() => {
+    setUserId(getUserId())
+  }, [])
 
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
@@ -34,14 +38,14 @@ const Profile = () => {
 
 
   useEffect(() => {
-    let userId = getUserId()
     setLoading(true)
+    const USER_ID = getUserId()
+    setUserId(USER_ID)
     http
-      .get(GET_USER_DETAILS.replace('<USER_ID>', userId))
+      .get(GET_USER_DETAILS.replace('<USER_ID>', USER_ID))
       .then(response => {
         setLoading(false)
         const responseData = response.data.user_data
-        console.log(responseData);
         setFirstName(responseData.firstname)
         setLastName(responseData.lastname)
         setEmail(responseData.email)
@@ -77,7 +81,7 @@ const Profile = () => {
     http
       .post(UPLOAD_IMAGE, formData, {
         headers: {
-          user_id: USER_ID
+          user_id: userId
         }
       })
       .then(response => {
@@ -98,7 +102,7 @@ const Profile = () => {
         course: courses
       }
       http
-        .put(POST_USER_DETAILS.replace('<USER_ID>', USER_ID), userDetails)
+        .put(POST_USER_DETAILS.replace('<USER_ID>', userId), userDetails)
         .then(response => { 
           setMessage(response.data.message) 
           setLoadingSubmit(false)
@@ -261,9 +265,11 @@ const Profile = () => {
         }
         {
           loadingSubmit ?
-          <div className="d-flex justify-content-center">
-          <div className="spinner-border" role="status">
-            <span className="sr-only">Loading...</span>
+          <div style={{position:'absolute',transform:'translate(-50%,-50%)', top:'20%', left:'50%'}}>
+            <div className="d-flex justify-content-center">
+            <div className="spinner-border" role="status">
+              <span className="sr-only">Loading...</span>
+            </div>
           </div>
         </div>
         :

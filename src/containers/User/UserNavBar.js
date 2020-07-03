@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router"
 import logo from  '../../asset/UI-Content/logo.jpeg'
 import {logout,userImage,getFirstName} from '../../core/utility/authHeader'
-import avatar from '../../asset/avatar.png'
+import avatar from '../../asset/avatar.svg'
 const UserNavBar =() =>{
     
     const history = useHistory()
