@@ -29,7 +29,7 @@ function techers()
     <div className="col-lg-4 col-md-6">
           <div className="card">
             <div className="card-body" style={{height:'40vh'}}>
-              <img src={person1} alt="" className="img-fluid rounded-circle w-50 mb-3"/>
+              <img src={person1} style={{width:'30px', height:'160px'}} alt="" className="img-fluid rounded-circle w-50 mb-3"/>
               <h3>Satish Tripathi</h3>
               <h5 className="text-muted">Teacher</h5>
               <p>TEACHING EXPERIENCE : 10</p>
@@ -41,7 +41,7 @@ function techers()
     <div className="col-lg-4 col-md-6">
           <div className="card">
             <div className="card-body" style={{height:'40vh'}}>
-              <img src={person3} alt="" className="img-fluid rounded-circle w-50 mb-3"/>
+              <img src={person3} style={{width:'30px', height:'160px'}} alt="" className="img-fluid rounded-circle w-50 mb-3"/>
               <h3>Girish Kumar Sahu</h3>
               <h5 className="text-muted">Teacher</h5>
               <p>TEACHING EXPERIENCE : 10</p>
@@ -52,7 +52,7 @@ function techers()
     <div className="col-lg-4 col-md-6">
           <div className="card">
             <div className="card-body" style={{height:'40vh'}}>
-              <img src={person4} alt="" className="img-fluid rounded-circle w-50 mb-3"/>
+              <img src={person4} style={{width:'30px', height:'160px'}} alt="" className="img-fluid rounded-circle w-50 mb-3"/>
               <h3>Jaynendra Patel</h3>
               <h5 className="text-muted">Teacher</h5>
               <p>TEACHING EXPERIENCE : 10</p>
@@ -68,7 +68,7 @@ function techers()
     <div className="col-lg-4 col-md-6">
             <div className="card">
                 <div className="card-body" style={{height:'40vh'}}>
-                <img src={person5} alt="" className="img-fluid rounded-circle w-50 mb-3"/>
+                <img src={person5} style={{width:'35px', height:'160px'}} alt="" className="img-fluid rounded-circle w-50 mb-3"/>
                 <h3>Dr. Animesh kumar sharma</h3>
                 <h5 className="text-muted">Teacher</h5>
                 <p>TEACHING EXPERIENCE : 16</p>
@@ -79,7 +79,7 @@ function techers()
     <div className="col-lg-4 col-md-6">
           <div className="card">
             <div className="card-body" style={{height:'40vh'}} >
-              <img src={person2} alt="" className="img-fluid rounded-circle w-50 mb-3"/>
+              <img src={person2} style={{width:'30px', height:'160px'}} alt="" className="img-fluid rounded-circle w-50 mb-3"/>
               <h3>Praveen Dewangan</h3>
               <h5 className="text-muted">Teacher</h5>
               <p>TEACHING EXPERIENCE : 5</p>
@@ -91,7 +91,7 @@ function techers()
           <div className="col-lg-4 col-md-6">
             <div className="card">
                 <div className="card-body" style={{height:'40vh'}}>
-                <img src={person6} alt="" className="img-fluid rounded-circle w-50 mb-3" />
+                <img src={person6} style={{width:'30px', height:'160px'}} alt="" className="img-fluid rounded-circle w-50 mb-3" />
                 <h3>Amit Pandey</h3>
                 <h5 className="text-muted">IT Head</h5>
                 <p></p>

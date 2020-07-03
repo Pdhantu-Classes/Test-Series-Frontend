@@ -41,8 +41,10 @@ const UserNavBar =() =>{
                 </ul>
               </div>
               <div className="ml-2 mr-2 mt-2"> <h5>Welcome {firstName}</h5></div>
-              {imgUrl !== "null"? <div><img style ={{width:'60px',height:'60px',borderRadius:'50%'}} src ={imgUrl}alt="profile" /></div>
-              : <div><img style ={{width:'60px',height:'60px',borderRadius:'50%'}} src ={avatar} alt="avatar" /></div>}
+              { imgUrl !== "null"? 
+                <div><img style ={{ width:'60px',height:'60px',borderRadius:'50%' }} src ={imgUrl}alt="profile" /></div>
+              : <div><img style ={{ width:'60px',height:'60px',borderRadius:'50%' }} src ={avatar} alt="avatar" /></div>
+              }
              
               <button type="button" className="btn btn-primary ml-3" onClick ={handleLogout}>Log Out</button>
         </div>

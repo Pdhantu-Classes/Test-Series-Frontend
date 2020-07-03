@@ -1,5 +1,6 @@
 import React,{ useState, useEffect } from 'react'
 import { useHistory } from "react-router"
+import { useAlert, types } from 'react-alert'
 import http from 'axios'
 import '../../css/AllTest.css'
 import { getUserId } from '../../core/utility/authHeader'
@@ -8,14 +9,18 @@ import { API_ENDPOINTS } from '../../core/constants/apiConstant'
 import testImage from '../../asset/CGPSC/Icon.svg'
 
 const IS_PACKAGE_BUY = API_ENDPOINTS.USERS.IS_PACKAGE_BUY
+const IS_USER_REGISTER  = API_ENDPOINTS.USERS.IS_USER_REGISTER
 
 const testName = 'Pdhantu Test Series'
 
 const Alltest = () => {
 
   const history = useHistory()
-  const [loading, setLoading] = useState(true)
-  const [isBuy, setIsBuy] = useState()
+  const alert = useAlert()
+  
+  const [ loading, setLoading ] = useState(true)
+  const [ isBuy, setIsBuy ] = useState()
+  const [ isRegister, setIsRegister ] = useState()
 
     useEffect(() => {
       const USER_ID = getUserId()
@@ -28,9 +33,24 @@ const Alltest = () => {
           setIsBuy(responseData)
           console.log(responseData);
         })
+
+        http
+        .get(IS_USER_REGISTER.replace('<USER_ID>', USER_ID))
+        .then(response => {
+          const responseRegister = response.data.isValid
+          setIsRegister(responseRegister)
+          console.log(responseRegister);
+        })
   
     }, [])
+    console.log(isRegister)
 
+  const handleComplete = () =>{
+    alert.show('Please Complete your Profile', { type: types.INFO })
+    setTimeout(() => {
+      history.push('/user/profile')
+    }, 2000)
+  }
   return (
     <div>
 
@@ -57,7 +77,13 @@ const Alltest = () => {
               :
               <div>
                 <button className="btn btn-primary mr-2" onClick={() => { history.push('/user/home/viewdetails') }}>View Details</button>
-                <PayButton testName={testName} />
+                {
+                  isRegister?
+                    <PayButton testName={testName} />
+                  :
+                  <button class="btn btn-primary ml-md-3 ml-sm-5" onClick={handleComplete}>Buy @ &#8377;240 only</button>
+                }
+               
               </div>
               }
 

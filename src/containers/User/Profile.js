@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import http from 'axios'
+import { useHistory } from "react-router"
+import { useAlert } from 'react-alert'
 import { API_ENDPOINTS } from '../../core/constants/apiConstant'
 import '../../css/Profile.css'
 import { getUserId } from '../../core/utility/authHeader'
@@ -11,8 +13,10 @@ const POST_USER_DETAILS = API_ENDPOINTS.USERS.POST_USER_DETAILS
 
 const USER_ID = getUserId()
 
-
 const Profile = () => {
+  const alert = useAlert()
+  const history = useHistory()
+
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [mobile, setMobile] = useState()
@@ -25,6 +29,7 @@ const Profile = () => {
   const [courses, setCourses] = useState('')
   const [imageUrl, setImageUrl] = useState('')
   const [loading, setLoading] = useState(true)
+  const [loadingSubmit, setLoadingSubmit] = useState()
   const [message, setMessage] = useState('')
 
 
@@ -66,6 +71,7 @@ const Profile = () => {
 
   const handleImage = (e) => {
     e.preventDefault();
+    setLoadingSubmit(true)
     const formData = new FormData();
     formData.append('file', e.target.files[0])
     http
@@ -75,6 +81,7 @@ const Profile = () => {
         }
       })
       .then(response => {
+        setLoadingSubmit(false)
         const responseData = response.data.imageUrl
         setImageUrl(responseData)
         window.localStorage.setItem('imgUrl', responseData)
@@ -84,6 +91,7 @@ const Profile = () => {
 
   const handleSubmit = () => {
     if (whatsapps && graduationYears && courses) {
+      setLoadingSubmit(true)
       let userDetails = {
         whatsapp: whatsapps,
         graduation_year: graduationYears,
@@ -91,11 +99,15 @@ const Profile = () => {
       }
       http
         .put(POST_USER_DETAILS.replace('<USER_ID>', USER_ID), userDetails)
-        .then(response => { setMessage(response.data.message) })
+        .then(response => { 
+          setMessage(response.data.message) 
+          setLoadingSubmit(false)
+          history.push('/user/home')
+         })
         .catch(err => console.log(err))
     }
     else {
-      alert('Please fill all Details')
+      alert.show('Please fill all Details')
     }
   }
 
@@ -246,6 +258,16 @@ const Profile = () => {
                 <span className="sr-only">Loading...</span>
               </div>
             </div>
+        }
+        {
+          loadingSubmit ?
+          <div className="d-flex justify-content-center">
+          <div className="spinner-border" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        </div>
+        :
+        null
         }
 
       </div>

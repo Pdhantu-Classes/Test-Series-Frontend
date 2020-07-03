@@ -15,11 +15,15 @@ const PayByRazorPay = (props) => {
   const history = useHistory()
   const [userId, setUserId] = useState()
   const alert = useAlert()
+
   const { testName } = props
+  
   useEffect(() => {
     setUserId(getUserId())
   }, [])
+
   console.log(userId)
+  
   const verifyPayment = (payload) => {
 
     let body = {
