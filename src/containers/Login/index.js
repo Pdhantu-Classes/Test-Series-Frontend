@@ -64,17 +64,13 @@ const Login = () => {
             </img>
             <h2 className="text-center">Log in</h2>
             <div className="form-group">
-                <input onChange={handleChange("login_value")} type="text" className="form-control" value={login_value} placeholder="Username" required="required" />
+                <input onChange={handleChange("login_value")} type="text" className="form-control" value={login_value} placeholder="Email or Mobile" required="required" />
             </div>
             <div className="form-group">
                 <input onChange={handleChange("password")} type="password" value={password} className="form-control" placeholder="Password" required="required" />
             </div>
             <div className="form-group">
                 <button onClick={clickSubmit} type="submit" className="btn btn-primary btn-block">Log in</button>
-            </div>
-            <div className="clearfix">
-                <label className="pull-left checkbox-inline"><input type="checkbox" /> Remember me</label>
-                
             </div>
         </form>
     )

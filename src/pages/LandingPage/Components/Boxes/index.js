@@ -9,13 +9,11 @@ return(
       <div className="info-header mb-5">
         <h1 className="text-primary pb-3">
         Online Test Series For CG ACF RANGER
-        </h1>
-        
-      </div>
-     
+        </h1> 
+      </div>    
     </div>
       <div className="row">
-        <div className="col-md-4 box-shadow ">
+        <div className="col-md-4 mb-2 box-shadow ">
           <div className="card text-center bg-primary text-white" style={{background:'linear-gradient(180deg, #6A93CB 0%, rgba(255, 252, 253, 0) 96.35%)'}}>
             <div className="card-body" style={{height:'20vh'}}>
               <h3 className="p-3">Entire Syllabus covered</h3>
@@ -23,7 +21,7 @@ return(
             </div>
           </div>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-4 mb-2 ">
           <div className="card text-center  bg-primary  text-white " style={{background:'linear-gradient(180deg, #6A93CB 0%, rgba(255, 252, 253, 0) 96.35%)'}}>
             <div className="card-body" style={{height:'20vh'}}>
               <h3 className="p-3">Total 18 Mock test with 4 Model Paper </h3>
@@ -31,7 +29,7 @@ return(
             </div>
           </div>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-4 mb-2 ">
           <div className="card text-center bg-primary text-white" style={{background:'linear-gradient(180deg, #6A93CB 0%, rgba(255, 252, 253, 0) 96.35%)'}}>
             <div className="card-body" style={{height:'20vh'}}>
               <h3 className="p-3" >Billingual questions</h3>
@@ -41,17 +39,17 @@ return(
         </div>
        
       </div>
-      <div className="row mt-4"></div>
+      <div className="row mt-md-4 mt-sm-1"></div>
       <div className="row">
-        <div className="col-md-4" >
+        <div className="col-md-4  mb-2" >
           <div className="card text-center bg-primary text-white" style={{background:'linear-gradient(180deg, #6A93CB 0%, rgba(255, 252, 253, 0) 96.35%)'}}>
             <div className="card-body" style={{height:'20vh'}}>
-              <h3 className="p-2 d-inline-block">Matches Level & Orientattion for ACF/Ranger(CGPSC)</h3>
+              <h3 className="p-2 d-inline-block">Matches Level & Orientation for ACF/Ranger(CGPSC)</h3>
              
             </div>
           </div>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-4 mb-2">
           <div className="card text-center bg-primary text-white" style={{background:'linear-gradient(180deg, #6A93CB 0%, rgba(255, 252, 253, 0) 96.35%)'}}>
             <div className="card-body" style={{height:'20vh'}}>
               <h3 className="p-3">Subject Wise Test </h3>
@@ -59,7 +57,7 @@ return(
             </div>
           </div>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-4 mb-2">
           <div className="card text-center bg-primary text-white" style={{background:'linear-gradient(180deg, #6A93CB 0%, rgba(255, 252, 253, 0) 96.35%)'}}>
             <div className="card-body" style={{height:'20vh'}}>
               <h3 className="p-3">Question Design by experts only</h3>

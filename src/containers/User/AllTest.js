@@ -25,7 +25,6 @@ const Alltest = () => {
   const [userEmail,setUserEmail]=useState('')
   const[userMobile,SetUserMobile] =useState(0)
  
-    let obj={}
     useEffect(() => {
       const USER_ID = getUserId()
       setUserName(getFirstName)
@@ -39,7 +38,6 @@ const Alltest = () => {
           setLoading(false)
           const responseData = response.data.isValid
           setIsBuy(responseData)
-          console.log(responseData);
         })
 
         http
@@ -47,11 +45,9 @@ const Alltest = () => {
         .then(response => {
           const responseRegister = response.data.isValid
           setIsRegister(responseRegister)
-          console.log(responseRegister);
         })
   
     }, [])
-    console.log(isRegister)
 
   const handleComplete = () =>{
     alert.show('Please Complete your Profile', { type: types.INFO })

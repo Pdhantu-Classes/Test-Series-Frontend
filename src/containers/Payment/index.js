@@ -21,13 +21,11 @@ const PayByRazorPay = (props) => {
   const alert = useAlert()
   
   const { testName,userName,userEmail,userMobile } = props.testName
-  console.log(testName,userName,userEmail,userMobile )
   useEffect(() => {
     setUserId(getUserId())
     
   }, [])
 
-  console.log(userId)
   
   const verifyPayment = (payload) => {
 
@@ -38,7 +36,6 @@ const PayByRazorPay = (props) => {
       signature: payload.signature,
       test_name: testName
     }
-    console.log(body)
     axios.post(
       VERIFY_ORDER,body)
       .then(res => {

@@ -1,6 +1,7 @@
 // let base_url = 'https://pdhnatu.herokuapp.com'
 let base_url = "http://3.17.56.99:5000";
 // let base_url ="http://localhost:5000"
+
 export const API_ENDPOINTS = {
   USERS: {
     SIGNUP: `${base_url}/signup`,
@@ -13,7 +14,8 @@ export const API_ENDPOINTS = {
     VERIFY_ORDER: `${base_url}/verifyRazorpaySucces`,
     ORDER_DETAILS: `${base_url}/orderDetails/<USER_ID>`,
     IS_PACKAGE_BUY: `${base_url}/isPackageBuy/<USER_ID>`,
-    MY_TEST_SERIES: `${base_url}/myTestSeries/<USER_ID>`
+    MY_TEST_SERIES: `${base_url}/myTestSeries/<USER_ID>`,
+    USER_QUERY: `${base_url}/query`
 
   },
 };

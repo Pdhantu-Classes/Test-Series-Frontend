@@ -11,10 +11,9 @@ body {
   
   #showcase {
     position: relative;
-    /* background: url("../asset/UI-Content/mountains.jpg"); */
-    
+    /* background: url("../asset/UI-Content/mountains.jpg"); */   
     background-image: linear-gradient(180deg, #6A93CB 0%, rgba(255, 252, 253, 0)96.35%);
-    min-height: 600px; 
+    min-height: 500px; 
   }
     #showcase .primary-overlay {
       background: rgba(50, 146, 166, 0.8);

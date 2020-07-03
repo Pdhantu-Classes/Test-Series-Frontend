@@ -31,7 +31,6 @@ const Profile = () => {
   const [imageUrl, setImageUrl] = useState('')
   const [loading, setLoading] = useState(true)
   const [loadingSubmit, setLoadingSubmit] = useState()
-  const [message, setMessage] = useState('')
 
 
   useEffect(() => {
@@ -101,7 +100,6 @@ const Profile = () => {
       http
         .put(POST_USER_DETAILS.replace('<USER_ID>', userId), userDetails)
         .then(response => { 
-          setMessage(response.data.message) 
           setLoadingSubmit(false)
           history.push('/user/home')
          })

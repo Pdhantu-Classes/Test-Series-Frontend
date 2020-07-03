@@ -1,5 +1,4 @@
 import React, { useEffect,useState } from 'react'
-import {Route} from 'react-router-dom'
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router"
 import logo from  '../../asset/UI-Content/logo.jpeg'

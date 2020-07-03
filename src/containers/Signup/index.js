@@ -89,7 +89,6 @@ function Signup() {
       signup({ firstname, lastname, email,  mobile, password }).then(data => {
         setLoading(false)
          if (!data.isValid) {
-              console.log('ifpart')
               setError(data.message)
               setFirstName('')
               setLastName('')
@@ -99,7 +98,6 @@ function Signup() {
               setConfirmPassword('')
           } 
           else {
-            console.log('elsepart')
             setFirstName('')
             setLastName('')
             setMobile('')
@@ -113,8 +111,6 @@ function Signup() {
     else{
       setError('Mobile or Email is not Valid')
     }
-
-     console.log(error)
   
 };
 

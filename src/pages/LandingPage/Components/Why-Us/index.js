@@ -8,7 +8,7 @@ function whyus(){
       <div className="row">
         <div className="col">
           <div className="info-header mb-5">
-            <h1 className="text-primary pb-3">
+            <h1 className="text-primary pb-3 pt-2">
               Why US?
             </h1>
            
