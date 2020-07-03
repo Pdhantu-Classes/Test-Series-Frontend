@@ -9,7 +9,7 @@ export default function MainLandingPage() {
         }else{
             history.push('/home')
         }
-    },[])
+    },[history])
     return (
         <div>
             

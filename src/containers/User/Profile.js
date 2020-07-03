@@ -17,9 +17,6 @@ const Profile = () => {
   const history = useHistory()
   const [ userId, setUserId ] = useState()
 
-  useEffect(() => {
-    setUserId(getUserId())
-  }, [])
 
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')

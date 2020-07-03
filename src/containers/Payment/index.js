@@ -9,7 +9,11 @@ import { API_ENDPOINTS } from '../../core/constants/apiConstant'
 const CREATE_ORDER = API_ENDPOINTS.USERS.CREATE_ORDER
 const VERIFY_ORDER = API_ENDPOINTS.USERS.VERIFY_ORDER
 
-const RAZORPAY_ID = "rzp_test_2QHPO79ACxzRQl"
+// test id
+// const RAZORPAY_ID = "rzp_test_2QHPO79ACxzRQl"
+
+// live id
+const RAZORPAY_ID = "rzp_live_DjZ6EChEMzly9v"
 
 const PayByRazorPay = (props) => {
   const history = useHistory()
@@ -36,8 +40,7 @@ const PayByRazorPay = (props) => {
     }
     console.log(body)
     axios.post(
-      "https://pdhnatu.herokuapp.com/verifyRazorpaySucces",
-      body)
+      VERIFY_ORDER,body)
       .then(res => {
         if (res.data.isSuccess) {
           alert.show('Payment Success', { type: types.SUCCESS })
@@ -56,9 +59,7 @@ const PayByRazorPay = (props) => {
   const processPayment = async () => {
     const Razorpay = window.Razorpay
     let orderId = ''
-    const apiResponse = await axios.post(
-      "https://pdhnatu.herokuapp.com/createOrder"
-    )
+    const apiResponse = await axios.post(CREATE_ORDER)
     if (apiResponse) {
       orderId = apiResponse.data
     }
