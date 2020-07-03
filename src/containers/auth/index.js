@@ -1,5 +1,8 @@
 import axios from "axios";
+import { API_ENDPOINTS } from '../../core/constants/apiConstant'
 
+const SIGNUP = API_ENDPOINTS.USERS.SIGNUP
+const LOGIN = API_ENDPOINTS.USERS.LOGIN
 
 export const signup = user => {
    return axios.post("https://pdhnatu.herokuapp.com/signup",
@@ -25,7 +28,6 @@ export const signin = user => {
          });
  };
  export const authenticate = (data) => {
-     console.log("Hii")
     if (typeof window !== 'undefined') {
         localStorage.setItem('token', data.token);
        

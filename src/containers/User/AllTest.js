@@ -1,48 +1,79 @@
-import React from 'react'
-
+import React,{ useState, useEffect } from 'react'
+import { useHistory } from "react-router"
+import http from 'axios'
 import '../../css/AllTest.css'
-import cgpscImage from '../../asset/CGPSC/cgpsc.png'
-import { useHistory, Redirect } from "react-router"
+import { getUserId } from '../../core/utility/authHeader'
 import PayButton from '../Payment'
-const testName= 'Pdhantu Test Series'
-const Alltest=()=>{
+import { API_ENDPOINTS } from '../../core/constants/apiConstant'
+import testImage from '../../asset/CGPSC/Icon.svg'
+
+const IS_PACKAGE_BUY = API_ENDPOINTS.USERS.IS_PACKAGE_BUY
+
+const testName = 'Pdhantu Test Series'
+
+const Alltest = () => {
+
   const history = useHistory()
+  const [loading, setLoading] = useState(true)
+  const [isBuy, setIsBuy] = useState()
+
+    useEffect(() => {
+      const USER_ID = getUserId()
+      setLoading(true)
+      http
+        .get(IS_PACKAGE_BUY.replace('<USER_ID>', USER_ID))
+        .then(response => {
+          setLoading(false)
+          const responseData = response.data.isValid
+          setIsBuy(responseData)
+          console.log(responseData);
+        })
   
-  const handleClick =() =>{
-    console.log('button')
-   return <Redirect to="/user/viewdetail" />
-  }
-    return(
-        <div>
-        
-    <div className="mb-5 text-white">All Test</div>
+    }, [])
 
-    <div className="container mt-5">
-      {}
-        </div>
+  return (
+    <div>
 
-        <div class="card offset-md-2 offset-lg-3 mb-5 card-width-package" style={{background:'linear-gradient(270.9deg, #FFBFBF 3.13%, rgba(255, 252, 253, 0) 95.62%)'}}>
-            <div class="row no-gutters">
-                <div class="col-sm-5">
-                    <img class="card-img mt-4 ml-md-5 card-image-package" src={cgpscImage} alt="CGPSC"/>
-                </div>
-                <div class="col-sm-7">
-                    <div class="card-body">
-                        <h3 class="card-title">{testName}</h3>
-                        <ul className="list-unstyled mt-3 mb-4">
-                        <li style={{fontSize:'20px'}}><b>18</b> Mock Test</li>
-                          <li style={{fontSize:'20px'}}><b>14</b> Subject-Wise Test</li>
-                          <li style={{fontSize:'20px'}}><b>4</b> Modal Mock Test</li>
-                          <li style={{fontSize:'20px'}}>Starts From <b>15th July</b></li>
-                        </ul>
-                        <button class="btn btn-primary mr-2" onClick={()=>{history.push('/user/home/viewdetails')}}>View Details</button>
-                        <PayButton testName={testName}/>
-                        {/* <button class="btn btn-primary ml-md-3 ml-sm-5">Buy @ &#8377;240 only</button> */}
-                    </div>
-                </div>
+      <div className="mb-5 text-white">All Test</div>
+      <div className="container mt-5"></div>
+    {
+      !loading?
+      <div class="card offset-md-2 offset-xs-2  offset-lg-3 mb-5 card-width-package" style={{ background: 'linear-gradient(270.9deg, #FFBFBF 3.13%, rgba(255, 252, 253, 0) 95.62%)' }}>
+        <div class="row no-gutters">
+          <div class="col-sm-4">
+            <img class="card-img mt-4 ml-md-5 ml-sm-5 ml-lg-5 card-image-package" src={testImage} alt="TESTICON" />
+          </div>
+          <div class="col-sm-8">
+            <div class="card-body">
+              <h3 class="card-title">{testName}</h3>
+              <ul className="list-unstyled mt-3 mb-4">
+                <li style={{ fontSize: '20px' }}><b>18</b> Mock Test</li>
+                <li style={{ fontSize: '20px' }}><b>14</b> Subject-Wise Test</li>
+                <li style={{ fontSize: '20px' }}><b>4</b> Modal Mock Test</li>
+                <li style={{ fontSize: '20px' }}>Starts From <b>15th July</b></li>
+              </ul>
+              {
+              isBuy ? <button className="btn btn-info" >Go to Dashboard</button>
+              :
+              <div>
+                <button class="btn btn-primary mr-2" onClick={() => { history.push('/user/home/viewdetails') }}>View Details</button>
+                <PayButton testName={testName} />
+              </div>
+              }
+
             </div>
+          </div>
         </div>
+      </div>
+      :
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
         </div>
-    )
+      </div>
+    }
+
+    </div>
+  )
 }
 export default Alltest
