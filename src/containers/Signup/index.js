@@ -132,7 +132,7 @@ function Signup() {
       className="alert alert-info"
       style={{ display: success ? "" : "none" }}
     >
-      New account is created. Please <Link to="/login">Signin</Link>
+      New account is created. Please <Link className="text-primary" to="/login">Login</Link>
     </div>
   );
 
@@ -147,7 +147,7 @@ function Signup() {
         >
         </img>
         <span>
-          <h2 className="text-center">Sign Up</h2>
+          <h2 className="text-center ">Sign Up</h2>
         </span>
       </div>
 

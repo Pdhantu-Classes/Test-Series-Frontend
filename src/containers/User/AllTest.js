@@ -3,7 +3,7 @@ import { useHistory } from "react-router"
 import { useAlert, types } from 'react-alert'
 import http from 'axios'
 import '../../css/AllTest.css'
-import { getUserId } from '../../core/utility/authHeader'
+import { getUserId, getFirstName,getMobile,getEmail} from '../../core/utility/authHeader'
 import PayButton from '../Payment'
 import { API_ENDPOINTS } from '../../core/constants/apiConstant'
 import testImage from '../../asset/CGPSC/Icon.svg'
@@ -21,9 +21,17 @@ const Alltest = () => {
   const [ loading, setLoading ] = useState(true)
   const [ isBuy, setIsBuy ] = useState()
   const [ isRegister, setIsRegister ] = useState()
-
+  const[userName,setUserName] =useState('')
+  const [userEmail,setUserEmail]=useState('')
+  const[userMobile,SetUserMobile] =useState(0)
+ 
+    let obj={}
     useEffect(() => {
       const USER_ID = getUserId()
+      setUserName(getFirstName)
+      setUserEmail(getEmail)
+      SetUserMobile(getMobile)
+     
       setLoading(true)
       http
         .get(IS_PACKAGE_BUY.replace('<USER_ID>', USER_ID))
@@ -79,7 +87,7 @@ const Alltest = () => {
                 <button className="btn btn-primary mr-2" onClick={() => { history.push('/user/home/viewdetails') }}>View Details</button>
                 {
                   isRegister?
-                    <PayButton testName={testName} />
+                    <PayButton testName={{testName,userName,userEmail,userMobile}} />
                   :
                   <button class="btn btn-primary ml-md-3 ml-sm-5" onClick={handleComplete}>Buy @ &#8377;240 only</button>
                 }

@@ -15,11 +15,12 @@ const PayByRazorPay = (props) => {
   const history = useHistory()
   const [userId, setUserId] = useState()
   const alert = useAlert()
-
-  const { testName } = props
   
+  const { testName,userName,userEmail,userMobile } = props.testName
+  console.log(testName,userName,userEmail,userMobile )
   useEffect(() => {
     setUserId(getUserId())
+    
   }, [])
 
   console.log(userId)
@@ -76,9 +77,9 @@ const PayByRazorPay = (props) => {
         verifyPayment(paymentData)
       },
       prefill: {
-        name: 'Amit Kumar',
-        email: 'amitstcet98@gmail.com',
-        contact: 7903297969
+        name: userName,
+        email: userEmail,
+        contact: userMobile
       },
 
     }

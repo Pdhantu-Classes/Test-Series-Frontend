@@ -14,7 +14,7 @@ const UserNavBar =() =>{
         setFirstName(getFirstName())
         SetImgUrl(userImage())
     }, [])
-    console.log(imgUrl)
+   
     const handleLogout =() =>{
         logout()
         history.push('/')
