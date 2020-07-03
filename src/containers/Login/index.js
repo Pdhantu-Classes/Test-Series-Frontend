@@ -19,7 +19,7 @@ const Login = () => {
         event.preventDefault();
         setValues({ ...values, error: false, loading: true });
         signin({ login_value, password }).then(data => {
-            if (!data.isValid) {
+            if (data && !data.isValid) {
                 setValues({ ...values, error: data.message, loading: false });
             }
             else {

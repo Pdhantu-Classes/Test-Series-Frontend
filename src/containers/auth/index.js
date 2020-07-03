@@ -26,7 +26,7 @@ export const signin = user => {
          });
  };
  export const authenticate = (data) => {
-    if (typeof window !== 'undefined') {
+    if (data && typeof window !== 'undefined') {
         localStorage.setItem('token', data.token);
         localStorage.setItem('imgUrl',data.image_url)
        
