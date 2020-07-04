@@ -6,72 +6,65 @@ import jwtDecode from "jwt-decode";
 //         let {role} = jwtDecode(token)
 //         role_n =role
 //     }
-    
-   
+
 //     return role_n
-    
+
 // }
-export const isTokenVaild =() =>{
- const token= window.localStorage.getItem('token')
-  return token==null?false:true
-}
+export const isTokenVaild = () => {
+  const token = window.localStorage.getItem("token");
+  return token == null ? false : true;
+};
 
+export const isAdminTokenValid = () => {
+  const token = window.localStorage.getItem("admin");
+  return token == null ? false : true;
+};
 
-export const getUserId =()=>{
-    if(isTokenVaild()){
-        const token= window.localStorage.getItem('token')
-        let {user_id} = jwtDecode(token)
-        return user_id   
-    }
-    
-    
-}
+export const getUserId = () => {
+  if (isTokenVaild()) {
+    const token = window.localStorage.getItem("token");
+    let { user_id } = jwtDecode(token);
+    return user_id;
+  }
+};
 
+export const getFirstName = () => {
+  if (isTokenVaild()) {
+    const token = window.localStorage.getItem("token");
+    let { firstname } = jwtDecode(token);
+    return firstname;
+  }
+};
 
-export const getFirstName =()=>{
-    if(isTokenVaild()){
-        const token= window.localStorage.getItem('token')
-    let {firstname} = jwtDecode(token)
-    return firstname   
-    }
-   
-}
+export const getLastName = () => {
+  if (isTokenVaild()) {
+    const token = window.localStorage.getItem("token");
+    let { lastname } = jwtDecode(token);
+    return lastname;
+  }
+};
 
-export const getLastName=()=>{
-    if(isTokenVaild()){
-        const token= window.localStorage.getItem('token')
-    let {lastname} = jwtDecode(token)
-    return lastname   
-    }
+export const getMobile = () => {
+  if (isTokenVaild()) {
+    const token = window.localStorage.getItem("token");
+    let { mobile } = jwtDecode(token);
+    return mobile;
+  }
+};
 
-}
-
-
-export const getMobile =()=>{
-    if(isTokenVaild()){
-        const token= window.localStorage.getItem('token')
-    let {mobile} = jwtDecode(token)
-    return mobile  
-    }
-    
-}
-
-
-export const getEmail =()=>{
-   if(isTokenVaild()){
-    const token= window.localStorage.getItem('token')
-    let {email} = jwtDecode(token)
-    return email
-   }
-  
-    
-}
-export const logout =() =>{
-    if(isTokenVaild()){
-        window.localStorage.removeItem('token')
-    }
-}
-export const userImage=()=>{
-    const imgUrl = window.localStorage.getItem('imgUrl')
-    return imgUrl
-}
+export const getEmail = () => {
+  if (isTokenVaild()) {
+    const token = window.localStorage.getItem("token");
+    let { email } = jwtDecode(token);
+    return email;
+  }
+};
+export const logout = () => {
+  if (isTokenVaild()) {
+    window.localStorage.removeItem("token");
+  }
+};
+export const userImage = () => {
+  const imgUrl = window.localStorage.getItem("imgUrl");
+  return imgUrl;
+};
