@@ -1,4 +1,4 @@
-import React, { useState ,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../../css/Signup.css";
 import { signup } from "../auth/index";
@@ -6,32 +6,32 @@ import { signup } from "../auth/index";
 
 function Signup() {
 
-  const [ success, setSuccess ]= useState(false)
-  const [ error, setError ]=useState(false)
-  const [ disable, setDisable ] = useState(true)
-  const [ firstname, setFirstName] = useState('')
-  const [ lastname, setLastName ] = useState(null)
-  const [ email, setEmail ] = useState('')
-  const [ mobile, setMobile ] = useState('')
-  const [ password, setPassword ] = useState('')
-  const [ confirmPassword, setConfirmPassword ] = useState('')
-  const [ loading, setLoading ] = useState()
+  const [error, setError] = useState(false)
+  const [disable, setDisable] = useState(true)
+  const [firstname, setFirstName] = useState('')
+  const [lastname, setLastName] = useState(null)
+  const [email, setEmail] = useState('')
+  const [mobile, setMobile] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [loading, setLoading] = useState()
+  const [message, setMessage] = useState('')
 
   useEffect(() => {
-    if(firstname && email && mobile && password && confirmPassword){
-      if(password === confirmPassword){
+    if (firstname && email && mobile && password && confirmPassword) {
+      if (password === confirmPassword) {
         setDisable(false)
         setError('')
       }
-      else{
+      else {
         setDisable(true)
         setError('Password not matched')
       }
     }
-   else{
-     setDisable(true)
-     setError('')
-   }
+    else {
+      setDisable(true)
+      setError('')
+    }
   }, [firstname, email, mobile, password, confirmPassword])
 
 
@@ -66,7 +66,7 @@ function Signup() {
   };
 
 
-  const clickSubmit = (e) => { 
+  const clickSubmit = (e) => {
     e.preventDefault();
 
     let mobileNo = mobile.toString()
@@ -75,71 +75,53 @@ function Signup() {
     let b = false
 
 
-    if(mobileNo.length === 10){
-      if(Number(mobileNo[0]) > 5){
+    if (mobileNo.length === 10) {
+      if (Number(mobileNo[0]) > 5) {
         a = true
       }
     }
-    if(email.match(mailformat)){
+    if (email.match(mailformat)) {
       b = true
     }
-    
-    if(a && b){
+
+    if (a && b) {
       setLoading(true)
-      signup({ firstname, lastname, email,  mobile, password }).then(data => {
+      signup({ firstname, lastname, email, mobile, password }).then(data => {
         setLoading(false)
-         if (!data.isValid) {
-              setError(data.message)
-              setFirstName('')
-              setLastName('')
-              setMobile('')
-              setEmail('')
-              setPassword('')
-              setConfirmPassword('')
-          } 
-          else {
-            setFirstName('')
-            setLastName('')
-            setMobile('')
-            setEmail('')
-            setPassword('')
-            setConfirmPassword('')
-            setSuccess(data.message)
-          }
+        setMessage(data.message)
+        if (!data.isValid) {
+          setError(data.message)
+          setFirstName('')
+          setLastName('')
+          setMobile('')
+          setEmail('')
+          setPassword('')
+          setConfirmPassword('')
+        }
+        else {
+          setFirstName('')
+          setLastName('')
+          setMobile('')
+          setEmail('')
+          setPassword('')
+          setConfirmPassword('')
+        }
       });
     }
-    else{
+    else {
       setError('Mobile or Email is not Valid')
     }
-  
-};
 
-  const showError = () => (
-    <div
-      className="alert alert-danger"
-      style={{ display: error ? "" : "none" }}
-    >
-      {error}
-    </div>
-  );
-
-  const showSuccess = () => (
-    <div
-      className="alert alert-info"
-      style={{ display: success ? "" : "none" }}
-    >
-      New account is created. Please <Link className="text-primary" to="/login">Login</Link>
-    </div>
-  );
+  };
 
 
   const signUpForm = () => (
     <form>
       <div>
         <img
-          src = "http://keapu-webpp01-centin-r46j07o2.cloudapp.net/PU-LECT-2019/images/user_add.png"
-          alt = "signup"
-          style = {{ height: "60px", marginLeft: "120px" }}
+          src="http://keapu-webpp01-centin-r46j07o2.cloudapp.net/PU-LECT-2019/images/user_add.png"
+          alt="signup"
+          style={{ height: "60px", marginLeft: "120px" }}
         >
         </img>
         <span>
@@ -154,7 +136,7 @@ function Signup() {
 
       <div className="form-group ">
         <div className="input-group ">
-          <span className="input-group-addon">
+          <span className="input-group-addon mt-2 mr-2">
             <i className="fa fa-user"></i>
           </span>
           <input
@@ -171,7 +153,7 @@ function Signup() {
 
       <div className="form-group ">
         <div className="input-group ">
-          <span className="input-group-addon">
+          <span className="input-group-addon  mt-2 mr-2">
             <i className="fa fa-user"></i>
           </span>
           <input
@@ -188,8 +170,8 @@ function Signup() {
 
       <div className="form-group">
         <div className="input-group">
-          <span className="input-group-addon">
-            <i className="fa fa-paper-plane"></i>
+          <span className="input-group-addon  mt-2 mr-2">
+            <i className="fa fa-envelope"></i>
           </span>
           <input
             onChange={handleEmail}
@@ -205,8 +187,8 @@ function Signup() {
 
       <div className="form-group">
         <div className="input-group">
-          <span className="input-group-addon">
-            <i className="fa fa-paper-plane"></i>
+          <span className="input-group-addon mt-2 mr-2">
+            <i className="fa fa-mobile"></i>
           </span>
           <input
             onChange={handleMobile}
@@ -223,7 +205,7 @@ function Signup() {
 
       <div className="form-group">
         <div className="input-group">
-          <span className="input-group-addon">
+          <span className="input-group-addon mt-2 mr-2">
             <i className="fa fa-lock"></i>
           </span>
           <input
@@ -240,7 +222,7 @@ function Signup() {
 
       <div className="form-group ">
         <div className="input-group">
-          <span className="input-group-addon">
+          <span className="input-group-addon mt-2 mr-2">
             <i className="fa fa-lock"></i>
             <i className="fa fa-check"></i>
           </span>
@@ -251,7 +233,7 @@ function Signup() {
             value={confirmPassword}
             name="confirm_password"
             placeholder="Confirm Password"
-            required="required"     
+            required="required"
           />
         </div>
       </div>
@@ -266,28 +248,37 @@ function Signup() {
           Sign Up
         </button>
       </div>
-
+      {
+        !loading && message ?
+          <div className="text-center"><span className="text-info"> New account is created. Please </span> <Link className="text-primary" to="/login">Login</Link></div>
+          :
+          null
+      }
+      {
+        error ?
+          <div className="text-center text-danger">{error}</div>
+          :
+          null
+      }
     </form>
+
   );
   return (
     <div>
-      <div className="signup-form" style={{ marginTop: "-100px" }}>
-      {
+      <div className="signup-form" style={{ marginTop: "-130px" }}>
+        {
           loading ?
-          <div style={{position:'absolute',transform:'translate(-50%,-50%)', top:'20%', left:'50%'}}>
-            <div className="d-flex justify-content-center">
-              <div className="spinner-border" role="status">
-                <span className="sr-only">Loading...</span>
+            <div style={{ position: 'absolute', transform: 'translate(-50%,-50%)', top: '20%', left: '50%' }}>
+              <div className="d-flex justify-content-center">
+                <div className="spinner-border" role="status">
+                  <span className="sr-only">Loading...</span>
+                </div>
               </div>
-          </div>
-        </div>
-        :
-        null
+            </div>
+            :
+            null
         }
-        {showError()}
-        {showSuccess()}
         {signUpForm()}
-       
         <div className="text-center">
           Already have an account?{" "}
           <a href="./Login" className="text-danger">

@@ -1,21 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import logo from "../../asset/UI-Content/logo.jpeg";
-import { logout, userImage, getFirstName } from "../../core/utility/authHeader";
+import { logoutAdmin } from "../../core/utility/authHeader";
 import avatar from "../../asset/avatar.svg";
 const AdminNavBar = () => {
   const history = useHistory();
-  const [firstName, setFirstName] = useState("");
-  const [imgUrl, SetImgUrl] = useState("");
-  useEffect(() => {
-    setFirstName(getFirstName());
-    SetImgUrl(userImage());
-  }, []);
 
   const handleLogout = () => {
-    logout();
-    history.push("/");
+    logoutAdmin();
+    history.push("/adminLogin");
   };
   return (
     <nav className="navbar navbar-expand-md navbar-light fixed-top py-4">
@@ -60,24 +54,16 @@ const AdminNavBar = () => {
                   history.push("/admin/unpaiduser");
                 }}
               >
-                UnPaid User
+                Unpaid User
               </Link>
             </li>
           </ul>
         </div>
         <div className="ml-2 mr-2 mt-2">
           {" "}
-          <h5>Welcome {firstName}</h5>
+          <h5>Welcome Admin</h5>
         </div>
-        {imgUrl !== "null" ? (
-          <div>
-            <img
-              style={{ width: "60px", height: "60px", borderRadius: "50%" }}
-              src={imgUrl}
-              alt="profile"
-            />
-          </div>
-        ) : (
+        {
           <div>
             <img
               style={{ width: "60px", height: "60px", borderRadius: "50%" }}
@@ -85,7 +71,7 @@ const AdminNavBar = () => {
               alt="avatar"
             />
           </div>
-        )}
+        }
 
         <button
           type="button"

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import '../../css/Login.css';
 import { adminSignIn, authenticateAdmin } from "../auth/index";
+import adminIcon from '../../asset/Admin-icon.png'
+
 const AdminLogin = () => {
     const [values, setValues] = useState({
         username: "",
@@ -43,7 +45,7 @@ const AdminLogin = () => {
                 <div className="spinner-border" role="status">
                     <span className="sr-only">Loading...</span>
                 </div>
-            </div>  
+            </div>
         );
 
     const redirectUser = () => {
@@ -56,7 +58,7 @@ const AdminLogin = () => {
     const SignInForm = () => (
         <form>
             <img
-                src="http://img.clipartlook.com/user-user-clipart-528_594.png"
+                src={adminIcon}
                 alt="login"
                 style={{ height: "80px", marginLeft: "100px" }}
             >
@@ -64,7 +66,7 @@ const AdminLogin = () => {
             </img>
             <h2 className="text-center">Log in</h2>
             <div className="form-group">
-                <input onChange={handleChange("username")} type="text" className="form-control" value={username} placeholder="user name" required="required" />
+                <input onChange={handleChange("username")} type="text" className="form-control" value={username} placeholder="Username" required="required" />
             </div>
             <div className="form-group">
                 <input onChange={handleChange("password")} type="password" value={password} className="form-control" placeholder="Password" required="required" />
@@ -83,7 +85,7 @@ const AdminLogin = () => {
                 {showError()}
                 {SignInForm()}
                 {redirectUser()}
-               
+
             </div>
         </div>
     );

@@ -8,6 +8,7 @@ const ALL_USERS = API_ENDPOINTS.ADMIN.ALL_USERS;
 const PAID_USERS = API_ENDPOINTS.ADMIN.PAID_USERS;
 const UNPAID_USERS = API_ENDPOINTS.ADMIN.UNPAID_USERS;
 const ADMIN_DASHBOARD = API_ENDPOINTS.ADMIN.ADMIN_DASHBOARD;
+
 export const signup = (user) => {
   return axios
     .post(SIGNUP, user)
@@ -47,7 +48,7 @@ export const authenticate = (data) => {
 };
 export const authenticateAdmin = (data) => {
   if (data && typeof window !== "undefined") {
-    localStorage.setItem("admin", "admin_token");
+    localStorage.setItem("adminToken", "etyGddwkttefefkutr65wvvfdhdte009vevfe665ddedrcdcedcdedrrwrwrbececefdiihbgdedwdwdf9866gourvvsdRTlofwavynufdloesotAn_8Ygfmri");
   }
 };
 export const getAllUser = (pageNo) => {
@@ -64,9 +65,13 @@ export const getAllUser = (pageNo) => {
       console.log(err);
     });
 };
-export const getUnpaidUser = () => {
+export const getUnpaidUser = (pageNo) => {
   return axios
-    .get(ALL_USERS)
+    .get(UNPAID_USERS, {
+      headers: {
+        page: pageNo,
+      },
+    })
     .then((response) => {
       return response.data;
     })
@@ -74,9 +79,13 @@ export const getUnpaidUser = () => {
       console.log(err);
     });
 };
-export const getPaidUser = () => {
+export const getPaidUser = (pageNo) => {
   return axios
-    .get(ALL_USERS)
+    .get(PAID_USERS, {
+      headers: {
+        page: pageNo,
+      },
+    })
     .then((response) => {
       return response.data;
     })

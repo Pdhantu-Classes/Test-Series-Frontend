@@ -1,6 +1,6 @@
 //  let base_url = 'https://pdhnatu.herokuapp.com'
-// let base_url = "http://3.17.56.99:5000";
-let base_url ="http://localhost:5000"
+let base_url = "http://3.17.56.99:5000";
+// let base_url = "http://localhost:5000"
 
 export const API_ENDPOINTS = {
   USERS: {
@@ -18,11 +18,11 @@ export const API_ENDPOINTS = {
     USER_QUERY: `${base_url}/query`
 
   },
-  ADMIN:{
+  ADMIN: {
     ADMIN_LOGIN: `${base_url}/adminLogin`,
-    ALL_USERS :`${base_url}/allUsers`,
-    PAID_USERS:`${base_url}/paidUsers`,
-    UNPAID_USERS:`${base_url}/unpaidUsers`,
-    ADMIN_DASHBOARD : `${base_url}/adminDashboard`
+    ALL_USERS: `${base_url}/allUsers`,
+    PAID_USERS: `${base_url}/paidUsers`,
+    UNPAID_USERS: `${base_url}/unpaidUsers`,
+    ADMIN_DASHBOARD: `${base_url}/adminDashboard`
   }
 };

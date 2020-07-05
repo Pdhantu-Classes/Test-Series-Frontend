@@ -68,8 +68,8 @@ const Routes = () => {
             !isAdminTokenValid() ? (
               <Redirect to="/adminLogin" />
             ) : (
-              <AdminDashBoard />
-            )
+                <AdminDashBoard />
+              )
           }
         />
         <Route
@@ -90,8 +90,8 @@ const Routes = () => {
             !isAdminTokenValid() ? (
               <Redirect to="/adminLogin" />
             ) : (
-              <UnPaidUser />
-            )
+                <UnPaidUser />
+              )
           }
         />
       </Switch>

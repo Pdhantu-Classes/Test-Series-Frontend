@@ -1,22 +1,12 @@
 import jwtDecode from "jwt-decode";
-// export const getRole =()=>{
-//     const token= window.localStorage.getItem('token')
-//     let role_n =null
-//     if(token!==null){
-//         let {role} = jwtDecode(token)
-//         role_n =role
-//     }
 
-//     return role_n
-
-// }
 export const isTokenVaild = () => {
   const token = window.localStorage.getItem("token");
   return token == null ? false : true;
 };
 
 export const isAdminTokenValid = () => {
-  const token = window.localStorage.getItem("admin");
+  const token = window.localStorage.getItem("adminToken");
   return token == null ? false : true;
 };
 
@@ -59,11 +49,17 @@ export const getEmail = () => {
     return email;
   }
 };
+
 export const logout = () => {
   if (isTokenVaild()) {
     window.localStorage.removeItem("token");
   }
 };
+
+export const logoutAdmin = () => {
+  window.localStorage.removeItem("adminToken");
+};
+
 export const userImage = () => {
   const imgUrl = window.localStorage.getItem("imgUrl");
   return imgUrl;

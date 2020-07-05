@@ -64,8 +64,8 @@ const Alltest = () => {
       !loading?
       <div className="card offset-md-2 offset-xs-2  offset-lg-3 mb-5 card-width-package" style={{ background: 'linear-gradient(270.9deg, #FFBFBF 3.13%, rgba(255, 252, 253, 0) 95.62%)' }}>
         <div className="row no-gutters">
-          <div className="col-sm-4">
-            <img className="card-img mt-4 ml-md-5 ml-sm-5 ml-lg-5 card-image-package" src={testImage} alt="TESTICON" />
+          <div className="col-sm-4 col-md-4">
+            <img className="card-img mt-4 ml-md-5 ml-sm-5 ml-lg-5 card-image-package" style={{width:'250px',height:'250px'}} src={testImage} alt="TESTICON" />
           </div>
           <div className="col-sm-8">
             <div className="card-body">
