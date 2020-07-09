@@ -5,7 +5,7 @@ import * as serviceWorker from './serviceWorker';
 import Routes from './Routes'
 import { transitions, positions,types, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
-// import TestScreen from './pages/TestSeries/TestScreen';
+ import TestScreen from './pages/TestSeries/TestScreen';
 
 const options = {
   position: positions.MIDDLE,
@@ -18,8 +18,8 @@ const options = {
 ReactDOM.render(
   <React.StrictMode>
       <AlertProvider template={AlertTemplate} {...options}>
-          <Routes />
-          {/* <TestScreen/> */}
+          {/* <Routes /> */}
+          <TestScreen/>
       </AlertProvider>
   </React.StrictMode>,
   document.getElementById('root')
