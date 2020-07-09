@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import '../../css/Login.css';
 import { signin, authenticate } from "../auth/index";
 const Login = () => {
@@ -19,7 +19,7 @@ const Login = () => {
         event.preventDefault();
         setValues({ ...values, error: false, loading: true });
         signin({ login_value, password }).then(data => {
-            if (data && !data.isValid) {
+            if (!data.isValid) {
                 setValues({ ...values, error: data.message, loading: false });
             }
             else {
@@ -83,7 +83,8 @@ const Login = () => {
                 {showError()}
                 {SignInForm()}
                 {redirectUser()}
-                <p className="text-center"><a href="./Signup">Create an Account</a></p>
+                <p className="text-center"><Link to="/Signup">Create an Account</Link></p>
+                <p className="text-center text-danger"><Link to="/forgotPassword">Forgot Password</Link></p>
             </div>
         </div>
     );

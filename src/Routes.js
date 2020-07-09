@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import Login from "./containers/Login";
 import Signup from "./containers/Signup";
+import ForgotPassword from './containers/ForgotPassword'
 import Profile from "./containers/User/Profile";
 import Orders from "./containers/User/Orders";
 import Home from "./containers/User/Home";
@@ -26,6 +27,12 @@ const Routes = () => {
           path="/login"
           render={() =>
             isTokenVaild() ? <Redirect to="/user/home" /> : <Login />
+          }
+        />
+        <Route
+          path="/forgotPassword"
+          render={() =>
+            isTokenVaild() ? <Redirect to="/user/home" /> : <ForgotPassword />
           }
         />
         <Route
