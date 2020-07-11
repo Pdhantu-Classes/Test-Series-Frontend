@@ -17,6 +17,7 @@ import AdminDashBoard from "./containers/Admin/AdminDashBoard";
 import AllUser from "./containers/Admin/AllUser";
 import PaidUser from "./containers/Admin/PaidUser";
 import UnPaidUser from "./containers/Admin/UnPaidUser";
+import TestDetails from "./pages/LandingPage/Components/View-Details"
 const Routes = () => {
   return (
     <BrowserRouter>
@@ -101,6 +102,7 @@ const Routes = () => {
               )
           }
         />
+        <Route path='/testViewDetails' component={TestDetails} />
       </Switch>
     </BrowserRouter>
   );
