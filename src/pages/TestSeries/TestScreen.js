@@ -153,7 +153,7 @@ export default function TestScreen() {
             responses:arr.join(','),
             mock_paper_id: 1,
             user_id: 2,
-            paper_time: 4300
+            paper_time_taken: 4300
         }
         http
             .post("http://localhost:5000/postResponse", body)
