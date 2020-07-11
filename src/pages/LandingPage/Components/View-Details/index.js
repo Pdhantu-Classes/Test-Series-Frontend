@@ -10,7 +10,7 @@ const viewDetails =() =>{
             </h1>
            
           </div>
-          <img src={timetable} style={{height : '800px',width:'600px'}} alt=''/>
+          <img className="border border-primary" src={timetable} style={{height : '800px',width:'600px'}} alt=''/>
         </div>
         </>
     )
