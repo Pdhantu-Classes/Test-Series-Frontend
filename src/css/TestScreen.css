@@ -14,7 +14,11 @@
 .question-root{
     max-width: 1550px;
 }
-.btn{
+.page{
+    display: flex;
+  flex-wrap: wrap;
+}
+.testBtn{
     border-top-right-radius: 13px;
     border-top-left-radius: 13px;
     border-bottom-right-radius: 2px;

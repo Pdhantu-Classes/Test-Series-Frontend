@@ -200,7 +200,7 @@ export default function TestScreen() {
     if (questions.length > 0) {
 
         var buttons = questions.map((question, index) => {
-            return ( <button id={index.toString()} className="btn btn-secondary btn-sm" onClick={() => { handleClick(index) }}>{index+1}</button>
+            return ( <button id={index.toString()} className="btn btn-secondary btn-sm testBtn" onClick={() => { handleClick(index) }}>{index+1}</button>
             )
         })
 
