@@ -18,6 +18,10 @@ import AllUser from "./containers/Admin/AllUser";
 import PaidUser from "./containers/Admin/PaidUser";
 import UnPaidUser from "./containers/Admin/UnPaidUser";
 import TestDetails from "./pages/LandingPage/Components/View-Details"
+import TestScreen from "./pages/TestSeries/TestScreen" 
+import TestResponse from "./pages/TestSeries/TestResponse"
+import TestRank from "./pages/TestSeries/TestRank"
+import TestInstruction from './pages/TestSeries/TestInstruction'
 const Routes = () => {
   return (
     <BrowserRouter>
@@ -69,6 +73,22 @@ const Routes = () => {
         <Route
           path="/user/orders"
           render={() => (!isTokenVaild() ? <Redirect to="/" /> : <Orders />)}
+        />
+        <Route
+          path="/user/testscreen"
+          render={() => (!isTokenVaild() ? <Redirect to="/" /> : <TestScreen />)}
+        />
+         <Route
+          path="/user/testresponse"
+          render={() => (!isTokenVaild() ? <Redirect to="/" /> : <TestResponse />)}
+        />
+         <Route
+          path="/user/testrank"
+          render={() => (!isTokenVaild() ? <Redirect to="/" /> : <TestRank />)}
+        />
+        <Route
+          path="/user/testinstruction"
+          render={() => (!isTokenVaild() ? <Redirect to="/" /> : <TestInstruction />)}
         />
         <Route
           path="/admin/dashboard"

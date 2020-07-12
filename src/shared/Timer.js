@@ -2,6 +2,7 @@ import React, {useState, useEffect } from 'react'
 var minutes = 0
 var second = 0
 var hours = 0
+var intervalId=0
 export default function Timer({ seconds }){
   const [timeLeft, setTimeLeft] = useState(seconds);
   const [isfinished, setisFinished] = useState(false)
@@ -9,13 +10,13 @@ export default function Timer({ seconds }){
 
   useEffect(() => {
     if (!timeLeft) return;
-    const intervalId = setInterval(() => {
+   intervalId = setInterval(() => {
       setTimeLeft(timeLeft - 1);
     }, 1000);
 
     return () => {
       clearInterval(intervalId)
-      if (timeLeft === 30){
+      if (timeLeft === 10){
         setisFinished(true)
       }
       hours = Math.floor(timeLeft / (60 * 60));
@@ -30,15 +31,22 @@ export default function Timer({ seconds }){
 
 console.log(timeLeft)
 
+
 if(!my){
-    if(timeLeft === 5){
+    if(timeLeft === 0){
         console.log("hii")
 }
+}
+
+const handleEndTime =() =>{
+  console.log('clicked')
+  clearInterval(intervalId  )
+  console.log(intervalId)
 }
   return (
     <div>
       <h1>{hours}hrs:{minutes}min:{second}sec</h1>
-      <button disabled={!isfinished} style={{backgroundColor:"red"}}onClick={()=>{console.log("hi")}}> submit </button>
+      <button disabled={!isfinished} style={{backgroundColor:"red"}} onClick={()=>{handleEndTime()}}> submit </button>
     </div>
   );
 };
