@@ -7,7 +7,7 @@ import { transitions, positions,types, Provider as AlertProvider } from 'react-a
 import AlertTemplate from 'react-alert-template-basic'
 import TestRank from './pages/TestSeries/TestRank';
 import TestResponse from './pages/TestSeries/TestResponse';
-import Privacy from './pages/privacy'
+
 import TestScreen from './pages/TestSeries/TestScreen';
 import Timer from './shared/Timer'
 const options = {
@@ -26,7 +26,7 @@ ReactDOM.render(
           {/* <TestScreen/> */}
           {/* <TestResponse/> */}
           {/* <TestRank/> */}
-          {/* <Privacy /> */}
+        
       </AlertProvider>
   </React.StrictMode>,
   document.getElementById('root')
