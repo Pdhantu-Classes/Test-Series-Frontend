@@ -17,7 +17,8 @@ export const API_ENDPOINTS = {
     ORDER_DETAILS: `${base_url}/orderDetails/<USER_ID>`,
     IS_PACKAGE_BUY: `${base_url}/isPackageBuy/<USER_ID>`,
     MY_TEST_SERIES: `${base_url}/myTestSeries/<USER_ID>`,
-    USER_QUERY: `${base_url}/query`
+    USER_QUERY: `${base_url}/query`,
+
 
   },
   ADMIN: {
@@ -26,5 +27,15 @@ export const API_ENDPOINTS = {
     PAID_USERS: `${base_url}/paidUsers`,
     UNPAID_USERS: `${base_url}/unpaidUsers`,
     ADMIN_DASHBOARD: `${base_url}/adminDashboard`
+  },
+  TEST_SERIES:{
+    GET_ALL_MOCK:`${base_url}/getAllMockPaper`,
+    GET_MOCK_DETAILS:`${base_url}/getAllMockPaper`,
+    GET_MOCK_LIVE: `${base_url}/getOnlyLiveTest`,
+    GET_MOCK_TIME: `${base_url}/getMockPaperTime`,
+    GET_MOCK_QUESTIONS: `${base_url}/getQuestions/<MOCK_ID>`,
+    POST_RESPONSE: `${base_url}/postResponse`,
+    GET_RESPONSE: `${base_url}/getResponses`,
+    GET_RANK_CARD: `${base_url}/getRankMockPaper`
   }
 };

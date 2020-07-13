@@ -5,6 +5,9 @@ import "../../css/DashBoard.css";
 import UserNavBar from "../User/UserNavBar";
 import { useHistory } from "react-router-dom";
 import { getUserId } from "../../core/utility/authHeader";
+import { API_ENDPOINTS } from '../../core/constants/apiConstant'
+
+const GET_ALL_MOCK = API_ENDPOINTS.TEST_SERIES.GET_ALL_MOCK
 
 const Dashboard = (props) => {
   const history = useHistory();
@@ -15,7 +18,7 @@ const Dashboard = (props) => {
     const userId = getUserId();
     setLoading(true);
     http
-      .get("http://localhost:5000/getAllMockPaper", {
+      .get(GET_ALL_MOCK, {
         headers: {
           user_id: userId,
         },
@@ -26,18 +29,22 @@ const Dashboard = (props) => {
       })
       .catch((err) => console.log(err));
   }, []);
+
   const handleChangeMock = (id) => {
     window.localStorage.setItem("mock_paper_id", id);
     history.push("/user/testinstruction");
   };
-  const handleViewRank=(id) =>{
-    window.localStorage.setItem('mock_paper_id',id)
+
+  const handleViewRank = (id) => {
+    window.localStorage.setItem('mock_paper_id', id)
     history.push('/user/testrank')
   }
-  const handleViewResult =(id)=>{
-    window.localStorage.setItem('mock_paper_id',id)
+
+  const handleViewResult = (id) => {
+    window.localStorage.setItem('mock_paper_id', id)
     history.push('/user/testresponse')
   }
+
   return (
     <div>
       <UserNavBar />
@@ -88,55 +95,55 @@ const Dashboard = (props) => {
                     </td>
 
                     {!data.is_active &&
-                    data.is_finished &&
-                    data.is_attempted &&
-                    data.is_result_released ? (
-                      <td>
-                        <button className="btn btn-success mr-2" onClick={()=>{handleViewResult(data.id)}}> View Result</button>
-                        <button className="btn btn-danger" onClick={()=>{handleViewRank(data.id)}}>View Rank</button>
-                      </td>
-                    ) : !data.is_active &&
                       data.is_finished &&
-                      !data.is_attempted ? (
-                      <td>
-                        <button className="btn btn-success mr-2" disabled>
-                          Not Attempted
+                      data.is_attempted &&
+                      data.is_result_released ? (
+                        <td>
+                          <button className="btn btn-success mr-2" onClick={() => { handleViewResult(data.id) }}> View Result</button>
+                          <button className="btn btn-danger" onClick={() => { handleViewRank(data.id) }}>View Rank</button>
+                        </td>
+                      ) : !data.is_active &&
+                        data.is_finished &&
+                        !data.is_attempted ? (
+                          <td>
+                            <button className="btn btn-success mr-2" disabled>
+                              Not Attempted
                         </button>
-                      </td>
-                    ) : !data.is_active &&
-                      data.is_finished &&
-                      data.is_attempted ? (
-                      <td>
-                        <button className="btn btn-success mr-2" disabled>
-                          Attempted
+                          </td>
+                        ) : !data.is_active &&
+                          data.is_finished &&
+                          data.is_attempted ? (
+                            <td>
+                              <button className="btn btn-success mr-2" disabled>
+                                Attempted
                         </button>
-                      </td>
-                    ) : data.is_active &&
-                      !data.is_finished &&
-                      data.is_attempted ? (
-                      <td>
-                        <button className="btn btn-danger" disabled>
-                          Completed
+                            </td>
+                          ) : data.is_active &&
+                            !data.is_finished &&
+                            data.is_attempted ? (
+                              <td>
+                                <button className="btn btn-danger" disabled>
+                                  Completed
                         </button>
-                      </td>
-                    ) : data.is_active && !data.is_finished ? (
-                      <td>
-                        <button
-                          className="btn btn-primary"
-                          onClick={() => {
-                            handleChangeMock(data.id);
-                          }}
-                        >
-                          Start Test
+                              </td>
+                            ) : data.is_active && !data.is_finished ? (
+                              <td>
+                                <button
+                                  className="btn btn-primary"
+                                  onClick={() => {
+                                    handleChangeMock(data.id);
+                                  }}
+                                >
+                                  Start Test
                         </button>
-                      </td>
-                    ) : !data.is_active && !data.is_finished ? (
-                      <td>
-                        <button className="btn btn-primary" disabled>
-                          Coming Soon
+                              </td>
+                            ) : !data.is_active && !data.is_finished ? (
+                              <td>
+                                <button className="btn btn-primary" disabled>
+                                  Coming Soon
                         </button>
-                      </td>
-                    ) : null}
+                              </td>
+                            ) : null}
                   </tr>
                 );
               })}
@@ -144,8 +151,14 @@ const Dashboard = (props) => {
           </table>
         </div>
       ) : (
-        <div>Loading...</div>
-      )}
+          <div style={{position:'absolute',transform:'translate(-50%,-50%)', top:'20%', left:'50%'}}>
+            <div className="d-flex justify-content-center">
+              <div className="spinner-border" role="status">
+                <span className="sr-only">Loading...</span>
+            </div>
+          </div>
+        </div>
+        )}
     </div>
   );
 };
