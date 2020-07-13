@@ -22,7 +22,9 @@ import TestScreen from "./pages/TestSeries/TestScreen"
 import TestResponse from "./pages/TestSeries/TestResponse"
 import TestRank from "./pages/TestSeries/TestRank"
 import TestInstruction from './pages/TestSeries/TestInstruction'
+
 const Routes = () => {
+ 
   return (
     <BrowserRouter>
       <Switch>
@@ -90,6 +92,7 @@ const Routes = () => {
           path="/user/testinstruction"
           render={() => (!isTokenVaild() ? <Redirect to="/" /> : <TestInstruction />)}
         />
+        
         <Route
           path="/admin/dashboard"
           render={() =>

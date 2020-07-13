@@ -36,6 +36,7 @@ const Dashboard = (props) => {
   };
 
   const handleViewRank = (id) => {
+    window.open('http://localhost:3000/user/testscreen','_blank','fullscreen=1,toolbar=0,resizable=0,location=0')
     window.localStorage.setItem('mock_paper_id', id)
     history.push('/user/testrank')
   }
