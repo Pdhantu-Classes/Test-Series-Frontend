@@ -4,7 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import { useAlert, types } from 'react-alert'
 import { API_ENDPOINTS } from '../../core/constants/apiConstant'
 import AdminNav from "./AdminNavBar";
-import { Link } from "react-router-dom";
+
 
 const GET_ALL_MOCK = API_ENDPOINTS.ADMIN.GET_ALL_MOCK
 const GO_LIVE = API_ENDPOINTS.ADMIN.GO_LIVE
@@ -26,6 +26,7 @@ export default function AllMock() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const [testDetails,setTestDetails] = useState([])
+    
 
     useEffect(() => {
         setLoading(true);

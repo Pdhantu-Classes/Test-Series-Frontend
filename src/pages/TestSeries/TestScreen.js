@@ -48,8 +48,9 @@ export default function TestScreen(props) {
 
     return () => {
       clearInterval(intervalId);
-      if (timeLeft === 300) {
+      if (timeLeft === 10) {
        alert.show('You have only 5 minutes Left!', { type: types.ERROR })
+       document.getElementById("timerId").style.color = "red"
       }
       hours = Math.floor(timeLeft / (60 * 60));
 
@@ -90,23 +91,23 @@ export default function TestScreen(props) {
   }, []);
 
 
-  useEffect(() => {
-    for (var i = 0; i < questions.length; i++) {
-      if (i !== activeQuestionIndex) {
-        if (responses[i] !== undefined) {
-          document.getElementById(i.toString()).style.background = "#06AD49";
-          document.getElementById(i.toString()).style.color = "white";
-          document.getElementById(i.toString()).style.borderColor = "white";
-        } else {
-          document.getElementById(i.toString()).style.background = "gray";
-          document.getElementById(i.toString()).style.color = "white";
-        }
-      } else {
-        document.getElementById(i.toString()).style.background = "#FF4975";
-        document.getElementById(i.toString()).style.color = "white";
-      }
-    }
-  }, [activeQuestionIndex, responses, questions.length]);
+  // useEffect(() => {
+  //   for (var i = 0; i < questions.length; i++) {
+  //     if (i !== activeQuestionIndex) {
+  //       if (responses[i] !== undefined) {
+  //         document.getElementById(i.toString()).style.background = "#06AD49";
+  //         document.getElementById(i.toString()).style.color = "white";
+  //         document.getElementById(i.toString()).style.borderColor = "white";
+  //       } else {
+  //         document.getElementById(i.toString()).style.background = "gray";
+  //         document.getElementById(i.toString()).style.color = "white";
+  //       }
+  //     } else {
+  //       document.getElementById(i.toString()).style.background = "#FF4975";
+  //       document.getElementById(i.toString()).style.color = "white";
+  //     }
+  //   }
+  // }, [activeQuestionIndex, responses, questions.length]);
 
 
   useEffect (()=>{
@@ -245,10 +246,11 @@ export default function TestScreen(props) {
       },1000)      
         clearInterval(intervalId);
         alert.show('Your Response has Submitted', { type: types.SUCCESS })
-        setTimeout(()=>{
-            window.close()
-        },1000)
-      })
+        history.push('/user/submitResponse')
+      //   setTimeout(()=>{
+      //       window.close()
+      //   },1000)
+      // })
       .catch((err) => console.log(err));
   }
 
@@ -455,16 +457,19 @@ export default function TestScreen(props) {
                 <div className="grow mr-2">{buttons}</div>
               </div>
             </div>
-            <div className="d-flex justify-content-around row container">
+            <div className="d-flex justify-content-around row container mt-1">
               <div className=" ml-0 ">{prevButton()}</div>
               <div className="ml-5 ">{nextButton()}</div>
             </div>
+            <div>
             <div
-              className=" btn btn-danger float-right mb-5"
-              style={{ marginRight: "13%" }}
+              className=" btn btn-danger float-right mb-5 submitBtn border  border-primary "
+              style={{ marginRight: "16%" }}
               onClick={handleShow}
+              
             >
               Submit Test
+            </div>
             </div>
           </div>
         </div>

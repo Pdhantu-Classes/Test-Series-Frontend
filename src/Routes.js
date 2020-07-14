@@ -24,6 +24,7 @@ import TestRank from "./pages/TestSeries/TestRank"
 import TestInstruction from './pages/TestSeries/TestInstruction'
 import AllMock from './containers/Admin/AllMock'
 import DemoTestInstruction from './pages/DemoTest/DemoTestInstruction'
+import Response from './pages/TestSeries/SubmitScreen'
 
 const Routes = () => {
  
@@ -97,6 +98,10 @@ const Routes = () => {
          <Route
           path="/user/demoInstruction"
           render={() => (!isTokenVaild() ? <Redirect to="/" /> : <DemoTestInstruction />)}
+        />
+         <Route
+          path="/user/submitResponse"
+          render={() => (!isTokenVaild() ? <Redirect to="/" /> : <Response />)}
         />
         
         <Route
