@@ -119,10 +119,11 @@ const Dashboard = (props) => {
                           data.is_attempted &&
                           data.is_result_released ? (
                             <td>
-                              <button className="btn btn-success mr-2" onClick={() => { handleViewResult(data.id) }}> View Result</button>
+                              <button className="btn btn-success mr-2" onClick={() => { handleViewResult(data.id) }}> View Response</button>
                               <button className="btn btn-danger" onClick={() => { handleViewRank(data.id) }}>View Rank</button>
                             </td>
-                          ) : !data.is_active &&
+                          )
+                           : !data.is_active &&
                             data.is_finished &&
                             !data.is_attempted ? (
                               <td>
@@ -140,15 +141,20 @@ const Dashboard = (props) => {
                             //   </button>
                             //     </td>
                             //   )
-                               : data.is_active &&
+                               : 
+                                data.is_active &&
                                 !data.is_finished &&
                                 data.is_attempted ? (
                                   <td>
-                                    <button className="btn btn-danger" onClick={() => { handleViewResult(data.id) }}>
-                                      View Result
+                                    <button className="btn btn-danger" 
+                                      onClick={() => { 
+                                        handleViewResult(data.id) 
+                                      }}>
+                                      View Response
                               </button>
                                   </td>
-                                ) : data.is_active && !data.is_finished ? (
+                                ) : data.is_active && 
+                                  !data.is_finished ? (
                                   <td>
                                     <button
                                       className="btn btn-primary"
@@ -157,9 +163,24 @@ const Dashboard = (props) => {
                                       }}
                                     >
                                       Start Test
-                              </button>
+                                    </button>
                                   </td>
-                                ) : !data.is_active && !data.is_finished ? (
+                                )
+                                : !data.is_active && 
+                                   data.is_finished ? (
+                                  <td>
+                                    <button
+                                      className="btn btn-primary"
+                                      onClick={() => {
+                                        handleViewResult(data.id)
+                                      }}
+                                    >
+                                      View Response
+                                    </button>
+                                  </td>
+                                ) : 
+                                  !data.is_active &&
+                                  !data.is_finished ? (
                                   <td>
                                     <button className="btn btn-primary" disabled>
                                       Coming Soon
