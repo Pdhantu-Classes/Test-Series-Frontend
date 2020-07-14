@@ -18,6 +18,7 @@ export const API_ENDPOINTS = {
     IS_PACKAGE_BUY: `${base_url}/isPackageBuy/<USER_ID>`,
     MY_TEST_SERIES: `${base_url}/myTestSeries/<USER_ID>`,
     USER_QUERY: `${base_url}/query`,
+    IS_USER_PAID: `${base_url}/checkValidUser`,
 
 
   },
@@ -36,6 +37,7 @@ export const API_ENDPOINTS = {
     GET_MOCK_QUESTIONS: `${base_url}/getQuestions/<MOCK_ID>`,
     POST_RESPONSE: `${base_url}/postResponse`,
     GET_RESPONSE: `${base_url}/getResponses`,
-    GET_RANK_CARD: `${base_url}/getRankMockPaper`
+    GET_RANK_CARD: `${base_url}/getRankMockPaper`,
+    CHECK_TEST_ATTEMPTED: `${base_url}/checkTestAttempted`,
   }
 };

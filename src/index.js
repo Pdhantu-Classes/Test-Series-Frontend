@@ -5,11 +5,10 @@ import * as serviceWorker from './serviceWorker';
  import Routes from './Routes'
 import { transitions, positions,types, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
-import TestRank from './pages/TestSeries/TestRank';
-import TestResponse from './pages/TestSeries/TestResponse';
+// import TestRank from './pages/TestSeries/TestRank';
+// import TestResponse from './pages/TestSeries/TestResponse';
+// import TestScreen from './pages/TestSeries/TestScreen';
 
-import TestScreen from './pages/TestSeries/TestScreen';
-import Timer from './shared/Timer'
 const options = {
   position: positions.MIDDLE,
   timeout: 2000,
@@ -21,7 +20,6 @@ const options = {
 ReactDOM.render(
   <React.StrictMode>
       <AlertProvider template={AlertTemplate} {...options}>
-           {/* <Timer seconds={20} /> */}
           <Routes />
           {/* <TestScreen/> */}
           {/* <TestResponse/> */}

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import AdminNav from "./AdminNavBar";
-
 import { useHistory } from "react-router";
 import { getAdminDashboard } from "../../containers/auth";
+
+
 const AdminDashBoard = () => {
   const history = useHistory();
   const [allUser, setAllUser] = useState(0);
@@ -11,6 +12,8 @@ const AdminDashBoard = () => {
   const [allCGPSCUser, setAllCGPSCUser] = useState(0);
   const [allCGACFUser, setAllCGACFUser] = useState(0);
   const [loading, setLoading] = useState(true);
+
+
   useEffect(() => {
     setLoading(true);
     getAdminDashboard().then((res) => {
@@ -22,6 +25,8 @@ const AdminDashBoard = () => {
       setLoading(false);
     });
   }, []);
+
+
   return (
     <>
       <AdminNav />

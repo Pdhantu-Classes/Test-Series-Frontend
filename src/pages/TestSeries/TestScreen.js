@@ -4,7 +4,6 @@ import Modal from "react-bootstrap/Modal";
 import { useAlert, types } from 'react-alert'
 import "../../css/TestScreen.css";
 import { getUserId } from "../../core/utility/authHeader";
-import Timer from "../../shared/Timer";
 import { API_ENDPOINTS } from "../../core/constants/apiConstant";
 import { useHistory } from "react-router-dom";
 
@@ -34,6 +33,12 @@ export default function TestScreen(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   
+  useEffect(() => {
+    window.history.pushState(null, document.title, window.location.href);
+    window.addEventListener('popstate', function (event) {
+      window.history.pushState(null, document.title, window.location.href);
+    });
+  }, [])
 
   useEffect(() => {
     if (!timeLeft) return;
@@ -44,7 +49,8 @@ export default function TestScreen(props) {
     return () => {
       clearInterval(intervalId);
       if (timeLeft === 10) {
-       alert.show('You have only 5 minutes Left!')
+       alert.show('You have only 5 minutes Left!', { type: types.ERROR })
+       document.getElementById("timerId").style.color = "red"
       }
       hours = Math.floor(timeLeft / (60 * 60));
 
@@ -54,12 +60,7 @@ export default function TestScreen(props) {
       let divisor_for_seconds = divisor_for_minutes % 60;
       second = Math.ceil(divisor_for_seconds) - 2;
     };
-  }, [timeLeft]);
-  useEffect (()=>{
-      if(timeLeft-1===0){
-          submitResponse()
-      }
-  }, [timeLeft])
+  }, [timeLeft,alert]);
 
   useEffect(() => {
     setLoading(true);
@@ -89,6 +90,7 @@ export default function TestScreen(props) {
       .catch((err) => console.log(err));
   }, []);
 
+
   useEffect(() => {
     for (var i = 0; i < questions.length; i++) {
       if (i !== activeQuestionIndex) {
@@ -106,6 +108,14 @@ export default function TestScreen(props) {
       }
     }
   }, [activeQuestionIndex, responses, questions.length]);
+
+
+  useEffect (()=>{
+    if(timeLeft-1===0){
+        submitResponse()
+    }
+}, [timeLeft])
+
 
   function encodeOption(index) {
     let result = "";
@@ -162,6 +172,8 @@ export default function TestScreen(props) {
       setActiveQuestionIndex(activeQuestionIndex - 1);
     }
   }
+
+
   function nextClick() {
     if (activeQuestionIndex + 1 < questions.length) {
       let incomingQuestionIndex = activeQuestionIndex + 1;
@@ -181,6 +193,7 @@ export default function TestScreen(props) {
       setActiveQuestionIndex(activeQuestionIndex + 1);
     }
   }
+
 
   function handleClick(index) {
     if (activeQuestionIndex < index || activeQuestionIndex > index) {
@@ -203,8 +216,11 @@ export default function TestScreen(props) {
     }
   }
 
+
   function submitResponse() {
     console.log("--------", mockPaperTime, timeLeft);
+    setLoading(true)
+    setShow(false)
     let arr = [];
     for (var i = 0; i < questions.length; i++) {
       if (responses[i] !== undefined) {
@@ -225,31 +241,29 @@ export default function TestScreen(props) {
     http
       .post(POST_RESPONSE, body)
       .then((res) => {
-        console.log(res.data);
+        setTimeout(()=>{
+          setLoading(false)
+      },1000)      
         clearInterval(intervalId);
-        alert.show('Your Response has Submitted')
+        alert.show('Your Response has Submitted', { type: types.SUCCESS })
         setTimeout(()=>{
             window.close()
-        },1500)
-       
-        history.push("/user/testend");
+        },1000)
       })
       .catch((err) => console.log(err));
-    console.log("response");
-
-    console.log(intervalId);
   }
+
 
   var nextButton = () => {
     if (activeQuestionIndex + 1 === questions.length) {
       return (
-        <button className="btn btn-secondary  btn-lg" disabled>
+        <button className="btn btn-secondary btn-lg" disabled>
           Next
         </button>
       );
     } else {
       return (
-        <button className="btn btn-secondary  btn-lg" onClick={nextClick}>
+        <button className="btn btn-secondary btn-lg" onClick={nextClick}>
           Next
         </button>
       );
@@ -259,18 +273,19 @@ export default function TestScreen(props) {
   var prevButton = () => {
     if (activeQuestionIndex > 0) {
       return (
-        <div className="btn btn-primary  btn-lg" onClick={prevClick}>
+        <div className="btn btn-primary btn-lg" onClick={prevClick}>
           Prev
         </div>
       );
     } else {
       return (
-        <div className="btn btn-primary  btn-lg" disabled>
+        <div className="btn btn-primary btn-lg" disabled>
           Prev
         </div>
       );
     }
   };
+
 
   if (questions.length > 0) {
     var buttons = questions.map((question, index) => {
@@ -380,15 +395,15 @@ export default function TestScreen(props) {
     <div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Do You Want To Submit Test ?</Modal.Title>
+          <Modal.Title>Do you want to submit test ?</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="d-flex">
-            <button className="btn btn-danger ml-5" onClick={submitResponse}>
+            <button className="btn btn-danger btn-lg offset-2" onClick={submitResponse}>
               Yes
             </button>
 
-            <button className="btn btn-primary ml-5 " onClick={handleClose}>
+            <button className="btn btn-primary btn-lg offset-5 " onClick={handleClose}>
               No
             </button>
           </div>
@@ -423,7 +438,6 @@ export default function TestScreen(props) {
             </div>
           </div>
           <div className="container-fluid">
-            {/* <Timer seconds={mockPaperTime} /> */}
 
             <div className="row">
               <div className="col-8 question-root jumbotron  ml-5">
@@ -443,12 +457,12 @@ export default function TestScreen(props) {
               </div>
             </div>
             <div className="d-flex justify-content-around row container">
-              <div className=" ml-5 ">{prevButton()}</div>
+              <div className=" ml-0 ">{prevButton()}</div>
               <div className="ml-5 ">{nextButton()}</div>
             </div>
             <div
-              className=" btn btn-danger float-right"
-              style={{ marginRight: "350px" }}
+              className=" btn btn-danger float-right mb-5"
+              style={{ marginRight: "13%" }}
               onClick={handleShow}
             >
               Submit Test
