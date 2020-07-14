@@ -185,13 +185,13 @@ export default function AllMock() {
                                                             :
                                                             !data.is_active && data.is_finished && data.is_result_released ?
                                                                 <td>
-                                                                    Result Released
+                                                                    Release Rank
                                                                 </td>
                                                                 :
                                                                 !data.is_active && data.is_finished ?
                                                                     <td>
                                                                         <button className="btn btn-secondary btn-lg" onClick={() => handleRelease(data.id)}>
-                                                                            Release Result
+                                                                            Released Rank
                                                                         </button>
                                                                     </td>
                                                                 :

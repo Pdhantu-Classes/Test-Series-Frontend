@@ -130,20 +130,22 @@ const Dashboard = (props) => {
                                   Not Attempted
                               </button>
                               </td>
-                            ) : !data.is_active &&
-                              data.is_finished &&
-                              data.is_attempted ? (
-                                <td>
-                                  <button className="btn btn-success mr-2" disabled>
-                                    Attempted
-                              </button>
-                                </td>
-                              ) : data.is_active &&
+                            )
+                            // ) : !data.is_active &&
+                            //   data.is_finished &&
+                            //   data.is_attempted ? (
+                            //     <td>
+                            //       <button className="btn btn-success mr-2" disabled>
+                            //         Attempted
+                            //   </button>
+                            //     </td>
+                            //   )
+                               : data.is_active &&
                                 !data.is_finished &&
                                 data.is_attempted ? (
                                   <td>
-                                    <button className="btn btn-danger" disabled>
-                                      Completed
+                                    <button className="btn btn-danger" onClick={() => { handleViewResult(data.id) }}>
+                                      View Result
                               </button>
                                   </td>
                                 ) : data.is_active && !data.is_finished ? (
