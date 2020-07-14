@@ -656,36 +656,6 @@ export default function TestResponse() {
                                     </div>
                                 </div>
                             )}
-                        {correctOption === 4 ? (
-                            <div className="d-flex mb-1">
-                                <div className="mr-2">&#8226;</div>
-                                <div style={{ color: "green" }}>
-                                    <div>
-                                        {questions[index].options_english[4]}
-                                        {questions[index].options_english[4] !== "" ? (
-                                            <br></br>
-                                        ) : null}
-                                        {questions[index].options_hindi[4]}
-                                    </div>
-                                </div>
-                                <div class="right" style={{ color: "green" }}>
-                                    &#10004;
-                </div>
-                            </div>
-                        ) : (
-                                <div className="d-flex mb-1">
-                                    <div className="mr-2">&#8226;</div>
-                                    <div>
-                                        <div>
-                                            {questions[index].options_english[4]}
-                                            {questions[index].options_english[4] !== "" ? (
-                                                <br></br>
-                                            ) : null}
-                                            {questions[index].options_hindi[4]}
-                                        </div>
-                                    </div>
-                                </div>
-                            )}
                     </div>
                 );
             }

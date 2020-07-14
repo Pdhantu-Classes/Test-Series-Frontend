@@ -48,9 +48,8 @@ export default function TestScreen(props) {
 
     return () => {
       clearInterval(intervalId);
-      if (timeLeft === 10) {
+      if (timeLeft === 300) {
        alert.show('You have only 5 minutes Left!', { type: types.ERROR })
-       document.getElementById("timerId").style.color = "red"
       }
       hours = Math.floor(timeLeft / (60 * 60));
 
