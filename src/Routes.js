@@ -22,6 +22,7 @@ import TestScreen from "./pages/TestSeries/TestScreen"
 import TestResponse from "./pages/TestSeries/TestResponse"
 import TestRank from "./pages/TestSeries/TestRank"
 import TestInstruction from './pages/TestSeries/TestInstruction'
+import AllMock from './containers/Admin/AllMock'
 
 const Routes = () => {
  
@@ -123,6 +124,12 @@ const Routes = () => {
             ) : (
                 <UnPaidUser />
               )
+          }
+        />
+        <Route
+          path="/admin/allmock"
+          render={() =>
+            !isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <AllMock />
           }
         />
         <Route path='/testViewDetails' component={TestDetails} />

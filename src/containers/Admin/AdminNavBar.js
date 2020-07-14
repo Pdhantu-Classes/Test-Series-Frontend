@@ -51,10 +51,10 @@ const AdminNavBar = () => {
               <Link
                 className="nav-link"
                 onClick={() => {
-                  history.push("/admin/unpaiduser");
+                  history.push("/admin/allmock");
                 }}
               >
-                Unpaid User
+                All Mock
               </Link>
             </li>
           </ul>
