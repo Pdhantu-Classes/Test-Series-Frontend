@@ -31,7 +31,8 @@ export const API_ENDPOINTS = {
     GET_ALL_MOCK:  `${base_url}/getAllMockAdmin`,
     GO_LIVE:  `${base_url}/goMockLive`,
     STOP_TEST:  `${base_url}/finishPaper`,
-    RELEASE_RESULT:  `${base_url}/releaseResult`
+    RELEASE_RESULT:  `${base_url}/releaseResult`,
+    TEST_DETAILS: `${base_url}/getMockPaperDetails`
   },
   TEST_SERIES:{
     GET_ALL_MOCK:`${base_url}/getAllMockPaper`,
@@ -43,5 +44,7 @@ export const API_ENDPOINTS = {
     GET_RESPONSE: `${base_url}/getResponses`,
     GET_RANK_CARD: `${base_url}/getRankMockPaper`,
     CHECK_TEST_ATTEMPTED: `${base_url}/checkTestAttempted`,
+    DEMO_TEST:`${base_url}/demoTest`,
+
   }
 };

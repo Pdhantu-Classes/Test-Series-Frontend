@@ -3,18 +3,23 @@ import http from "axios";
 import "../../css/LandingPage.css";
 import "../../css/DashBoard.css";
 import UserNavBar from "../User/UserNavBar";
+import Modal from "react-bootstrap/Modal";
 import { useHistory } from "react-router-dom";
 import { getUserId } from "../../core/utility/authHeader";
 import { API_ENDPOINTS } from '../../core/constants/apiConstant'
 
 const GET_ALL_MOCK = API_ENDPOINTS.TEST_SERIES.GET_ALL_MOCK
 const IS_USER_PAID = API_ENDPOINTS.USERS.IS_USER_PAID
-
+const TEST_DETAILS = API_ENDPOINTS.ADMIN.TEST_DETAILS
 const Dashboard = (props) => {
   const history = useHistory();
   const [mockPapers, setMockTestPaper] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isValidUser, setIsValidUser] = useState(false)
+  const handleClose = () => setShow(false);
+  const [show, setShow] = useState(false);
+  const handleShow = () => setShow(true);
+  const [testDetails,setTestDetails] = useState([])
 
   useEffect(() => {
     window.history.pushState(null, document.title, window.location.href);
@@ -22,7 +27,20 @@ const Dashboard = (props) => {
       window.history.pushState(null, document.title, window.location.href);
     });
   }, [])
+  function fancyTimeFormat(time) {
+    var hrs = ~~(time / 3600);
+    var mins = ~~((time % 3600) / 60);
+    var secs = ~~time % 60;
+    var ret = "";
 
+    if (hrs > 0) {
+        ret += "" + hrs + "h " + (mins < 10 ? "0" : "");
+    }
+
+    ret += "" + mins + "m " + (secs < 10 ? "0" : "");
+    ret += "" + secs + "s";
+    return ret;
+}
 
   useEffect(() => {
     const userId = getUserId();
@@ -67,9 +85,37 @@ const Dashboard = (props) => {
     window.localStorage.setItem('mock_paper_id', id)
     history.push('/user/testresponse')
   }
+  const handleClick =(id) =>{
+    setTestDetails([])
+    http.get(TEST_DETAILS,{
+            headers:{
+                mock_paper_id:id
+            }
+        })
+        .then((res) => {
+            console.log(res)
+            setTestDetails(res.data.mock_paper)
+        })
+        .catch((err) => console.log(err));
+        handleShow()
+}
 
   return (
     <div>
+      <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                <Modal.Title>Mock Details Are</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                <div className="justify-content-center">
+                <div> <b>Mock Description</b> :{testDetails.mock_description}</div>
+                <div> <b>Mock Papar Name </b>: {testDetails.mock_paper_name}</div>
+                <div> <b>Paper Date</b>:{testDetails.paper_date}</div>
+                <div><b>Paper Time</b> :{fancyTimeFormat(testDetails.paper_time)}</div>
+                <div><b>Total Question</b> :{testDetails.total_questions}</div>
+                </div>
+                </Modal.Body>
+             </Modal>
       <UserNavBar />
       {
         !loading ?
@@ -111,7 +157,7 @@ const Dashboard = (props) => {
                         ) : null}
 
                         <td>
-                          <button className="btn btn-secondary">Click Here</button>
+                          <button className="btn btn-secondary" onClick={()=>handleClick(data.id)}>Click Here</button>
                         </td>
 
                         {!data.is_active &&
@@ -157,7 +203,7 @@ const Dashboard = (props) => {
                                   !data.is_finished ? (
                                   <td>
                                     <button
-                                      className="btn btn-primary"
+                                      className="btn btn-success"
                                       onClick={() => {
                                         handleChangeMock(data.id);
                                       }}
@@ -170,7 +216,7 @@ const Dashboard = (props) => {
                                    data.is_finished ? (
                                   <td>
                                     <button
-                                      className="btn btn-primary"
+                                      className="btn btn-danger"
                                       onClick={() => {
                                         handleViewResult(data.id)
                                       }}

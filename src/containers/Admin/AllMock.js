@@ -4,11 +4,13 @@ import Modal from "react-bootstrap/Modal";
 import { useAlert, types } from 'react-alert'
 import { API_ENDPOINTS } from '../../core/constants/apiConstant'
 import AdminNav from "./AdminNavBar";
+import { Link } from "react-router-dom";
 
 const GET_ALL_MOCK = API_ENDPOINTS.ADMIN.GET_ALL_MOCK
 const GO_LIVE = API_ENDPOINTS.ADMIN.GO_LIVE
 const STOP_TEST = API_ENDPOINTS.ADMIN.STOP_TEST
 const RELEASE_RESULT = API_ENDPOINTS.ADMIN.RELEASE_RESULT
+const TEST_DETAILS = API_ENDPOINTS.ADMIN.TEST_DETAILS
 
 export default function AllMock() {
     const alert = useAlert()
@@ -20,7 +22,10 @@ export default function AllMock() {
     const [mockPaperId, setMockPaperId] = useState(null)
     const [action, setAction] = useState('')
     const [show, setShow] = useState(false);
+    const [showAuth, setShowAuth] = useState(false);
     const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const [testDetails,setTestDetails] = useState([])
 
     useEffect(() => {
         setLoading(true);
@@ -42,6 +47,9 @@ export default function AllMock() {
         setShow(true)
         console.log(id)
     }
+    const handleCloseAuth =() =>{
+
+    }
 
     const handleStop = (id) => {
         setAction('Stop Test')
@@ -60,7 +68,19 @@ export default function AllMock() {
         setIsRelease(true)
         setShow(true)
     }
-
+    const handleClick =(id) =>{
+        http.get(TEST_DETAILS,{
+                headers:{
+                    mock_paper_id:id
+                }
+            })
+            .then((res) => {
+                console.log(res)
+                setTestDetails(res.data.mock_paper)
+            })
+            .catch((err) => console.log(err));
+            handleShow()
+    }
     const handleSubmit = () => {
         console.log(mockPaperId)
         setShow(false)
@@ -108,10 +128,11 @@ export default function AllMock() {
         }
 
     }
+    console.log(testDetails.id)
     return (
         <div>
             <AdminNav />
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={showAuth} onHide={handleCloseAuth}>
                 <Modal.Header closeButton>
                     <div className="text-center ml-5">
                         <Modal.Title>Are you sure for {action}?</Modal.Title>
@@ -129,6 +150,20 @@ export default function AllMock() {
                     </div>
                 </Modal.Body>
             </Modal>
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                <Modal.Title>Mocke Details Are</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                <div className="justify-content-center">
+                <div>Mock Description :{testDetails.mock_description}</div>
+                <div>Mock Papar Name: {testDetails.mock_paper_name}</div>
+                <div>Paper Date:{testDetails.paper_date}</div>
+                <div>Paper Time :{testDetails.paper_time}</div>
+                <div>Total Question :{testDetails.total_questions}</div>
+                </div>
+                </Modal.Body>
+             </Modal>
             {
                 !loading ?
 
@@ -166,7 +201,7 @@ export default function AllMock() {
                                                 ) : null}
 
                                                 <td>
-                                                    <button className="btn btn-secondary">Click Here</button>
+                                                    <button className="btn btn-secondary" onClick={()=>handleClick(data.id)}>Click Here</button>
                                                 </td>
                                                 {
                                                     !data.is_active && !data.is_finished ?

@@ -59,6 +59,8 @@
     }.timer{
         margin-left: 300px;
         font-size: 12px;
+    }.submitBtn{
+        margin-right: 40% !important;
     }
 }
 @media (max-width:411px) {
@@ -83,6 +85,8 @@
     .timer{
         margin-left: 300px;
         font-size: 12px;
+    }.submitBtn{
+        margin-right: 40% !important;
     }
 }
 @media (max-width:414px) {
@@ -101,8 +105,13 @@
         overflow-x: scroll;
         margin-top: 1px;
     } .grow{
+        
         display: grid;
         grid-template-columns: repeat(150, 1fr);
+    }.submitBtn{
+        margin-right: 40% !important;
+    }.submitBtn{
+        margin-right: 40% !important;
     }
 }
 /* @media only screen and (max-width: 370px) {
