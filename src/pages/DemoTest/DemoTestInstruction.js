@@ -42,11 +42,13 @@ export default function TestInstruction() {
         <div>
             {
                 loading?            
-                <div className="d-flex justify-content-center">
-                    <div className="spinner-border" role="status">
-                    <   span className="sr-only">Loading...</span>
-                    </div>
-                </div>
+                <div style={{ position: 'absolute', transform: 'translate(-50%,-50%)', top: '50%', left: '50%' }}>
+            <div className="d-flex justify-content-center">
+              <div className="spinner-border" role="status">
+                <span className="sr-only">Loading...</span>
+              </div>
+            </div>
+          </div>
                 :
                     null
             }
@@ -61,7 +63,7 @@ export default function TestInstruction() {
           <div> परीक्षा की कुल अवधि 30 मिनट है।</div>
           </li>
           <li>
-          <div>The total number of question is 100</div>
+          <div>The total number of question is 20</div>
           <div> प्रश्न की कुल संख्या 20 है।</div>
           </li>
           <li>

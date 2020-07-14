@@ -116,7 +116,7 @@ const Alltest = () => {
                     <b>4</b> Modal Mock Test
                   </li>
                   <li style={{ fontSize: "20px" }}>
-                    Starts From <b>15th July</b>
+                   <div className="text-success blink"><b> &#8226; Test is Live Now</b></div>
                   </li>
                 </ul>
                 {isBuy ? (

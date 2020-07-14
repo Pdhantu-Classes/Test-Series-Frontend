@@ -91,23 +91,25 @@ export default function TestScreen(props) {
   }, []);
 
 
-  // useEffect(() => {
-  //   for (var i = 0; i < questions.length; i++) {
-  //     if (i !== activeQuestionIndex) {
-  //       if (responses[i] !== undefined) {
-  //         document.getElementById(i.toString()).style.background = "#06AD49";
-  //         document.getElementById(i.toString()).style.color = "white";
-  //         document.getElementById(i.toString()).style.borderColor = "white";
-  //       } else {
-  //         document.getElementById(i.toString()).style.background = "gray";
-  //         document.getElementById(i.toString()).style.color = "white";
-  //       }
-  //     } else {
-  //       document.getElementById(i.toString()).style.background = "#FF4975";
-  //       document.getElementById(i.toString()).style.color = "white";
-  //     }
-  //   }
-  // }, [activeQuestionIndex, responses, questions.length]);
+  useEffect(() => {
+    if(questions.length>0){
+    for (var i = 0; i < questions.length; i++) {
+      if (i !== activeQuestionIndex) {
+        if (responses[i] !== undefined) {
+          document.getElementById(i.toString()).style.background = "#06AD49";
+          document.getElementById(i.toString()).style.color = "white";
+          document.getElementById(i.toString()).style.borderColor = "white";
+        } else {
+          document.getElementById(i.toString()).style.background = "gray";
+          document.getElementById(i.toString()).style.color = "white";
+        }
+      } else {
+        document.getElementById(i.toString()).style.background = "#FF4975";
+        document.getElementById(i.toString()).style.color = "white";
+      }
+    }
+  }
+  }, [activeQuestionIndex, responses, questions]);
 
 
   useEffect (()=>{
@@ -246,7 +248,10 @@ export default function TestScreen(props) {
       },1000)      
         clearInterval(intervalId);
         alert.show('Your Response has Submitted', { type: types.SUCCESS })
-        history.push('/user/submitResponse')
+        setTimeout(()=>{
+          history.push('/user/submitResponse')
+        },1000)
+       
     
       })
       .catch((err) => console.log(err));

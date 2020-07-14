@@ -133,7 +133,7 @@ const Dashboard = (props) => {
                       className="text-primary"
                       style={{ fontSize: "16px", fontStyle: "italic" }}
                     >
-                      *Result will released next day of exam
+                      *Rank will released next day of exam
                       </th>
                   </tr>
                 </thead>

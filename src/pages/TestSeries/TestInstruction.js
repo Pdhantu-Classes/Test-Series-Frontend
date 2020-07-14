@@ -3,13 +3,13 @@ import http from "axios";
 import { Link } from "react-router-dom";
 import { useAlert, types } from "react-alert";
 import { getUserId } from "../../core/utility/authHeader";
-// import {useHistory} from 'react-router-dom'
+ import {useHistory} from 'react-router-dom'
 import { API_ENDPOINTS } from "../../core/constants/apiConstant";
 
 const CHECK_TEST_ATTEMPTED = API_ENDPOINTS.TEST_SERIES.CHECK_TEST_ATTEMPTED;
 
 export default function TestInstruction() {
-  // const history = useHistory()
+  const history = useHistory()
   const alert = useAlert();
 
   const [loading, setLoading] = useState(false);
@@ -27,11 +27,12 @@ export default function TestInstruction() {
       .then((res) => {
         setLoading(false);
         if (res.data.isValid) {
-          window.open(
-            "http://localhost:3000/user/testscreen",
-            "_blank",
-            "toolbar=0,fullscreen=1"
-          );
+          history.push('/user/testscreen')
+          // window.open(
+          //   "http://www.thepdhantu.com//user/testscreen",
+          //   "_blank",
+          //   "toolbar=0,fullscreen=1"
+          // );
           // window.open('http://localhost:3000/user/testscreen','_blank','resizable=yes,top=500,left=500,width=4000,height=4000')
         } else {
           alert.show(
@@ -44,11 +45,13 @@ export default function TestInstruction() {
   return (
     <div>
       {loading ? (
-        <div className="d-flex justify-content-center">
-          <div className="spinner-border" role="status">
-            <span className="sr-only">Loading...</span>
-          </div>
-        </div>
+       <div style={{ position: 'absolute', transform: 'translate(-50%,-50%)', top: '50%', left: '50%' }}>
+       <div className="d-flex justify-content-center">
+         <div className="spinner-border" role="status">
+           <span className="sr-only">Loading...</span>
+         </div>
+       </div>
+     </div>
       ) : null}
       <div className="container">
         <div className="info-header text-center mb-5">

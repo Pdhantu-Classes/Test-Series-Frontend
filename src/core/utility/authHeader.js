@@ -53,6 +53,7 @@ export const getEmail = () => {
 export const logout = () => {
   if (isTokenVaild()) {
     window.localStorage.removeItem("token");
+    window.localStorage.removeItem("imgUrl")
   }
 };
 
