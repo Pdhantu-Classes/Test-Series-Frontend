@@ -247,10 +247,8 @@ export default function TestScreen(props) {
         clearInterval(intervalId);
         alert.show('Your Response has Submitted', { type: types.SUCCESS })
         history.push('/user/submitResponse')
-      //   setTimeout(()=>{
-      //       window.close()
-      //   },1000)
-      // })
+    
+      })
       .catch((err) => console.log(err));
   }
 
