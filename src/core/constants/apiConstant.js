@@ -27,7 +27,11 @@ export const API_ENDPOINTS = {
     ALL_USERS: `${base_url}/allUsers`,
     PAID_USERS: `${base_url}/paidUsers`,
     UNPAID_USERS: `${base_url}/unpaidUsers`,
-    ADMIN_DASHBOARD: `${base_url}/adminDashboard`
+    ADMIN_DASHBOARD: `${base_url}/adminDashboard`,
+    GET_ALL_MOCK:  `${base_url}/getAllMockAdmin`,
+    GO_LIVE:  `${base_url}/goMockLive`,
+    STOP_TEST:  `${base_url}/finishPaper`,
+    RELEASE_RESULT:  `${base_url}/releaseResult`
   },
   TEST_SERIES:{
     GET_ALL_MOCK:`${base_url}/getAllMockPaper`,

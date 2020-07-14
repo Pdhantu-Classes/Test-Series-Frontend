@@ -16,10 +16,12 @@ export default function TestInstruction() {
     
     const startTest =() =>{
         setLoading(true)
+        const mockPaperId = window.localStorage.getItem('mock_paper_id')
         http
             .get(CHECK_TEST_ATTEMPTED,{
                 headers:{
-                    user_id:getUserId()
+                    user_id:getUserId(),
+                    mock_paper_id: mockPaperId
                 }
             })
             .then(res=>{
