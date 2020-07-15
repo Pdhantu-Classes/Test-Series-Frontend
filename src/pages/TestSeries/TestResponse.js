@@ -35,8 +35,8 @@ export default function TestResponse() {
         ret += "" + secs + "s";
         return ret;
     }
-   
-    
+
+
 
     useEffect(() => {
         setLoading(true);
@@ -79,8 +79,6 @@ export default function TestResponse() {
             result = 2;
         } else if (str === "d") {
             result = 3;
-        } else {
-            result = 4;
         }
         return result;
     }
@@ -89,7 +87,7 @@ export default function TestResponse() {
         var viewResponse = questions.map((data, index) => {
             console.log(userResponse[index], questions[index].answer);
 
-            if (userResponse[index] !== questions[index].answer) {
+            if (userResponse[index] !== questions[index].answer.toLowerCase()) {
                 // Not Attempted
 
                 if (userResponse[index] === "") {
@@ -222,7 +220,7 @@ export default function TestResponse() {
                                     </div>
                                     <div class="right" style={{ color: "green" }}>
                                         &#10004;
-                  </div>
+                                </div>
                                 </div>
                             ) : (
                                     <div className="d-flex">
@@ -242,7 +240,7 @@ export default function TestResponse() {
                     );
                 } else {
                     let indexOption = decodeOption(userResponse[index]);
-                    let correctOption = decodeOption(questions[index].answer);
+                    let correctOption = decodeOption(questions[index].answer.toLowerCase());
                     console.log(indexOption, correctOption, "Incorrect");
                     return (
                         <div
@@ -425,7 +423,7 @@ export default function TestResponse() {
                                     </div>
                                     <div class="right" style={{ color: "green" }}>
                                         &#10004;
-                  </div>
+                                </div>
                                 </div>
                             ) : (
                                         <div className="d-flex">
@@ -444,7 +442,7 @@ export default function TestResponse() {
                         </div>
                     );
                 }
-            } else if (userResponse[index] === questions[index].answer) {
+            } else if (userResponse[index] === questions[index].answer.toLowerCase()) {
                 let correctOption = decodeOption(userResponse[index]);
                 console.log(correctOption, "Correct");
                 return (
@@ -504,7 +502,7 @@ export default function TestResponse() {
                                 </div>
                                 <div class="right" style={{ color: "green" }}>
                                     &#10004;
-                </div>
+                        </div>
                             </div>
                         ) : (
                                 <div className="d-flex mb-1">
@@ -582,7 +580,7 @@ export default function TestResponse() {
                             )}
                     </div>
                 );
-            }else{
+            }else {
                 return null
             }
         });
