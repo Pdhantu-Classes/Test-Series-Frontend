@@ -405,7 +405,7 @@ export default function TestScreen(props) {
         </Modal.Header>
         <Modal.Body>
           <div className="d-flex">
-            <button className="btn btn-primary btn-lg offset-2" onClick={submitResponse}>
+            <button className="btn btn-success btn-lg offset-2" onClick={submitResponse}>
               Yes
             </button>
 
