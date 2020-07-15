@@ -26,6 +26,7 @@ export default function TestInstruction() {
       })
       .then((res) => {
         setLoading(false);
+        console.log('h')
         if (res.data.isValid) {
           history.push('/user/testscreen')
           // window.open(
