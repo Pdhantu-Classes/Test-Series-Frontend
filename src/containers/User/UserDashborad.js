@@ -57,7 +57,11 @@ const Dashboard = (props) => {
       })
       .catch((err) => console.log(err));
 
-    http
+  
+  }, []);
+ useEffect (()=>{
+  const userId = getUserId();
+  http
       .get(IS_USER_PAID, {
         headers: {
           user_id: userId
@@ -67,9 +71,7 @@ const Dashboard = (props) => {
         setIsValidUser(res.data.isValid)
       })
       .catch((err) => console.log(err));
-  }, []);
-
-
+ },[])
 
   const handleChangeMock = (id) => {
     window.localStorage.setItem("mock_paper_id", id);
@@ -120,7 +122,7 @@ const Dashboard = (props) => {
       {
         !loading ?
           isValidUser ?
-            <div class="table-responsive col-10 offset-1 text-center">
+            <div class="table-responsive col-10 offset-1 text-center py-4">
               <table id="tablePreview" class="table table-bordered table-hover">
                 <thead>
                   <tr>

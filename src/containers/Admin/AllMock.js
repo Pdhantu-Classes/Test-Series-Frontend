@@ -45,11 +45,12 @@ export default function AllMock() {
         setIsLive(true)
         setIsStop(false)
         setIsRelease(false)
-        setShow(true)
+        // setShow(true)
+        setShowAuth(true)
         console.log(id)
     }
     const handleCloseAuth =() =>{
-
+        setShowAuth(false)
     }
 
     const handleStop = (id) => {
@@ -58,7 +59,7 @@ export default function AllMock() {
         setIsLive(false)
         setIsStop(true)
         setIsRelease(false)
-        setShow(true)
+        setShowAuth(true)
     }
 
     const handleRelease = (id) => {
@@ -67,7 +68,7 @@ export default function AllMock() {
         setIsLive(false)
         setIsStop(false)
         setIsRelease(true)
-        setShow(true)
+        setShowAuth(true)
     }
     const handleClick =(id) =>{
         http.get(TEST_DETAILS,{
@@ -83,6 +84,7 @@ export default function AllMock() {
             handleShow()
     }
     const handleSubmit = () => {
+       handleCloseAuth()
         console.log(mockPaperId)
         setShow(false)
         let body = {
@@ -145,7 +147,7 @@ export default function AllMock() {
                             Yes
                         </button>
 
-                        <button className="btn btn-primary btn-lg offset-5 " onClick={handleClose}>
+                        <button className="btn btn-primary btn-lg offset-5 " onClick={handleCloseAuth}>
                             No
                         </button>
                     </div>

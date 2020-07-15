@@ -91,25 +91,27 @@ export default function TestScreen(props) {
   }, []);
 
 
-  // useEffect(() => {
-  //   if(questions && questions.length>0){
-  //   for (var i = 0; i < questions.length; i++) {
-  //     if (i !== activeQuestionIndex) {
-  //       if (responses[i] !== undefined) {
-  //         document.getElementById(i.toString()).style.background = "#06AD49";
-  //         document.getElementById(i.toString()).style.color = "white";
-  //         document.getElementById(i.toString()).style.borderColor = "white";
-  //       } else {
-  //         document.getElementById(i.toString()).style.background = "gray";
-  //         document.getElementById(i.toString()).style.color = "white";
-  //       }
-  //     } else {
-  //       document.getElementById(i.toString()).style.background = "#FF4975";
-  //       document.getElementById(i.toString()).style.color = "white";
-  //     }
-  //   }
-  // }
-  // }, [activeQuestionIndex, responses, questions]);
+  useEffect(() => {
+    if(questions && questions.length>0){
+    for (var i = 0; i < questions.length; i++) {
+      if(document.getElementById(i.toString())){
+      if (i !== activeQuestionIndex) {
+        if (responses[i] !== undefined) {
+          document.getElementById(i.toString()).style.background = "#06AD49";
+          document.getElementById(i.toString()).style.color = "white";
+          document.getElementById(i.toString()).style.borderColor = "white";
+        } else {
+          document.getElementById(i.toString()).style.background = "gray";
+          document.getElementById(i.toString()).style.color = "white";
+        }
+      } else {
+        document.getElementById(i.toString()).style.background = "#FF4975";
+        document.getElementById(i.toString()).style.color = "white";
+      }
+    }
+  }
+  }
+  }, [activeQuestionIndex, responses, questions]);
 
 
   useEffect (()=>{
@@ -403,11 +405,11 @@ export default function TestScreen(props) {
         </Modal.Header>
         <Modal.Body>
           <div className="d-flex">
-            <button className="btn btn-danger btn-lg offset-2" onClick={submitResponse}>
+            <button className="btn btn-primary btn-lg offset-2" onClick={submitResponse}>
               Yes
             </button>
 
-            <button className="btn btn-primary btn-lg offset-5 " onClick={handleClose}>
+            <button className="btn btn-danger btn-lg offset-5 " onClick={handleClose}>
               No
             </button>
           </div>
