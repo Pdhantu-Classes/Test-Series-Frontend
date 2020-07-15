@@ -91,7 +91,7 @@ export default function TestResponse() {
                 // Not Attempted
 
                 if (userResponse[index] === "") {
-                    let correctOption = decodeOption(questions[index].answer);
+                    let correctOption = decodeOption(questions[index].answer.toLowerCase());
                     console.log(correctOption, "Not Atempted");
                     return (
                         <div
