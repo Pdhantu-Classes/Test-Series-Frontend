@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import http from 'axios'
 import { useAlert, types } from 'react-alert'
 
-
+import { API_ENDPOINTS } from '../../core/constants/apiConstant'
+const UPLOAD_IMAGE = API_ENDPOINTS.ADMIN.UPLOAD_IMAGE
 export default function UploadQuestionImage() {
     const alert = useAlert()
 
@@ -22,7 +23,7 @@ export default function UploadQuestionImage() {
             const formData = new FormData();
             formData.append('file',imgFile )
             http
-              .post("http://localhost:5000/upload-question-image", formData)
+              .post(UPLOAD_IMAGE, formData)
               .then(response => {
                 setLoading(false)
                 const responseData = response.data.imageUrl

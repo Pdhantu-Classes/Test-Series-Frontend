@@ -97,7 +97,7 @@ const Alltest = () => {
             <div className="col-sm-4 col-md-4">
               <img
                 className="card-img mt-4 ml-md-5 ml-sm-5 ml-lg-5 card-image-package"
-                style={{ width: "250px", height: "250px" }}
+                style={{ width: "200px", height: "200px" ,marginTop:'25px' }}
                 src={testImage}
                 alt="TESTICON"
               />

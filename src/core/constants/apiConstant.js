@@ -36,7 +36,8 @@ export const API_ENDPOINTS = {
     TEST_DETAILS: `${base_url}/getMockPaperDetails`,
     LIVE_MOCK_STATUS:`${base_url}/getLiveMockStatus`,
     CHECK_PAYMENT :`${base_url}/checkPayment`,
-    ADD_PAYMENT_DATA:`${base_url}/addUserToPaymentList`
+    ADD_PAYMENT_DATA:`${base_url}/addUserToPaymentList`,
+    UPLOAD_IMAGE:`${base_url}/upload-question-image`
   },
   TEST_SERIES:{
     GET_ALL_MOCK:`${base_url}/getAllMockPaper`,
