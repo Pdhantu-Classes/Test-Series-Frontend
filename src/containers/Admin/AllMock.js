@@ -4,7 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import { useAlert, types } from 'react-alert'
 import { API_ENDPOINTS } from '../../core/constants/apiConstant'
 import AdminNav from "./AdminNavBar";
-
+import {useHistory} from 'react-router-dom'
 
 const GET_ALL_MOCK = API_ENDPOINTS.ADMIN.GET_ALL_MOCK
 const GO_LIVE = API_ENDPOINTS.ADMIN.GO_LIVE
@@ -13,6 +13,7 @@ const RELEASE_RESULT = API_ENDPOINTS.ADMIN.RELEASE_RESULT
 const TEST_DETAILS = API_ENDPOINTS.ADMIN.TEST_DETAILS
 
 export default function AllMock() {
+    const history = useHistory()
     const alert = useAlert()
     const [mockPapers, setMockTestPaper] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -83,6 +84,10 @@ export default function AllMock() {
             .catch((err) => console.log(err));
             handleShow()
     }
+    const handleViewRank =(id) =>{
+        window.localStorage.setItem('mock_paper_id',id)
+        history.push('/admin/viewrank')
+    }
     const handleSubmit = () => {
        handleCloseAuth()
         console.log(mockPaperId)
@@ -131,6 +136,7 @@ export default function AllMock() {
         }
 
     }
+    
     console.log(testDetails.id)
     return (
         <div>
@@ -223,7 +229,7 @@ export default function AllMock() {
                                                             :
                                                             !data.is_active && data.is_finished && data.is_result_released ?
                                                                 <td>
-                                                                    Release Rank
+                                                                    <button className="btn btn-primary" onClick={()=>handleViewRank(data.id)}>View Rank List</button>
                                                                 </td>
                                                                 :
                                                                 !data.is_active && data.is_finished ?

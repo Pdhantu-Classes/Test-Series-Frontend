@@ -1,7 +1,7 @@
 //  let base_url = 'https://pdhnatu.herokuapp.com'
 // let base_url = "http://3.17.56.99:5000"; //production
-// let base_url = "http://52.14.8.163:5000" //devlopment
-let base_url = "http://localhost:5000"
+let base_url = "http://52.14.8.163:5000" //devlopment
+// let base_url = "http://localhost:5000"
 
 export const API_ENDPOINTS = {
   USERS: {
@@ -33,7 +33,10 @@ export const API_ENDPOINTS = {
     GO_LIVE:  `${base_url}/goMockLive`,
     STOP_TEST:  `${base_url}/finishPaper`,
     RELEASE_RESULT:  `${base_url}/releaseResult`,
-    TEST_DETAILS: `${base_url}/getMockPaperDetails`
+    TEST_DETAILS: `${base_url}/getMockPaperDetails`,
+    LIVE_MOCK_STATUS:`${base_url}/getLiveMockStatus`,
+    CHECK_PAYMENT :`${base_url}/checkPayment`,
+    ADD_PAYMENT_DATA:`${base_url}/addUserToPaymentList`
   },
   TEST_SERIES:{
     GET_ALL_MOCK:`${base_url}/getAllMockPaper`,

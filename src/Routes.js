@@ -28,6 +28,7 @@ import Response from './pages/TestSeries/SubmitScreen'
 import UploadQuestionImage from "./containers/Admin/UploadQuestionImage";
 import QuestionPaperShow from "./containers/User/QuestionPaperShow";
 import AnswerKeyShow from "./containers/User/AnswerKeyShow";
+import AdminViewRank from './containers/Admin/ViewRank'
 
 const Routes = () => {
  
@@ -143,6 +144,12 @@ const Routes = () => {
           path="/admin/allmock"
           render={() =>
             !isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <AllMock />
+          }
+        />
+         <Route
+          path="/admin/viewrank"
+          render={() =>
+            !isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <AdminViewRank />
           }
         />
         <Route path='/testViewDetails' component={TestDetails} />

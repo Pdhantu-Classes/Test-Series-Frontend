@@ -12,8 +12,8 @@ const AdminNavBar = () => {
     history.push("/adminLogin");
   };
   return (
-    <nav className="navbar navbar-expand-md navbar-light fixed-top py-4">
-      <div className="container">
+    <nav className="navbar navbar-expand-lg navbar-light fixed-top py-4">
+      <div className="container-fluid">
         <Link to="/admin/dashboard" className="navbar-brand">
           <img src={logo} width="50" height="50" alt="" />
           <h3 className="d-inline align-middle">The Pdhantu Classes</h3>
@@ -37,7 +37,7 @@ const AdminNavBar = () => {
                 All User
               </Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link
                 className="nav-link"
                 onClick={() => {
@@ -46,7 +46,7 @@ const AdminNavBar = () => {
               >
                 Paid User
               </Link>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link
                 className="nav-link"
@@ -57,6 +57,26 @@ const AdminNavBar = () => {
                 All Mock
               </Link>
             </li>
+            {/* <li className="nav-item">
+              <Link
+                className="nav-link"
+                onClick={() => {
+                  history.push("/admin/mockstatus");
+                }}
+              >
+                Mock Status
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                className="nav-link"
+                onClick={() => {
+                  history.push("/admin/addToPaymentList");
+                }}
+              >
+                Payment Status
+              </Link>
+            </li> */}
           </ul>
         </div>
         <div className="ml-2 mr-2 mt-2">

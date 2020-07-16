@@ -243,8 +243,8 @@ const handleAnswerKey = (id) =>{
                           data.is_finished &&
                           data.is_result_released ? (
                             <td>
-                              <button className="btn btn-secondary mr-2" onClick={()=>{handleQuestionPaper(index+1)}}>Question Paper</button>
-                              <button className="btn btn-secondary" onClick={()=>{handleAnswerKey(index+1)}}>Answer Key</button>
+                              <button className="btn btn-secondary mr-2" onClick={()=>{handleQuestionPaper(index+1)}}>Question</button>
+                              <button className="btn btn-secondary" onClick={()=>{handleAnswerKey(index+1)}}>Answer</button>
                             </td>
                           )
                            :null}

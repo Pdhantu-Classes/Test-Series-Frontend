@@ -1,26 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import '../../css/Pdf.css'
 
 
-// let innerWidth = window.innerWidth
-// var width;
-// if(innerWidth >=320){
-//     width = 270
-// }
-// if(innerWidth >=360){
-//     width = 280
-// }
-// if(innerWidth >=410){
-//     width = 300
-// }
-// if(innerWidth >=768){
-//     width = 550
-// }
-// if(innerWidth >=1024){
-//     width = 800
-// }
-// if(innerWidth >=1500){
-//     width = 1000
-// }
 // console.log(innerWidth)
 
 export default function QuestionPaperShow() {
@@ -41,8 +22,13 @@ export default function QuestionPaperShow() {
         <div>
             {
                 !loading?
-                <div className="offset-2" style={{marginTop:'-50px'}}>
-                    <embed src={pdfName} width="300px" height="800" className="responsive"></embed></div>
+                // <div className="offset-2" style={{marginTop:'-50px'}}>
+                //     <embed src={pdfName} width="300px" height="800" className="responsive"></embed></div>
+                <div class='issuu-embed-container'>
+
+                <iframe src={pdfName} frameborder='0' allowfullscreen></iframe>
+
+                </div>
                 :<div>Loading...</div>
             }
         </div>

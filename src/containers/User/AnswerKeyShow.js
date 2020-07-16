@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import '../../css/Pdf.css'
 export default function AnswerKeyShow() {
     const [ pdfName, setPdfName ] = useState('')
     const [ loading, setLoading ] = useState(true)
@@ -18,8 +18,11 @@ export default function AnswerKeyShow() {
         <div>
              {
                 !loading?
-                <div className="offset-2" style={{marginTop:'-50px'}}>
-                    <embed src={pdfName} width="1000" height="700"></embed></div>
+                <div class='issuu-embed-container'>
+
+                <iframe src={pdfName} frameborder='0' allowfullscreen></iframe>
+
+                </div>
                 :<div>Loading...</div>
             }
         </div>
