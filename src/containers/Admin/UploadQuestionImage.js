@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import http from 'axios'
 import { useAlert, types } from 'react-alert'
 
+
 export default function UploadQuestionImage() {
     const alert = useAlert()
 
@@ -56,6 +57,7 @@ export default function UploadQuestionImage() {
                         </div>
                   </div>
                 }
+                <embed src="syllabus/syllabus_english.pdf" width="800px" height="2100px" />
 
             </div>
         </div>

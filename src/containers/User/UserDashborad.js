@@ -11,6 +11,7 @@ import { API_ENDPOINTS } from '../../core/constants/apiConstant'
 const GET_ALL_MOCK = API_ENDPOINTS.TEST_SERIES.GET_ALL_MOCK
 const IS_USER_PAID = API_ENDPOINTS.USERS.IS_USER_PAID
 const TEST_DETAILS = API_ENDPOINTS.ADMIN.TEST_DETAILS
+
 const Dashboard = (props) => {
   const history = useHistory();
   const [mockPapers, setMockTestPaper] = useState([]);
@@ -102,6 +103,16 @@ const Dashboard = (props) => {
         handleShow()
 }
 
+const handleQuestionPaper = (id) =>{
+  window.localStorage.setItem('question_paper', "Q-"+id.toString())
+  history.push('/user/questionPaper')
+}
+
+const handleAnswerKey = (id) =>{
+  window.localStorage.setItem('answer_key', "A-"+id.toString())
+  history.push('/user/answerKey')
+}
+
   return (
     <div>
       <Modal show={show} onHide={handleClose}>
@@ -137,6 +148,7 @@ const Dashboard = (props) => {
                     >
                       *Rank will released next day of exam
                       </th>
+                      <th>Question/Answer Key Pdf</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -180,15 +192,7 @@ const Dashboard = (props) => {
                               </button>
                               </td>
                             )
-                            // ) : !data.is_active &&
-                            //   data.is_finished &&
-                            //   data.is_attempted ? (
-                            //     <td>
-                            //       <button className="btn btn-success mr-2" disabled>
-                            //         Attempted
-                            //   </button>
-                            //     </td>
-                            //   )
+                            // <embed src="https://quizzes-for-kid.s3.us-east-2.amazonaws.com/env.pdf#toolbar=0&navpanes=0&scrollbar=0" width="1000" height="800"></embed>
                                : 
                                 data.is_active &&
                                 !data.is_finished &&
@@ -235,6 +239,15 @@ const Dashboard = (props) => {
                               </button>
                                   </td>
                                 ) : null}
+                          {!data.is_active &&
+                          data.is_finished &&
+                          data.is_result_released ? (
+                            <td>
+                              <button className="btn btn-secondary mr-2" onClick={()=>{handleQuestionPaper(index+1)}}>Question Paper</button>
+                              <button className="btn btn-secondary" onClick={()=>{handleAnswerKey(index+1)}}>Answer Key</button>
+                            </td>
+                          )
+                           :null}
                       </tr>
                     );
                   })}

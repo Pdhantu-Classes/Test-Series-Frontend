@@ -26,6 +26,8 @@ import AllMock from './containers/Admin/AllMock'
 import DemoTestInstruction from './pages/DemoTest/DemoTestInstruction'
 import Response from './pages/TestSeries/SubmitScreen'
 import UploadQuestionImage from "./containers/Admin/UploadQuestionImage";
+import QuestionPaperShow from "./containers/User/QuestionPaperShow";
+import AnswerKeyShow from "./containers/User/AnswerKeyShow";
 
 const Routes = () => {
  
@@ -145,6 +147,8 @@ const Routes = () => {
         />
         <Route path='/testViewDetails' component={TestDetails} />
         <Route path='/admin/upload-question-images' component={UploadQuestionImage} />
+        <Route path='/user/questionPaper' component={QuestionPaperShow} />
+        <Route path='/user/answerKey' component={AnswerKeyShow} />
       </Switch>
     </BrowserRouter>
   );
