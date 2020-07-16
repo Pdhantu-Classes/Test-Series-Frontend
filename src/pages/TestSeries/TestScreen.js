@@ -314,24 +314,64 @@ export default function TestScreen(props) {
           <div className=" ml-1 font-weight-bold">
             Q{activeQuestionIndex + 1}.
           </div>
-          {questions[activeQuestionIndex].question_english !== "" ? (
-            <div className="ml-5" style={{ marginTop: "-25px" }}>
-              <span className="font-weight-bold">
-                {questions[activeQuestionIndex].question_english}
-              </span>
-              <br></br>
-              <span className="font-weight-bold">
-                {questions[activeQuestionIndex].question_hindi}
-              </span>
+          {
+            questions[activeQuestionIndex].question_type === 1?
+              <div>
+                  {questions[activeQuestionIndex].question_english !== "" ? (
+                      <div className="ml-5" style={{ marginTop: "-25px" }}>
+                      <span className="font-weight-bold">
+                        {questions[activeQuestionIndex].question_english}
+                      </span>
+                      <br></br>
+                      <span className="font-weight-bold">
+                        {questions[activeQuestionIndex].question_hindi}
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="ml-5" style={{ marginTop: "-25px" }}>
+                      <span className="font-weight-bold">
+                        {questions[activeQuestionIndex].question_hindi}
+                      </span>
+                      <br></br>
+                    </div>
+                  )}
             </div>
-          ) : (
-            <div className="ml-5" style={{ marginTop: "-25px" }}>
-              <span className="font-weight-bold">
-                {questions[activeQuestionIndex].question_hindi}
-              </span>
-              <br></br>
+            :
+            <div>
+              <img style={{width:"900px",height:"300px"}} src={questions[activeQuestionIndex].question_english} alt="Loading..."></img>
             </div>
-          )}
+          }
+        </div>
+      </div>
+    );
+
+    var showExtas = (
+      <div>
+        <div className="mt-1">
+          {
+            questions[activeQuestionIndex].extras_question.length > 0?
+            questions[activeQuestionIndex].extras_question.map((data, index)=>{
+              return(
+                <div className="font-weight-bold ml-5">
+                  {data}
+                </div>
+              )
+            })
+            :
+            null
+          }
+           {
+            questions[activeQuestionIndex].extras_option.length > 0?
+            questions[activeQuestionIndex].extras_option.map((data, index)=>{
+              return(
+                <div className="font-weight-bold ml-5">
+                  {data}
+                </div>
+              )
+            })
+            :
+            null
+          }
         </div>
       </div>
     );
@@ -448,6 +488,7 @@ export default function TestScreen(props) {
             <div className="row">
               <div className="col-8 question-root jumbotron  ml-5">
                 <div>{showQuestion}</div>
+                <div>{showExtas}</div>
                 <div>{showOptions}</div>
                 <div
                   className="bottomBtn"

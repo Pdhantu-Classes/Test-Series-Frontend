@@ -14,7 +14,7 @@ const PaidUser = () => {
 
     getPaidUser(pageNo).then((res) => {
       console.log(res);
-      let buttonsCount = Math.ceil(res.total / 12);
+      let buttonsCount = Math.ceil(res.total / 20);
       let btnArr = []
       for (let i = 1; i <= buttonsCount; i++) {
         btnArr.push(<li class="page-item" key={i} onClick={() => setPageNo(i)}><button class="page-link">{i}</button></li>)
