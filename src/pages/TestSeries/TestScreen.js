@@ -315,20 +315,58 @@ export default function TestScreen(props) {
           {
             questions[activeQuestionIndex].question_type === 1?
               <div>
-                  {questions[activeQuestionIndex].question_english !== "" ? (
+                  {questions[activeQuestionIndex].question_english.length > 0 ? (
                       <div className="ml-5" style={{ marginTop: "-25px" }}>
                       <span className="font-weight-bold">
-                        {questions[activeQuestionIndex].question_english}
+                        {
+                        questions[activeQuestionIndex].question_english.map(e=>{
+                          return(
+                            <div style={{fontSize:'14px'}}>
+                              {e}
+                            </div>
+                          )
+                        })
+                        }
                       </span>
                       <br></br>
                       <span className="font-weight-bold">
-                        {questions[activeQuestionIndex].question_hindi}
+                        {
+                        questions[activeQuestionIndex].question_hindi.length > 0 ?
+                          <div>
+                            {
+                              questions[activeQuestionIndex].question_hindi.map(e=>{
+                                return(
+                                  <div style={{fontSize:'14px'}}>
+                                    {e}
+                                  </div>
+                                )
+                              })
+                            }
+                          </div>
+                        :
+                          null
+                        }
                       </span>
                     </div>
                   ) : (
                     <div className="ml-5" style={{ marginTop: "-25px" }}>
                       <span className="font-weight-bold">
-                        {questions[activeQuestionIndex].question_hindi}
+                      {
+                        questions[activeQuestionIndex].question_hindi.length > 0 ?
+                          <div>
+                            {
+                              questions[activeQuestionIndex].question_hindi.map(e=>{
+                                return(
+                                  <div style={{fontSize:'14px'}}>
+                                    {e}
+                                  </div>
+                                )
+                              })
+                            }
+                          </div>
+                        :
+                          null
+                      }
                       </span>
                       <br></br>
                     </div>
@@ -336,7 +374,7 @@ export default function TestScreen(props) {
             </div>
             :
             <div>
-              <img className="image-responsive" src={questions[activeQuestionIndex].question_english} alt="Loading..."></img>
+              <img className="image-responsive" src={questions[activeQuestionIndex].question_english[0]} alt="Loading..."></img>
             </div>
           }
         </div>
@@ -350,7 +388,7 @@ export default function TestScreen(props) {
             questions[activeQuestionIndex].extras_question.length > 0?
             questions[activeQuestionIndex].extras_question.map((data, index)=>{
               return(
-                <div className="font-weight-bold ml-5">
+                <div className="font-weight-bold ml-5" style={{fontSize:'14px'}}>
                   {data}
                 </div>
               )
@@ -362,7 +400,7 @@ export default function TestScreen(props) {
             questions[activeQuestionIndex].extras_option.length > 0?
             questions[activeQuestionIndex].extras_option.map((data, index)=>{
               return(
-                <div className="font-weight-bold ml-5">
+                <div className="font-weight-bold ml-5" style={{fontSize:'14px'}}>
                   {data}
                 </div>
               )
@@ -402,7 +440,7 @@ export default function TestScreen(props) {
                   ></div>
                 </div>
               </div>
-              <div className="ml-5 " style={{ marginTop: "-20px" }}>
+              <div className="ml-5 " style={{ marginTop: "-20px", fontSize:"14px" }}>
                 {option}
                 {option !== "" ? <br></br> : null}
                 {questions[activeQuestionIndex].options_hindi[index]}
@@ -423,7 +461,7 @@ export default function TestScreen(props) {
                   }}
                 ></div>
               </div>
-              <div className="ml-5 " style={{ marginTop: "-20px" }}>
+              <div className="ml-5 " style={{ marginTop: "-20px", fontSize:"14px"  }}>
                 {option}
                 {option !== "" ? <br></br> : null}
                 {questions[activeQuestionIndex].options_hindi[index]}
@@ -476,9 +514,9 @@ export default function TestScreen(props) {
             className="d-flex offset-md-4 offset-sm-0 offset-xs-0"
             style={{ marginTop: "-50px", marginBottom: "30px" }}
           >
-            <div id="timerId" className="timer">
+            <div id="timerId" className="timer text-primary" style={{fontWeight:"bold"}}>
               {" "}
-              Time Remaining :{hours}hrs:{minutes}min:{second}sec
+              Time Remaining: {hours}hrs:{minutes}min:{second}sec
             </div>
           </div>
           <div className="container-fluid">
