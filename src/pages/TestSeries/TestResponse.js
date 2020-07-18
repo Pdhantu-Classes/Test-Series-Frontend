@@ -4,6 +4,7 @@ import { Doughnut, Pie } from "react-chartjs-2";
 import { getUserId } from "../../core/utility/authHeader";
 import UserNavBar from "../../containers/User/UserNavBar";
 import { API_ENDPOINTS } from '../../core/constants/apiConstant'
+import '../../css/TestResponse.css'
 
 const GET_RESPONSE = API_ENDPOINTS.TEST_SERIES.GET_RESPONSE
 export default function TestResponse() {
@@ -40,7 +41,7 @@ export default function TestResponse() {
 
     useEffect(() => {
         setLoading(true);
-        const mockPaperId = window.localStorage.getItem("mock_paper_id");
+        const mockPaperId = window.localStorage.getItem('mock_paper_id')
         const userId = getUserId();
         http
             .get(GET_RESPONSE, {
@@ -99,21 +100,54 @@ export default function TestResponse() {
                             style={{ marginTop: "10px", border: "2px solid blue" }}
                             className="jumbotron"
                         >
-                            <div style={{ color: "blue", fontStyle: "italic" }}>
+                            <div style={{ color: "blue", fontStyle: "italic", marginBottom:'10px' }}>
                                 Not Attempted
-              </div>
+                        </div>
                             <div>
                                 <div
                                     style={{ float: "left" }}
                                     className="font-weight-bold mr-2"
                                 >
                                     Q{index + 1}.
-                </div>
+                                </div>
                                 <div></div>
-
-                                {questions[index].question_english}
+                                {
+                                    questions[index].question_type === 1 ?
+                                        <div>
+                                            {questions[index].question_english}
+                                        </div>
+                                        :
+                                        <div>
+                                            <img className="image-responsive" src={questions[index].question_english} alt={"Q" + index + 1} />
+                                        </div>
+                                }
                                 {questions[index].question_english !== "" ? <br></br> : null}
-                                {questions[index].question_hindi}
+                                <div style={{marginTop:"-20px"}}>
+                                    {questions[index].question_hindi}
+                                </div>
+                               
+                                {
+                                    questions[index].extras_question.length > 0 ?
+                                        questions[index].extras_question.map(data => {
+                                            return (
+                                                <div>
+                                                    {data}
+                                                </div>
+                                            )
+                                        })
+                                    : null
+                                }
+                                {
+                                    questions[index].extras_option.length > 0 ?
+                                        questions[index].extras_option.map(data => {
+                                            return (
+                                                <div>
+                                                    {data}
+                                                </div>
+                                            )
+                                        })
+                                    : null
+                                }
                             </div>
                             {correctOption === 0 ? (
                                 <div className="d-flex">
@@ -248,12 +282,51 @@ export default function TestResponse() {
                             style={{ marginTop: "10px", border: "2px solid red" }}
                             className="jumbotron"
                         >
-                            <div style={{ color: "red", fontStyle: "italic" }}>Incorrect</div>
+                            <div style={{ color: "red", fontStyle: "italic", marginBottom:'10px' }}>Incorrect</div>
                             <div>
-                                <span className="font-weight-bold  mr-2">Q{index + 1}.</span>
-                                {questions[index].question_english}
+                                <div
+                                    style={{ float: "left" }}
+                                    className="font-weight-bold mr-2"
+                                >
+                                    Q{index + 1}.
+                                </div>
+                                {
+                                    questions[index].question_type === 1 ?
+                                        <div>
+                                            {questions[index].question_english}
+                                        </div>
+                                        :
+                                        <div>
+                                            <img className="image-responsive" src={questions[index].question_english} alt={"Q" + index + 1} />
+                                        </div>
+                                }
                                 {questions[index].question_english !== "" ? <br></br> : null}
-                                {questions[index].question_hindi}
+                                <div style={{marginTop:"-20px"}}>
+                                    {questions[index].question_hindi}
+                                </div>
+                                {
+                                    questions[index].extras_question.length > 0 ?
+                                        questions[index].extras_question.map(data => {
+                                            return (
+                                                <div>
+                                                    {data}
+                                                </div>
+                                            )
+                                        })
+                                    : null
+                                }
+                                {
+                                    questions[index].extras_option.length > 0 ?
+                                        questions[index].extras_option.map(data => {
+                                            return (
+                                                <div>
+                                                    {data}
+                                                </div>
+                                            )
+                                        })
+                                    : null
+                                }
+                                <div></div>
                             </div>
                             {indexOption === 0 ? (
                                 <div className="d-flex">
@@ -444,20 +517,59 @@ export default function TestResponse() {
                 }
             } else if (userResponse[index] === questions[index].answer.toLowerCase()) {
                 let correctOption = decodeOption(userResponse[index]);
-                console.log(correctOption, "Correct");
+
                 return (
                     <div
                         key={index}
                         style={{ marginTop: "10px", border: "2px solid green" }}
                         className="jumbotron"
                     >
-                        <div style={{ color: "green", fontStyle: "italic" }}>Correct</div>
+                        <div style={{ color: "green", fontStyle: "italic", marginBottom:'10px' }}>Correct</div>
                         <div>
-                            <span className="font-weight-bold mr-2">Q{index + 1}.</span>{" "}
-                            {questions[index].question_english}
-                            {questions[index].question_english !== "" ? <br></br> : null}
-                            {questions[index].question_hindi}
-                        </div>
+                                <div
+                                    style={{ float: "left" }}
+                                    className="font-weight-bold mr-2"
+                                >
+                                    Q{index + 1}.
+                                </div>
+                                {
+                                    questions[index].question_type === 1 ?
+                                        <div>
+                                            {questions[index].question_english}
+                                        </div>
+                                        :
+                                        <div>
+                                            <img className="image-responsive" src={questions[index].question_english} alt={"Q" + index + 1} />
+                                        </div>
+                                }
+                                {questions[index].question_english !== "" ? <br></br> : null}
+                                <div style={{marginTop:"-20px"}}>
+                                    {questions[index].question_hindi}
+                                </div>
+                                {
+                                    questions[index].extras_question.length > 0 ?
+                                        questions[index].extras_question.map(data => {
+                                            return (
+                                                <div>
+                                                    {data}
+                                                </div>
+                                            )
+                                        })
+                                    : null
+                                }
+                                {
+                                    questions[index].extras_option.length > 0 ?
+                                        questions[index].extras_option.map(data => {
+                                            return (
+                                                <div>
+                                                    {data}
+                                                </div>
+                                            )
+                                        })
+                                    : null
+                                }
+                                <div></div>
+                            </div>
                         {correctOption === 0 ? (
                             <div className="d-flex mb-1">
                                 <div className="mr-2">&#8226;</div>
@@ -580,7 +692,7 @@ export default function TestResponse() {
                             )}
                     </div>
                 );
-            }else {
+            } else {
                 return null
             }
         });
@@ -620,18 +732,19 @@ export default function TestResponse() {
     };
     const result = () => (
         <div class="jumbotron">
-            <h1 class="display-4">{mockPaperName}</h1>
+            <h1 class="display-mock">{mockPaperName}</h1>
             <div className="d-flex justify-content-between">
                 <div>
-                    <h1>Total Maks : {totalMarks}</h1>
+                    <div className="display-font"><b>Total Marks :</b> {totalMarks}</div>
                 </div>
                 <div>
-                    <h1>Time Taken :{fancyTimeFormat(paperTime)}</h1>
+                    <div className="display-font"><b>Time Taken :</b>{fancyTimeFormat(paperTime)}</div>
                 </div>
             </div>
             <hr class="my-4" />
-            <div className="d-flex justify-content-between">
-                <div>
+            <div className="container">
+            <div className="row">
+                <div className="col-md-4 col-sm-12 col-xs-12 my-3">
                     <Doughnut
                         data={responeQuizData}
                         options={{
@@ -642,7 +755,7 @@ export default function TestResponse() {
                         }}
                     />
                 </div>
-                <div>
+                <div className="col-md-4 col-sm-12 col-xs-12 my-3">
                     <Pie
                         data={responeAccuracyData}
                         options={{
@@ -653,7 +766,7 @@ export default function TestResponse() {
                         }}
                     />
                 </div>
-                <div>
+                <div className="col-md-4 col-sm-12 col-xs-12 my-3">
                     <div>
                         <ul class="list-group">
                             <li class="list-group-item list-group-item-primary">
@@ -676,13 +789,14 @@ export default function TestResponse() {
                     </div>
                 </div>
             </div>
+            </div>
         </div>
     );
     return (
         <div>
             <UserNavBar />
             {!loading ? (
-                <div className="container py-5">
+                <div className="container py-5 margin">
                     {result()}
                     {viewResponse}
                 </div>

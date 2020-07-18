@@ -167,7 +167,7 @@ const handleAnswerKey = (id) =>{
                             Live&#8226;{" "}
                           </td>
                         ) : !data.is_active && data.is_finished ? (
-                          <td className="text-danger font-weight-bold">Finished</td>
+                          <td className="text-danger font-weight-bold">End</td>
                         ) : null}
 
                         <td>

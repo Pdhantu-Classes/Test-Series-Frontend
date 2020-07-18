@@ -45,22 +45,40 @@ export default function UploadQuestionImage() {
                 <input id="file-input" accept="image/*" type="file" onChange={handleImage}/>
             </div>
             <button className="btn btn-secondary mt-2 offset-2" onClick={handleSubmit}>Upload Images</button>
-            <div className="border w-50">
+            <button className="btn btn-primary mt-2 ml-3" onClick={()=>{window.location.reload()}}>Refresh</button>
+           
                 {
                     !loading ? 
                     <div>
-                        {imageUrl}
+                        {
+                             imageUrl !==""?
+                             <div className="mt-5">
+                                <h4>Image Link</h4>
+                                <div className="border w-50 ">
+                                    {imageUrl}
+                                </div>
+                             </div>
+                             :
+                             null
+                        }          
+                        {
+                            imageUrl !==""?
+                            <div className="border border-primary w-50 mt-5 mb-5">
+                                <img style={{width:'500px'}} src={imageUrl} alt="Loading..."/>
+                            </div>
+                            :
+                            null
+                        }                    
+                     
                     </div>
                     :
-                    <div className="d-flex justify-content-center">
+                    <div className="d-flex justify-content-center" style={{position:'absolute', transform:'translate(-50%,-50%)', left:'50%', top:'40%'}}>
                         <div className="spinner-border" role="status">
                             <span className="sr-only">Loading...</span>
                         </div>
                   </div>
                 }
-                <embed src="syllabus/syllabus_english.pdf" width="800px" height="2100px" />
 
             </div>
-        </div>
     )
 }

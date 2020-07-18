@@ -11,7 +11,6 @@ const CHECK_TEST_ATTEMPTED = API_ENDPOINTS.TEST_SERIES.CHECK_TEST_ATTEMPTED;
 export default function TestInstruction() {
   const history = useHistory()
   const alert = useAlert();
-
   const [loading, setLoading] = useState(false);
 
   const startTest = () => {
@@ -29,12 +28,6 @@ export default function TestInstruction() {
         console.log('h')
         if (res.data.isValid) {
           history.push('/user/testscreen')
-          // window.open(
-          //   "http://www.thepdhantu.com//user/testscreen",
-          //   "_blank",
-          //   "toolbar=0,fullscreen=1"
-          // );
-          // window.open('http://localhost:3000/user/testscreen','_blank','resizable=yes,top=500,left=500,width=4000,height=4000')
         } else {
           alert.show(
             "You Already Attempted the Test ,To see the Response Go To DashBoard",
@@ -45,17 +38,8 @@ export default function TestInstruction() {
   };
   return (
     <div>
-      {loading ? (
-       <div style={{ position: 'absolute', transform: 'translate(-50%,-50%)', top: '50%', left: '50%' }}>
-       <div className="d-flex justify-content-center">
-         <div className="spinner-border" role="status">
-           <span className="sr-only">Loading...</span>
-         </div>
-       </div>
-     </div>
-      ) : null}
       <div className="container">
-        <div className="info-header text-center mb-5">
+        <div className="info-header text-center mb-5" style={{marginTop:"-50px"}}>
           <h1 className="pb-3">
             <div>General Instructions:</div>
             <div>(सामान्य निर्देश:)</div>
@@ -246,6 +230,15 @@ export default function TestInstruction() {
           </ul>
         </div>
       </div>
+      {loading ? (
+       <div style={{ position: 'absolute', transform: 'translate(-50%,-50%)', top: '120%', left: '50%' }}>
+       <div className="d-flex justify-content-center">
+         <div className="spinner-border" role="status">
+           <span className="sr-only">Loading...</span>
+         </div>
+       </div>
+     </div>
+      ) : null}
       <div className="d-flex row justify-content-center mb-3">
         <button className="btn btn-success btn-lg" onClick={startTest}>
           Start Test

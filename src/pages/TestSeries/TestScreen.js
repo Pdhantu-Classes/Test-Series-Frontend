@@ -26,7 +26,7 @@ export default function TestScreen(props) {
   const [questions, setQuestions] = useState([]);
   const [userId, setUserId] = useState(null);
   const [mockPaperId, setMockPaperId] = useState(null);
-  const [mockPaperTime, setMockPaperTime] = useState(null);
+  const [mockPaperTime, setMockPaperTime] = useState(2000);
   const [loading, setLoading] = useState(true);
   const [timeLeft, setTimeLeft] = useState(null);
   const [show, setShow] = useState(false);
@@ -58,14 +58,14 @@ export default function TestScreen(props) {
       minutes = Math.floor(divisor_for_minutes / 60);
 
       let divisor_for_seconds = divisor_for_minutes % 60;
-      second = Math.ceil(divisor_for_seconds) - 2;
+      second = Math.ceil(divisor_for_seconds);
     };
   }, [timeLeft,alert]);
 
   useEffect(() => {
     setLoading(true);
-    const MOCK_PAPER_ID = window.localStorage.getItem("mock_paper_id");
-    setMockPaperId(MOCK_PAPER_ID);
+    const MOCK_PAPER_ID = window.localStorage.getItem('mock_paper_id')
+    setMockPaperId(MOCK_PAPER_ID)
     setUserId(getUserId());
 
     http
@@ -82,14 +82,13 @@ export default function TestScreen(props) {
         },
       })
       .then((res) => {
-        let timeNxt = Number(res.data.paper_time) + 2;
+        let timeNxt = Number(res.data.paper_time);
         setMockPaperTime(timeNxt);
         setTimeLeft(timeNxt);
         setLoading(false);
       })
       .catch((err) => console.log(err));
   }, []);
-
 
   useEffect(() => {
     if(questions && questions.length>0){
@@ -137,7 +136,6 @@ export default function TestScreen(props) {
     return result;
   }
   
-  console.log(mockPaperTime);
 
   function changeOption(option, index) {
     if (responses[activeQuestionIndex]) {
@@ -317,20 +315,58 @@ export default function TestScreen(props) {
           {
             questions[activeQuestionIndex].question_type === 1?
               <div>
-                  {questions[activeQuestionIndex].question_english !== "" ? (
+                  {questions[activeQuestionIndex].question_english.length > 0 ? (
                       <div className="ml-5" style={{ marginTop: "-25px" }}>
                       <span className="font-weight-bold">
-                        {questions[activeQuestionIndex].question_english}
+                        {
+                        questions[activeQuestionIndex].question_english.map(e=>{
+                          return(
+                            <div style={{fontSize:'14px'}}>
+                              {e}
+                            </div>
+                          )
+                        })
+                        }
                       </span>
                       <br></br>
                       <span className="font-weight-bold">
-                        {questions[activeQuestionIndex].question_hindi}
+                        {
+                        questions[activeQuestionIndex].question_hindi.length > 0 ?
+                          <div>
+                            {
+                              questions[activeQuestionIndex].question_hindi.map(e=>{
+                                return(
+                                  <div style={{fontSize:'14px'}}>
+                                    {e}
+                                  </div>
+                                )
+                              })
+                            }
+                          </div>
+                        :
+                          null
+                        }
                       </span>
                     </div>
                   ) : (
                     <div className="ml-5" style={{ marginTop: "-25px" }}>
                       <span className="font-weight-bold">
-                        {questions[activeQuestionIndex].question_hindi}
+                      {
+                        questions[activeQuestionIndex].question_hindi.length > 0 ?
+                          <div>
+                            {
+                              questions[activeQuestionIndex].question_hindi.map(e=>{
+                                return(
+                                  <div style={{fontSize:'14px'}}>
+                                    {e}
+                                  </div>
+                                )
+                              })
+                            }
+                          </div>
+                        :
+                          null
+                      }
                       </span>
                       <br></br>
                     </div>
@@ -338,7 +374,7 @@ export default function TestScreen(props) {
             </div>
             :
             <div>
-              <img style={{width:"900px",height:"300px"}} src={questions[activeQuestionIndex].question_english} alt="Loading..."></img>
+              <img className="image-responsive" src={questions[activeQuestionIndex].question_english[0]} alt="Loading..."></img>
             </div>
           }
         </div>
@@ -352,7 +388,7 @@ export default function TestScreen(props) {
             questions[activeQuestionIndex].extras_question.length > 0?
             questions[activeQuestionIndex].extras_question.map((data, index)=>{
               return(
-                <div className="font-weight-bold ml-5">
+                <div className="font-weight-bold ml-5" style={{fontSize:'14px'}}>
                   {data}
                 </div>
               )
@@ -364,7 +400,7 @@ export default function TestScreen(props) {
             questions[activeQuestionIndex].extras_option.length > 0?
             questions[activeQuestionIndex].extras_option.map((data, index)=>{
               return(
-                <div className="font-weight-bold ml-5">
+                <div className="font-weight-bold ml-5" style={{fontSize:'14px'}}>
                   {data}
                 </div>
               )
@@ -404,7 +440,7 @@ export default function TestScreen(props) {
                   ></div>
                 </div>
               </div>
-              <div className="ml-5 " style={{ marginTop: "-20px" }}>
+              <div className="ml-5 " style={{ marginTop: "-20px", fontSize:"14px" }}>
                 {option}
                 {option !== "" ? <br></br> : null}
                 {questions[activeQuestionIndex].options_hindi[index]}
@@ -425,7 +461,7 @@ export default function TestScreen(props) {
                   }}
                 ></div>
               </div>
-              <div className="ml-5 " style={{ marginTop: "-20px" }}>
+              <div className="ml-5 " style={{ marginTop: "-20px", fontSize:"14px"  }}>
                 {option}
                 {option !== "" ? <br></br> : null}
                 {questions[activeQuestionIndex].options_hindi[index]}
@@ -478,9 +514,9 @@ export default function TestScreen(props) {
             className="d-flex offset-md-4 offset-sm-0 offset-xs-0"
             style={{ marginTop: "-50px", marginBottom: "30px" }}
           >
-            <div id="timerId" className="timer">
+            <div id="timerId" className="timer text-primary" style={{fontWeight:"bold"}}>
               {" "}
-              Time Remaining :{hours}hrs:{minutes}min:{second}sec
+              Time Remaining: {hours}hrs:{minutes}min:{second}sec
             </div>
           </div>
           <div className="container-fluid">
