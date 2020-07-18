@@ -1,0 +1,49 @@
+@media only screen and (min-width: 300px) {
+    .display-font{
+        font-size: 15px;
+    }
+    .display-mock{
+        font-size: 20px;
+    }
+    .margin{
+        margin-top: 200px;
+    }
+    .image-responsive{
+        width: 200px;
+        height: 100px;
+    }
+  }
+
+  @media only screen and (min-width: 600px) {
+    .display-font{
+        font-size: 25px;
+    }
+    .display-mock{
+        font-size: 35px;
+    }
+    .margin{
+        margin-top: 50px;
+    }
+    .image-responsive{
+        width: 400px;
+        height: 200px;
+    }
+  }
+
+
+  @media only screen and (min-width: 1000px) {
+    .display-font{
+        font-size: 30px;
+    }
+    .display-mock{
+        font-size: 45px;
+    }
+    .margin{
+        margin-top: 0px;
+    }
+    .image-responsive{
+        width: 600px;
+        height: 250px;
+    }
+  }
+

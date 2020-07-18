@@ -38,6 +38,19 @@
 }.timer{
     font-size: 25px;
 }
+
+@media only screen and (min-width: 300px) {
+    .image-responsive{
+        width: 250px;
+        height: 110px;
+    }
+    .timer{
+        margin-left: 50px;
+        font-size: 25px;
+    }
+  }
+
+
 @media (max-width:370px) {
     .question-root{
         min-width: 500px;
@@ -53,16 +66,21 @@
         height: 50px;
         overflow-x: scroll;
         margin-top: 1px;
-    } .grow{
+    }
+     .grow{
         display: grid;
         grid-template-columns: repeat(150, 1fr);
-    }.timer{
+    }
+    .timer{
         margin-left: 300px;
         font-size: 12px;
-    }.submitBtn{
+    }
+    .submitBtn{
         margin-right: 40% !important;
     }
 }
+
+
 @media (max-width:411px) {
     .question-root{
         min-width: 450px;
@@ -70,7 +88,8 @@
     }
     .container-fluid{
         width: 590px;
-    }.row{
+    }
+    .row{
         margin-left: 0;
     }
     .question-panel{
@@ -78,42 +97,55 @@
         height: 50px;
         overflow-x: scroll;
         margin-top: 1px;
-    } .grow{
+    }
+
+     .grow{
         display: grid;
         grid-template-columns: repeat(150, 1fr);
     }
+
     .timer{
         margin-left: 300px;
         font-size: 12px;
-    }.submitBtn{
+    }
+
+    .submitBtn{
         margin-right: 40% !important;
     }
 }
+
 @media (max-width:414px) {
+
     .question-root{
         min-width: 450px;
         margin-left: 0px;
     }
+
     .container-fluid{
         width: 590px;
-    }.row{
+    }
+
+    .row{
         margin-left: 0;
     }
+
     .question-panel{
         min-width: 520px;
         height: 50px;
         overflow-x: scroll;
         margin-top: 1px;
-    } .grow{
-        
+    }
+
+     .grow{    
         display: grid;
         grid-template-columns: repeat(150, 1fr);
-    }.submitBtn{
-        margin-right: 40% !important;
-    }.submitBtn{
+    }
+
+    .submitBtn{
         margin-right: 40% !important;
     }
 }
+
 /* @media only screen and (max-width: 370px) {
     .question-panel{
         min-width: 500px;
@@ -177,3 +209,19 @@
     }
 
 } */
+
+  @media only screen and (min-width: 600px) {
+    .image-responsive{
+        margin-left: 50px;
+        width: 500px;
+        height: 250px;
+    }
+  }
+
+  @media only screen and (min-width: 1000px) {
+    .image-responsive{
+        margin-left: 100px;
+        width: 1000px;
+        height: 300px;
+    }
+  }

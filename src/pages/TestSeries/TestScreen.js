@@ -26,7 +26,7 @@ export default function TestScreen(props) {
   const [questions, setQuestions] = useState([]);
   const [userId, setUserId] = useState(null);
   const [mockPaperId, setMockPaperId] = useState(null);
-  const [mockPaperTime, setMockPaperTime] = useState(null);
+  const [mockPaperTime, setMockPaperTime] = useState(2000);
   const [loading, setLoading] = useState(true);
   const [timeLeft, setTimeLeft] = useState(null);
   const [show, setShow] = useState(false);
@@ -58,14 +58,14 @@ export default function TestScreen(props) {
       minutes = Math.floor(divisor_for_minutes / 60);
 
       let divisor_for_seconds = divisor_for_minutes % 60;
-      second = Math.ceil(divisor_for_seconds) - 2;
+      second = Math.ceil(divisor_for_seconds);
     };
   }, [timeLeft,alert]);
 
   useEffect(() => {
     setLoading(true);
-    const MOCK_PAPER_ID = window.localStorage.getItem("mock_paper_id");
-    setMockPaperId(MOCK_PAPER_ID);
+    const MOCK_PAPER_ID = window.localStorage.getItem('mock_paper_id')
+    setMockPaperId(MOCK_PAPER_ID)
     setUserId(getUserId());
 
     http
@@ -82,14 +82,13 @@ export default function TestScreen(props) {
         },
       })
       .then((res) => {
-        let timeNxt = Number(res.data.paper_time) + 2;
+        let timeNxt = Number(res.data.paper_time);
         setMockPaperTime(timeNxt);
         setTimeLeft(timeNxt);
         setLoading(false);
       })
       .catch((err) => console.log(err));
   }, []);
-
 
   useEffect(() => {
     if(questions && questions.length>0){
@@ -137,7 +136,6 @@ export default function TestScreen(props) {
     return result;
   }
   
-  console.log(mockPaperTime);
 
   function changeOption(option, index) {
     if (responses[activeQuestionIndex]) {
@@ -338,7 +336,7 @@ export default function TestScreen(props) {
             </div>
             :
             <div>
-              <img style={{width:"900px",height:"300px"}} src={questions[activeQuestionIndex].question_english} alt="Loading..."></img>
+              <img className="image-responsive" src={questions[activeQuestionIndex].question_english} alt="Loading..."></img>
             </div>
           }
         </div>

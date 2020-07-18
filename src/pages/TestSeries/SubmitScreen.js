@@ -13,7 +13,7 @@ const SubmitScreen =()=> {
         return (
             <div className="container">
                <div className="display-4"> Your Response has been Submitted Go To</div>
-                <Link to='/user/home'><button  className="btn btn-primary offset-5">Home</button></Link>
+                <Link to='/user/dashboard'><button  className="btn btn-primary offset-5">Dashboard</button></Link>
             </div>
         )
     

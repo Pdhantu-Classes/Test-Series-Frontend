@@ -37,7 +37,14 @@ export const API_ENDPOINTS = {
     LIVE_MOCK_STATUS:`${base_url}/getLiveMockStatus`,
     CHECK_PAYMENT :`${base_url}/checkPayment`,
     ADD_PAYMENT_DATA:`${base_url}/addUserToPaymentList`,
-    UPLOAD_IMAGE:`${base_url}/upload-question-image`
+    UPLOAD_IMAGE:`${base_url}/upload-question-image`,
+    UPLOAD_BULK_QUESTION_PDF:`${base_url}/upload-image-bulk-question`,
+    UPLOAD_BULK_ANSWER_PDF:`${base_url}/upload-image-answer`,
+    DUMPED_QUESTION_PDF:`${base_url}/dump-question-images`,
+    DUMPED_ANSWER_PDF:`${base_url}/dump-images-answer`,
+    GET_MOCK_PAPER_QUESTION:`${base_url}/getMockPaperForQuestion`,
+    GET_MOCK_PAPER_ANSWER:`${base_url}getMockPaperForAnswer`
+
   },
   TEST_SERIES:{
     GET_ALL_MOCK:`${base_url}/getAllMockPaper`,
