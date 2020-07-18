@@ -29,6 +29,8 @@ import UploadQuestionImage from "./containers/Admin/UploadQuestionImage";
 import QuestionPaperShow from "./containers/User/QuestionPaperShow";
 import AnswerKeyShow from "./containers/User/AnswerKeyShow";
 import AdminViewRank from './containers/Admin/ViewRank'
+import MockStatus from './containers/Admin/MockStatus'
+import AddToPayment from './containers/Admin/AddToPaymentList'
 
 const Routes = () => {
  
@@ -146,10 +148,22 @@ const Routes = () => {
             !isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <AllMock />
           }
         />
+        <Route
+          path="/admin/mockstatus"
+          render={() =>
+            !isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <MockStatus />
+          }
+        />
          <Route
           path="/admin/viewrank"
           render={() =>
             !isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <AdminViewRank />
+          }
+        />
+        <Route
+          path="/admin/addToPaymentList"
+          render={() =>
+            !isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <AddToPayment />
           }
         />
         <Route path='/testViewDetails' component={TestDetails} />

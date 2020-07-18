@@ -57,7 +57,7 @@ const AdminNavBar = () => {
                 All Mock
               </Link>
             </li>
-            {/* <li className="nav-item">
+            <li className="nav-item">
               <Link
                 className="nav-link"
                 onClick={() => {
@@ -76,7 +76,7 @@ const AdminNavBar = () => {
               >
                 Payment Status
               </Link>
-            </li> */}
+            </li>
           </ul>
         </div>
         <div className="ml-2 mr-2 mt-2">
