@@ -66,8 +66,8 @@ export default function AddToPaymentList() {
     return (
         <>
         <AdminNav />
-        <div className="container py-5">
-        <div className="input-group mb-3 w-50 offset-3">
+        <div className="container mt-5 pt-5">
+        <div className="input-group mb-3 w-50 offset-3 mt-5 pt-5">
             <input type="text" class="form-control " value={email} placeholder="Search by email id" onChange={handleEmail} aria-label="Recipient's username" aria-describedby="basic-addon2"/>
             <div className="input-group-append">
                <button className="btn btn-primary ml-2 " onClick={handleClick}>Search</button>

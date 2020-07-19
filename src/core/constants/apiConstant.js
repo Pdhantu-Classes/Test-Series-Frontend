@@ -57,6 +57,7 @@ export const API_ENDPOINTS = {
     GET_RANK_CARD: `${base_url}/getRankMockPaper`,
     CHECK_TEST_ATTEMPTED: `${base_url}/checkTestAttempted`,
     DEMO_TEST:`${base_url}/demoTest`,
-
+    GET_QUESTION_PAPER_PDF: `${base_url}/getMockPaperPdfImages`,
+    GET_ANSWER_KEY_PDF: `${base_url}/getMockAnswerKeyImages`,
   }
 };

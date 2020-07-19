@@ -43,6 +43,20 @@ const Dashboard = (props) => {
     return ret;
 }
 
+useEffect (()=>{
+  const userId = getUserId();
+  http
+      .get(IS_USER_PAID, {
+        headers: {
+          user_id: userId
+        }
+      })
+      .then((res) => {
+        setIsValidUser(res.data.isValid)
+      })
+      .catch((err) => console.log(err));
+ },[])
+
   useEffect(() => {
     const userId = getUserId();
     setLoading(true);
@@ -60,19 +74,7 @@ const Dashboard = (props) => {
 
   
   }, []);
- useEffect (()=>{
-  const userId = getUserId();
-  http
-      .get(IS_USER_PAID, {
-        headers: {
-          user_id: userId
-        }
-      })
-      .then((res) => {
-        setIsValidUser(res.data.isValid)
-      })
-      .catch((err) => console.log(err));
- },[])
+
 
   const handleChangeMock = (id) => {
     window.localStorage.setItem("mock_paper_id", id);
@@ -104,12 +106,12 @@ const Dashboard = (props) => {
 }
 
 const handleQuestionPaper = (id) =>{
-  window.localStorage.setItem('question_paper', "Q-"+id.toString())
+  window.localStorage.setItem('mock_paper_id',id)
   history.push('/user/questionPaper')
 }
 
 const handleAnswerKey = (id) =>{
-  window.localStorage.setItem('answer_key', "A-"+id.toString())
+  window.localStorage.setItem('mock_paper_id',id)
   history.push('/user/answerKey')
 }
 
@@ -172,82 +174,47 @@ const handleAnswerKey = (id) =>{
 
                         <td>
                           <button className="btn btn-secondary" onClick={()=>handleClick(data.id)}>Click Here</button>
-                        </td>
+                        </td>                  
+                          {
+                            !data.is_attempted && !data.is_live_attempted && !data.is_active && !data.is_finished && !data.is_result_released ?
+                                <td><button className="btn btn-primary" disabled>Coming Soon</button></td>
+                              :
+                              !data.is_attempted && !data.is_live_attempted && data.is_active && !data.is_finished && !data.is_result_released ?
+                                <td><button className="btn btn-success" onClick={() => { handleChangeMock(data.id)}}>Start Test</button></td>
+                                :
+                                data.is_attempted && data.is_live_attempted && data.is_active && !data.is_finished && !data.is_result_released ?
+                                  <td><button className="btn btn-info" onClick={() => {handleViewResult(data.id) }}>View Response</button></td>
+                                :
+                                data.is_attempted && data.is_live_attempted && !data.is_active && data.is_finished && !data.is_result_released ?
+                                  <td><button className="btn btn-info" onClick={() => {handleViewResult(data.id) }}>View Response</button></td>
+                                :
+                                data.is_attempted && data.is_live_attempted && !data.is_active && data.is_finished && data.is_result_released ?
+                                  <td>
+                                    <button className="btn btn-info mr-2" onClick={() => { handleViewResult(data.id) }}> View Response</button>
+                                    <button className="btn btn-danger" onClick={() => { handleViewRank(data.id) }}>View Rank</button>
+                                  </td>
+                                :
+                                !data.is_attempted && !data.is_live_attempted && !data.is_active && data.is_finished && !data.is_result_released ?
+                                  <td><button className="btn btn-success" onClick={() => { handleChangeMock(data.id)}}>Attempt Now</button></td>
+                                :
+                                !data.is_attempted && !data.is_live_attempted && !data.is_active && data.is_finished && data.is_result_released ?
+                                  <td><button className="btn btn-success" onClick={() => { handleChangeMock(data.id)}}>Attempt Now</button></td>
+                                :
+                                data.is_attempted && !data.is_live_attempted && !data.is_active && data.is_finished && data.is_result_released ?
+                                  <td><button className="btn btn-info" onClick={() => {handleViewResult(data.id) }}>View Response</button></td>
+                                :
+                                null                                
+                          }
 
-                        {!data.is_active &&
-                          data.is_finished &&
-                          data.is_attempted &&
-                          data.is_result_released ? (
-                            <td>
-                              <button className="btn btn-success mr-2" onClick={() => { handleViewResult(data.id) }}> View Response</button>
-                              <button className="btn btn-danger" onClick={() => { handleViewRank(data.id) }}>View Rank</button>
-                            </td>
-                          )
-                           : !data.is_active &&
-                            data.is_finished &&
-                            !data.is_attempted ? (
-                              <td>
-                                <button className="btn btn-success mr-2" disabled>
-                                  Not Attempted
-                              </button>
-                              </td>
-                            )
-                            // <embed src="https://quizzes-for-kid.s3.us-east-2.amazonaws.com/env.pdf#toolbar=0&navpanes=0&scrollbar=0" width="1000" height="800"></embed>
-                               : 
-                                data.is_active &&
-                                !data.is_finished &&
-                                data.is_attempted ? (
-                                  <td>
-                                    <button className="btn btn-danger" 
-                                      onClick={() => { 
-                                        handleViewResult(data.id) 
-                                      }}>
-                                      View Response
-                              </button>
-                                  </td>
-                                ) : data.is_active && 
-                                  !data.is_finished ? (
-                                  <td>
-                                    <button
-                                      className="btn btn-success"
-                                      onClick={() => {
-                                        handleChangeMock(data.id);
-                                      }}
-                                    >
-                                      Start Test
-                                    </button>
-                                  </td>
-                                )
-                                : !data.is_active && 
-                                   data.is_finished ? (
-                                  <td>
-                                    <button
-                                      className="btn btn-danger"
-                                      onClick={() => {
-                                        handleViewResult(data.id)
-                                      }}
-                                    >
-                                      View Response
-                                    </button>
-                                  </td>
-                                ) : 
-                                  !data.is_active &&
-                                  !data.is_finished ? (
-                                  <td>
-                                    <button className="btn btn-primary" disabled>
-                                      Coming Soon
-                              </button>
-                                  </td>
-                                ) : null}
-                          {!data.is_active &&
-                          data.is_finished &&
-                          data.is_result_released ? (
+                          {
+                          data.is_attempted && data.is_result_released ? 
                             <td>
                               <button className="btn btn-secondary mr-2" onClick={()=>{handleQuestionPaper(index+1)}}>Question</button>
                               <button className="btn btn-secondary" onClick={()=>{handleAnswerKey(index+1)}}>Answer</button>
                             </td>
-                          )
-                           :null}
+                           :
+                           null
+                          }
                       </tr>
                     );
                   })}
@@ -255,11 +222,18 @@ const handleAnswerKey = (id) =>{
               </table>
             </div>
             :
-            <div className="container text-center py-5">
-              <div className="info-header mb-5">
-                <h1 className="text-primary pb-3">You are not register for any test</h1>
-              </div>
-            </div>
+            <div>
+              {
+                !isValidUser? 
+                <div className="container text-center py-5">
+                  <div className="info-header mb-5">
+                    <h1 className="text-primary pb-3">You are not register for any test</h1>
+                  </div>
+              </div>:
+              null
+              }
+
+            </div>   
           :
           <div style={{ position: 'absolute', transform: 'translate(-50%,-50%)', top: '20%', left: '50%' }}>
             <div className="d-flex justify-content-center">

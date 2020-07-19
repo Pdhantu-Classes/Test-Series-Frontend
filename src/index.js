@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { transitions, positions,types, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
 
+
 const options = {
   position: positions.MIDDLE,
   timeout: 2000,
@@ -18,6 +19,7 @@ ReactDOM.render(
   <React.StrictMode>
       <AlertProvider template={AlertTemplate} {...options}>
           <Routes />      
+      
       </AlertProvider>
   </React.StrictMode>,
   document.getElementById('root')

@@ -1,29 +1,43 @@
 import React, { useEffect, useState } from 'react'
 import '../../css/Pdf.css'
-export default function AnswerKeyShow() {
-    const [ pdfName, setPdfName ] = useState('')
-    const [ loading, setLoading ] = useState(true)
+import {API_ENDPOINTS} from '../../core/constants/apiConstant'
+import Axios from 'axios'
 
+const  GET_ANSWER_KEY_PDF =API_ENDPOINTS.TEST_SERIES.GET_ANSWER_KEY_PDF
+export default function AnswerKeyShow() {
+    const [ pdfImages, setPdfImages ] = useState([])
+    const [ loading, setLoading ] = useState(false)
+  
     useEffect (()=>{
-        let prefixPdf = "https://pdhantu-classes.s3.us-east-2.amazonaws.com/answer_key_pdf/"
-        let suffixPdf = ".pdf#toolbar=0&navpanes=0&scrollbar=0"
         setLoading(true)
-        let data = window.localStorage.getItem('answer_key')
-        if(data){
-            setPdfName(prefixPdf+data+suffixPdf)
+        let data = window.localStorage.getItem('mock_paper_id')
+        Axios.get(GET_ANSWER_KEY_PDF,{
+            headers:{
+                mock_paper_id:data
+            }
+        }).then((res)=>{
+            console.log(res)
             setLoading(false)
-        }
+            setPdfImages(res.data)
+        })
+       
        },[])
     return (
         <div>
-             {
-                !loading?
-                <div class='issuu-embed-container'>
-
-                <iframe src={pdfName} frameborder='0' allowfullscreen></iframe>
-
+             { !loading ?
+                pdfImages.length >0 ?
+                
+                <div>
+                {pdfImages.map((img)=><div className="border"><img src=  {img.answer_image_url} class=" img-fluid rounded mx-auto d-block"  alt={"Answer image" +img.id} /></div>)}
                 </div>
-                :<div>Loading...</div>
+                :<div>Coming Soon..</div>
+                : <div style={{ position: 'absolute', transform: 'translate(-50%,-50%)', top: '20%', left: '50%' }}>
+                <div className="d-flex justify-content-center">
+                  <div className="spinner-border" role="status">
+                    <span className="sr-only">Loading...</span>
+                  </div>
+                </div>
+              </div>
             }
         </div>
     )

@@ -2,7 +2,6 @@ import React from 'react'
 import avatar from '../../asset/avatar.svg'
 
 const UserItem = ({ item }) => {
-  console.log(item)
   return (
     <div className='card mt-2'>
       <div className='card-inner'>

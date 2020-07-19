@@ -35,6 +35,8 @@ const AllUser = () => {
     }
   }, [pageNo]);
 
+  console.log(pageNo)
+
   return (
     <>
       <AdminNav />
@@ -56,11 +58,64 @@ const AllUser = () => {
               </div>
             </div>
             <div classNmme="row py-2">
-              <nav className="py-2 d-flex justify-content-center">
-                <ul class="pagination">
-                  {buttons}
-                </ul>
-              </nav>
+              <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                {
+                    pageNo <= 1 ?
+                    <li class="page-item disabled">
+                      <p class="page-link" tabindex="-1"> First</p>
+                    </li>
+                  :
+                    <li class="page-item" onClick={() => setPageNo(1)}>
+                      <p class="page-link">First</p>
+                    </li>
+                  }
+                  {
+                    pageNo <= 1 ?
+                    <li class="page-item disabled">
+                      <p class="page-link" tabindex="-1">Previous</p>
+                    </li>
+                  :
+                    <li class="page-item" onClick={() => setPageNo(pageNo-1)}>
+                      <p class="page-link">Previous</p>
+                    </li>
+                  }
+
+                  <li class="page-item active" onClick={() => setPageNo(pageNo)}><p class="page-link" >{pageNo}</p></li>
+                  {
+                    pageNo <= buttons.length -1 ?
+                      <li class="page-item" onClick={() => setPageNo(pageNo+1)}><p class="page-link" >{pageNo+1}</p></li>
+                    :
+                      null
+                  }
+                  {
+                    pageNo <= buttons.length -2 ?
+                      <li class="page-item" onClick={() => setPageNo(pageNo+2)}><p class="page-link" >{pageNo+2}</p></li>
+                    :
+                      null
+                  }
+                  {
+                    pageNo >= buttons.length ?
+                    <li class="page-item disabled">
+                      <p onClick={() => setPageNo(pageNo+1)} class="page-link">Next</p>
+                    </li>
+                    :
+                    <li class="page-item">
+                      <p onClick={() => setPageNo(pageNo+1)} class="page-link">Next</p>
+                    </li>
+                  }
+                  {
+                    pageNo <= buttons.length && pageNo >= buttons.length- 2 ?
+                    <li class="page-item disabled">
+                      <p class="page-link">Last</p>
+                    </li>
+                    :
+                    <li class="page-item">
+                    <p onClick={() => setPageNo(buttons.length-2)} class="page-link">Last</p>
+                  </li>
+                  }
+                </ul>       
+            </nav>
             </div>
           </div>
       }
