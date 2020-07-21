@@ -20,7 +20,7 @@ const Dashboard = (props) => {
   const handleClose = () => setShow(false);
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
-  const [testDetails,setTestDetails] = useState([])
+  const [testDetails, setTestDetails] = useState([])
 
   useEffect(() => {
     window.history.pushState(null, document.title, window.location.href);
@@ -35,17 +35,17 @@ const Dashboard = (props) => {
     var ret = "";
 
     if (hrs > 0) {
-        ret += "" + hrs + "h " + (mins < 10 ? "0" : "");
+      ret += "" + hrs + "h " + (mins < 10 ? "0" : "");
     }
 
     ret += "" + mins + "m " + (secs < 10 ? "0" : "");
     ret += "" + secs + "s";
     return ret;
-}
+  }
 
-useEffect (()=>{
-  const userId = getUserId();
-  http
+  useEffect(() => {
+    const userId = getUserId();
+    http
       .get(IS_USER_PAID, {
         headers: {
           user_id: userId
@@ -55,7 +55,7 @@ useEffect (()=>{
         setIsValidUser(res.data.isValid)
       })
       .catch((err) => console.log(err));
- },[])
+  }, [])
 
   useEffect(() => {
     const userId = getUserId();
@@ -72,7 +72,7 @@ useEffect (()=>{
       })
       .catch((err) => console.log(err));
 
-  
+
   }, []);
 
 
@@ -90,47 +90,47 @@ useEffect (()=>{
     window.localStorage.setItem('mock_paper_id', id)
     history.push('/user/testresponse')
   }
-  const handleClick =(id) =>{
+  const handleClick = (id) => {
     setTestDetails([])
-    http.get(TEST_DETAILS,{
-            headers:{
-                mock_paper_id:id
-            }
-        })
-        .then((res) => {
-            console.log(res)
-            setTestDetails(res.data.mock_paper)
-        })
-        .catch((err) => console.log(err));
-        handleShow()
-}
+    http.get(TEST_DETAILS, {
+      headers: {
+        mock_paper_id: id
+      }
+    })
+      .then((res) => {
+        console.log(res)
+        setTestDetails(res.data.mock_paper)
+      })
+      .catch((err) => console.log(err));
+    handleShow()
+  }
 
-const handleQuestionPaper = (id) =>{
-  window.localStorage.setItem('mock_paper_id',id)
-  history.push('/user/questionPaper')
-}
+  const handleQuestionPaper = (id) => {
+    window.localStorage.setItem('mock_paper_id', id)
+    history.push('/user/questionPaper')
+  }
 
-const handleAnswerKey = (id) =>{
-  window.localStorage.setItem('mock_paper_id',id)
-  history.push('/user/answerKey')
-}
+  const handleAnswerKey = (id) => {
+    window.localStorage.setItem('mock_paper_id', id)
+    history.push('/user/answerKey')
+  }
 
   return (
     <div>
       <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                <Modal.Title>Mock Details Are</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                <div className="justify-content-center">
-                <div> <b>Mock Description</b> :{testDetails.mock_description}</div>
-                <div> <b>Mock Papar Name </b>: {testDetails.mock_paper_name}</div>
-                <div> <b>Paper Date</b>:{testDetails.paper_date}</div>
-                <div><b>Paper Time</b> :{fancyTimeFormat(testDetails.paper_time)}</div>
-                <div><b>Total Question</b> :{testDetails.total_questions}</div>
-                </div>
-                </Modal.Body>
-             </Modal>
+        <Modal.Header closeButton>
+          <Modal.Title>Paper details are</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="justify-content-center">
+            <div> <b>Mock Description</b> :{testDetails.mock_description}</div>
+            <div> <b>Mock Papar Name </b>: {testDetails.mock_paper_name}</div>
+            <div> <b>Paper Date</b>:{testDetails.paper_date}</div>
+            <div><b>Paper Time</b> :{fancyTimeFormat(testDetails.paper_time)}</div>
+            <div><b>Total Question</b> :{testDetails.total_questions}</div>
+          </div>
+        </Modal.Body>
+      </Modal>
       <UserNavBar />
       {
         !loading ?
@@ -150,7 +150,7 @@ const handleAnswerKey = (id) =>{
                     >
                       *Rank will released next day of exam
                       </th>
-                      <th>Question/Answer Key Pdf</th>
+                    <th>Question/Answer Key Pdf</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -173,48 +173,48 @@ const handleAnswerKey = (id) =>{
                         ) : null}
 
                         <td>
-                          <button className="btn btn-secondary" onClick={()=>handleClick(data.id)}>Click Here</button>
-                        </td>                  
-                          {
-                            !data.is_attempted && !data.is_live_attempted && !data.is_active && !data.is_finished && !data.is_result_released ?
-                                <td><button className="btn btn-primary" disabled>Coming Soon</button></td>
+                          <button className="btn btn-secondary" onClick={() => handleClick(data.id)}>Click Here</button>
+                        </td>
+                        {
+                          !data.is_attempted && !data.is_live_attempted && !data.is_active && !data.is_finished && !data.is_result_released ?
+                            <td><button className="btn btn-primary" disabled>Coming Soon</button></td>
+                            :
+                            !data.is_attempted && !data.is_live_attempted && data.is_active && !data.is_finished && !data.is_result_released ?
+                              <td><button className="btn btn-success" onClick={() => { handleChangeMock(data.id) }}>Start Test</button></td>
                               :
-                              !data.is_attempted && !data.is_live_attempted && data.is_active && !data.is_finished && !data.is_result_released ?
-                                <td><button className="btn btn-success" onClick={() => { handleChangeMock(data.id)}}>Start Test</button></td>
-                                :
-                                data.is_attempted && data.is_live_attempted && data.is_active && !data.is_finished && !data.is_result_released ?
-                                  <td><button className="btn btn-info" onClick={() => {handleViewResult(data.id) }}>View Response</button></td>
+                              data.is_attempted && data.is_live_attempted && data.is_active && !data.is_finished && !data.is_result_released ?
+                                <td><button className="btn btn-info" onClick={() => { handleViewResult(data.id) }}>View Response</button></td>
                                 :
                                 data.is_attempted && data.is_live_attempted && !data.is_active && data.is_finished && !data.is_result_released ?
-                                  <td><button className="btn btn-info" onClick={() => {handleViewResult(data.id) }}>View Response</button></td>
-                                :
-                                data.is_attempted && data.is_live_attempted && !data.is_active && data.is_finished && data.is_result_released ?
-                                  <td>
-                                    <button className="btn btn-info mr-2" onClick={() => { handleViewResult(data.id) }}> View Response</button>
-                                    <button className="btn btn-danger" onClick={() => { handleViewRank(data.id) }}>View Rank</button>
-                                  </td>
-                                :
-                                !data.is_attempted && !data.is_live_attempted && !data.is_active && data.is_finished && !data.is_result_released ?
-                                  <td><button className="btn btn-success" onClick={() => { handleChangeMock(data.id)}}>Attempt Now</button></td>
-                                :
-                                !data.is_attempted && !data.is_live_attempted && !data.is_active && data.is_finished && data.is_result_released ?
-                                  <td><button className="btn btn-success" onClick={() => { handleChangeMock(data.id)}}>Attempt Now</button></td>
-                                :
-                                data.is_attempted && !data.is_live_attempted && !data.is_active && data.is_finished && data.is_result_released ?
-                                  <td><button className="btn btn-info" onClick={() => {handleViewResult(data.id) }}>View Response</button></td>
-                                :
-                                null                                
-                          }
+                                  <td><button className="btn btn-info" onClick={() => { handleViewResult(data.id) }}>View Response</button></td>
+                                  :
+                                  data.is_attempted && data.is_live_attempted && !data.is_active && data.is_finished && data.is_result_released ?
+                                    <td>
+                                      <button className="btn btn-info mr-2 mt-1" onClick={() => { handleViewResult(data.id) }}> View Response</button>
+                                      <button className="btn btn-danger mt-1" onClick={() => { handleViewRank(data.id) }}>View Rank</button>
+                                    </td>
+                                    :
+                                    !data.is_attempted && !data.is_live_attempted && !data.is_active && data.is_finished && !data.is_result_released ?
+                                      <td><button className="btn btn-success" onClick={() => { handleChangeMock(data.id) }}>Attempt Now</button></td>
+                                      :
+                                      !data.is_attempted && !data.is_live_attempted && !data.is_active && data.is_finished && data.is_result_released ?
+                                        <td><button className="btn btn-success" onClick={() => { handleChangeMock(data.id) }}>Attempt Now</button></td>
+                                        :
+                                        data.is_attempted && !data.is_live_attempted && !data.is_active && data.is_finished && data.is_result_released ?
+                                          <td><button className="btn btn-info" onClick={() => { handleViewResult(data.id) }}>View Response</button></td>
+                                          :
+                                          null
+                        }
 
-                          {
-                          data.is_attempted && data.is_result_released ? 
+                        {
+                          data.is_attempted && data.is_result_released ?
                             <td>
-                              <button className="btn btn-secondary mr-2" onClick={()=>{handleQuestionPaper(index+1)}}>Question</button>
-                              <button className="btn btn-secondary" onClick={()=>{handleAnswerKey(index+1)}}>Answer</button>
+                              <button className="btn btn-secondary mr-2 mt-1" onClick={() => { handleQuestionPaper(index + 1) }}>Question</button>
+                              <button className="btn btn-secondary mt-1" onClick={() => { handleAnswerKey(index + 1) }}>Answer</button>
                             </td>
-                           :
-                           null
-                          }
+                            :
+                            null
+                        }
                       </tr>
                     );
                   })}
@@ -224,16 +224,16 @@ const handleAnswerKey = (id) =>{
             :
             <div>
               {
-                !isValidUser? 
-                <div className="container text-center py-5">
-                  <div className="info-header mb-5">
-                    <h1 className="text-primary pb-3">You are not register for any test</h1>
-                  </div>
-              </div>:
-              null
+                !isValidUser ?
+                  <div className="container text-center py-5">
+                    <div className="info-header mb-5">
+                      <h1 className="text-primary pb-3">You are not register for any test</h1>
+                    </div>
+                  </div> :
+                  null
               }
 
-            </div>   
+            </div>
           :
           <div style={{ position: 'absolute', transform: 'translate(-50%,-50%)', top: '20%', left: '50%' }}>
             <div className="d-flex justify-content-center">

@@ -28,7 +28,7 @@ export default function QuestionPaperShow() {
                 pdfImages.length >0 ?
                 
                 <div>
-                {pdfImages.map((img)=><div key={img.id} className="border"><img src=  {img.question_image_url} class=" img-fluid rounded mx-auto d-block" alt={"Question image" +img.id} /></div>)}
+                {pdfImages.map((img)=><div key={img.id} className="border"><img src=  {img.question_image_url} className=" img-fluid rounded mx-auto d-block w-75" alt={"Question image" +img.id} /></div>)}
                 </div>
                 :<div>Coming Soon..</div>
                 : <div style={{ position: 'absolute', transform: 'translate(-50%,-50%)', top: '20%', left: '50%' }}>

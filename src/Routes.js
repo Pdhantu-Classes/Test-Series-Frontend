@@ -31,6 +31,9 @@ import AnswerKeyShow from "./containers/User/AnswerKeyShow";
 import AdminViewRank from './containers/Admin/ViewRank'
 import MockStatus from './containers/Admin/MockStatus'
 import AddToPayment from './containers/Admin/AddToPaymentList'
+import ViewMockStatus from "./containers/Admin/ViewMockStatus";
+import UploadQuestionPaperPdf from "./containers/Admin/UploadQuestionPaperPdf";
+import UploadAnswerKeyPdf from "./containers/Admin/UploadAnswerKeyPdf";
 
 const Routes = () => {
  
@@ -154,6 +157,12 @@ const Routes = () => {
             !isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <MockStatus />
           }
         />
+        <Route
+          path="/admin/viewmockusers"
+          render={() =>
+            !isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <ViewMockStatus />
+          }
+        />
          <Route
           path="/admin/viewrank"
           render={() =>
@@ -166,10 +175,26 @@ const Routes = () => {
             !isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <AddToPayment />
           }
         />
+        <Route
+           path='/admin/uploadQuestionPdf'
+          render={() =>
+            !isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <UploadQuestionPaperPdf />
+          }
+        />
+        <Route
+          path='/admin/uploadAnswerPdf'
+          render={() =>
+            !isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <UploadAnswerKeyPdf />
+          }
+        />
+
         <Route path='/testViewDetails' component={TestDetails} />
         <Route path='/admin/upload-question-images' component={UploadQuestionImage} />
         <Route path='/user/questionPaper' component={QuestionPaperShow} />
         <Route path='/user/answerKey' component={AnswerKeyShow} />
+        <Route path='/admin/questionPaper' component={QuestionPaperShow} />
+        <Route path='/admin/answerKey' component={AnswerKeyShow} />
+
       </Switch>
     </BrowserRouter>
   );

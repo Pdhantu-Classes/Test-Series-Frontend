@@ -1,6 +1,6 @@
 //  let base_url = 'https://pdhnatu.herokuapp.com'
-let base_url = "http://3.17.56.99:5000"; //production
-// let base_url = "http://52.14.8.163:5000" //devlopment
+// let base_url = "http://3.17.56.99:5000"; //production
+let base_url = "http://52.14.8.163:5000" //devlopment
 // let base_url = "http://localhost:5000"
 
 export const API_ENDPOINTS = {
@@ -39,11 +39,12 @@ export const API_ENDPOINTS = {
     ADD_PAYMENT_DATA:`${base_url}/addUserToPaymentList`,
     UPLOAD_IMAGE:`${base_url}/upload-question-image`,
     UPLOAD_BULK_QUESTION_PDF:`${base_url}/upload-image-bulk-question`,
-    UPLOAD_BULK_ANSWER_PDF:`${base_url}/upload-image-answer`,
+    UPLOAD_ANSWER_PDF:`${base_url}/upload-image-answer`,
     DUMPED_QUESTION_PDF:`${base_url}/dump-question-images`,
     DUMPED_ANSWER_PDF:`${base_url}/dump-images-answer`,
     GET_MOCK_PAPER_QUESTION:`${base_url}/getMockPaperForQuestion`,
-    GET_MOCK_PAPER_ANSWER:`${base_url}getMockPaperForAnswer`
+    GET_MOCK_PAPER_ANSWER:`${base_url}/getMockPaperForAnswer`,
+    GET_USER_LIST_MOCK: `${base_url}/getUserListMock`
 
   },
   TEST_SERIES:{

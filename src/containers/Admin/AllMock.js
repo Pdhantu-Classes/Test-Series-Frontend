@@ -46,7 +46,6 @@ export default function AllMock() {
         setIsLive(true)
         setIsStop(false)
         setIsRelease(false)
-        // setShow(true)
         setShowAuth(true)
         console.log(id)
     }

@@ -48,7 +48,7 @@ export default function TestScreen(props) {
 
     return () => {
       clearInterval(intervalId);
-      if (timeLeft === 10) {
+      if (timeLeft === 300) {
        alert.show('You have only 5 minutes Left!', { type: types.ERROR })
        document.getElementById("timerId").style.color = "red"
       }
@@ -114,7 +114,7 @@ export default function TestScreen(props) {
 
 
   useEffect (()=>{
-    if(timeLeft-1===0){
+    if(timeLeft === 0){
         submitResponse()
     }
 }, [timeLeft])
@@ -238,7 +238,7 @@ export default function TestScreen(props) {
       responses: arr.join(","),
       mock_paper_id: mockPaperId,
       user_id: userId,
-      paper_time_taken: mockPaperTime - timeLeft-1,
+      paper_time_taken: mockPaperTime - timeLeft,
     };
     http
       .post(POST_RESPONSE, body)

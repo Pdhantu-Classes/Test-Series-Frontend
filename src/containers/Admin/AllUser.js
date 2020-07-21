@@ -7,21 +7,16 @@ import '../../css/UserCard.css'
 const AllUser = () => {
   const [items, setItems] = useState([])
   const [pageNo, setPageNo] = useState(1);
-  const [buttons, setButtons] = useState([]);
+  const [buttons, setButtons] = useState(0);
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
 
     getAllUser(pageNo).then((res) => {
-      console.log(res);
       let buttonsCount = Math.ceil(res.total / 20);
-      let btnArr = []
-      for (let i = 1; i <= buttonsCount; i++) {
-        btnArr.push(<li class="page-item" key={i} onClick={() => setPageNo(i)}><button class="page-link">{i}</button></li>)
-      }
+      setButtons(buttonsCount)
       setItems(res.user_data)
       setIsLoading(false)
-      setButtons(btnArr)
     });
   }, [pageNo])
 
@@ -40,7 +35,7 @@ const AllUser = () => {
   return (
     <>
       <AdminNav />
-      <div className="float-right mr-5 mt-2">Showing {pageNo} out of {buttons.length}</div>
+      <div className="float-right mr-5 mt-2">Showing {pageNo} out of {buttons}</div>
       {
         isLoading ?
           <div style={{ position: 'absolute', transform: 'translate(-50%,-50%)', top: '20%', left: '50%' }}>
@@ -83,19 +78,19 @@ const AllUser = () => {
 
                   <li class="page-item active" onClick={() => setPageNo(pageNo)}><p class="page-link" >{pageNo}</p></li>
                   {
-                    pageNo <= buttons.length -1 ?
+                    pageNo <= buttons -1 ?
                       <li class="page-item" onClick={() => setPageNo(pageNo+1)}><p class="page-link" >{pageNo+1}</p></li>
                     :
                       null
                   }
                   {
-                    pageNo <= buttons.length -2 ?
+                    pageNo <= buttons -2 ?
                       <li class="page-item" onClick={() => setPageNo(pageNo+2)}><p class="page-link" >{pageNo+2}</p></li>
                     :
                       null
                   }
                   {
-                    pageNo >= buttons.length ?
+                    pageNo >= buttons ?
                     <li class="page-item disabled">
                       <p onClick={() => setPageNo(pageNo+1)} class="page-link">Next</p>
                     </li>
@@ -105,13 +100,13 @@ const AllUser = () => {
                     </li>
                   }
                   {
-                    pageNo <= buttons.length && pageNo >= buttons.length- 2 ?
+                    pageNo <= buttons && pageNo >= buttons- 2 ?
                     <li class="page-item disabled">
                       <p class="page-link">Last</p>
                     </li>
                     :
                     <li class="page-item">
-                    <p onClick={() => setPageNo(buttons.length-2)} class="page-link">Last</p>
+                    <p onClick={() => setPageNo(buttons-2)} class="page-link">Last</p>
                   </li>
                   }
                 </ul>       
