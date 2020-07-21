@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useAlert, types } from 'react-alert'
+import { useAlert } from 'react-alert'
 import "../../css/Signup.css";
 import { signup } from "../auth/index";
 
