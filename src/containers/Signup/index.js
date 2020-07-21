@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useAlert, types } from 'react-alert'
 import "../../css/Signup.css";
 import { signup } from "../auth/index";
 
 
 function Signup() {
+  const alert = useAlert()
 
   const [error, setError] = useState(false)
   const [disable, setDisable] = useState(true)
@@ -89,6 +91,7 @@ function Signup() {
       signup({ firstname, lastname, email, mobile, password }).then(data => {
         setLoading(false)
         setMessage(data.message)
+        alert.show('New Account is Created Successfully')
         if (!data.isValid) {
           setError(data.message)
           setFirstName('')
@@ -110,6 +113,7 @@ function Signup() {
     }
     else {
       setError('Mobile or Email is not Valid')
+      alert.show('Mobile or Email is not Valid')
     }
 
   };

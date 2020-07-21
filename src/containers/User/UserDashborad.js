@@ -114,7 +114,7 @@ const Dashboard = (props) => {
     window.localStorage.setItem('mock_paper_id', id)
     history.push('/user/answerKey')
   }
-
+console.log(mockPapers)
   return (
     <div>
       <Modal show={show} onHide={handleClose}>
@@ -135,7 +135,7 @@ const Dashboard = (props) => {
       {
         !loading ?
           isValidUser ?
-            <div class="table-responsive col-10 offset-1 text-center py-4">
+            <div class="table-responsive col-10 offset-1 text-center mt-5 pt-5">
               <table id="tablePreview" class="table table-bordered table-hover">
                 <thead>
                   <tr>
@@ -160,17 +160,34 @@ const Dashboard = (props) => {
                         <th scope="row">{index + 1}</th>
                         <td className="font-weight-bold">{data.mock_paper_name}</td>
                         <td>{data.paper_date}</td>
-                        {!data.is_active && !data.is_finished ? (
-                          <td className="text-primary font-weight-bold">
-                            Upcoming
-                          </td>
-                        ) : data.is_active && !data.is_finished ? (
-                          <td className="text-success font-weight-bold blink">
-                            Live&#8226;{" "}
-                          </td>
-                        ) : !data.is_active && data.is_finished ? (
-                          <td className="text-danger font-weight-bold">End</td>
-                        ) : null}
+                        {
+                          !data.is_active && !data.is_finished ? (
+                            <td className="text-primary font-weight-bold">
+                              Upcoming
+                            </td>
+                          )
+                              : data.is_active && !data.is_finished && data.is_attempted ? (
+                                <td className="text-info font-weight-bold">
+                                  Completed
+                                </td>
+                              )
+                                : !data.is_active && data.is_finished && !data.is_attempted ? (
+                                  <td className="text-danger font-weight-bold">
+                                    Not Attempted
+                                  </td>
+                                )
+                                  : !data.is_active && data.is_finished && data.is_attempted ? (
+                                    <td className="text-info font-weight-bold">
+                                      Completed
+                                    </td>
+                                  )
+                                  : data.is_active && !data.is_finished ? (
+                                    <td className="text-success font-weight-bold blink">
+                                      Live&#8226;{" "}
+                                    </td>
+                                  )
+                                    : null
+                        }
 
                         <td>
                           <button className="btn btn-secondary" onClick={() => handleClick(data.id)}>Click Here</button>
