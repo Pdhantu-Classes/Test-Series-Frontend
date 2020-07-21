@@ -20,7 +20,7 @@ const Dashboard = (props) => {
   const handleClose = () => setShow(false);
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
-  const [testDetails, setTestDetails] = useState([])
+  const [testDetails, setTestDetails] = useState({})
 
   useEffect(() => {
     window.history.pushState(null, document.title, window.location.href);
@@ -91,7 +91,7 @@ const Dashboard = (props) => {
     history.push('/user/testresponse')
   }
   const handleClick = (id) => {
-    setTestDetails([])
+    setTestDetails({})
     http.get(TEST_DETAILS, {
       headers: {
         mock_paper_id: id

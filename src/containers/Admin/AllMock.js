@@ -26,8 +26,22 @@ export default function AllMock() {
     const [showAuth, setShowAuth] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const [testDetails,setTestDetails] = useState([])
+    const [testDetails,setTestDetails] = useState({})
     
+    function fancyTimeFormat(time) {
+        var hrs = ~~(time / 3600);
+        var mins = ~~((time % 3600) / 60);
+        var secs = ~~time % 60;
+        var ret = "";
+    
+        if (hrs > 0) {
+          ret += "" + hrs + "h " + (mins < 10 ? "0" : "");
+        }
+    
+        ret += "" + mins + "m " + (secs < 10 ? "0" : "");
+        ret += "" + secs + "s";
+        return ret;
+      }
 
     useEffect(() => {
         setLoading(true);
@@ -71,6 +85,7 @@ export default function AllMock() {
         setShowAuth(true)
     }
     const handleClick =(id) =>{
+        setTestDetails({})
         http.get(TEST_DETAILS,{
                 headers:{
                     mock_paper_id:id
@@ -136,7 +151,6 @@ export default function AllMock() {
 
     }
     
-    console.log(testDetails.id)
     return (
         <div>
             <AdminNav />
@@ -160,16 +174,26 @@ export default function AllMock() {
             </Modal>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                <Modal.Title>Mocke Details Are</Modal.Title>
+                <Modal.Title>Mock details are</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                <div className="justify-content-center">
-                <div>Mock Description :{testDetails.mock_description}</div>
-                <div>Mock Papar Name: {testDetails.mock_paper_name}</div>
-                <div>Paper Date:{testDetails.paper_date}</div>
-                <div>Paper Time :{testDetails.paper_time}</div>
-                <div>Total Question :{testDetails.total_questions}</div>
-                </div>
+                {
+                    testDetails !== null ?           
+                    <div className="justify-content-center">
+                        <div>Mock Description :{testDetails.mock_description}</div>
+                        <div>Mock Papar Name: {testDetails.mock_paper_name}</div>
+                        <div>Paper Date:{testDetails.paper_date}</div>
+                        <div>Paper Time :{fancyTimeFormat(testDetails.paper_time)}</div>
+                        <div>Total Question :{testDetails.total_questions}</div>
+                    </div>
+                    :
+                    <div className="d-flex justify-content-center py-5">
+                        <div className="spinner-border" role="status">
+                            <span className="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                }
+
                 </Modal.Body>
              </Modal>
             {
