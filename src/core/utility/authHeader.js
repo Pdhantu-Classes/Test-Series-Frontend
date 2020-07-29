@@ -65,3 +65,11 @@ export const userImage = () => {
   const imgUrl = window.localStorage.getItem("imgUrl");
   return imgUrl;
 };
+
+export const getModule = () => {
+  if (isTokenVaild()) {
+    const token = window.localStorage.getItem("token");
+    let { module } = jwtDecode(token);
+    return module;
+  }
+};

@@ -83,8 +83,8 @@ const Login = () => {
                 {showError()}
                 {SignInForm()}
                 {redirectUser()}
-                <p className="text-center"><Link to="/Signup">Create an Account</Link></p>
-                <p className="text-center text-danger"><Link to="/forgotPassword">Forgot Password</Link></p>
+                <p className="text-center"><Link to="/SignupSeries">Create an Account</Link></p>
+                <p className="text-center text-danger"><Link to="/forgotPasswordSeries">Forgot Password</Link></p>
             </div>
         </div>
     );

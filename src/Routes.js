@@ -8,7 +8,7 @@ import ForgotPassword from './containers/ForgotPassword'
 import Profile from "./containers/User/Profile";
 import Orders from "./containers/User/Orders";
 import Home from "./containers/User/Home";
-import { isTokenVaild, isAdminTokenValid } from "./core/utility/authHeader";
+import { isTokenVaild, isAdminTokenValid, getModule } from "./core/utility/authHeader";
 import Dashboard from "./containers/User/UserDashborad";
 import MainLandingPage from "./MainLandingPage";
 import ViewDetails from "./containers/User/ViewDetails";
@@ -34,6 +34,12 @@ import AddToPayment from './containers/Admin/AddToPaymentList'
 import ViewMockStatus from "./containers/Admin/ViewMockStatus";
 import UploadQuestionPaperPdf from "./containers/Admin/UploadQuestionPaperPdf";
 import UploadAnswerKeyPdf from "./containers/Admin/UploadAnswerKeyPdf";
+import LoginCourse from './containers/Course/LoginCourse'
+import ForgotPasswordCourse from './containers/Course/ForgetPasswordCourse'
+import SignupCourse from './containers/Course/SignupCourse'
+import HomeCourse from './containers/Course/HomeCourse'
+import ProfileCourse from './containers/Course/ProfileCourse'
+import OrdersCourse from './containers/Course/OrdersCourse'
 
 const Routes = () => {
  
@@ -42,151 +48,131 @@ const Routes = () => {
       <Switch>
         <Route path="/" exact component={MainLandingPage} />
         <Route path="/adminLogin" component={AdminLogin} />
+
+        {/* TEST_SERIES */}
         <Route
-          path="/login"
+          path="/loginSeries"
           render={() =>
-            isTokenVaild() ? <Redirect to="/user/home" /> : <Login />
-          }
+            isTokenVaild() ? <Redirect to="/user/home" /> : <Login />}
         />
         <Route
-          path="/forgotPassword"
+          path="/forgotPasswordSeries"
           render={() =>
-            isTokenVaild() ? <Redirect to="/user/home" /> : <ForgotPassword />
-          }
+            isTokenVaild() ? <Redirect to="/user/home" /> : <ForgotPassword />}
         />
         <Route
-          path="/signup"
+          path="/signupSeries"
           render={() =>
-            isTokenVaild() ? <Redirect to="/user/home" /> : <Signup />
-          }
+            isTokenVaild()? <Redirect to="/user/home" /> : <Signup />}
         />
         <Route
           path="/home"
-          render={() =>
-            isTokenVaild() ? <Redirect to="/user/home" /> : <LandingPage />
-          }
+          render={() =>isTokenVaild()? <Redirect to="/user/home" /> : <LandingPage />}
         />
         <Route
           path="/user/home/viewdetails"
-          render={() =>
-            !isTokenVaild() ? <Redirect to="/" /> : <ViewDetails />
-          }
+          render={() =>!isTokenVaild()? <Redirect to="/" /> : <ViewDetails />}
         />
         <Route
           path="/user/dashboard"
-          render={() => (!isTokenVaild() ? <Redirect to="/" /> : <Dashboard />)}
+          render={() => (!isTokenVaild()? <Redirect to="/" /> : <Dashboard />)}
         />
         <Route
           path="/user/home"
-          render={() => (!isTokenVaild() ? <Redirect to="/" /> : <Home />)}
+          render={() => (!isTokenVaild()? <Redirect to="/" /> : getModule() === "TEST_SERIES" ? <Home />: getModule() === "COURSE" ?<HomeCourse/>:<Redirect to="/" />)}
         />
         <Route
           path="/user/profile"
-          render={() => (!isTokenVaild() ? <Redirect to="/" /> : <Profile />)}
+          render={() => (!isTokenVaild()? <Redirect to="/" /> : getModule() === "TEST_SERIES" ? <Profile />: getModule() === "COURSE" ? <ProfileCourse/>:<Redirect to="/" />)}
         />
         <Route
           path="/user/orders"
-          render={() => (!isTokenVaild() ? <Redirect to="/" /> : <Orders />)}
+          render={() => (!isTokenVaild()? <Redirect to="/" /> : getModule() === "TEST_SERIES" ? <Orders />:getModule() === "COURSE" ? <OrdersCourse/>:<Redirect to="/" />)}
         />
         <Route
           path="/user/testscreen"
-          render={() => (!isTokenVaild() ? <Redirect to="/" /> : <TestScreen />)}
+          render={() => (!isTokenVaild()? <Redirect to="/" /> : <TestScreen />)}
         />
          <Route
           path="/user/testresponse"
-          render={() => (!isTokenVaild() ? <Redirect to="/" /> : <TestResponse />)}
+          render={() => (!isTokenVaild()? <Redirect to="/" /> : <TestResponse />)}
         />
          <Route
           path="/user/testrank"
-          render={() => (!isTokenVaild() ? <Redirect to="/" /> : <TestRank />)}
+          render={() => (!isTokenVaild()? <Redirect to="/" /> : <TestRank />)}
         />
         <Route
           path="/user/testinstruction"
-          render={() => (!isTokenVaild() ? <Redirect to="/" /> : <TestInstruction />)}
+          render={() => (!isTokenVaild()? <Redirect to="/" /> : <TestInstruction />)}
         />
          <Route
           path="/user/demoInstruction"
-          render={() => (!isTokenVaild() ? <Redirect to="/" /> : <DemoTestInstruction />)}
+          render={() => (!isTokenVaild()? <Redirect to="/" /> : <DemoTestInstruction />)}
         />
          <Route
           path="/user/submitResponse"
-          render={() => (!isTokenVaild() ? <Redirect to="/" /> : <Response />)}
+          render={() => (!isTokenVaild()? <Redirect to="/" /> : <Response />)}
         />
         
+        {/* Admin */}
         <Route
           path="/admin/dashboard"
-          render={() =>
-            !isAdminTokenValid() ? (
-              <Redirect to="/adminLogin" />
-            ) : (
-                <AdminDashBoard />
-              )
-          }
+          render={() =>!isAdminTokenValid() ? (<Redirect to="/adminLogin" />) : (<AdminDashBoard />)}
         />
+
         <Route
           path="/admin/paiduser"
-          render={() =>
-            !isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <PaidUser />
-          }
+          render={() =>!isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <PaidUser />}
         />
+
         <Route
           path="/admin/alluser"
           render={() =>
-            !isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <AllUser />
-          }
+            !isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <AllUser />}
         />
+
         <Route
           path="/admin/unpaiduser"
-          render={() =>
-            !isAdminTokenValid() ? (
-              <Redirect to="/adminLogin" />
-            ) : (
-                <UnPaidUser />
-              )
-          }
+          render={() =>!isAdminTokenValid() ? (<Redirect to="/adminLogin" />) : (<UnPaidUser />)}
         />
+
         <Route
           path="/admin/allmock"
-          render={() =>
-            !isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <AllMock />
-          }
+          render={() =>!isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <AllMock />}
         />
+
         <Route
           path="/admin/mockstatus"
-          render={() =>
-            !isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <MockStatus />
-          }
+          render={() =>!isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <MockStatus />}
         />
+
         <Route
           path="/admin/viewmockusers"
-          render={() =>
-            !isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <ViewMockStatus />
-          }
+          render={() =>!isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <ViewMockStatus />}
         />
+
          <Route
           path="/admin/viewrank"
-          render={() =>
-            !isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <AdminViewRank />
-          }
+          render={() =>!isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <AdminViewRank />}
         />
+
         <Route
           path="/admin/addToPaymentList"
-          render={() =>
-            !isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <AddToPayment />
-          }
+          render={() =>!isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <AddToPayment />}
         />
+
         <Route
-           path='/admin/uploadQuestionPdf'
-          render={() =>
-            !isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <UploadQuestionPaperPdf />
-          }
+          path='/admin/uploadQuestionPdf'
+          render={() =>!isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <UploadQuestionPaperPdf />}
         />
+
         <Route
           path='/admin/uploadAnswerPdf'
-          render={() =>
-            !isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <UploadAnswerKeyPdf />
-          }
+          render={() =>!isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <UploadAnswerKeyPdf />}
         />
+
+
+
 
         <Route path='/testViewDetails' component={TestDetails} />
         <Route path='/admin/upload-question-images' component={UploadQuestionImage} />
@@ -194,6 +180,28 @@ const Routes = () => {
         <Route path='/user/answerKey' component={AnswerKeyShow} />
         <Route path='/admin/questionPaper' component={QuestionPaperShow} />
         <Route path='/admin/answerKey' component={AnswerKeyShow} />
+        
+
+
+
+        {/* COURSE */}
+
+        <Route
+          path="/loginCourse"
+          render={() =>
+            isTokenVaild() ? <Redirect to="/user/home" /> : <LoginCourse />}
+        />
+        <Route
+          path="/forgotPasswordCourse"
+          render={() =>
+            isTokenVaild() ? <Redirect to="/user/home" /> : <ForgotPasswordCourse />}
+        />
+        <Route
+          path="/signupCourse"
+          render={() =>
+            isTokenVaild() ? <Redirect to="/user/home" /> : <SignupCourse />}
+        />
+
 
       </Switch>
     </BrowserRouter>

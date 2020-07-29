@@ -38,10 +38,10 @@ const Menu = ({ history }) => {
             </li>
 
             {!isToken && <li className="nav-item">
-              <Link to='/signup' className='nav-link'><button type="button" className="btn btn-primary">Sign Up</button></Link>
+              <Link to='/signupSeries' className='nav-link'><button type="button" className="btn btn-primary">Sign Up</button></Link>
             </li>}
             {!isToken && <li className="nav-item">
-              <Link to='/login' className='nav-link'><button type="button" className="btn btn-primary">Sign In</button></Link>
+              <Link to='/loginSeries' className='nav-link'><button type="button" className="btn btn-primary">Sign In</button></Link>
             </li>}
             {/* {isToken && <div>{firstName}</div>} */}
             {isToken && <li className="nav-item">
