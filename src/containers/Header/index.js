@@ -1,4 +1,5 @@
-import React from 'react'
+import React ,{useState} from 'react'
+import Modal from "react-bootstrap/Modal";
 import { Link, withRouter } from 'react-router-dom'
 import logo from '../../asset/UI-Content/logo.jpeg'
 import "../../css/LandingPage.css"
@@ -14,9 +15,53 @@ const isActive = (history, path) => {
 
 const Menu = ({ history }) => {
   const isToken = false
+  const [showSignIn, setShowSignIn] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
+  const handleCloseSignUp = () => setShowSignUp(false);
+  const handleCloseSignIn = () => setShowSignIn(false);
+  const handleShowSignIn = () => setShowSignIn(true);
+  const handleShowSignUp = () => setShowSignUp(true)
 
   return (
     <nav className="navbar navbar-expand-md navbar-light fixed-top py-4">
+       <Modal show={showSignIn} onHide={handleCloseSignIn}>
+        <Modal.Header closeButton>
+          <Modal.Title>Select Option</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="d-flex justify-content-center">
+           
+              <Link to='/signupSeries'><button className="btn btn-secondary ml-5" onClick={handleCloseSignIn}>
+                Test Series
+              </button></Link>
+            
+            <Link to="/signupCourse" >
+              <button className="btn btn-secondary ml-5 " onClick={handleCloseSignIn}>
+                Course
+              </button>
+            </Link>
+          </div>
+        </Modal.Body>
+      </Modal>
+      <Modal show={showSignUp} onHide={handleCloseSignUp}>
+        <Modal.Header closeButton>
+          <Modal.Title>Language</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="d-flex justify-content-center">
+            <Link to='/loginSeries'>
+              <button className="btn btn-secondary ml-5" onClick={handleCloseSignUp}>
+                Test Series
+              </button>
+            </Link>
+            <Link to='/loginCourse'>
+              <button className="btn btn-secondary ml-5 " onClick={handleCloseSignUp}>
+                Course
+              </button>
+            </Link>
+          </div>
+        </Modal.Body>
+      </Modal>
       <div className='container'>
         <a href="/" className='navbar-brand'>
           <img src={logo} width="50" height="50" alt="" /><h3 className="d-inline align-middle">The Pdhantu Classes</h3>
@@ -38,10 +83,10 @@ const Menu = ({ history }) => {
             </li>
 
             {!isToken && <li className="nav-item">
-              <Link to='/signupSeries' className='nav-link'><button type="button" className="btn btn-primary">Sign Up</button></Link>
+              <button type="button" className="btn btn-primary" onClick={handleShowSignIn}>Sign Up</button>
             </li>}
             {!isToken && <li className="nav-item">
-              <Link to='/loginSeries' className='nav-link'><button type="button" className="btn btn-primary">Sign In</button></Link>
+              <button type="button" className="btn btn-primary" onClick={handleShowSignUp}>Sign In</button>
             </li>}
             {/* {isToken && <div>{firstName}</div>} */}
             {isToken && <li className="nav-item">
