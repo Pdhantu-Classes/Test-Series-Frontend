@@ -40,6 +40,7 @@ import SignupCourse from './containers/Course/SignupCourse'
 import HomeCourse from './containers/Course/HomeCourse'
 import ProfileCourse from './containers/Course/ProfileCourse'
 import OrdersCourse from './containers/Course/OrdersCourse'
+import DashboardCourse from './containers/Course/DashboardCourse'
 
 const Routes = () => {
  
@@ -75,7 +76,7 @@ const Routes = () => {
         />
         <Route
           path="/user/dashboard"
-          render={() => (!isTokenVaild()? <Redirect to="/" /> : <Dashboard />)}
+          render={() => (!isTokenVaild()? <Redirect to="/" /> : getModule() === "TEST_SERIES" ?<Dashboard />:getModule() === "COURSE"?<DashboardCourse/>:<Redirect to="/" />)}
         />
         <Route
           path="/user/home"
