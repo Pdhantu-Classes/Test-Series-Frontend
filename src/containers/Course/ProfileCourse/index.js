@@ -28,32 +28,56 @@ const Profile = () => {
   const [graduationYears, setGraduationYears] = useState('')
   const [course, setCourse] = useState('')
   const [courses, setCourses] = useState('')
+  const [dob,setDob]=useState('')
+  const [dobs,setDobs]=useState('')
+  const [gender,setGender]=useState('')
+  const [genders,setGenders]=useState('')
+  const [medium,setMedium]=useState('')
+  const [mediums,setMediums]=useState('')
+  const [fathersName,setFathersName]=useState('')
+  const [fathersNames,setFathersNames]=useState('')
+  const [address,setAddress]=useState('')
+  const [addresss,setAddresss]=useState('')
+  const [pincode,setPincode]=useState('')
+  const [pincodes,setPincodes]=useState('')
+  const [occupation,setOccupation]=useState('')
+  const [occupations,setOccupations]=useState('')
+  const [qualifiaction,setQualification]=useState('')
+  const [qualifiactions,setQualifications]=useState('')
   const [imageUrl, setImageUrl] = useState('')
   const [loading, setLoading] = useState(true)
   const [loadingSubmit, setLoadingSubmit] = useState()
-  const [dob,setDob]=useState('')
 
 
-  // useEffect(() => {
-  //    setLoading(true)
-  //   const USER_ID = getUserId()
-  //   setUserId(USER_ID)
-  //   // http
-  //   //   .get(GET_USER_DETAILS.replace('<USER_ID>', USER_ID))
-  //   //   .then(response => {
-  //   //     setLoading(false)
-  //   //     const responseData = response.data.user_data
-  //   //     setFirstName(responseData.firstname)
-  //   //     setLastName(responseData.lastname)
-  //   //     setEmail(responseData.email)
-  //   //     setMobile(responseData.mobile)
-  //   //     setWhatsapp(responseData.whatsapp)
-  //   //     setGraduationYear(responseData.graduation_year)
-  //   //     setCourse(responseData.preparing_for)
-  //   //     setImageUrl(responseData.image_url)
-  //   //   })
 
-  // }, [])
+  useEffect(() => {
+     setLoading(true)
+    const USER_ID = getUserId()
+    setUserId(USER_ID)
+    http
+      .get(GET_USER_DETAILS.replace('<USER_ID>', USER_ID))
+      .then(response => {
+        setLoading(false)
+        const responseData = response.data.user_data
+        setFirstName(responseData.firstname)
+        setLastName(responseData.lastname)
+        setEmail(responseData.email)
+        setMobile(responseData.mobile)
+        setWhatsapp(responseData.whatsapp)
+        setGraduationYear(responseData.graduation_year)
+        setCourse(responseData.preparing_for)
+        setImageUrl(responseData.image_url)
+        setFathersName(responseData.fathers_name)
+        setDob(responseData.dob)
+        setGender(responseData.gender)
+        setMedium(responseData.medium)
+        setOccupation(responseData.occupation)
+        setAddress(responseData.address)
+        setPincode(responseData.pincode)
+        setQualification(responseData.qualifiaction)
+      })
+
+  }, [])
 
   const handleWhatsapp = (e) => {
     e.preventDefault();
@@ -68,6 +92,46 @@ const Profile = () => {
   const handleCourse = (e) => {
     e.preventDefault();
     setCourses(e.target.value)
+  };
+
+  const handleDob = (e) => {
+    e.preventDefault();
+    setDobs(e.target.value)
+  };
+
+  const handleGender = (e) => {
+    e.preventDefault();
+    setGenders(e.target.value)
+  };
+
+  const handleMedium = (e) => {
+    e.preventDefault();
+    setMediums(e.target.value)
+  };
+
+  const handleFatherName = (e) => {
+    e.preventDefault();
+    setFathersNames(e.target.value)
+  };
+
+  const handleAddress = (e) => {
+    e.preventDefault();
+    setAddresss(e.target.value)
+  };
+
+  const handlePincode = (e) => {
+    e.preventDefault();
+    setPincodes(e.target.value)
+  };
+
+  const handleQualication = (e) => {
+    e.preventDefault();
+    setQualifications(e.target.value)
+  };
+
+  const handleOccupation = (e) => {
+    e.preventDefault();
+    setOccupations(e.target.value)
   };
 
   const handleImage = (e) => {
@@ -151,30 +215,28 @@ const Profile = () => {
                     <input className="form-control" type="text" value={firstName} disabled />
                   </div>
                 </div>
+
                 <div className="form-group">
                   <label className="col-lg-3 control-label">Last name</label>
                   <div className="col-lg-8">
                     <input className="form-control" type="text" value={lastName} disabled />
                   </div>
                 </div>
-                <div className="form-group">
-                  <label className="col-lg-3 control-label">Date of Birth</label>
-                  <div className="col-lg-8">
-                    <input className="form-control" type="date" value={dob} disabled />
-                  </div>
-                </div>
+
                 <div className="form-group">
                   <label className="col-lg-3 control-label">Mobile</label>
                   <div className="col-lg-8">
                     <input className="form-control" type="text" value={"+91 " + mobile} disabled />
                   </div>
                 </div>
+
                 <div className="form-group">
                   <label className="col-lg-3 control-label">Email</label>
                   <div className="col-lg-8">
                     <input className="form-control" type="text" value={email} disabled />
                   </div>
                 </div>
+
                 <div className="form-group">
                   <label className="col-lg-3 control-label">Whatsapp Number</label>
                   <div className="col-lg-8">
@@ -186,6 +248,100 @@ const Profile = () => {
                     }
                   </div>
                 </div>
+
+                <div className="form-group">
+                  <label className="col-lg-3 control-label">Date of Birth</label>
+                    <div className="col-lg-8">
+                      {
+                        !dob?
+                          <input className="form-control" type="date" value={dobs} onChange={handleDob} />
+                          :
+                          <input className="form-control" type="text" value={dob} disabled />
+                      }
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                      <label className="col-lg-3 control-label">Gender</label>
+                      <div className="col-lg-8">
+                        {
+                          !gender ?
+                            <select className="form-control" onChange={handleGender} value={genders}>
+                              <option defaultValue>Select Gender</option>
+                              <option value="Male">Male</option>
+                              <option value="Female">Female</option>
+                              <option value="Others">Others</option>
+                            </select>
+                            :
+                            <select className="form-control" value={gender} disabled>
+                              <option value={gender.toString()} >{gender}</option>
+                            </select>
+                        }
+                    </div>
+                  </div>
+
+
+
+                  <div className="form-group">
+                    <label className="col-lg-3 control-label">Father's Name</label>
+                    <div className="col-lg-8">
+                      {
+                        !fathersName?
+                          <input className="form-control" type="text" value={fathersNames} onChange={handleFatherName} />
+                          :
+                          <input className="form-control" type="text" value={fathersName} disabled />
+                      }
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <label className="col-lg-3 control-label">Occupation</label>
+                    <div className="col-lg-8">
+                      {
+                        !occupation?
+                          <input className="form-control" type="text" value={occupations} onChange={handleOccupation} />
+                          :
+                          <input className="form-control" type="text" value={occupation} disabled />
+                      }
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <label className="col-lg-3 control-label">Address</label>
+                    <div className="col-lg-8">
+                      {
+                        !address?
+                          <input className="form-control" type="text" value={addresss} onChange={handleAddress} />
+                          :
+                          <input className="form-control" type="text" value={address} disabled />
+                      }
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <label className="col-lg-3 control-label">Pin Code</label>
+                    <div className="col-lg-8">
+                      {
+                        !pincode?
+                          <input className="form-control" type="text" value={pincodes} onChange={handlePincode} onInput={(e) => e.target.value = e.target.value.slice(0, 6)} />
+                          :
+                          <input className="form-control" type="text" value={pincode} disabled />
+                      }
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <label className="col-lg-3 control-label">Qualification</label>
+                    <div className="col-lg-8">
+                      {
+                        !qualifiaction?
+                          <input className="form-control" type="text" value={qualifiactions} onChange={handleQualication} />
+                          :
+                          <input className="form-control" type="text" value={qualifiaction} disabled />
+                      }
+                    </div>
+                  </div>
+
                 <div className="form-group">
                   <label className="col-lg-3 control-label">Graduation Year</label>
                   <div className="col-lg-8">
@@ -242,7 +398,7 @@ const Profile = () => {
                         </select>
                         :
                         <select className="form-control" value={graduationYear} disabled>
-                          <option value={graduationYear.toString} >{graduationYear}</option>
+                          <option value={graduationYear.toString()} >{graduationYear}</option>
                         </select>
                     }
                   </div>
@@ -261,23 +417,32 @@ const Profile = () => {
                         </select>
                         :
                         <select className="form-control" value={course} disabled>
-                          <option value={course.toString} >{course}</option>
+                          <option value={course.toString()} >{course}</option>
                         </select>
                     }
                   </div>
                 </div>
+                
                 <div className="form-group">
                 <label className="col-lg-3 control-label">Medium</label>
                 <div className="col-lg-8">
-                    <select>
-                        <option>Hindi</option>
-                        <option>English</option>
-                    </select>
+                    {
+                      !medium ?
+                        <select className="form-control" onChange={handleMedium} value={mediums}>
+                          <option defaultValue>Select Language Medium</option>
+                          <option value="Hindi">Hindi</option>
+                          <option value="English">English</option>
+                        </select>
+                        :
+                        <select className="form-control" value={medium} disabled>
+                          <option value={medium.toString()} >{medium}</option>
+                        </select>
+                    }
                  </div>   
                 </div>
 
                 {
-                  whatsapp && graduationYear && course ?
+                  whatsapp && graduationYear && course && medium && fathersName && gender && dob?
                     null
                     :
                     <div className="form-group">
@@ -285,7 +450,8 @@ const Profile = () => {
                       <div className="col-md-8">
                         <button className="btn btn-primary" onClick={handleSubmit}>
                           Submit
-              </button>
+                      
+                      </button>
                       </div>
                     </div>
                 }
