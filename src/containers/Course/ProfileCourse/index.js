@@ -65,7 +65,7 @@ const Profile = () => {
         setMobile(responseData.mobile)
         setWhatsapp(responseData.whatsapp)
         setGraduationYear(responseData.graduation_year)
-        setCourse(responseData.preparing_for)
+        setCourse(responseData.courses)
         setImageUrl(responseData.image_url)
         setFathersName(responseData.fathers_name)
         setDob(responseData.dob)
@@ -160,7 +160,15 @@ const Profile = () => {
       let userDetails = {
         whatsapp: whatsapps,
         graduation_year: graduationYears,
-        course: courses
+        course: courses,
+        dob:dobs,
+        fathers_name:fathersNames,
+        qualifiaction: qualifiactions,
+        occupation:occupations,
+        address:addresss,
+        pincode:pincodes,
+        gender:genders,
+        medium:mediums
       }
       http
         .put(POST_USER_DETAILS.replace('<USER_ID>', userId), userDetails)
