@@ -67,7 +67,7 @@ const Login = () => {
             </img>
             <h2 className="text-center">Log in</h2>
             <div className="form-group">
-                <input onChange={handleChange("email")} type="text" className="form-control" value={email} placeholder="Email or Mobile" required="required" />
+                <input onChange={handleChange("email")} type="text" className="form-control" value={email} placeholder="Email" required="required" />
             </div>
             <div className="form-group">
                 <input onChange={handleChange("password")} type="password" value={password} className="form-control" placeholder="Password" required="required" />

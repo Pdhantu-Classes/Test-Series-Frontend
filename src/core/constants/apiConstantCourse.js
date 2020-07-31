@@ -1,5 +1,6 @@
-// let base_url = "http://52.14.8.163:5001" //devlopment
-let base_url = "http://localhost:5001"
+// let base_url = "http://3.17.56.99:5001"; //production
+let base_url = "http://18.217.125.150:5001"   //devlopment
+
 
 export const API_ENDPOINTS = {
   USERS: {
@@ -13,7 +14,7 @@ export const API_ENDPOINTS = {
     POST_USER_DETAILS: `${base_url}/userDetails/<USER_ID>`,
     CREATE_ORDER: `${base_url}/createOrder`,
     VERIFY_ORDER: `${base_url}/verifyRazorpaySucces`,
-    ORDER_DETAILS: `${base_url}/orderDetails/<USER_ID>`,
+    ORDER_DETAILS: `${base_url}/myOrders/<USER_ID>`,
     IS_PACKAGE_BUY: `${base_url}/isPackageBuy/<USER_ID>`,
   }
 }

@@ -226,8 +226,8 @@ console.log(mockPapers)
                         {
                           data.is_attempted && data.is_result_released ?
                             <td>
-                              <button className="btn btn-secondary mr-2 mt-1" onClick={() => { handleQuestionPaper(index + 1) }}>Question</button>
-                              <button className="btn btn-secondary mt-1" onClick={() => { handleAnswerKey(index + 1) }}>Answer</button>
+                              <button className="btn btn-success mr-2 mt-1" onClick={() => { handleQuestionPaper(index + 1) }}>View Pdf</button>
+                              <button className="btn btn-secondary mt-1" onClick={() => { handleAnswerKey(index + 1) }} disabled>Download</button>
                             </td>
                             :
                             null

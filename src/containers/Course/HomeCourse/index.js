@@ -1,17 +1,70 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import {useHistory,Link} from 'react-router-dom'
 import UserNavBar from "../UserNavBar";
 import "../../../css/AllTest.css";
-import testImage from '../../../asset/course.jpeg'
-export default function index() {
-  let isRegister = true;
-  let isBuy = false;
+import http from "axios";
+import testImage from '../../../asset/course.png'
+import CoursePay from '../CoursePay'
 
-  let testName = "test";
-  let courseId = 1;
+import {
+  getUserId,
+  getFirstName,
+  getMobile,
+  getEmail,
+} from "../../../core/utility/authHeader";
+import { API_ENDPOINTS } from "../../../core/constants/apiConstantCourse";
+
+const IS_USER_REGISTER = API_ENDPOINTS.USERS.IS_USER_REGISTER
+const IS_PACKAGE_BUY =API_ENDPOINTS.USERS.IS_PACKAGE_BUY
+const  Home =()=> {
+
+ 
+ 
+ 
+
+
+
+  const [loading, setLoading] = useState(true);
+  const [isBuy, setIsBuy] = useState();
+  const [isRegister, setIsRegister] = useState();
+  const [userName, setUserName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [userMobile, SetUserMobile] = useState(0);
+  const [packageId,setPackageId] = useState('')
+  const [userId,setUserId] = useState('')
+  
+  useEffect(() => {
+    const USER_ID = getUserId();
+    setUserId(USER_ID)
+    setUserName(getFirstName);
+    setUserEmail(getEmail);
+    SetUserMobile(getMobile);
+
+    setLoading(true);
+
+    http
+      .get(IS_USER_REGISTER.replace("<USER_ID>", USER_ID))
+      .then((response) => {
+        setLoading(false)
+        const responseRegister = response.data.isValid;
+        const packageId = response.data.package_id
+        setPackageId(packageId)
+        setIsRegister(responseRegister);
+      });
+    http.get(IS_PACKAGE_BUY.replace("<USER_ID>", USER_ID)).then((response) => {
+      setLoading(false);
+      const responseData = response.data.isValid;
+      setIsBuy(responseData);
+    });
+
+    
+    
+  }, []);
+  console.log( isRegister)
   return (
     <div>
       <UserNavBar />
-      <div className="container mt-4 pt-5">
+      {!loading ? <div className="container mt-4 pt-5">
         {!isRegister ?<div>
           <div
             className="text-center py-5 text-danger"
@@ -21,10 +74,10 @@ export default function index() {
           </div>
 
           <div className="d-flex justify-content-center">
-            <button className="btn btn-primary">Click Here</button>
+            <Link to='/user/profile'> <button className="btn btn-primary">Click Here</button></Link>
           </div>
         </div>:null}
-        { isRegister && courseId==1?
+        { isRegister && packageId===1?
             <div
           className="card offset-md-2 offset-xs-2  offset-lg-2 mb-5 card-width-package"
           style={{
@@ -43,37 +96,28 @@ export default function index() {
             </div>
             <div className="col-sm-8">
               <div className="card-body">
-                <h3 className="card-title">{testName}</h3>
+                <h3 className="card-title">Pdhantu CGPSC Prelims Course</h3>
                 <ul className="list-unstyled mt-3 mb-4">
                   <li style={{ fontSize: "20px" }}>
-                    <b>18</b> Mock Test
+                    <b>&#8226; Live Online Video Lecture</b>
                   </li>
                   <li style={{ fontSize: "20px" }}>
-                    <b>14</b> Subject-Wise Test
+                    <b>&#8226; Pdhantu Test</b> 
                   </li>
                   <li style={{ fontSize: "20px" }}>
-                    <b>4</b> Modal Mock Test
+                    <b>&#8226; Topic Wise Test</b> 
                   </li>
                   <li style={{ fontSize: "20px" }}>
-                    <div className="text-success blink">
-                      <b> &#8226; Test is Live Now</b>
-                    </div>
+                    <b>&#8226; Pdf Notes</b> 
                   </li>
+                 
                 </ul>
                 {isBuy ? (
                   <button className="btn btn-info">Go to Dashboard</button>
                 ) : (
                   <div>
-                    <button className="btn btn-primary mr-2">
-                      View Details
-                    </button>
-                    {isRegister ? (
-                      <button />
-                    ) : (
-                      <button class="btn btn-primary ml-md-3 ml-sm-5">
-                        Buy @ &#8377;240 only
-                      </button>
-                    )}
+                    <div><CoursePay payload={{ packageId,userId, userName, userEmail, userMobile }} /></div>
+                    
                   </div>
                 )}
               </div>
@@ -81,7 +125,7 @@ export default function index() {
           </div>
         </div>:null}
 
-        {isRegister && courseId==2 ?<div
+        {isRegister && packageId==2 ?<div
           className="card offset-md-2 offset-xs-2  offset-lg-2 mb-5 card-width-package"
           style={{
             background:
@@ -99,44 +143,39 @@ export default function index() {
             </div>
             <div className="col-sm-8">
               <div className="card-body">
-                <h3 className="card-title">{testName}</h3>
+                <h3 className="card-title">Pdhantu CGPSC Prelims + Mains Course</h3>
                 <ul className="list-unstyled mt-3 mb-4">
-                  <li style={{ fontSize: "20px" }}>
-                    <b>18</b> Mock Test
+                <li style={{ fontSize: "20px" }}>
+                    <b>&#8226; Live Online Video Lecture (Pre+Mains)</b>
                   </li>
                   <li style={{ fontSize: "20px" }}>
-                    <b>14</b> Subject-Wise Test
+                    <b>&#8226; Pdhantu Test (Pre+Mains)</b> 
                   </li>
                   <li style={{ fontSize: "20px" }}>
-                    <b>4</b> Modal Mock Test
+                    <b>&#8226; Topic Wise Test (Pre+Mains)</b> 
                   </li>
                   <li style={{ fontSize: "20px" }}>
-                    <div className="text-success blink">
-                      <b> &#8226; Test is Live Now</b>
-                    </div>
+                    <b>&#8226; Pdf Notes (Pre+Mains)</b> 
                   </li>
                 </ul>
                 {isBuy ? (
                   <button className="btn btn-info">Go to Dashboard</button>
                 ) : (
                   <div>
-                    <button className="btn btn-primary mr-2">
-                      View Details
-                    </button>
-                    {isRegister ? (
-                      <button />
-                    ) : (
-                      <button class="btn btn-primary ml-md-3 ml-sm-5">
-                        Buy @ &#8377;240 only
-                      </button>
-                    )}
+                   
+                   <CoursePay payload={{ packageId,userId, userName, userEmail, userMobile }} />
                   </div>
                 )}
               </div>
             </div>
           </div>
-        </div>:null}
-      </div>
+        </div>:(null)}
+      </div>:(<div className="d-flex justify-content-center pt-5 mt-5">
+          <div className="spinner-border" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        </div>)}
     </div>
   );
 }
+export default Home

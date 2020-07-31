@@ -45,7 +45,7 @@ const Menu = ({ history }) => {
       </Modal>
       <Modal show={showSignUp} onHide={handleCloseSignUp}>
         <Modal.Header closeButton>
-          <Modal.Title>Language</Modal.Title>
+          <Modal.Title>Select Option</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="d-flex justify-content-center">

@@ -1,7 +1,7 @@
-//  let base_url = 'https://pdhnatu.herokuapp.com'
+
 // let base_url = "http://3.17.56.99:5000"; //production
-// let base_url = "http://52.14.8.163:5000" //devlopment
-let base_url = "http://18.217.125.150:5000"
+
+let base_url = "http://18.217.125.150:5000" //development
 
 export const API_ENDPOINTS = {
   USERS: {
