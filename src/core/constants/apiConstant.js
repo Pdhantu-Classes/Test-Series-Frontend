@@ -1,4 +1,3 @@
-
 // let base_url = "http://3.17.56.99:5000"; //production
 
 let base_url = "http://18.217.125.150:5000" //development

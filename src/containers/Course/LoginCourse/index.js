@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Redirect, Link } from "react-router-dom";
-import  '../../../css/Login.css';
- import { signin, authenticate } from "../../auth/authCourse";
+import '../../../css/Login.css';
+import { signin, authenticate } from "../../auth/authCourse";
 const Login = () => {
     const [values, setValues] = useState({
         email: "",
@@ -43,7 +43,7 @@ const Login = () => {
                 <div className="spinner-border" role="status">
                     <span className="sr-only">Loading...</span>
                 </div>
-            </div>  
+            </div>
         );
 
     const redirectUser = () => {
@@ -55,27 +55,27 @@ const Login = () => {
 
     const SignInForm = () => (
         <div>
-        <div className='display-5 text-center text-danger'> Please Login for Course here</div>
-        <form>
-            
-            <img
-                src="http://img.clipartlook.com/user-user-clipart-528_594.png"
-                alt="login"
-                style={{ height: "80px", marginLeft: "100px" }}
-            >
+            <div className='display-5 text-center text-danger'> Please Login for Course here</div>
+            <form>
 
-            </img>
-            <h2 className="text-center">Log in</h2>
-            <div className="form-group">
-                <input onChange={handleChange("email")} type="text" className="form-control" value={email} placeholder="Email" required="required" />
-            </div>
-            <div className="form-group">
-                <input onChange={handleChange("password")} type="password" value={password} className="form-control" placeholder="Password" required="required" />
-            </div>
-            <div className="form-group">
-                <button onClick={clickSubmit} type="submit" className="btn btn-primary btn-block">Log in</button>
-            </div>
-        </form>
+                <img
+                    src="http://img.clipartlook.com/user-user-clipart-528_594.png"
+                    alt="login"
+                    style={{ height: "80px", marginLeft: "100px" }}
+                >
+
+                </img>
+                <h2 className="text-center">Log in</h2>
+                <div className="form-group">
+                    <input onChange={handleChange("email")} type="text" className="form-control" value={email} placeholder="Email" required="required" />
+                </div>
+                <div className="form-group">
+                    <input onChange={handleChange("password")} type="password" value={password} className="form-control" placeholder="Password" required="required" />
+                </div>
+                <div className="form-group">
+                    <button onClick={clickSubmit} type="submit" className="btn btn-primary btn-block">Log in</button>
+                </div>
+            </form>
         </div>
     )
 

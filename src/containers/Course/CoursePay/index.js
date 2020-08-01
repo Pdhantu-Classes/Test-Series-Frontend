@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
-
 import { useAlert, types } from 'react-alert'
 import { useHistory } from 'react-router-dom'
-
 import { API_ENDPOINTS } from '../../../core/constants/apiConstantCourse'
 
 const CREATE_ORDER = API_ENDPOINTS.USERS.CREATE_ORDER
@@ -17,24 +15,21 @@ const RAZORPAY_ID = "rzp_test_x8I5D7s72Z0kOk"
 
 const PayByRazorPay = (props) => {
   const history = useHistory()
-  
   const alert = useAlert()
-  
-  const { packageId,userId,userName,userEmail,userMobile } = props.payload
- 
 
-  
+  const { packageId, userId, userName, userEmail, userMobile } = props.payload
+
   const verifyPayment = (payload) => {
 
     let body = {
-      package_id:packageId,
+      package_id: packageId,
       user_id: userId,
       payment_id: payload.payment_id,
       order_id: payload.order_id,
       signature: payload.signature,
     }
     axios.post(
-      VERIFY_ORDER,body)
+      VERIFY_ORDER, body)
       .then(res => {
         if (res.data.isSuccess) {
           alert.show('Payment Success', { type: types.SUCCESS })
@@ -52,12 +47,12 @@ const PayByRazorPay = (props) => {
 
   const processPayment = async () => {
     let payload = {
-      package_id:packageId,
-      user_id :userId
+      package_id: packageId,
+      user_id: userId
     }
     const Razorpay = window.Razorpay
     let orderId = ''
-    const apiResponse = await axios.post(CREATE_ORDER,payload)
+    const apiResponse = await axios.post(CREATE_ORDER, payload)
     if (apiResponse) {
       orderId = apiResponse.data
     }
@@ -98,7 +93,7 @@ const PayByRazorPay = (props) => {
 
   return (
     <>
-      <button class="btn btn-primary ml-md-3 ml-sm-5" onClick={processPayment}>Buy @ &#8377;{packageId===1 ?'2940 only' :'6940 only'} </button>
+      <button class="btn btn-primary ml-md-3 ml-sm-5" onClick={processPayment}>Buy @ &#8377;{packageId === 1 ? '2940 only' : '6940 only'} </button>
 
     </>
   );

@@ -41,6 +41,7 @@ import HomeCourse from './containers/Course/HomeCourse'
 import ProfileCourse from './containers/Course/ProfileCourse'
 import OrdersCourse from './containers/Course/OrdersCourse'
 import DashboardCourse from './containers/Course/DashboardCourse'
+import CgpscViewDetails from "./pages/LandingPage/Components/CgpscViewDetails";
 
 const Routes = () => {
  
@@ -181,6 +182,7 @@ const Routes = () => {
         <Route path='/user/answerKey' component={AnswerKeyShow} />
         <Route path='/admin/questionPaper' component={QuestionPaperShow} />
         <Route path='/admin/answerKey' component={AnswerKeyShow} />
+        <Route path='/cgpsc/details' component={CgpscViewDetails} />
         
 
 

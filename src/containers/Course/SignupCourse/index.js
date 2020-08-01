@@ -120,156 +120,159 @@ function Signup() {
 
 
   const signUpForm = () => (
-    <form>
-      <div>
-        <img
-          src="http://keapu-webpp01-centin-r46j07o2.cloudapp.net/PU-LECT-2019/images/user_add.png"
-          alt="signup"
-          style={{ height: "60px", marginLeft: "120px" }}
-        >
-        </img>
-        <span>
-          <h2 className="text-center ">Sign Up</h2>
-        </span>
-      </div>
+    <div>
+      <div className='display-5 text-center text-danger'> Please Signup for Course here</div>
+      <form>
+        <div>
+          <img
+            src="https://pdhantu-classes.s3.us-east-2.amazonaws.com/miscellaneous/sign.png"
+            alt="signup"
+            style={{ height: "60px", marginLeft: "120px" }}
+          >
+          </img>
+          <span>
+            <h2 className="text-center ">Sign Up</h2>
+          </span>
+        </div>
 
-      <p className="text-center">
-        Please fill in this form to create an account!
+        <p className="text-center">
+          Please fill in this form to create an account!
       </p>
-      <hr></hr>
+        <hr></hr>
 
-      <div className="form-group ">
-        <div className="input-group ">
-          <span className="input-group-addon mt-2 mr-2">
-            <i className="fa fa-user"></i>
-          </span>
-          <input
-            onChange={handleFirstName}
-            type="text"
-            className="form-control"
-            value={firstname}
-            name="firstname"
-            placeholder="First Name"
-            required="required"
-          />
+        <div className="form-group ">
+          <div className="input-group ">
+            <span className="input-group-addon mt-2 mr-2">
+              <i className="fa fa-user"></i>
+            </span>
+            <input
+              onChange={handleFirstName}
+              type="text"
+              className="form-control"
+              value={firstname}
+              name="firstname"
+              placeholder="First Name"
+              required="required"
+            />
+          </div>
         </div>
-      </div>
 
-      <div className="form-group ">
-        <div className="input-group ">
-          <span className="input-group-addon  mt-2 mr-2">
-            <i className="fa fa-user"></i>
-          </span>
-          <input
-            onChange={handleLastName}
-            type="text"
-            className="form-control"
-            value={lastname}
-            name="firstname"
-            placeholder="Last Name"
-            required="required"
-          />
+        <div className="form-group ">
+          <div className="input-group ">
+            <span className="input-group-addon  mt-2 mr-2">
+              <i className="fa fa-user"></i>
+            </span>
+            <input
+              onChange={handleLastName}
+              type="text"
+              className="form-control"
+              value={lastname}
+              name="firstname"
+              placeholder="Last Name"
+              required="required"
+            />
+          </div>
         </div>
-      </div>
 
-      <div className="form-group">
-        <div className="input-group">
-          <span className="input-group-addon  mt-2 mr-2">
-            <i className="fa fa-envelope"></i>
-          </span>
-          <input
-            onChange={handleEmail}
-            type="email"
-            className="form-control"
-            value={email}
-            name="email"
-            placeholder="Email Address"
-            required="required"
-          />
+        <div className="form-group">
+          <div className="input-group">
+            <span className="input-group-addon  mt-2 mr-2">
+              <i className="fa fa-envelope"></i>
+            </span>
+            <input
+              onChange={handleEmail}
+              type="email"
+              className="form-control"
+              value={email}
+              name="email"
+              placeholder="Email Address"
+              required="required"
+            />
+          </div>
         </div>
-      </div>
 
-      <div className="form-group">
-        <div className="input-group">
-          <span className="input-group-addon mt-2 mr-2">
-            <i className="fa fa-mobile"></i>
-          </span>
-          <input
-            onChange={handleMobile}
-            onInput={(e) => e.target.value = e.target.value.slice(0, 10)}
-            type="number"
-            className="form-control"
-            value={mobile}
-            name="email"
-            placeholder="Mobile"
-            required="required"
-          />
+        <div className="form-group">
+          <div className="input-group">
+            <span className="input-group-addon mt-2 mr-2">
+              <i className="fa fa-mobile"></i>
+            </span>
+            <input
+              onChange={handleMobile}
+              onInput={(e) => e.target.value = e.target.value.slice(0, 10)}
+              type="number"
+              className="form-control"
+              value={mobile}
+              name="email"
+              placeholder="Mobile"
+              required="required"
+            />
+          </div>
         </div>
-      </div>
 
-      <div className="form-group">
-        <div className="input-group">
-          <span className="input-group-addon mt-2 mr-2">
-            <i className="fa fa-lock"></i>
-          </span>
-          <input
-            onChange={handlePassword}
-            type="password"
-            className="form-control"
-            value={password}
-            name="password"
-            placeholder="Password"
-            required="required"
-          />
+        <div className="form-group">
+          <div className="input-group">
+            <span className="input-group-addon mt-2 mr-2">
+              <i className="fa fa-lock"></i>
+            </span>
+            <input
+              onChange={handlePassword}
+              type="password"
+              className="form-control"
+              value={password}
+              name="password"
+              placeholder="Password"
+              required="required"
+            />
+          </div>
         </div>
-      </div>
 
-      <div className="form-group ">
-        <div className="input-group">
-          <span className="input-group-addon mt-2 mr-2">
-            <i className="fa fa-lock"></i>
-            <i className="fa fa-check"></i>
-          </span>
-          <input
-            onChange={handleConfirmPassword}
-            type="password"
-            className="form-control"
-            value={confirmPassword}
-            name="confirm_password"
-            placeholder="Confirm Password"
-            required="required"
-          />
+        <div className="form-group ">
+          <div className="input-group">
+            <span className="input-group-addon mt-2 mr-2">
+              <i className="fa fa-lock"></i>
+              <i className="fa fa-check"></i>
+            </span>
+            <input
+              onChange={handleConfirmPassword}
+              type="password"
+              className="form-control"
+              value={confirmPassword}
+              name="confirm_password"
+              placeholder="Confirm Password"
+              required="required"
+            />
+          </div>
         </div>
-      </div>
 
-      <div className="form-group">
-        <button
-          disabled={disable}
-          onClick={clickSubmit}
-          type="submit"
-          className="btn btn-primary btn-lg offset-3"
-        >
-          Sign Up
+        <div className="form-group">
+          <button
+            disabled={disable}
+            onClick={clickSubmit}
+            type="submit"
+            className="btn btn-primary btn-lg offset-3"
+          >
+            Sign Up
         </button>
-      </div>
-      {
-        !loading && message ?
-          <div className="text-center"><span className="text-info"> New account is created. Please </span> <Link className="text-primary" to="/loginCourse">Login</Link></div>
-          :
-          null
-      }
-      {
-        error ?
-          <div className="text-center text-danger">{error}</div>
-          :
-          null
-      }
-    </form>
+        </div>
+        {
+          !loading && message ?
+            <div className="text-center"><span className="text-info"> New account is created. Please </span> <Link className="text-primary" to="/loginCourse">Login</Link></div>
+            :
+            null
+        }
+        {
+          error ?
+            <div className="text-center text-danger">{error}</div>
+            :
+            null
+        }
+      </form>
+    </div>
 
   );
   return (
     <div>
-      <div className="signup-form" style={{ marginTop: "-130px" }}>
+      <div className="signup-form" style={{ marginTop: "-90px" }}>
         {
           loading ?
             <div style={{ position: 'absolute', transform: 'translate(-50%,-50%)', top: '20%', left: '50%' }}>

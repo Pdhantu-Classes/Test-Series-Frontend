@@ -31,12 +31,12 @@ const Menu = ({ history }) => {
         <Modal.Body>
           <div className="d-flex justify-content-center">
            
-              <Link to='/signupSeries'><button className="btn btn-secondary ml-5" onClick={handleCloseSignIn}>
+              <Link to='/signupSeries'><button className="btn btn-secondary" onClick={handleCloseSignIn}>
                 Test Series
               </button></Link>
             
             <Link to="/signupCourse" >
-              <button className="btn btn-secondary ml-5 " onClick={handleCloseSignIn}>
+              <button className="btn btn-primary ml-5 " onClick={handleCloseSignIn}>
                 Course
               </button>
             </Link>
@@ -50,12 +50,12 @@ const Menu = ({ history }) => {
         <Modal.Body>
           <div className="d-flex justify-content-center">
             <Link to='/loginSeries'>
-              <button className="btn btn-secondary ml-5" onClick={handleCloseSignUp}>
+              <button className="btn btn-secondary" onClick={handleCloseSignUp}>
                 Test Series
               </button>
             </Link>
             <Link to='/loginCourse'>
-              <button className="btn btn-secondary ml-5 " onClick={handleCloseSignUp}>
+              <button className="btn btn-primary ml-5 " onClick={handleCloseSignUp}>
                 Course
               </button>
             </Link>
@@ -83,10 +83,10 @@ const Menu = ({ history }) => {
             </li>
 
             {!isToken && <li className="nav-item">
-              <button type="button" className="btn btn-primary" onClick={handleShowSignIn}>Sign Up</button>
+              <button type="button" className="btn btn-primary pt-2 mt-1" onClick={handleShowSignIn}>Sign Up</button>
             </li>}
             {!isToken && <li className="nav-item">
-              <button type="button" className="btn btn-primary" onClick={handleShowSignUp}>Sign In</button>
+              <button type="button" className="btn btn-primary pt-2 mt-1" onClick={handleShowSignUp}>Sign In</button>
             </li>}
             {/* {isToken && <div>{firstName}</div>} */}
             {isToken && <li className="nav-item">

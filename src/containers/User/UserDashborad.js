@@ -105,16 +105,11 @@ const Dashboard = (props) => {
     handleShow()
   }
 
-  const handleQuestionPaper = (id) => {
+  const handleViewPdf = (id) => {
     window.localStorage.setItem('mock_paper_id', id)
     history.push('/user/questionPaper')
   }
 
-  const handleAnswerKey = (id) => {
-    window.localStorage.setItem('mock_paper_id', id)
-    history.push('/user/answerKey')
-  }
-console.log(mockPapers)
   return (
     <div>
       <Modal show={show} onHide={handleClose}>
@@ -226,8 +221,8 @@ console.log(mockPapers)
                         {
                           data.is_attempted && data.is_result_released ?
                             <td>
-                              <button className="btn btn-success mr-2 mt-1" onClick={() => { handleQuestionPaper(index + 1) }}>View Pdf</button>
-                              <button className="btn btn-secondary mt-1" onClick={() => { handleAnswerKey(index + 1) }} disabled>Download</button>
+                              <button className="btn btn-success mr-2 mt-1" onClick={() => { handleViewPdf(index + 1) }}>View Pdf</button>
+                              <button className="btn btn-primary mt-1" disabled>Download pdf</button>
                             </td>
                             :
                             null

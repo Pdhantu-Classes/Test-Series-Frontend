@@ -193,12 +193,12 @@ const Profile = () => {
                     alt="avatar"
                   />
                 ) : (
-                  <img
-                    src="//placehold.it/200"
-                    className="avatar img-circle"
-                    alt="avatar"
-                  />
-                )}
+                    <img
+                      src="//placehold.it/200"
+                      className="avatar img-circle"
+                      alt="avatar"
+                    />
+                  )}
                 <div className="profile-image-container" onChange={handleImage}>
                   <label htmlFor="file-input">
                     {!imageUrl ? (
@@ -206,8 +206,8 @@ const Profile = () => {
                         Upload Images
                       </div>
                     ) : (
-                      <div className="btn btn-info mt-2">Change Images</div>
-                    )}
+                        <div className="btn btn-info mt-2">Change Images</div>
+                      )}
                   </label>
                   <input id="file-input" type="file" />
                 </div>
@@ -281,13 +281,13 @@ const Profile = () => {
                       }
                     />
                   ) : (
-                    <input
-                      className="form-control"
-                      type="text"
-                      value={"+91 " + whatsapp}
-                      disabled
-                    />
-                  )}
+                      <input
+                        className="form-control"
+                        type="text"
+                        value={"+91 " + whatsapp}
+                        disabled
+                      />
+                    )}
                 </div>
               </div>
 
@@ -302,13 +302,13 @@ const Profile = () => {
                       onChange={handleDob}
                     />
                   ) : (
-                    <input
-                      className="form-control"
-                      type="text"
-                      value={dob}
-                      disabled
-                    />
-                  )}
+                      <input
+                        className="form-control"
+                        type="text"
+                        value={dob}
+                        disabled
+                      />
+                    )}
                 </div>
               </div>
 
@@ -327,10 +327,10 @@ const Profile = () => {
                       <option value="Others">Others</option>
                     </select>
                   ) : (
-                    <select className="form-control" value={gender} disabled>
-                      <option value={gender.toString()}>{gender}</option>
-                    </select>
-                  )}
+                      <select className="form-control" value={gender} disabled>
+                        <option value={gender.toString()}>{gender}</option>
+                      </select>
+                    )}
                 </div>
               </div>
 
@@ -345,13 +345,13 @@ const Profile = () => {
                       onChange={handleFatherName}
                     />
                   ) : (
-                    <input
-                      className="form-control"
-                      type="text"
-                      value={fathersName}
-                      disabled
-                    />
-                  )}
+                      <input
+                        className="form-control"
+                        type="text"
+                        value={fathersName}
+                        disabled
+                      />
+                    )}
                 </div>
               </div>
 
@@ -366,13 +366,13 @@ const Profile = () => {
                       onChange={handleOccupation}
                     />
                   ) : (
-                    <input
-                      className="form-control"
-                      type="text"
-                      value={occupation}
-                      disabled
-                    />
-                  )}
+                      <input
+                        className="form-control"
+                        type="text"
+                        value={occupation}
+                        disabled
+                      />
+                    )}
                 </div>
               </div>
 
@@ -387,13 +387,13 @@ const Profile = () => {
                       onChange={handleAddress}
                     />
                   ) : (
-                    <input
-                      className="form-control"
-                      type="text"
-                      value={address}
-                      disabled
-                    />
-                  )}
+                      <input
+                        className="form-control"
+                        type="text"
+                        value={address}
+                        disabled
+                      />
+                    )}
                 </div>
               </div>
 
@@ -411,13 +411,13 @@ const Profile = () => {
                       }
                     />
                   ) : (
-                    <input
-                      className="form-control"
-                      type="text"
-                      value={pincode}
-                      disabled
-                    />
-                  )}
+                      <input
+                        className="form-control"
+                        type="text"
+                        value={pincode}
+                        disabled
+                      />
+                    )}
                 </div>
               </div>
 
@@ -432,13 +432,13 @@ const Profile = () => {
                       onChange={handleQualication}
                     />
                   ) : (
-                    <input
-                      className="form-control"
-                      type="text"
-                      value={qualification}
-                      disabled
-                    />
-                  )}
+                      <input
+                        className="form-control"
+                        type="text"
+                        value={qualification}
+                        disabled
+                      />
+                    )}
                 </div>
               </div>
 
@@ -502,16 +502,16 @@ const Profile = () => {
                       <option value="2025">2025</option>
                     </select>
                   ) : (
-                    <select
-                      className="form-control"
-                      value={graduationYear}
-                      disabled
-                    >
-                      <option value={graduationYear.toString()}>
-                        {graduationYear}
-                      </option>
-                    </select>
-                  )}
+                      <select
+                        className="form-control"
+                        value={graduationYear}
+                        disabled
+                      >
+                        <option value={graduationYear.toString()}>
+                          {graduationYear}
+                        </option>
+                      </select>
+                    )}
                 </div>
               </div>
 
@@ -529,10 +529,10 @@ const Profile = () => {
                       <option value="2">CGPSC Prelims + Mains</option>
                     </select>
                   ) : (
-                    <select className="form-control" value={course} disabled>
-                      <option value={course.toString()}>{course}</option>
-                    </select>
-                  )}
+                      <select className="form-control" value={course} disabled>
+                        <option value={course.toString()}>{course}</option>
+                      </select>
+                    )}
                 </div>
               </div>
 
@@ -550,38 +550,38 @@ const Profile = () => {
                       <option value="English">English</option>
                     </select>
                   ) : (
-                    <select className="form-control" value={medium} disabled>
-                      <option value={medium.toString()}>{medium}</option>
-                    </select>
-                  )}
+                      <select className="form-control" value={medium} disabled>
+                        <option value={medium.toString()}>{medium}</option>
+                      </select>
+                    )}
                 </div>
               </div>
 
               {whatsapp &&
-              graduationYear &&
-              course &&
-              medium &&
-              fathersName &&
-              gender &&
-              dob ? null : (
-                <div className="form-group">
-                  <label className="col-md-3 control-label"></label>
-                  <div className="col-md-8">
-                    <button className="btn btn-primary" onClick={handleSubmit}>
-                      Submit
+                graduationYear &&
+                course &&
+                medium &&
+                fathersName &&
+                gender &&
+                dob ? null : (
+                  <div className="form-group">
+                    <label className="col-md-3 control-label"></label>
+                    <div className="col-md-8">
+                      <button className="btn btn-primary" onClick={handleSubmit}>
+                        Submit
                     </button>
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
             </div>
           </div>
         ) : (
-          <div className="d-flex justify-content-center">
-            <div className="spinner-border" role="status">
-              <span className="sr-only">Loading...</span>
+            <div className="d-flex justify-content-center">
+              <div className="spinner-border" role="status">
+                <span className="sr-only">Loading...</span>
+              </div>
             </div>
-          </div>
-        )}
+          )}
         {loadingSubmit ? (
           <div
             style={{

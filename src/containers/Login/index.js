@@ -54,6 +54,8 @@ const Login = () => {
 
 
     const SignInForm = () => (
+        <div>
+            <div className='display-5 text-center text-danger'> Please Login for Test Series here</div>
         <form>
             <img
                 src="http://img.clipartlook.com/user-user-clipart-528_594.png"
@@ -73,6 +75,7 @@ const Login = () => {
                 <button onClick={clickSubmit} type="submit" className="btn btn-primary btn-block">Log in</button>
             </div>
         </form>
+        </div>
     )
 
 

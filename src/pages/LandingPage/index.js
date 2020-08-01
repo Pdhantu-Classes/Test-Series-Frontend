@@ -7,6 +7,7 @@ import ContactUs from './Components/Contact-Us'
 import Header from '../../containers/Header'
 import Footer from '../../containers/Footer'
 import Videos from './Components/Videos'
+import CgpscCourse from './Components/CgpscCourse'
 
 function landingPage(){
     return(
@@ -14,6 +15,7 @@ function landingPage(){
         
        <Header />
         <Showcase />
+        <CgpscCourse/>
         <WhyUs />
         <Boxes />
         <Teachers />

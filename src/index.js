@@ -5,7 +5,6 @@ import * as serviceWorker from './serviceWorker';
  import Routes from './Routes'
 import { transitions, positions,types, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
-import UserHome from './containers/Course/HomeCourse'
 
 const options = {
   position: positions.MIDDLE,
