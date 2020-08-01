@@ -43,7 +43,11 @@ const Home = () => {
         setPackageId(packageId)
         setIsRegister(responseRegister);
       });
+  }, []);
 
+  useEffect(() => {
+    setLoading(true);
+    const USER_ID = getUserId();
     http
       .get(IS_PACKAGE_BUY.replace("<USER_ID>", USER_ID)).then((response) => {
         setLoading(false);
@@ -51,7 +55,7 @@ const Home = () => {
         setIsBuy(responseData);
       });
   }, []);
-  console.log(isRegister)
+
   return (
     <div>
       <UserNavBar />

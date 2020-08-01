@@ -24,6 +24,11 @@ const UserDashBoard = () => {
 
         setIsRegister(responseRegister);
       });
+  }, []);
+
+  useEffect(() => { 
+    const USER_ID = getUserId();
+    setLoading(true); 
     http.get(IS_PACKAGE_BUY.replace("<USER_ID>", USER_ID)).then((response) => {
       setLoading(false);
       const responseData = response.data.isValid;
@@ -36,9 +41,15 @@ const UserDashBoard = () => {
       {
         !loading ?
           <div className="container mt-5 pt-5">
-            {isRegister && isBuy ? <div className="display-4 text-success text-center"> Class will start at 17th August </div> : null}
-            {isRegister && !isBuy ? <div className="display-4 text-info text-center"> Please buy the course </div> : null}
-            {!isRegister && !isBuy ? <div className="display-4 text-danger text-center"> You are not registered </div> : null}
+            {
+              isRegister && isBuy ? 
+              <div className="display-4 text-success text-center"> Class will start at 17th August </div> 
+            :
+              isRegister && !isBuy ? 
+              <div className="display-4 text-info text-center"> Please buy the course </div> 
+            :
+            <div className="display-4 text-danger text-center"> You are not registered </div>
+             }
           </div>
           :
           <div className="d-flex justify-content-center pt-5 mt-5">
