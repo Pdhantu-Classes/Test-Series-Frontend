@@ -105,7 +105,9 @@ const Home = () => {
 
                     </ul>
                     {isBuy ? (
-                      <button className="btn btn-info">Go to Dashboard</button>
+                      <Link to="/user/dashboard">
+                        <button className="btn btn-info">Go to Dashboard</button>
+                      </Link>
                     ) : (
                         <div>
                           <div><CoursePay payload={{ packageId, userId, userName, userEmail, userMobile }} /></div>
@@ -154,7 +156,9 @@ const Home = () => {
                       </li>
                     </ul>
                     {isBuy ? (
-                      <button className="btn btn-info">Go to Dashboard</button>
+                      <Link to="/user/dashboard">
+                        <button className="btn btn-info">Go to Dashboard</button>
+                      </Link>
                     ) : (
                         <div>
 
