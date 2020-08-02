@@ -288,9 +288,9 @@ function Signup() {
         {signUpForm()}
         <div className="text-center">
           Already have an account?{" "}
-          <a href="./Login" className="text-danger">
+          <Link to="/loginSeries" className="text-danger">
             Login here
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -42,6 +42,7 @@ import ProfileCourse from './containers/Course/ProfileCourse'
 import OrdersCourse from './containers/Course/OrdersCourse'
 import DashboardCourse from './containers/Course/DashboardCourse'
 import CgpscViewDetails from "./pages/LandingPage/Components/CgpscViewDetails";
+import AdminLoginCourse from "./containers/AdminCourse/AdminLogin";
 
 const Routes = () => {
  
@@ -50,6 +51,7 @@ const Routes = () => {
       <Switch>
         <Route path="/" exact component={MainLandingPage} />
         <Route path="/adminLogin" component={AdminLogin} />
+        <Route path="/adminLoginCourse" component={AdminLoginCourse} />
 
         {/* TEST_SERIES */}
         <Route
@@ -201,6 +203,13 @@ const Routes = () => {
         />
         <Route
           path="/signupCourse"
+          render={() =>
+            isTokenVaild() ? <Redirect to="/user/home" /> : <SignupCourse />}
+        />
+
+        {/* Admin Course */}
+        <Route
+          path="/admin/loginCourse"
           render={() =>
             isTokenVaild() ? <Redirect to="/user/home" /> : <SignupCourse />}
         />

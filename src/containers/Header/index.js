@@ -88,10 +88,6 @@ const Menu = ({ history }) => {
             {!isToken && <li className="nav-item">
               <button type="button" className="btn btn-primary pt-2 mt-1" onClick={handleShowSignUp}>Sign In</button>
             </li>}
-            {/* {isToken && <div>{firstName}</div>} */}
-            {isToken && <li className="nav-item">
-              <Link to='/login' className='nav-link'><button type="button" className="btn btn-primary">Log out</button></Link>
-            </li>}
           </ul>
         </div>
       </div>
