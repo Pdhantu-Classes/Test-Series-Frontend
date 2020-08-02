@@ -43,6 +43,11 @@ import OrdersCourse from './containers/Course/OrdersCourse'
 import DashboardCourse from './containers/Course/DashboardCourse'
 import CgpscViewDetails from "./pages/LandingPage/Components/CgpscViewDetails";
 import AdminLoginCourse from "./containers/Course/AdminCourse/AdminLogin";
+import AdminDashboardCourse from "./containers/Course/AdminCourse/AdminDashboard";
+import AdminAllUserCourse from "./containers/Course/AdminCourse/AllUser";
+import AdminPaidUserCourse from "./containers/Course/AdminCourse/PaidUser";
+import AdminDisputePaymentCourse from "./containers/Course/AdminCourse/DisputePayment";
+import AdminResolvePaymentCourse from "./containers/Course/AdminCourse/ResolvePayment";
 
 const Routes = () => {
  
@@ -207,12 +212,13 @@ const Routes = () => {
             isTokenVaild() ? <Redirect to="/user/home" /> : <SignupCourse />}
         />
 
-        {/* Admin Course */}
-        <Route
-          path="/admin/loginCourse"
-          render={() =>
-            isTokenVaild() ? <Redirect to="/user/home" /> : <SignupCourse />}
-        />
+        {/* ---------------------------------Admin Course--------------------------------------------- */}
+        <Route path="/adminCourseLogin" component ={AdminLoginCourse}/>
+        <Route path="/adminCourse/dashboard" component ={AdminDashboardCourse}/>
+        <Route path="/adminCourse/allUser" component ={AdminAllUserCourse}/>
+        <Route path="/adminCourse/paidUser" component ={AdminPaidUserCourse}/>
+        <Route path="/adminCourse/disputePayment" component ={AdminDisputePaymentCourse}/>
+        <Route path="/adminCourse/resolvePayment" component ={AdminResolvePaymentCourse}/>
 
 
       </Switch>

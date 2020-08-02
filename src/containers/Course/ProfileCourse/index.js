@@ -45,6 +45,7 @@ const Profile = () => {
   const [imageUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(true);
   const [loadingSubmit, setLoadingSubmit] = useState();
+  const [checkBox, setCheckBox] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -129,17 +130,18 @@ const Profile = () => {
     setOccupations(e.target.value);
   };
 
+  const handleCheckBox = (e) =>{
+    e.preventDefault();
+    setCheckBox(e.target.checked)
+  }
+
   const handleImage = (e) => {
     e.preventDefault();
     setLoadingSubmit(true);
     const formData = new FormData();
     formData.append("file", e.target.files[0]);
     http
-      .post(UPLOAD_IMAGE, formData, {
-        headers: {
-          user_id: userId,
-        },
-      })
+      .post(UPLOAD_IMAGE, formData)
       .then((response) => {
         setLoadingSubmit(false);
         const responseData = response.data.imageUrl;
@@ -150,7 +152,11 @@ const Profile = () => {
   };
 
   const handleSubmit = () => {
-    if (whatsapps && graduationYears && courses) {
+    if (whatsapps && graduationYears
+       && courses && dobs && fathersNames 
+       && qualifications && occupations
+       && addresss && pincodes && genders 
+       && mediums && imageUrl) {
       setLoadingSubmit(true);
       let userDetails = {
         whatsapp: whatsapps,
@@ -164,6 +170,7 @@ const Profile = () => {
         pincode: pincodes,
         gender: genders,
         medium: mediums,
+        imageUrl: imageUrl
       };
       http
         .put(POST_USER_DETAILS.replace("<USER_ID>", userId), userDetails)
@@ -180,9 +187,9 @@ const Profile = () => {
   return (
     <>
       <UserNavBar />
-      <div className="py-5">
+      <div style={{marginTop:"300px"}} className="mt-5 pt-5">
         {!loading ? (
-          <div className="row">
+          <div className="row mt-5 pt-3">
             <div className="col-md-3">
               <div className="text-center">
                 {imageUrl ? (
@@ -206,7 +213,7 @@ const Profile = () => {
                         Upload Images
                       </div>
                     ) : (
-                        <div className="btn btn-info mt-2">Change Images</div>
+                        null
                       )}
                   </label>
                   <input id="file-input" type="file" />
@@ -279,6 +286,7 @@ const Profile = () => {
                       onInput={(e) =>
                         (e.target.value = e.target.value.slice(0, 10))
                       }
+                      placeholder="e.g., 9898989898"
                     />
                   ) : (
                       <input
@@ -343,6 +351,7 @@ const Profile = () => {
                       type="text"
                       value={fathersNames}
                       onChange={handleFatherName}
+                      placeholder="e.g., Dinesh Singh"
                     />
                   ) : (
                       <input
@@ -364,6 +373,7 @@ const Profile = () => {
                       type="text"
                       value={occupations}
                       onChange={handleOccupation}
+                      placeholder="e.g., Student"
                     />
                   ) : (
                       <input
@@ -385,6 +395,7 @@ const Profile = () => {
                       type="text"
                       value={addresss}
                       onChange={handleAddress}
+                      placeholder="e.g., 34, Shanti Nagar, Durg"
                     />
                   ) : (
                       <input
@@ -407,8 +418,9 @@ const Profile = () => {
                       value={pincodes}
                       onChange={handlePincode}
                       onInput={(e) =>
-                        (e.target.value = e.target.value.slice(0, 6))
+                        (e.target.value = e.target.value.slice(0, 6))         
                       }
+                      placeholder="e.g., 491001"
                     />
                   ) : (
                       <input
@@ -430,6 +442,7 @@ const Profile = () => {
                       type="text"
                       value={qualifications}
                       onChange={handleQualication}
+                      placeholder="e.g., B.E"
                     />
                   ) : (
                       <input
@@ -556,6 +569,20 @@ const Profile = () => {
                     )}
                 </div>
               </div>
+              {
+                course ? null
+                :
+                  <div class="form-check">
+                    <input type="checkbox" className="form-check-input" checked={checkBox} onChange={handleCheckBox}/>
+                    <label className="form-check-label w-75">I hereby declare that the information given in this application is true and
+                    correct to the best of my knowledge and belief. In case any information
+                    given in this application proves to be false or incorrect, I shall be
+                    responsible for the consequences. <br></br> 
+                      मैं इस बात की घोषणा करता हूं कि इस एप्लिकेशन में दी गई जानकारी सही है और
+                      मेरे ज्ञान और विश्वास के लिए सबसे अच्छा है। मामले में कोई जानकारी
+                      इस एप्लिकेशन में दिए गए झूठे या गलत साबित होते हैं,तो मैं ज़िम्मेवार होऊंगा। </label>
+                  </div>
+              }
 
               {whatsapp &&
                 graduationYear &&
@@ -567,9 +594,16 @@ const Profile = () => {
                   <div className="form-group">
                     <label className="col-md-3 control-label"></label>
                     <div className="col-md-8">
-                      <button className="btn btn-primary" onClick={handleSubmit}>
-                        Submit
-                    </button>
+                      {
+                        checkBox ?
+                        <button className="btn btn-primary" onClick={handleSubmit}>
+                          Submit
+                        </button>
+                      :
+                        <button className="btn btn-primary" disabled>
+                            Submit
+                        </button>
+                      }              
                     </div>
                   </div>
                 )}

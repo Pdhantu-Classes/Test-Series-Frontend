@@ -40,7 +40,8 @@ const UserDashBoard = () => {
       <UserNavBar />
       {
         !loading ?
-          <div className="container mt-5 pt-5">
+        <div className="container mt-5 pt-5">
+          <div className="mt-5 pt-5">
             {
               isRegister && isBuy ? 
               <div className="display-4 text-success text-center"> Class will start at 17th August </div> 
@@ -50,6 +51,7 @@ const UserDashBoard = () => {
             :
             <div className="display-4 text-danger text-center"> You are not registered </div>
              }
+          </div>
           </div>
           :
           <div className="d-flex justify-content-center pt-5 mt-5">

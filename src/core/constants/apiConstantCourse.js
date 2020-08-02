@@ -1,6 +1,8 @@
-let base_url = "http://3.17.56.99:5001"; //production
+let base_url = "https://thephdantu.in/course"; //production
 
-// let base_url = "http://18.217.125.150:5001"   //devlopment
+//let base_url = "http://18.217.125.150:5000/course"   //devlopment
+
+// let base_url = "http://localhost:5001/course"   //Local
 
 
 export const API_ENDPOINTS = {
@@ -17,5 +19,13 @@ export const API_ENDPOINTS = {
     VERIFY_ORDER: `${base_url}/verifyRazorpaySucces`,
     ORDER_DETAILS: `${base_url}/myOrders/<USER_ID>`,
     IS_PACKAGE_BUY: `${base_url}/isPackageBuy/<USER_ID>`,
+  },
+  ADMIN: {
+    ADMIN_LOGIN: `${base_url}/adminLogin`,
+    ALL_USERS: `${base_url}/allUsers`,
+    PAID_USERS: `${base_url}/paidUsers`,
+    ADMIN_DASHBOARD: `${base_url}/adminDashboard`,
+    DISPUTE_ORDERS: `${base_url}/disputeOrders`,
+    RESOLVE_ORDERS: `${base_url}/resolveOrder`
   }
 }

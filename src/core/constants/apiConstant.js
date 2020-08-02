@@ -1,6 +1,8 @@
-let base_url = "http://3.17.56.99:5000"; //production
+let base_url = "https://thephdantu.in"; //production
 
 // let base_url = "http://18.217.125.150:5000" //development
+
+// let base_url = "http://localhost:5001"   //Local
 
 export const API_ENDPOINTS = {
   USERS: {

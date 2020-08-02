@@ -50,7 +50,7 @@ const AdminLogin = () => {
 
     const redirectUser = () => {
         if (redirectToReferrer) {
-            return <Redirect to="/admin/dashboard" />;
+            return <Redirect to="/adminCourse/dashboard" />;
         }
     }
 

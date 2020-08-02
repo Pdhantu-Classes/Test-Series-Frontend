@@ -59,7 +59,8 @@ const Home = () => {
   return (
     <div>
       <UserNavBar />
-      {!loading ? <div className="container mt-4 pt-5">
+      {!loading ? 
+      <div className="container mt-5 pt-5">
         {!isRegister ? <div>
           <div
             className="text-center py-5 text-danger"
@@ -75,7 +76,7 @@ const Home = () => {
         {
           isRegister && packageId === 1 ?
             <div
-              className="card offset-md-2 offset-xs-2  offset-lg-2 mb-5 card-width-package"
+              className="card offset-md-2 offset-xs-2  offset-lg-2 mb-5 card-width-package mt-5 pt-5"
               style={{
                 background:
                   "linear-gradient(270.9deg, #FFBFBF 3.13%, rgba(255, 252, 253, 0) 95.62%)",
@@ -127,7 +128,7 @@ const Home = () => {
         {
           isRegister && packageId === 2 ?
             <div
-              className="card offset-md-2 offset-xs-2  offset-lg-2 mb-5 card-width-package"
+              className="card offset-md-2 offset-xs-2  offset-lg-2 mb-5 card-width-package mt-5 pt-5"
               style={{
                 background:
                   "linear-gradient(270.9deg, #FFBFBF 3.13%, rgba(255, 252, 253, 0) 95.62%)",
