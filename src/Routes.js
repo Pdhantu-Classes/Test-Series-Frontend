@@ -42,7 +42,7 @@ import ProfileCourse from './containers/Course/ProfileCourse'
 import OrdersCourse from './containers/Course/OrdersCourse'
 import DashboardCourse from './containers/Course/DashboardCourse'
 import CgpscViewDetails from "./pages/LandingPage/Components/CgpscViewDetails";
-import AdminLoginCourse from "./containers/AdminCourse/AdminLogin";
+import AdminLoginCourse from "./containers/Course/AdminCourse/AdminLogin";
 
 const Routes = () => {
  

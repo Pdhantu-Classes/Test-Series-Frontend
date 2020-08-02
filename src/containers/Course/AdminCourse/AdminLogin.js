@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import '../../css/Login.css';
-import { adminSignIn, authenticateAdmin } from "../auth/index";
-import adminIcon from '../../asset/Admin-icon.png'
+import '../../../css/Login.css';
+import { adminSignIn, authenticateAdmin } from "../../auth/index";
+import adminIcon from '../../../asset/Admin-icon.png'
 
 const AdminLogin = () => {
     const [values, setValues] = useState({
