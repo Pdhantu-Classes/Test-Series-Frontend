@@ -48,6 +48,7 @@ import AdminAllUserCourse from "./containers/Course/AdminCourse/AllUser";
 import AdminPaidUserCourse from "./containers/Course/AdminCourse/PaidUser";
 import AdminDisputePaymentCourse from "./containers/Course/AdminCourse/DisputePayment";
 import AdminResolvePaymentCourse from "./containers/Course/AdminCourse/ResolvePayment";
+import UserDetails from "./containers/Course/AdminCourse/UserDetails";
 
 const Routes = () => {
  
@@ -58,7 +59,7 @@ const Routes = () => {
         <Route path="/adminLogin" component={AdminLogin} />
         <Route path="/adminLoginCourse" component={AdminLoginCourse} />
 
-        {/* TEST_SERIES */}
+        {/* ------------------------User TEST_SERIES  and Course Both------------------------------*/}
         <Route
           path="/loginSeries"
           render={() =>
@@ -123,7 +124,9 @@ const Routes = () => {
           render={() => (!isTokenVaild()? <Redirect to="/" /> : <Response />)}
         />
         
-        {/* Admin */}
+
+
+        {/* ------------------------------------Admin Test-Series------------------------------------------ */}
         <Route
           path="/admin/dashboard"
           render={() =>!isAdminTokenValid() ? (<Redirect to="/adminLogin" />) : (<AdminDashBoard />)}
@@ -182,7 +185,7 @@ const Routes = () => {
 
 
 
-
+        {/*------------------------------- Miscellaneous ------------------------------------*/}
         <Route path='/testViewDetails' component={TestDetails} />
         <Route path='/admin/upload-question-images' component={UploadQuestionImage} />
         <Route path='/user/questionPaper' component={QuestionPaperShow} />
@@ -194,8 +197,7 @@ const Routes = () => {
 
 
 
-        {/* COURSE */}
-
+        {/*------------------------------- COURSE USERS ------------------------------------*/}
         <Route
           path="/loginCourse"
           render={() =>
@@ -219,7 +221,7 @@ const Routes = () => {
         <Route path="/adminCourse/paidUser" component ={AdminPaidUserCourse}/>
         <Route path="/adminCourse/disputePayment" component ={AdminDisputePaymentCourse}/>
         <Route path="/adminCourse/resolvePayment" component ={AdminResolvePaymentCourse}/>
-
+        <Route path="/adminCourse/userDetails" component ={UserDetails}/>
 
       </Switch>
     </BrowserRouter>
