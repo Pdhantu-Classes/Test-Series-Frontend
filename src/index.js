@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import './index.css';
 import * as serviceWorker from './serviceWorker';
- import Routes from './Routes'
+import App from './App'
 import { transitions, positions,types, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
 
@@ -17,7 +18,7 @@ const options = {
 ReactDOM.render(
   <React.StrictMode>
       <AlertProvider template={AlertTemplate} {...options}>
-        <Routes />
+        <App />
       </AlertProvider>
   </React.StrictMode>,
   document.getElementById('root')

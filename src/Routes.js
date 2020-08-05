@@ -49,6 +49,7 @@ import AdminPaidUserCourse from "./containers/Course/AdminCourse/PaidUser";
 import AdminDisputePaymentCourse from "./containers/Course/AdminCourse/DisputePayment";
 import AdminResolvePaymentCourse from "./containers/Course/AdminCourse/ResolvePayment";
 import UserDetails from "./containers/Course/AdminCourse/UserDetails";
+import ShowQuestion from './containers/Admin/ShowQuestion'
 
 const Routes = () => {
  
@@ -181,6 +182,10 @@ const Routes = () => {
         <Route
           path='/admin/uploadAnswerPdf'
           render={() =>!isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <UploadAnswerKeyPdf />}
+        />
+         <Route
+          path='/admin/showQuestion'
+          render={() =>!isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <ShowQuestion />}
         />
 
 
