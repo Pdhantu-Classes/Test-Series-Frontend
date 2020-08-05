@@ -152,7 +152,7 @@ export default function ForgotPassword() {
     const PasswordChanged = () => (
         <div>
             <h4 className="text-center">Password Changed Successfully</h4>
-            <p className="text-center"> <Link to="/login">Login here</Link></p>
+            <p className="text-center"> <Link to="/loginSeries">Login here</Link></p>
         </div>
     )
 

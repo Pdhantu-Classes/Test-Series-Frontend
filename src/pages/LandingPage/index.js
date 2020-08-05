@@ -8,6 +8,7 @@ import Header from '../../containers/Header'
 import Footer from '../../containers/Footer'
 import Videos from './Components/Videos'
 import CgpscCourse from './Components/CgpscCourse'
+import ModuleLog from './Components/ModuleLog'
 
 function landingPage(){
     return(
@@ -15,6 +16,7 @@ function landingPage(){
         
        <Header />
         <Showcase />
+        <ModuleLog/>
         <CgpscCourse/>
         <WhyUs />
         <Boxes />

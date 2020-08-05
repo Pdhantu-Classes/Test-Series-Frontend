@@ -82,7 +82,7 @@ export default function ResolvePayment() {
                     <div>
                         {
                             items ? 
-                            <div className="text-center">
+                            <div className="text-center mt-5 pt-5">
                                 <div style={{fontSize:"25px",fontWeight:"bold"}}>Order details are:</div>
                                 <div style={{fontSize:"20px"}}> <b>Name:</b> {items.firstname} {items.lastname} </div>
                                 <div style={{fontSize:"20px"}}> <b>Email:</b> {items.email} </div>
