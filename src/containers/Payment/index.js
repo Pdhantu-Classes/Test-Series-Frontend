@@ -10,10 +10,10 @@ const CREATE_ORDER = API_ENDPOINTS.USERS.CREATE_ORDER
 const VERIFY_ORDER = API_ENDPOINTS.USERS.VERIFY_ORDER
 
 // test id
-// const RAZORPAY_ID = "rzp_test_2QHPO79ACxzRQl"
+// const RAZORPAY_ID = "rzp_test_x8I5D7s72Z0kOk"
 
 // live id
-const RAZORPAY_ID = "rzp_live_DjZ6EChEMzly9v"
+const RAZORPAY_ID = "rzp_live_dG54e74x2QdKcw"
 
 const PayByRazorPay = (props) => {
   const history = useHistory()
