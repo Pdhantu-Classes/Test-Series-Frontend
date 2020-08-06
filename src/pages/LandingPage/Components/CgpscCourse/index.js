@@ -7,7 +7,7 @@ export default function CgpscCourse() {
         <div className="mt-5 pt-3 container">
             <div className="row">
             <div
-                className="card text-center lg-5 offset-lg-3 mt-5"
+                className="card text-center offset-lg-2 offset-md-2 offset-sm-0 offset-xs-0 mt-5"
                 style={{
                     background:"linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%, rgba(179,223,211,1) 0%",
                     height: "370px",
