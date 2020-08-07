@@ -73,7 +73,7 @@ function Showcase() {
                         Detailed Syllabus
                       </button>
                     </div>
-                    <Link to="/signup" className="nav-link">
+                    <Link to="/signupSeries" className="nav-link">
                       <button className="btn btn-secondary btn-lg mt-2">
                         Sign Up For Test
                       </button>

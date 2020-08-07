@@ -69,6 +69,11 @@ const Routes = () => {
             isTokenVaild() ? <Redirect to="/user/home" /> : <Login />}
         />
         <Route
+          path="/login"
+          render={() =>
+            isTokenVaild() ? <Redirect to="/user/home" /> : <Login />}
+        />
+        <Route
           path="/forgotPasswordSeries"
           render={() =>
             isTokenVaild() ? <Redirect to="/user/home" /> : <ForgotPassword />}
