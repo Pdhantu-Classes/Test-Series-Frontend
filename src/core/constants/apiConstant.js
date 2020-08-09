@@ -2,7 +2,7 @@
 
 let base_url = "http://18.217.125.150:5000" //development
 
-let base_url = "http://localhost:5000"   //Local
+// let base_url = "http://localhost:5000"   //Local
 
 export const API_ENDPOINTS = {
   USERS: {
