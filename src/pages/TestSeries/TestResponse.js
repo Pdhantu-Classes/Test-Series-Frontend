@@ -796,7 +796,7 @@ export default function TestResponse() {
         <div>
             <UserNavBar />
             {!loading ? (
-                <div className="container py-5 margin">
+                <div className="container mt-5 pt-5 margin">
                     {result()}
                     {viewResponse}
                 </div>
