@@ -1,4 +1,4 @@
-let base_url = "https://thephdantu.in"; //production
+ let base_url = "https://thephdantu.in"; //production
 
 // let base_url = "http://18.217.125.150:5000" //development
 
@@ -48,7 +48,10 @@ export const API_ENDPOINTS = {
     GET_USER_LIST_MOCK: `${base_url}/getUserListMock`,
     GET_QUESTIONS :`${base_url}/getQuestionsByPaperId`,
     DELETE_QUESTION:`${base_url}/deleteQuestionById`,
-    DUMP_EXCEL_FILE:`${base_url}/dumpQuestionsExcelfile`
+    DUMP_EXCEL_FILE:`${base_url}/dumpQuestionsExcelfile`,
+    DELETE_ALL_QUESTION:`${base_url}/deleteQuestionsByPaperId`,
+    GET_QUESTION_BY_ID:`${base_url}/getQuestionsById`,
+    EDIT_QUESTION_BY_ID:`${base_url}/editQuestionsById`
 
   },
   TEST_SERIES:{

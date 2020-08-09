@@ -52,6 +52,7 @@ import UserDetails from "./containers/Course/AdminCourse/UserDetails";
 import ShowQuestion from './containers/Admin/ShowQuestion'
 import UploadQuestion from './containers/Admin/UploadQuestion'
 import UploadExcel from './containers/Admin/ExcelUpload'
+import EditQuestion from './containers/Admin/EditQuestion'
 
 const Routes = () => {
  
@@ -201,6 +202,10 @@ const Routes = () => {
          <Route
           path='/admin/excelUpload'
           render={() =>!isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <UploadExcel />}
+        />
+         <Route
+          path='/admin/editQuestion'
+          render={() =>!isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <EditQuestion />}
         />
 
 
