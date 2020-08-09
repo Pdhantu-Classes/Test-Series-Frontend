@@ -177,6 +177,111 @@ const Home = () => {
             :
             null
         }
+        {
+          isRegister && packageId === 3 ?
+            <div
+              className="card offset-md-2 offset-xs-2  offset-lg-2 mb-5 card-width-package mt-5 pt-5"
+              style={{
+                background:
+                  "linear-gradient(270.9deg, #FFBFBF 3.13%, rgba(255, 252, 253, 0) 95.62%)",
+              }}
+            >
+              <div className="row no-gutters">
+                <div className="col-sm-4 col-md-4">
+                  <img
+                    className="card-img mt-4 ml-md-5 ml-sm-5 ml-lg-5 card-image-package"
+                    style={{ width: "200px", height: "200px", marginTop: "25px" }}
+                    src={testImage}
+                    alt="TESTICON"
+                  />
+                </div>
+                <div className="col-sm-8">
+                  <div className="card-body">
+                    <h3 className="card-title">Pdhantu CGPSC Mains Course (Hindi)</h3>
+                    <ul className="list-unstyled mt-3 mb-4">
+                      <li style={{ fontSize: "20px" }}>
+                        <b>&#8226; Live Online Video Lecture Mains</b>
+                      </li>
+                      <li style={{ fontSize: "20px" }}>
+                        <b>&#8226; Pdhantu Test Mains</b>
+                      </li>
+                      <li style={{ fontSize: "20px" }}>
+                        <b>&#8226; Topic Wise Mains</b>
+                      </li>
+                      <li style={{ fontSize: "20px" }}>
+                        <b>&#8226; Pdf Notes Mains</b>
+                      </li>
+                    </ul>
+                    {isBuy ? (
+                      <Link to="/user/dashboard">
+                        <button className="btn btn-info">Go to Dashboard</button>
+                      </Link>
+                    ) : (
+                        <div>
+
+                          <CoursePay payload={{ packageId, userId, userName, userEmail, userMobile }} />
+                        </div>
+                      )}
+                  </div>
+                </div>
+              </div>
+            </div>
+            :
+            null
+        }
+        {
+          isRegister && packageId === 4 ?
+            <div
+              className="card offset-md-2 offset-xs-2  offset-lg-2 mb-5 card-width-package mt-5 pt-5"
+              style={{
+                background:
+                  "linear-gradient(270.9deg, #FFBFBF 3.13%, rgba(255, 252, 253, 0) 95.62%)",
+              }}
+            >
+              <div className="row no-gutters">
+                <div className="col-sm-4 col-md-4">
+                  <img
+                    className="card-img mt-4 ml-md-5 ml-sm-5 ml-lg-5 card-image-package"
+                    style={{ width: "200px", height: "200px", marginTop: "25px" }}
+                    src={testImage}
+                    alt="TESTICON"
+                  />
+                </div>
+                <div className="col-sm-8">
+                  <div className="card-body">
+                    <h3 className="card-title">Pdhantu CGPSC Mains Course (English)</h3>
+                    <ul className="list-unstyled mt-3 mb-4">
+                      <li style={{ fontSize: "20px" }}>
+                        <b>&#8226; Live Online Video Lecture Mains</b>
+                      </li>
+                      <li style={{ fontSize: "20px" }}>
+                        <b>&#8226; Pdhantu Test Mains</b>
+                      </li>
+                      <li style={{ fontSize: "20px" }}>
+                        <b>&#8226; Topic Wise Mains</b>
+                      </li>
+                      <li style={{ fontSize: "20px" }}>
+                        <b>&#8226; Pdf Notes Mains</b>
+                      </li>
+                    </ul>
+                    {isBuy ? (
+                      <Link to="/user/dashboard">
+                        <button className="btn btn-info">Go to Dashboard</button>
+                      </Link>
+                    ) : (
+                        <div>
+
+                          <CoursePay payload={{ packageId, userId, userName, userEmail, userMobile }} />
+                        </div>
+                      )}
+                  </div>
+                </div>
+              </div>
+            </div>
+            :
+            null
+        }
+
       </div>
         :
         <div className="d-flex justify-content-center pt-5 mt-5">

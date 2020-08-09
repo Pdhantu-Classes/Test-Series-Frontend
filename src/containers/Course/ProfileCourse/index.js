@@ -540,6 +540,8 @@ const Profile = () => {
                       <option defaultValue>Select Course</option>
                       <option value="1">CGPSC Prelims</option>
                       <option value="2">CGPSC Prelims + Mains</option>
+                      <option value="3">CGPSC Mains(Hindi)</option>
+                      <option value="4">CGPSC Mains(English)</option>
                     </select>
                   ) : (
                       <select className="form-control" value={course} disabled>
