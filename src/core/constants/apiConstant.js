@@ -2,7 +2,7 @@
 
 let base_url = "http://18.217.125.150:5000" //development
 
-// let base_url = "http://localhost:5001"   //Local
+let base_url = "http://localhost:5000"   //Local
 
 export const API_ENDPOINTS = {
   USERS: {
@@ -45,7 +45,10 @@ export const API_ENDPOINTS = {
     DUMPED_ANSWER_PDF:`${base_url}/dump-images-answer`,
     GET_MOCK_PAPER_QUESTION:`${base_url}/getMockPaperForQuestion`,
     GET_MOCK_PAPER_ANSWER:`${base_url}/getMockPaperForAnswer`,
-    GET_USER_LIST_MOCK: `${base_url}/getUserListMock`
+    GET_USER_LIST_MOCK: `${base_url}/getUserListMock`,
+    GET_QUESTIONS :`${base_url}/getQuestionsByPaperId`,
+    DELETE_QUESTION:`${base_url}/deleteQuestionById`,
+    DUMP_EXCEL_FILE:`${base_url}/dumpQuestionsExcelfile`
 
   },
   TEST_SERIES:{

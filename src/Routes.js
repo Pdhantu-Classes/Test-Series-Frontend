@@ -49,7 +49,9 @@ import AdminPaidUserCourse from "./containers/Course/AdminCourse/PaidUser";
 import AdminDisputePaymentCourse from "./containers/Course/AdminCourse/DisputePayment";
 import AdminResolvePaymentCourse from "./containers/Course/AdminCourse/ResolvePayment";
 import UserDetails from "./containers/Course/AdminCourse/UserDetails";
-// import ShowQuestion from './containers/Admin/ShowQuestion'
+import ShowQuestion from './containers/Admin/ShowQuestion'
+import UploadQuestion from './containers/Admin/UploadQuestion'
+import UploadExcel from './containers/Admin/ExcelUpload'
 
 const Routes = () => {
  
@@ -188,10 +190,18 @@ const Routes = () => {
           path='/admin/uploadAnswerPdf'
           render={() =>!isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <UploadAnswerKeyPdf />}
         />
-         {/* <Route
+         <Route
           path='/admin/showQuestion'
           render={() =>!isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <ShowQuestion />}
-        /> */}
+        />
+         <Route
+          path='/admin/uploadQuestion'
+          render={() =>!isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <UploadQuestion />}
+        />
+         <Route
+          path='/admin/excelUpload'
+          render={() =>!isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <UploadExcel />}
+        />
 
 
 

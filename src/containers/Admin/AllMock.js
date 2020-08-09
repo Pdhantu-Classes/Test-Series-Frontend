@@ -211,6 +211,7 @@ export default function AllMock() {
                                         <th>Status</th>
                                         <th>View Details</th>
                                         <th>Action</th>
+                                        <th>Questions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -264,9 +265,13 @@ export default function AllMock() {
                                                                 :
                                                                 null
                                                     }
+                                                    <td><button className="btn btn-primary">Add Question</button> <button className="btn btn-primary">Show Question</button></td>
                                             </tr>
+                                            
                                         );
+                                       
                                     })}
+                                    
                                 </tbody>
                             </table>
                         </div>
