@@ -39,6 +39,7 @@ export const authenticate = (data) => {
   if (data && typeof window !== "undefined") {
     localStorage.setItem("token", data.token);
     localStorage.setItem("imgUrl", data.image_url);
+    localStorage.setItem("course", data.course);
   }
 };
 // export const authenticateAdmin = (data) => {
