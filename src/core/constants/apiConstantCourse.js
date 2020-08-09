@@ -1,8 +1,8 @@
-// let base_url = "https://thephdantu.in/course"; //production
+//let base_url = "https://thephdantu.in/course"; //production
 
 let base_url = "http://18.217.125.150:5000/course"   //devlopment
 
-// let base_url = "http://localhost:5000/course"   //Local
+//let base_url = "http://localhost:5000/course"   //Local
 
 
 export const API_ENDPOINTS = {

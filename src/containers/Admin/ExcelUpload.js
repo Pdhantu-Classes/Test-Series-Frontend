@@ -3,13 +3,12 @@ import axios from "axios";
 import AdminBar from "./AdminNavBar";
 import {useHistory} from 'react-router-dom'
 import { API_ENDPOINTS } from "../../core/constants/apiConstant";
+
 const DUMPED_QUESTIONS = API_ENDPOINTS.ADMIN.DUMP_EXCEL_FILE;
 
 export default function DumpExcelSheet(props) {
  const history = useHistory()
   const [files, setFiles] = useState();
-  const [response, setResponse] = useState("");
-  const [message, setMessage] = useState("");
   const [loading,setLoading] = useState(false)
 
   const handleFileChange = (e) => {
@@ -30,10 +29,10 @@ export default function DumpExcelSheet(props) {
 
         if (res.data) {
             setLoading(false)
-          setTimeout(() => {
-            setMessage("Upload Successful");
-            history.push('/admin/showQuestion')
-          }, 2000);
+            setTimeout(() => {
+              setMessage("Upload Successful");
+              history.push('/admin/showQuestion')
+            }, 2000);
         }
       })
       .catch((err) => {

@@ -102,6 +102,14 @@ export default function AllMock() {
         window.localStorage.setItem('mock_paper_id',id)
         history.push('/admin/viewrank')
     }
+    const handleAddQuestion =(id)=>{
+        window.localStorage.setItem('mock_paper_id',id)
+        history.push('/admin/uploadQuestion')
+    }
+    const handleShowQuestion =(id)=>{
+        window.localStorage.setItem('mock_paper_id',id)
+        history.push('/admin/showQuestion')
+    }
     const handleSubmit = () => {
        handleCloseAuth()
         console.log(mockPaperId)
@@ -265,7 +273,7 @@ export default function AllMock() {
                                                                 :
                                                                 null
                                                     }
-                                                    <td><button className="btn btn-primary">Add Question</button> <button className="btn btn-primary">Show Question</button></td>
+                                                    <td><button className="btn btn-primary" onClick={()=>handleAddQuestion(data.id)}>Add Question</button> <button className="btn btn-primary" onClick={()=>handleShowQuestion(data.id)}>Show Question</button></td>
                                             </tr>
                                             
                                         );
