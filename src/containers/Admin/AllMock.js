@@ -273,7 +273,7 @@ export default function AllMock() {
                                                                 :
                                                                 null
                                                     }
-                                                    <td><button className="btn btn-primary" onClick={()=>handleAddQuestion(data.id)}>Add Question</button> <button className="btn btn-primary" onClick={()=>handleShowQuestion(data.id)}>Show Question</button></td>
+                                                    <td><button className="btn btn-secondary" onClick={()=>handleAddQuestion(data.id)}>Add Question</button> <button className="btn btn-info" onClick={()=>handleShowQuestion(data.id)}>Show Question</button></td>
                                             </tr>
                                             
                                         );
