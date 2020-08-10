@@ -200,16 +200,16 @@ const Home = () => {
                     <h3 className="card-title">Pdhantu CGPSC Mains Course (Hindi)</h3>
                     <ul className="list-unstyled mt-3 mb-4">
                       <li style={{ fontSize: "20px" }}>
-                        <b>&#8226; Live Online Video Lecture Mains</b>
+                        <b>&#8226; Live Online Video Lecture(Mains)</b>
                       </li>
                       <li style={{ fontSize: "20px" }}>
-                        <b>&#8226; Pdhantu Test Mains</b>
+                        <b>&#8226; Pdhantu Test(Mains)</b>
                       </li>
                       <li style={{ fontSize: "20px" }}>
-                        <b>&#8226; Topic Wise Mains</b>
+                        <b>&#8226; Topic Wise Test(Mains)</b>
                       </li>
                       <li style={{ fontSize: "20px" }}>
-                        <b>&#8226; Pdf Notes Mains</b>
+                        <b>&#8226; Pdf Notes(Mains)</b>
                       </li>
                     </ul>
                     {isBuy ? (
@@ -252,16 +252,16 @@ const Home = () => {
                     <h3 className="card-title">Pdhantu CGPSC Mains Course (English)</h3>
                     <ul className="list-unstyled mt-3 mb-4">
                       <li style={{ fontSize: "20px" }}>
-                        <b>&#8226; Live Online Video Lecture Mains</b>
+                        <b>&#8226; Live Online Video Lecture(Mains)</b>
                       </li>
                       <li style={{ fontSize: "20px" }}>
-                        <b>&#8226; Pdhantu Test Mains</b>
+                        <b>&#8226; Pdhantu Test(Mains)</b>
                       </li>
                       <li style={{ fontSize: "20px" }}>
-                        <b>&#8226; Topic Wise Mains</b>
+                        <b>&#8226; Topic Wise Test(Mains)</b>
                       </li>
                       <li style={{ fontSize: "20px" }}>
-                        <b>&#8226; Pdf Notes Mains</b>
+                        <b>&#8226; Pdf Notes(Mains)</b>
                       </li>
                     </ul>
                     {isBuy ? (
