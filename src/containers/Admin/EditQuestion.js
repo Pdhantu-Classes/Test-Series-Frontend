@@ -10,7 +10,7 @@ export default function EditQuestion() {
 
   const history = useHistory()
   const [loading, setLoading] = useState(true);
-  const [loadingEdit, setLoadingEdit] = useState(true);
+  const [loadingEdit, setLoadingEdit] = useState(false);
   const [extrasOption, setExtrasOption] = useState('')
   const [extrasQuestion, setExtrasQuestion] = useState('')
   const [questionEnglish, setQuestionEglish] = useState('')
