@@ -51,6 +51,8 @@ const UserItem = ({ item }) => {
                     {
                     item.course === 1 ? 'PRELIMS' :
                     item.course === 2 ? 'PRE+MAINS':
+                    item.course === 3 ? 'MAINS(Hindi)':
+                    item.course === 4 ? 'MAINS(English)':
                     'NA'
                     }</span>
               }
