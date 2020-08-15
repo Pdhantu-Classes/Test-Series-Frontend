@@ -55,7 +55,7 @@ export default function EditQuestion() {
   }
 
   const handleChangeExq = (e) => {
-    setExtrasQuestion()
+    setExtrasQuestion(e.target.value)
   }
 
   const handleChangeExo = (e) => {
