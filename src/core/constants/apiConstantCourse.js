@@ -34,6 +34,8 @@ export const API_ENDPOINTS = {
     USER_DETAILS: `${base_url}/userDetails`,
     GET_SUBJECTS: `${base_url}/getSubjects`,
     GET_TOPICS: `${base_url}/getTopics`,
-    UPLOAD_TOPIC: `${base_url}/addTopicsPdf`
+    UPLOAD_TOPIC: `${base_url}/addTopicVideos`,
+    PAID_USER_LIST: `${base_url}/paidUserLists`,
+    UPLOAD_PDF: `${base_url}/uploadTopicPdf`
   }
 }

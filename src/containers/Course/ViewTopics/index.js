@@ -75,7 +75,16 @@ export default function ViewTopics() {
                                                 <td>
                                                    <a href= {data.video_url_link} target="blank">View Video</a>
                                                 </td>                                          
-                                                <td><button className="btn btn-secondary" onClick={()=>{handleDownloadPdf(data.pdf_url_link)}}>Download Pdf</button></td>
+                                                <td>
+                                                    {
+                                                        data.pdf_url_link !== null ?
+                                                            <button className="btn btn-secondary" onClick={()=>{handleDownloadPdf(data.pdf_url_link)}}>Download Pdf</button>
+                                                        :
+                                                            <button className="btn btn-secondary" disabled>Download Pdf</button>
+
+                                                    }
+                                                </td>
+                                                    
                                             </tr>
                                             
                                         );                                     

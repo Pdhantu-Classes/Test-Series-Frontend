@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import http from "axios";
+import { useHistory } from 'react-router-dom'
 import AdminNavBar from "../AdminCourse/AdminNavBar";
 
 import { API_ENDPOINTS } from '../../../core/constants/apiConstantCourse'
@@ -10,12 +11,12 @@ const UPLOAD_TOPIC = API_ENDPOINTS.ADMIN.UPLOAD_TOPIC
 
 export default function AdminUploadSection() {
 
+    const history = useHistory()
     const [subjectDetils, setSubjectDetails] = useState([])
     const [itemLists, setItemLists] = useState([])
     const [loading, setLoading] = useState(true)
     const [topic, setTopic] = useState('')
     const [videoUrl, setVideoUrl] = useState('')
-    const [pdf, setPdf] = useState()
 
     useEffect(() => {
         setLoading(true)
@@ -48,8 +49,9 @@ export default function AdminUploadSection() {
         setVideoUrl(e.target.value)
     }
 
-    const handlePdf = (e) => {
-        setPdf(e.target.files[0])
+    const handleUploadPdf = (id) =>{
+        window.localStorage.setItem("adminTopicId",id)
+        history.push('/adminCourse/uploadTopicPdf')
     }
 
     const handleSubmit = () => {
@@ -57,16 +59,14 @@ export default function AdminUploadSection() {
         const COURSE_ID = window.localStorage.getItem("adminCourseId")
         const SUBJECT_ID = window.localStorage.getItem("adminSubjectId")
 
-        const formData = new FormData();
-        formData.append('study_pdf', pdf)
-        http.post(UPLOAD_TOPIC, formData, {
-            headers: {
-                course_id: COURSE_ID,
-                subject_id: SUBJECT_ID,
-                topics: topic,
-                video_url_link: videoUrl
-            }
-        })
+        let body = {
+            course_id: COURSE_ID,
+            subject_id: SUBJECT_ID,
+            topics: topic,
+            video_url_link: videoUrl
+        }
+
+        http.post(UPLOAD_TOPIC, body)
             .then(res => {
                 setLoading(false)
                 alert(res.data.message)
@@ -117,16 +117,6 @@ export default function AdminUploadSection() {
                                     />
                                 </div>
                             </div>
-                            <div className="form-group">
-                                <label className="col-lg-3 control-label">Upload Pdf</label>
-                                <div className="col-lg-8">
-                                    <input
-                                        className="form-control"
-                                        type="file"
-                                        onChange={handlePdf}
-                                    />
-                                </div>
-                            </div>
                             <button className="btn btn-primary offset-md-3 offset-sm-2" onClick={handleSubmit}>
                                 Upload
                         </button>
@@ -153,7 +143,16 @@ export default function AdminUploadSection() {
                                                         <td>
                                                             <a href={data.video_url_link} target="blank">{data.video_url_link}</a>
                                                         </td>
-                                                        <td><button className="btn btn-secondary" onClick={() => { handleViewPdf(data.pdf_url_link) }}>View Pdf</button></td>
+                                                        <td>
+                                                            {
+                                                                data.pdf_url_link !== null ?
+                                                                    <button className="btn btn-secondary" onClick={() => { handleViewPdf(data.pdf_url_link) }}>View Pdf</button>
+                                                                :
+                                                                    <button className="btn btn-secondary" onClick={() => { handleUploadPdf(data.id) }}>Upload Pdf</button>
+
+                                                            }
+                                                        </td>
+                                                            
                                                     </tr>
 
                                                 );

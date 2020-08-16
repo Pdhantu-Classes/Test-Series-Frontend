@@ -176,6 +176,7 @@ const Profile = () => {
         .put(POST_USER_DETAILS.replace("<USER_ID>", userId), userDetails)
         .then((response) => {
           setLoadingSubmit(false);
+          window.localStorage.setItem("course",courses)
           history.push("/user/home");
         })
         .catch((err) => console.log(err));

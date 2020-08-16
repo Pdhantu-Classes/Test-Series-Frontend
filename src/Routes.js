@@ -60,6 +60,8 @@ import AdminUploadMaterial from "./containers/Course/AdminCourse/AdminUploadMate
 import AdminChoosePaper from "./containers/Course/AdminCourse/AdminChoosePaper";
 import AdminChooseSubject from "./containers/Course/AdminCourse/AdminChooseSubject";
 import AdminUploadSection from "./containers/Course/AdminCourse/AdminUploadSection";
+import PaidUserList from "./containers/Course/AdminCourse/PaidUserList";
+import UploadTopicPdf from "./containers/Course/AdminCourse/UploadTopicPdf";
 
 const Routes = () => {
  
@@ -273,6 +275,8 @@ const Routes = () => {
         <Route path="/adminCourse/choosePaper" component ={AdminChoosePaper}/>
         <Route path="/adminCourse/chooseSubject" component ={AdminChooseSubject}/>
         <Route path="/adminCourse/upload" component ={AdminUploadSection}/>
+        <Route path="/adminCourse/paidUserList" component ={PaidUserList}/>
+        <Route path="/adminCourse/uploadTopicPdf" component ={UploadTopicPdf}/>
 
       </Switch>
     </BrowserRouter>

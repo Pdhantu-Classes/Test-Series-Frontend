@@ -68,6 +68,16 @@ const AdminNavBar = () => {
                 Upload
               </Link>
             </li>
+            <li className="nav-item">
+              <Link
+                className="nav-link"
+                onClick={() => {
+                  history.push("/adminCourse/paidUserList");
+                }}
+              >
+                Userlist
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="ml-2 mr-2 mt-2">
