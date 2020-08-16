@@ -31,12 +31,12 @@ export default function ChoosePaper() {
                             courseId === 1 ?
                                 <div className="row text-center">
                                     <div
-                                        className="col-lg-3 col-md-4 mt-5"
+                                        className="ccol-lg-4 col-md-6 mt-5"
                                         onClick={() => { handleChange(2) }}
                                     >
                                         <div className="card bg-info ">
                                             <div className="card-body py-5 " style={{ height: "35vh" }}>
-                                                <div className="display-4 py-5 text-white">Prelims</div>
+                                                <div className="py-5 text-white" style={{fontSize:"45px"}}>Prelims</div>
                                             </div>
                                         </div>
                                     </div>
@@ -45,22 +45,22 @@ export default function ChoosePaper() {
                                 courseId === 2 ?
                                     <div className="row text-center">
                                         <div
-                                            className="col-lg-3 col-md-4 mt-5"
+                                            className="col-lg-4 col-md-6 mt-5"
                                             onClick={() => { handleChange(2) }}
                                         >
                                             <div className="card bg-info ">
                                                 <div className="card-body py-5 " style={{ height: "35vh" }}>
-                                                    <div className="display-4 py-5 text-white">Prelims</div>
+                                                    <div className="py-5 text-white" style={{fontSize:"45px"}}>Prelims</div>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div
-                                            className="col-lg-3 col-md-4 mt-5"
+                                            className="col-lg-4 col-md-6 mt-5"
                                             onClick={() => { handleChange(1) }}>
                                             <div className="card bg-success ">
                                                 <div className="card-body py-5" style={{ height: "35vh" }}>
-                                                    <div className="display-4 py-5 text-white">Mains</div>
+                                                    <div className="py-5 text-white" style={{fontSize:"45px"}}>Mains</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -69,12 +69,12 @@ export default function ChoosePaper() {
                                     courseId === 3 ?
                                         <div className="row text-center">
                                             <div
-                                                className="col-lg-3 col-md-4 mt-5"
+                                                className="col-lg-4 col-md-6 mt-5"
                                                 onClick={() => { handleChange(1) }}
                                             >
                                                 <div className="card bg-info ">
                                                     <div className="card-body py-5 " style={{ height: "35vh" }}>
-                                                        <div className="display-4 py-5 text-white">Mains(Hindi)</div>
+                                                        <div className="py-5 text-white" style={{fontSize:"45px"}}>Mains(Hindi)</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -83,18 +83,18 @@ export default function ChoosePaper() {
                                         courseId === 4 ?
                                             <div className="row text-center">
                                                 <div
-                                                    className="col-lg-3 col-md-4 mt-5"
+                                                    className="col-lg-4 col-md-6 mt-5"
                                                     onClick={() => { handleChange(1) }}
                                                 >
                                                     <div className="card bg-info ">
                                                         <div className="card-body py-5 " style={{ height: "35vh" }}>
-                                                            <div className="display-4 py-5 text-white">Mains(English)</div>
+                                                            <div className="py-5 text-white" style={{fontSize:"45px"}}>Mains(English)</div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             :
-                                            <div>Nalla</div>
+                                            null
                         }
                     </div>
                     :
@@ -104,9 +104,6 @@ export default function ChoosePaper() {
                         </div>
                     </div>
             }
-            </div>
-            <div>
-                Hii
             </div>
         </div>
     )

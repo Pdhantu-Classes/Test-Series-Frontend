@@ -61,7 +61,7 @@ const UserDashBoard = () => {
               >
                 <div className="card bg-info ">
                   <div className="card-body py-5 " style={{ height: "35vh" }}>
-                    <div className="display-4 py-4 text-white">Video/Live Class</div>
+                    <div className="py-5 text-white" style={{fontSize:"45px"}}>Video/Live Class</div>
                   </div>
                 </div>
               </div>
@@ -70,7 +70,7 @@ const UserDashBoard = () => {
                 className="col-lg-4 col-md-6 mt-5">
                 <div className="card bg-success ">
                   <div className="card-body py-5" style={{ height: "35vh" }}>
-                  <div className="display-4 py-4 text-white">Pdhantu Class Test</div>
+                  <div className="py-5 text-white" style={{fontSize:"45px"}}>Pdhantu Class Test</div>
                   </div>
                 </div>
               </div>
