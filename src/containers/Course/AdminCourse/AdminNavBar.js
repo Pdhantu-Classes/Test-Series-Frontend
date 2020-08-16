@@ -58,6 +58,16 @@ const AdminNavBar = () => {
                 Dispute Payment
               </Link>
             </li>
+            <li className="nav-item">
+              <Link
+                className="nav-link"
+                onClick={() => {
+                  history.push("/adminCourse/uploadMaterial");
+                }}
+              >
+                Upload
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="ml-2 mr-2 mt-2">
