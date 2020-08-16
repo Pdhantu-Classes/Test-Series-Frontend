@@ -1,4 +1,3 @@
-
 // let base_url = "https://thephdantu.in"; //production
 
 let base_url = "http://18.217.125.150:5000" //development

@@ -242,7 +242,7 @@ export default function UserDetails() {
                                             className="form-control"
                                             type="text"
                                             value={
-                                                items.course === 1 ? 'Prelims' : items.course === 2 ? 'Pre+Mains' :null
+                                                items.course === 1 ? 'Prelims' : items.course === 2 ? 'Pre+Mains' : items.course === 3 ? 'Mains(Hindi)' : items.course === 4 ? 'Mains(English)':null
                                             }
                                             disabled
                                         />

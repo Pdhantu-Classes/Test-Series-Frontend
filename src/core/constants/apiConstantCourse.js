@@ -19,6 +19,8 @@ export const API_ENDPOINTS = {
     VERIFY_ORDER: `${base_url}/verifyRazorpaySucces`,
     ORDER_DETAILS: `${base_url}/myOrders/<USER_ID>`,
     IS_PACKAGE_BUY: `${base_url}/isPackageBuy/<USER_ID>`,
+    GET_SUBJECTS: `${base_url}/getSubjects`,
+    GET_TOPICS: `${base_url}/getTopics`
   },
   ADMIN: {
     ADMIN_LOGIN: `${base_url}/adminLogin`,
@@ -29,6 +31,9 @@ export const API_ENDPOINTS = {
     DISPUTE_ORDER_ID: `${base_url}/disputeOrdersById`,
     RESOLVE_ORDERS: `${base_url}/resolveOrder`,
     DELETE_ORDERS: `${base_url}/deleteDisputeOrder`,
-    USER_DETAILS: `${base_url}/userDetails`
+    USER_DETAILS: `${base_url}/userDetails`,
+    GET_SUBJECTS: `${base_url}/getSubjects`,
+    GET_TOPICS: `${base_url}/getTopics`,
+    UPLOAD_TOPIC: `${base_url}/addTopicsPdf`
   }
 }

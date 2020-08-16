@@ -53,6 +53,13 @@ import ShowQuestion from './containers/Admin/ShowQuestion'
 import UploadQuestion from './containers/Admin/UploadQuestion'
 import UploadExcel from './containers/Admin/ExcelUpload'
 import EditQuestion from './containers/Admin/EditQuestion'
+import ChooseSubjects from "./containers/Course/ChooseSubject";
+import ChoosePaper from "./containers/Course/ChoosePaper";
+import ViewTopics from "./containers/Course/ViewTopics";
+import AdminUploadMaterial from "./containers/Course/AdminCourse/AdminUploadMaterial";
+import AdminChoosePaper from "./containers/Course/AdminCourse/AdminChoosePaper";
+import AdminChooseSubject from "./containers/Course/AdminCourse/AdminChooseSubject";
+import AdminUploadSection from "./containers/Course/AdminCourse/AdminUploadSection";
 
 const Routes = () => {
  
@@ -239,6 +246,21 @@ const Routes = () => {
             isTokenVaild() ? <Redirect to="/user/home" /> : <SignupCourse />}
         />
 
+        <Route
+          path="/user/course/paper"
+          render={() => (!isTokenVaild()? <Redirect to="/" /> : <ChoosePaper />)}
+        />
+
+        <Route
+          path="/user/course/subjects"
+          render={() => (!isTokenVaild()? <Redirect to="/" /> : <ChooseSubjects />)}
+        />
+
+        <Route
+          path="/user/course/viewTopics"
+          render={() => (!isTokenVaild()? <Redirect to="/" /> : <ViewTopics />)}
+        />
+
         {/* ---------------------------------Admin Course--------------------------------------------- */}
         <Route path="/adminCourseLogin" component ={AdminLoginCourse}/>
         <Route path="/adminCourse/dashboard" component ={AdminDashboardCourse}/>
@@ -247,6 +269,10 @@ const Routes = () => {
         <Route path="/adminCourse/disputePayment" component ={AdminDisputePaymentCourse}/>
         <Route path="/adminCourse/resolvePayment" component ={AdminResolvePaymentCourse}/>
         <Route path="/adminCourse/userDetails" component ={UserDetails}/>
+        <Route path="/adminCourse/uploadMaterial" component ={AdminUploadMaterial}/>
+        <Route path="/adminCourse/choosePaper" component ={AdminChoosePaper}/>
+        <Route path="/adminCourse/chooseSubject" component ={AdminChooseSubject}/>
+        <Route path="/adminCourse/upload" component ={AdminUploadSection}/>
 
       </Switch>
     </BrowserRouter>
