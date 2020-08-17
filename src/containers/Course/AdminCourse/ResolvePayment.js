@@ -83,14 +83,16 @@ export default function ResolvePayment() {
                         {
                             items ? 
                             <div className="text-center mt-5 pt-5">
-                                <div style={{fontSize:"25px",fontWeight:"bold"}}>Order details are:</div>
-                                <div style={{fontSize:"20px"}}> <b>Name:</b> {items.firstname} {items.lastname} </div>
-                                <div style={{fontSize:"20px"}}> <b>Email:</b> {items.email} </div>
-                                <div style={{fontSize:"20px"}}><b>Order Id:</b> {items.order_id} </div>
-                                <div className="offset-4 mt-3">
-                                    <input className="form-control w-50" type="text" placeholder="Enter Payment Id" onChange={handleChange}/>
+                                <div className="text-center mt-5 pt-5">
+                                    <div style={{fontSize:"25px",fontWeight:"bold"}}>Order details are:</div>
+                                    <div style={{fontSize:"20px"}}> <b>Name:</b> {items.firstname} {items.lastname} </div>
+                                    <div style={{fontSize:"20px"}}> <b>Email:</b> {items.email} </div>
+                                    <div style={{fontSize:"20px"}}><b>Order Id:</b> {items.order_id} </div>
+                                    <div className="offset-4 mt-3">
+                                        <input className="form-control w-50" type="text" placeholder="Enter Payment Id" onChange={handleChange}/>
+                                    </div>
+                                    <button onClick={handleSubmit} className="btn btn-primary mt-2">Submit</button>
                                 </div>
-                                <button onClick={handleSubmit} className="btn btn-primary mt-2">Submit</button>
                             </div>
                             :
                             null

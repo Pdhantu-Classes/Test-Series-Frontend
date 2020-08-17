@@ -52,6 +52,7 @@ export default function PaidUserList() {
                                 <thead>
                                     <tr>
                                         <th>S.No</th>
+                                        <th>Name</th>
                                         <th>Email</th>
                                         <th>Mobile</th>
                                         <th>Course</th>
@@ -66,13 +67,16 @@ export default function PaidUserList() {
                                                     {index+1}
                                                 </td>
                                                 <td className="font-weight-bold">
+                                                    {data.firstname} {data.lastname}
+                                                </td>
+                                                <td className="font-weight-bold">
                                                     {data.email}
                                                 </td>
                                                 <td>
                                                     {data.mobile}
                                                 </td>
                                                 <td>
-                                                    {data.package_name}
+                                                    {'Prelims'}
                                                 </td>
                                             </tr>
                                         );
@@ -105,6 +109,7 @@ export default function PaidUserList() {
                                 <thead>
                                     <tr>
                                         <th>S.No</th>
+                                        <th>Name</th>
                                         <th>Email</th>
                                         <th>Mobile</th>
                                         <th>Course</th>
@@ -115,19 +120,22 @@ export default function PaidUserList() {
                                     paidUserList.filter(i=>i.course === 2).map((data, index) => {
                                         return (
                                             <tr>
-                                                <td className="font-weight-bold">
-                                                    {index+1}
-                                                </td>
-                                                <td className="font-weight-bold">
-                                                    {data.email}
-                                                </td>
-                                                <td>
-                                                    {data.mobile}
-                                                </td>
-                                                <td>
-                                                    {data.package_name}
-                                                </td>
-                                            </tr>
+                                            <td className="font-weight-bold">
+                                                {index+1}
+                                            </td>
+                                            <td className="font-weight-bold">
+                                                {data.firstname} {data.lastname}
+                                            </td>
+                                            <td className="font-weight-bold">
+                                                {data.email}
+                                            </td>
+                                            <td>
+                                                {data.mobile}
+                                            </td>
+                                            <td>
+                                                {'Prelims+Mains'}
+                                            </td>
+                                        </tr>
                                         );
                                     })}
                                 </tbody>
@@ -158,6 +166,7 @@ export default function PaidUserList() {
                             <thead>
                                 <tr>
                                     <th>S.No</th>
+                                    <th>Name</th>
                                     <th>Email</th>
                                     <th>Mobile</th>
                                     <th>Course</th>
@@ -168,19 +177,22 @@ export default function PaidUserList() {
                                 paidUserList.filter(i=>i.course === 3).map((data, index) => {
                                     return (
                                         <tr>
-                                            <td className="font-weight-bold">
-                                                {index+1}
-                                            </td>
-                                            <td className="font-weight-bold">
-                                                {data.email}
-                                            </td>
-                                            <td>
-                                                {data.mobile}
-                                            </td>
-                                            <td>
-                                                {data.package_name}
-                                            </td>
-                                        </tr>
+                                        <td className="font-weight-bold">
+                                            {index+1}
+                                        </td>
+                                        <td className="font-weight-bold">
+                                            {data.firstname} {data.lastname}
+                                        </td>
+                                        <td className="font-weight-bold">
+                                            {data.email}
+                                        </td>
+                                        <td>
+                                            {data.mobile}
+                                        </td>
+                                        <td>
+                                            {'Mains(Hindi)'}
+                                        </td>
+                                    </tr>
                                     );
                                 })}
                             </tbody>
@@ -211,6 +223,7 @@ export default function PaidUserList() {
                             <thead>
                                 <tr>
                                     <th>S.No</th>
+                                    <th>Name</th>
                                     <th>Email</th>
                                     <th>Mobile</th>
                                     <th>Course</th>
@@ -221,19 +234,22 @@ export default function PaidUserList() {
                                 paidUserList.filter(i=>i.course === 4).map((data, index) => {
                                     return (
                                         <tr>
-                                            <td className="font-weight-bold">
-                                                {index+1}
-                                            </td>
-                                            <td className="font-weight-bold">
-                                                {data.email}
-                                            </td>
-                                            <td>
-                                                {data.mobile}
-                                            </td>
-                                            <td>
-                                                {data.package_name}
-                                            </td>
-                                        </tr>
+                                        <td className="font-weight-bold">
+                                            {index+1}
+                                        </td>
+                                        <td className="font-weight-bold">
+                                            {data.firstname} {data.lastname}
+                                        </td>
+                                        <td className="font-weight-bold">
+                                            {data.email}
+                                        </td>
+                                        <td>
+                                            {data.mobile}
+                                        </td>
+                                        <td>
+                                            {'Mains(English)'}
+                                        </td>
+                                    </tr>
                                     );
                                 })}
                             </tbody>

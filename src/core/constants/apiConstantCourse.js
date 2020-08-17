@@ -2,7 +2,7 @@ let base_url = "https://thephdantu.in/course"; //production
 
 // let base_url = "http://18.217.125.150:5000/course"   //devlopment
 
-//let base_url = "http://localhost:5000/course"   //Local
+// let base_url = "http://localhost:5000/course"   //Local
 
 
 export const API_ENDPOINTS = {
@@ -20,7 +20,8 @@ export const API_ENDPOINTS = {
     ORDER_DETAILS: `${base_url}/myOrders/<USER_ID>`,
     IS_PACKAGE_BUY: `${base_url}/isPackageBuy/<USER_ID>`,
     GET_SUBJECTS: `${base_url}/getSubjects`,
-    GET_TOPICS: `${base_url}/getTopics`
+    GET_TOPICS: `${base_url}/getTopics`,
+    GET_MEDIUM: `${base_url}/checkMedium`
   },
   ADMIN: {
     ADMIN_LOGIN: `${base_url}/adminLogin`,
