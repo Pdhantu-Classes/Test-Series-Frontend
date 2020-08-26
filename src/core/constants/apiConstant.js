@@ -1,8 +1,8 @@
-let base_url = "https://thephdantu.in"; //production
+// let base_url = "https://thephdantu.in"; //production
 
 // let base_url = "http://18.217.125.150:5000" //development
 
-// let base_url = "http://localhost:5000"   //Local
+let base_url = "http://localhost:5000"   //Local
 
 export const API_ENDPOINTS = {
   USERS: {
@@ -67,5 +67,16 @@ export const API_ENDPOINTS = {
     DEMO_TEST:`${base_url}/demoTest`,
     GET_QUESTION_PAPER_PDF: `${base_url}/getMockPaperPdfImages`,
     GET_ANSWER_KEY_PDF: `${base_url}/getMockAnswerKeyImages`,
+  },
+  WEBSITE:{
+    ADD_NOTICE:`${base_url}/postNotice`,
+    GET_ALL_NOTICE:`${base_url}/getNoticeAll`,
+    GET_ACTIVE_NOTICE: `${base_url}/getNoticeActivate`,
+    INACTIVE_NOTICE: `${base_url}/inactiveNotice`,
+    ADD_CURRENT_AFFAIRS: `${base_url}/postCurrentAffairs`,
+    GET_ALL_CURRENT_AFFAIRS:`${base_url}/getCurrentAffairsAll`,
+    GET_ACTIVE_CURRENT_AFFAIRS: `${base_url}/getCurrentAffairsActive`,
+    INACTIVE_CURRENT_AFFAIRS: `${base_url}/inactiveCurrentAffairs`,
+
   }
 };

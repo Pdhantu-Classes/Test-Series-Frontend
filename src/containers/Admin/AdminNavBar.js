@@ -37,16 +37,26 @@ const AdminNavBar = () => {
                 All User
               </Link>
             </li>
-            {/* <li className="nav-item">
+            <li className="nav-item">
               <Link
                 className="nav-link"
                 onClick={() => {
-                  history.push("/admin/paiduser");
+                  history.push("/admin/addNotice");
                 }}
               >
-                Paid User
+               Notice
               </Link>
-            </li> */}
+            </li>
+            <li className="nav-item">
+              <Link
+                className="nav-link"
+                onClick={() => {
+                  history.push("/admin/addCurrentAffairs");
+                }}
+              >
+               Current Affairs
+              </Link>
+            </li>
             <li className="nav-item">
               <Link
                 className="nav-link"

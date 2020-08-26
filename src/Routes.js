@@ -62,6 +62,12 @@ import AdminChooseSubject from "./containers/Course/AdminCourse/AdminChooseSubje
 import AdminUploadSection from "./containers/Course/AdminCourse/AdminUploadSection";
 import PaidUserList from "./containers/Course/AdminCourse/PaidUserList";
 import UploadTopicPdf from "./containers/Course/AdminCourse/UploadTopicPdf";
+import Notice from "./pages/LandingPage/Components/NewWebsite/Notice";
+import CurrentAffairs from "./pages/LandingPage/Components/NewWebsite/CurrentAffairs";
+import Faculties from "./pages/LandingPage/Components/NewWebsite/Faculties";
+import Features from "./pages/LandingPage/Components/NewWebsite/Features";
+import AddCurrentAffairs from "./containers/Admin/AddCurrentAffairs";
+import AddNotice from "./containers/Admin/AddNotice";
 
 const Routes = () => {
  
@@ -227,7 +233,12 @@ const Routes = () => {
         <Route path='/admin/questionPaper' component={QuestionPaperShow} />
         <Route path='/admin/answerKey' component={AnswerKeyShow} />
         <Route path='/cgpsc/details' component={CgpscViewDetails} />
-        
+        <Route path='/notice' component={Notice} />
+        <Route path='/current-affairs' component={CurrentAffairs} />
+        <Route path='/faculties' component={Faculties} />
+        <Route path='/features' component={Features} />
+        <Route path='/admin/addNotice' component={AddNotice} />
+        <Route path='/admin/addCurrentAffairs' component={AddCurrentAffairs} />
 
 
 
