@@ -95,7 +95,7 @@ const Alltest = () => {
             isBuy ?
             <div className="text-center mb-5 text-info mt-5 pt-5">
               <h2>
-                  Download Current Affairs Paper Pdf
+                  Download Chhattisgarh Current Affairs
               </h2>
               <button className="btn btn-success" onClick={handleDownload}>
                 Download
