@@ -27,14 +27,24 @@ const AdminNavBar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ml-auto">
+          <li className="nav-item">
+              <Link
+                className="nav-link"
+                onClick={() => {
+                  history.push("/admin/allmock");
+                }}
+              >
+                All Mock
+              </Link>
+            </li>
             <li className="nav-item">
               <Link
                 className="nav-link"
                 onClick={() => {
-                  history.push("/admin/alluser");
+                  history.push("/admin/mockstatus");
                 }}
               >
-                All User
+                Mock Status
               </Link>
             </li>
             <li className="nav-item">
@@ -55,26 +65,6 @@ const AdminNavBar = () => {
                 }}
               >
                Current Affairs
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className="nav-link"
-                onClick={() => {
-                  history.push("/admin/allmock");
-                }}
-              >
-                All Mock
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className="nav-link"
-                onClick={() => {
-                  history.push("/admin/mockstatus");
-                }}
-              >
-                Mock Status
               </Link>
             </li>
             <li className="nav-item">
