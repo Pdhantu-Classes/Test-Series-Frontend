@@ -97,7 +97,7 @@ export default function AddCurrentAffairs() {
                                 <thead>
                                     <tr>
                                         <th>S.No</th>
-                                        <th>Notice</th>
+                                        <th>Current Affairs</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
