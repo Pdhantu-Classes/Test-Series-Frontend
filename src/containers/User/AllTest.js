@@ -79,13 +79,33 @@ const Alltest = () => {
     window.localStorage.setItem("mock_paper_id", id);
     history.push("/user/testrank");
   };
+
+  const handleDownload = ()=>{
+    window.location.href="https://pdhantu-classes.s3.us-east-2.amazonaws.com/miscellaneous/Pdhantu_CG_Current_affair.pdf"
+  }
   return (
     <div>
       <div className="mb-5 text-white">All Test</div>
 
       <div className="container mt-5"></div>
 
-      {!loading ? (
+      {!loading ? (  
+        <div>
+          {
+            isBuy ?
+            <div className="text-center mb-5 text-info mt-5 pt-5">
+              <h2>
+                  Download Current Affairs Paper Pdf
+              </h2>
+              <button className="btn btn-success" onClick={handleDownload}>
+                Download
+                </button>
+          </div>
+          :
+          null
+          }
+
+        
         <div
           className="card offset-md-2 offset-xs-2  offset-lg-3 mb-5 card-width-package"
           style={{
@@ -183,7 +203,7 @@ const Alltest = () => {
                     View Response
                   </button>
                   <button
-                    class="btn btn-danger btn-md-lg btn-sm-sm  mt-2 ml-5 "
+                    class="btn btn-danger btn-md-lg btn-sm-sm  mt-2 ml-md-5 ml-sm-0 "
                     onClick={() => {
                       handleViewRank(19);
                     }}
@@ -194,6 +214,7 @@ const Alltest = () => {
               )}
             </div>
           </div>
+        </div>
         </div>
       ) : (
         <div className="d-flex justify-content-center">
