@@ -41,7 +41,7 @@ export default function SubMenu() {
             <div className="row">
                 <div className="col-md-3 col-sm-12"> 
                 <Link to="/notice">
-                    <button className="btn btn-danger mt-3" style={{width:"185px",height:"60px", borderRadius:"32px", fontSize:"20px", marginLeft:"20px"}}>Notice</button>
+                    <button className="btn btn-danger mt-3" style={{width:"185px",height:"60px", borderRadius:"32px", fontSize:"20px"}}>Notice</button>
                 </Link>
                 </div>
                 <div className="col-md-3 col-sm-12">

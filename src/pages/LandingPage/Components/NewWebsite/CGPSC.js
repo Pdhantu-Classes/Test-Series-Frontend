@@ -54,6 +54,14 @@ export default function CGPSC() {
                     </div>
                 </div>
             </div>
+            <div className="row mt-4">
+                <div className="col-md-3 col-sm-12 offset-md-2 offset-sm-0 ">
+                    <Link to="/signupCourse"><button className="btn btn-info mt-3" style={{ width: "180px", height: "60px", borderRadius: "32px", fontSize: "20px", backgroundColor: "#0599F0", border: "1px solid white", boxShadow: " 1px 1px #888888" }}>Register</button></Link>
+                </div>
+                <div className="col-md-3 col-sm-12  offset-md-1 offset-sm-0">
+                    <Link to="/loginCourse"><button className="btn btn-primary mt-3" style={{ width: "180px", height: "60px", borderRadius: "32px", fontSize: "20px", backgroundColor: "#F00565", border: "1px solid white", boxShadow: " 1px 1px #888888" }}>Login</button></Link>
+                </div>
+            </div>
             <div className="row mt-5 pt-2">
                 <div className="col-md-3 mb-2 box-shadow ">
                     <div className="card text-center bg-info text-white" style={{ background: 'linear-gradient(180deg, #6A93CB 0%, rgba(255, 252, 253, 0) 96.35%)', height: '20vh' }}>
@@ -84,14 +92,6 @@ export default function CGPSC() {
                             <h3 className="p-3 mt-3" >Class Schedule</h3>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div className="row mt-4">
-                <div className="col-md-3 col-sm-12 offset-md-2 offset-sm-0 ">
-                    <Link to="/signupCourse"><button className="btn btn-info mt-3" style={{ width: "180px", height: "60px", borderRadius: "32px", fontSize: "20px", backgroundColor: "#0599F0", border: "1px solid white", boxShadow: " 1px 1px #888888" }}>Register</button></Link>
-                </div>
-                <div className="col-md-3 col-sm-12  offset-md-1 offset-sm-0">
-                    <Link to="/loginCourse"><button className="btn btn-primary mt-3" style={{ width: "180px", height: "60px", borderRadius: "32px", fontSize: "20px", backgroundColor: "#F00565", border: "1px solid white", boxShadow: " 1px 1px #888888" }}>Login</button></Link>
                 </div>
             </div>
         </div>

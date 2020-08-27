@@ -14,7 +14,7 @@ function techers()
     <div className="col">
       <div className="info-header mb-5">
         <h1 className="text-primary pb-3">
-        Meet the pdhantu Gurus
+        Meet the पdhantu Gurus
         </h1>
         
       </div>
