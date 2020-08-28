@@ -9,6 +9,7 @@ const INACTIVE_CURRENT_AFFAIRS = API_ENDPOINTS.WEBSITE.INACTIVE_CURRENT_AFFAIRS
 
 export default function AddCurrentAffairs() {
     const [currentAffairs, setCurrentAffairs] = useState('')
+    const [link, setLink] = useState('')
     const [listCurrentAffairs, setListCurrentAffairs] = useState([])
     const [loading, setLoading] = useState(true)
     const [loadingAdd, setLoadingAdd] = useState(false)
@@ -29,18 +30,29 @@ export default function AddCurrentAffairs() {
         setCurrentAffairs(e.target.value)
     }
 
+    const handleChangeLink = (e)=>{
+        setLink(e.target.value)
+    }
+
     const handleClick = () => {
-        setLoadingAdd(true)
-        let body = {
-            current_affairs: currentAffairs
+        if(currentAffairs !== ""){
+            setLoadingAdd(true)
+            let body = {
+                current_affairs: currentAffairs,
+                link:link
+            }
+            http
+                .post(ADD_CURRENT_AFFAIRS, body)
+                .then(res => {
+                    setLoadingAdd(false)
+                    window.location.reload()
+                })
+                .catch(err => console.log(err))
         }
-        http
-            .post(ADD_CURRENT_AFFAIRS, body)
-            .then(res => {
-                setLoadingAdd(false)
-                window.location.reload()
-            })
-            .catch(err => console.log(err))
+        else{
+            alert("Current Affairs is required")
+        }
+
     }
 
     const handleInactive = (id) => {
@@ -62,14 +74,21 @@ export default function AddCurrentAffairs() {
         <div>
             <AdminNavBar />
             <div className="text-center mt-5 pt-5 container">
-                <div class="form-group">
+                <div class="form-group mt-5 pt-5">
                     <label for="exampleFormControlInput1">Enter Current Affairs</label>
                     <textarea
                         class="form-control"
                         id="exampleFormControlTextarea1"
-                        rows="2"
+                        rows="5"
                         onChange={(e) => handleChange(e)}
                     ></textarea>
+                </div>
+                <div class="form-group mt-2">
+                    <label for="exampleFormControlInput1">Enter Link</label>
+                    <input
+                        class="form-control"
+                        onChange={(e) => handleChangeLink(e)}
+                    />
                 </div>
                 <button className="btn btn-primary mt-5" onClick={handleClick}>Add Current Affairs</button>
             </div>
@@ -98,6 +117,7 @@ export default function AddCurrentAffairs() {
                                     <tr>
                                         <th>S.No</th>
                                         <th>Current Affairs</th>
+                                        <th>Link</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -108,12 +128,13 @@ export default function AddCurrentAffairs() {
                                                 <tr>
                                                     <td>{index + 1}</td>
                                                     <td>{data.current_affairs}</td>
+                                                    <td>{data.link}</td>
                                                     <td>
                                                         {
                                                             data.is_active ?
                                                                 <button className="btn btn-success" onClick={() => { handleInactive(data.id) }}>Inactive</button>
                                                                 :
-                                                                <button className="btn btn-danger" disabled>Inactive</button>
+                                                                <button className="btn btn-danger" disabled>Not Active</button>
                                                         }
                                                     </td>
                                                 </tr>

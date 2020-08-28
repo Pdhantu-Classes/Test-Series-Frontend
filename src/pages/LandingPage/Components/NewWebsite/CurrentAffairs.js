@@ -37,6 +37,11 @@ export default function CurrentAffairs() {
                                     return(
                                         <div className="text-success list-group-item" style={{fontSize:"20px"}}>
                                             {ele.current_affairs}
+                                            <div className="mt-2">
+                                            {
+                                                ele.link !== "" ? <a href={ele.link} target="blank">{ele.link}</a>:null
+                                            }
+                                            </div>
                                         </div>
                                     )
                                 }))

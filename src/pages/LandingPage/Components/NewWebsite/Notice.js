@@ -37,6 +37,11 @@ export default function Notice() {
                                     return(
                                         <div className="text-success list-group-item" style={{fontSize:"20px"}}>
                                             {ele.notice}
+                                            <div className="mt-2">
+                                            {
+                                                ele.link !== "" ? <a href={ele.link}>{ele.link}</a>:null
+                                            }
+                                            </div>
                                         </div>
                                     )
                                 }))

@@ -9,6 +9,7 @@ const INACTIVE_NOTICE = API_ENDPOINTS.WEBSITE.INACTIVE_NOTICE
 
 export default function AddNotice() {
     const [notice, setNotice] = useState('')
+    const [link, setLink] = useState('')
     const [listNotice, setListNotice] = useState([])
     const [loading, setLoading] = useState(true)
     const [loadingAdd, setLoadingAdd] = useState(false)
@@ -29,18 +30,29 @@ export default function AddNotice() {
         setNotice(e.target.value)
     }
 
+    const handleChangeLink = (e)=>{
+        setLink(e.target.value)
+    }
+
     const handleClick = () => {
-        setLoadingAdd(true)
-        let body = {
-            notice: notice
+        if(notice !== ""){
+            setLoadingAdd(true)
+            let body = {
+                notice: notice,
+                link: link
+            }
+            http
+                .post(ADD_NOTICE, body)
+                .then(res => {
+                    setLoadingAdd(false)
+                    window.location.reload()
+                })
+                .catch(err => console.log(err))
         }
-        http
-            .post(ADD_NOTICE, body)
-            .then(res => {
-                setLoadingAdd(false)
-                window.location.reload()
-            })
-            .catch(err => console.log(err))
+        else{
+            alert("Notice is required")
+        }
+
     }
 
     const handleInactive = (id) => {
@@ -62,14 +74,21 @@ export default function AddNotice() {
         <div>
             <AdminNavBar />
             <div className="text-center mt-5 pt-5 container">
-                <div class="form-group">
+                <div class="form-group mt-5 pt-5">
                     <label for="exampleFormControlInput1">Enter Notice</label>
                     <textarea
                         class="form-control"
                         id="exampleFormControlTextarea1"
-                        rows="2"
+                        rows="5"
                         onChange={(e) => handleChange(e)}
                     ></textarea>
+                </div>
+                <div class="form-group mt-2">
+                    <label for="exampleFormControlInput1">Enter Link</label>
+                    <input
+                        class="form-control"
+                        onChange={(e) => handleChangeLink(e)}
+                    />
                 </div>
                 <button className="btn btn-primary mt-5" onClick={handleClick}>Add Notice</button>
             </div>
@@ -98,6 +117,7 @@ export default function AddNotice() {
                                     <tr>
                                         <th>S.No</th>
                                         <th>Notice</th>
+                                        <th>Link</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -108,12 +128,13 @@ export default function AddNotice() {
                                                 <tr>
                                                     <td>{index + 1}</td>
                                                     <td>{data.notice}</td>
+                                                    <td>{data.link}</td>
                                                     <td>
                                                         {
                                                             data.is_active ?
                                                                 <button className="btn btn-success" onClick={() => { handleInactive(data.id) }}>Inactive</button>
                                                                 :
-                                                                <button className="btn btn-danger" disabled>Inactive</button>
+                                                                <button className="btn btn-danger" disabled>Not Active</button>
                                                         }
                                                     </td>
                                                 </tr>

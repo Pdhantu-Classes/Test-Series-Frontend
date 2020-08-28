@@ -110,6 +110,15 @@ const Dashboard = (props) => {
     history.push('/user/questionPaper')
   }
 
+  const handleDownload = (pdfUrl) =>{
+    if(pdfUrl !== null){
+      window.location.href = pdfUrl
+    }
+    else{
+      alert("Pdf file Not Found")
+    }
+  }
+
   return (
     <div>
       <Modal show={show} onHide={handleClose}>
@@ -131,7 +140,7 @@ const Dashboard = (props) => {
         !loading ?
           isValidUser ?
             <div class="table-responsive col-10 offset-1 text-center mt-5 pt-5">
-              <table id="tablePreview" class="table table-bordered table-hover">
+              <table id="tablePreview" class="table table-bordered table-hover mt-5">
                 <thead>
                   <tr>
                     <th>S.No</th>
@@ -222,7 +231,7 @@ const Dashboard = (props) => {
                           data.is_attempted && data.is_result_released ?
                             <td>
                               <button className="btn btn-success mr-2 mt-1" onClick={() => { handleViewPdf(index + 1) }}>View Pdf</button>
-                              <button className="btn btn-primary mt-1" disabled>Download pdf</button>
+                              <button className="btn btn-primary mt-1" onClick={()=>handleDownload(data.paper_pdf)}>Download pdf</button>
                             </td>
                             :
                             null
