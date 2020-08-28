@@ -39,7 +39,7 @@ export default function Notice() {
                                             {ele.notice}
                                             <div className="mt-2">
                                             {
-                                                ele.link !== "" ? <a href={ele.link}>{ele.link}</a>:null
+                                                ele.link !== "" ? <a href={ele.link} target="blank">{ele.link}</a>:null
                                             }
                                             </div>
                                         </div>
