@@ -23,7 +23,7 @@ export default function ChoosePaper() {
     return (
         <div>
             <UserNavBar />
-            <div className="offset-lg-3 offset-sm-0 offset-xs-0 mt-5 pt-5">
+            <div className="offset-lg-3 offset-sm-0 offset-xs-0 mt-5 pt-5 container">
             {
                 courseId > 0 ?
                     <div>

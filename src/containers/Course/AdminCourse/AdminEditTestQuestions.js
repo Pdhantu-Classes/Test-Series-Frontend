@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import http from "axios";
 import AdminNavBar from "./AdminNavBar";
-import { useHistory } from 'react-router-dom'
-import { API_ENDPOINTS } from "../../core/constants/apiConstant";
+import { useHistory, Link } from 'react-router-dom'
+import { API_ENDPOINTS } from '../../../core/constants/apiConstantCourse'
 const GET_QUESTION_BY_ID = API_ENDPOINTS.ADMIN.GET_QUESTION_BY_ID
 const EDIT_QUESTION_BY_ID = API_ENDPOINTS.ADMIN.EDIT_QUESTION_BY_ID
 
-export default function EditQuestion() {
+export default function AdminEditTestQuestions() {
 
   const history = useHistory()
   const [loading, setLoading] = useState(true);
@@ -92,13 +92,9 @@ export default function EditQuestion() {
       .put(EDIT_QUESTION_BY_ID, body)
       .then((res) => {
         setLoadingEdit(false)
-        history.push('/admin/showQuestion')
+        history.push('/adminCourse/showClassTestQuestions')
       })
       .catch((err) => console.log(err))
-  }
-
-  const handleDiscard = () => {
-    history.push('/admin/showQuestion')
   }
 
   return (
@@ -207,7 +203,7 @@ export default function EditQuestion() {
             </div>
             <div className="d-flex">
               <button className="btn btn-primary ml-5" onClick={handleSave}>Save</button>
-              <button className="btn btn-danger ml-5" oncClick={handleDiscard}>Discard</button>
+              <Link to="/adminCourse/showClassTestQuestions"><button className="btn btn-danger ml-5" >Discard</button></Link>
             </div>
           </div>
           :

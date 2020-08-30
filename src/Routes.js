@@ -68,6 +68,20 @@ import Faculties from "./pages/LandingPage/Components/NewWebsite/Faculties";
 import Features from "./pages/LandingPage/Components/NewWebsite/Features";
 import AddCurrentAffairs from "./containers/Admin/AddCurrentAffairs";
 import AddNotice from "./containers/Admin/AddNotice";
+import AdminPrelimsClassTest from "./containers/Course/AdminCourse/AdminPrelimsClassTest";
+import AdminClassTestUpload from "./containers/Course/AdminCourse/AdminClassTestUpload";
+import AdminClassTestShow from "./containers/Course/AdminCourse/AdminClassTestShow";
+import AdminEditTestQuestions from "./containers/Course/AdminCourse/AdminEditTestQuestions";
+import ClassTestPrelims from "./containers/Course/ClassTestPrelims"
+import ClassTestPrelimsChoose from "./containers/Course/ClassTestPrelimsChoose"
+import InstructionScreenClassTest from "./containers/Course/InstructionScreenClassTest";
+import ClassTestScreen from "./containers/Course/ClassTestScreen";
+import ClassTestSubmitResponse from './containers/Course/ClassTestSubmitResponse'
+import ClassTestResponse from "./containers/Course/ClassTestResponse";
+import ClassTestRank from "./containers/Course/ClassTestRank";
+import AdminClassTestRankList from "./containers/Course/AdminCourse/AdminClassTestRankList";
+import AdminAllUserList from "./containers/Course/AdminCourse/AdminAllUserList";
+import AllUsersList from './containers/Admin/AllUsersList'
 
 const Routes = () => {
  
@@ -223,6 +237,11 @@ const Routes = () => {
           render={() =>!isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <EditQuestion />}
         />
 
+      <Route
+          path='/admin/allUsersList'
+          render={() =>!isAdminTokenValid() ? <Redirect to="/adminLogin" /> : <AllUsersList />}
+        />
+
 
 
         {/*------------------------------- Miscellaneous ------------------------------------*/}
@@ -274,6 +293,36 @@ const Routes = () => {
           render={() => (!isTokenVaild()? <Redirect to="/" /> : <ViewTopics />)}
         />
 
+      <Route
+          path="/user/course/classTestPrelims"
+          render={() => (!isTokenVaild()? <Redirect to="/" /> : < ClassTestPrelims/>)}
+        />
+
+      <Route
+          path="/user/course/classTestPrelimsChoose"
+          render={() => (!isTokenVaild()? <Redirect to="/" /> : < ClassTestPrelimsChoose/>)}
+        />
+        <Route
+          path="/user/course/classTestPrelimsInstructions"
+          render={() => (!isTokenVaild()? <Redirect to="/" /> : < InstructionScreenClassTest/>)}
+        />
+        <Route
+          path="/user/course/classTestScreen"
+          render={() => (!isTokenVaild()? <Redirect to="/" /> : < ClassTestScreen/>)}
+        />
+        <Route
+          path="/user/course/classTestSubitResponse"
+          render={() => (!isTokenVaild()? <Redirect to="/" /> : < ClassTestSubmitResponse/>)}
+        />
+        <Route
+          path="/user/course/classTestResponse"
+          render={() => (!isTokenVaild()? <Redirect to="/" /> : < ClassTestResponse/>)}
+        />
+        <Route
+          path="/user/course/classTestRank"
+          render={() => (!isTokenVaild()? <Redirect to="/" /> : < ClassTestRank/>)}
+        />
+
         {/* ---------------------------------Admin Course--------------------------------------------- */}
         <Route path="/adminCourseLogin" component ={AdminLoginCourse}/>
         <Route path="/adminCourse/dashboard" component ={AdminDashboardCourse}/>
@@ -288,7 +337,12 @@ const Routes = () => {
         <Route path="/adminCourse/upload" component ={AdminUploadSection}/>
         <Route path="/adminCourse/paidUserList" component ={PaidUserList}/>
         <Route path="/adminCourse/uploadTopicPdf" component ={UploadTopicPdf}/>
-
+        <Route path="/adminCourse/addTopicsClassTest" component ={AdminPrelimsClassTest}/>
+        <Route path="/adminCourse/uploadClassTestQuestions" component ={AdminClassTestUpload}/>
+        <Route path="/adminCourse/showClassTestQuestions" component ={AdminClassTestShow}/>
+        <Route path="/adminCourse/editClassTestQuestions" component ={AdminEditTestQuestions}/>
+        <Route path="/adminCourse/classTestRankList" component ={AdminClassTestRankList}/>
+        <Route path="/adminCourse/allUsersList" component ={AdminAllUserList}/>
       </Switch>
     </BrowserRouter>
   );

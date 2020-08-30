@@ -16,6 +16,7 @@ const UserDashBoard = () => {
   const [loading, setLoading] = useState(true);
   const [isBuy, setIsBuy] = useState(false);
   const [isRegister, setIsRegister] = useState(false);
+  const [courseId, setCourseId] = useState(null)
 
   useEffect(() => {
     const USER_ID = getUserId();
@@ -28,6 +29,8 @@ const UserDashBoard = () => {
 
         setIsRegister(responseRegister);
       });
+      const COURSE_ID = window.localStorage.getItem("course")
+      setCourseId(Number(COURSE_ID))
   }, []);
 
   useEffect(() => { 
@@ -43,6 +46,10 @@ const UserDashBoard = () => {
   const handleChange = (val)  =>{
     window.localStorage.setItem("sectionId", val)
     history.push('/user/course/paper')
+  }
+
+  const handleClassTestPrelims = () =>{
+    history.push('/user/course/classTestPrelims')
   }
   return (
     <div>
@@ -65,15 +72,27 @@ const UserDashBoard = () => {
                   </div>
                 </div>
               </div>
-  
-              <div
-                className="col-lg-4 col-md-6 mt-5">
-                <div className="card bg-success ">
-                  <div className="card-body py-5" style={{ height: "35vh" }}>
-                  <div className="py-5 text-white" style={{fontSize:"45px"}}>Pdhantu Class Test</div>
+              {
+                courseId === 1 || courseId === 2 ?
+                <div
+                  className="col-lg-4 col-md-6 mt-5" onClick={handleClassTestPrelims}>
+                  <div className="card bg-success ">
+                    <div className="card-body py-5" style={{ height: "35vh" }}>
+                    <div className="py-5 text-white" style={{fontSize:"45px"}}>Pdhantu Class Test</div>
+                    </div>
                   </div>
+              </div>
+              :
+              <div
+              className="col-lg-4 col-md-6 mt-5">
+              <div className="card bg-success ">
+                <div className="card-body py-5" style={{ height: "35vh" }}>
+                <div className="py-5 text-white" style={{fontSize:"45px"}}>Pdhantu Class Test</div>
                 </div>
               </div>
+            </div>
+              }
+
               <div
                 className="col-lg-4 col-md-6  mt-5">
                 <div className="card bg-danger ">

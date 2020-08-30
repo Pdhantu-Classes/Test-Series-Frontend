@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AdminNav from "./AdminNavBar";
-import { useHistory } from "react-router";
+import { useHistory, Link } from "react-router-dom";
 import { getAdminDashboard } from "../../containers/auth";
 
 
@@ -30,6 +30,9 @@ const AdminDashBoard = () => {
   return (
     <>
       <AdminNav />
+      <div className="mt-5 pt-5 text-center">
+         <Link to="/admin/allUsersList"><button className="btn btn-primary">All User List</button></Link> 
+      </div>
       {!loading ? (
         <div className="container mt-5 pt-5 mb-5">
           <div className="row text-center">

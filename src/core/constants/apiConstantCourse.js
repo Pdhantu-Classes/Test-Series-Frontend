@@ -21,7 +21,13 @@ export const API_ENDPOINTS = {
     IS_PACKAGE_BUY: `${base_url}/isPackageBuy/<USER_ID>`,
     GET_SUBJECTS: `${base_url}/getSubjects`,
     GET_TOPICS: `${base_url}/getTopics`,
-    GET_MEDIUM: `${base_url}/checkMedium`
+    GET_MEDIUM: `${base_url}/checkMedium`,
+    GET_CLASS_TEST_TOPIC_PRELIMS: `${base_url}/getAllClassTestPrelims`,
+    GET_QUESTIONS_TEST_PRELIMS: `${base_url}/getQuestionsClassTest/<PAPER_ID>`,
+    POST_RESPONSE_TEST_PRELIMS: `${base_url}/postResponseClassTestPrelims`,
+    GET_RESPONSE_TEST_PRELIMS: `${base_url}/getResponsesClassTestPrelims`,
+    GET_RANK_LIST:  `${base_url}/getRankMockPaper`,
+    CHECK_CLASS_TEST_ATTEMPTED: `${base_url}/checkClassTestAttempted`
   },
   ADMIN: {
     ADMIN_LOGIN: `${base_url}/adminLogin`,
@@ -37,6 +43,15 @@ export const API_ENDPOINTS = {
     GET_TOPICS: `${base_url}/getTopics`,
     UPLOAD_TOPIC: `${base_url}/addTopicVideos`,
     PAID_USER_LIST: `${base_url}/paidUserLists`,
-    UPLOAD_PDF: `${base_url}/uploadTopicPdf`
+    UPLOAD_PDF: `${base_url}/uploadTopicPdf`,
+    ADD_CLASS_TEST_PRELIMS: `${base_url}/addClassTestPrelims`,
+    GET_CLASS_TEST_PRELIMS: `${base_url}/getClassTestPrelimsAdmin`,
+    GO_LIVE_CLASS_TEST_PRELIMS: `${base_url}/goLiveClassTestPrelims`,
+    STOP_CLASS_TEST_PRELIMS: `${base_url}/stopClassTestPrelims`,
+    DUMP_CLASS_TEST_PRELIMS: `${base_url}/dumpQuestionClassTestPrelims`,
+    GET_QUESTIONS_TEST_PRELIMS: `${base_url}/getQuestionsByTestIdPrelims`,
+    GET_QUESTION_BY_ID: `${base_url}/getQuestionsByIdPrelims`,
+    EDIT_QUESTION_BY_ID:  `${base_url}/editQuestionsByIdPrelims`,
+    ALL_USERS_LIST: `${base_url}/allUsersList`
   }
 }

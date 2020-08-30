@@ -21,8 +21,6 @@ export const API_ENDPOINTS = {
     MY_TEST_SERIES: `${base_url}/myTestSeries/<USER_ID>`,
     USER_QUERY: `${base_url}/query`,
     IS_USER_PAID: `${base_url}/checkValidUser`,
-
-
   },
   ADMIN: {
     ADMIN_LOGIN: `${base_url}/adminLogin`,
@@ -51,8 +49,8 @@ export const API_ENDPOINTS = {
     DUMP_EXCEL_FILE:`${base_url}/dumpQuestionsExcelfile`,
     DELETE_ALL_QUESTION:`${base_url}/deleteQuestionsByPaperId`,
     GET_QUESTION_BY_ID:`${base_url}/getQuestionsById`,
-    EDIT_QUESTION_BY_ID:`${base_url}/editQuestionsById`
-
+    EDIT_QUESTION_BY_ID:`${base_url}/editQuestionsById`,
+    ALL_USERS_LIST: `${base_url}/allUsersList`
   },
   TEST_SERIES:{
     GET_ALL_MOCK:`${base_url}/getAllMockPaper`,
@@ -77,6 +75,5 @@ export const API_ENDPOINTS = {
     GET_ALL_CURRENT_AFFAIRS:`${base_url}/getCurrentAffairsAll`,
     GET_ACTIVE_CURRENT_AFFAIRS: `${base_url}/getCurrentAffairsActive`,
     INACTIVE_CURRENT_AFFAIRS: `${base_url}/inactiveCurrentAffairs`,
-
   }
 };
