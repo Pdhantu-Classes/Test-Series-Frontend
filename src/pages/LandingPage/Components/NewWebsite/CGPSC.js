@@ -88,9 +88,10 @@ export default function CGPSC() {
                 </div>
                 <div className="col-md-3 mb-2 ">
                     <div className="card text-center bg-secondary text-white" style={{ background: 'linear-gradient(180deg, #6A93CB 0%, rgba(255, 252, 253, 0) 96.35%)', height: '20vh' }}>
-                        <div className="card-body">
-                            <h3 className="p-3 mt-3" >Class Schedule</h3>
+                    <Link to="/classSchedule"><div className="card-body">
+                            <h3 className="p-3 mt-3 text-white" >Class Schedule</h3>
                         </div>
+                    </Link>
                     </div>
                 </div>
             </div>

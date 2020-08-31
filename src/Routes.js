@@ -82,6 +82,7 @@ import ClassTestRank from "./containers/Course/ClassTestRank";
 import AdminClassTestRankList from "./containers/Course/AdminCourse/AdminClassTestRankList";
 import AdminAllUserList from "./containers/Course/AdminCourse/AdminAllUserList";
 import AllUsersList from './containers/Admin/AllUsersList'
+import ClassSchedule from "./pages/LandingPage/Components/NewWebsite/ClassSchedule";
 
 const Routes = () => {
  
@@ -255,6 +256,7 @@ const Routes = () => {
         <Route path='/notice' component={Notice} />
         <Route path='/current-affairs' component={CurrentAffairs} />
         <Route path='/faculties' component={Faculties} />
+        <Route path='/classSchedule' component={ClassSchedule} />
         <Route path='/features' component={Features} />
         <Route path='/admin/addNotice' component={AddNotice} />
         <Route path='/admin/addCurrentAffairs' component={AddCurrentAffairs} />
