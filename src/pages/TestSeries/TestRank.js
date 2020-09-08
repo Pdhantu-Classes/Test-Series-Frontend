@@ -42,6 +42,7 @@ export default function TestRank() {
                 setLoading(false);
             })
             .catch((err) => console.log(err));
+
     }, []);
     return (
         <div>
@@ -55,51 +56,53 @@ export default function TestRank() {
                             </div>
                       </div>
             ) : (
-                    <div className="col-8 offset-2 text-center py-5">
-                        <table className="table table-hover table-striped border border-secondary">
-                            <thead className="bg-dark text-white">
-                                <tr>
-                                    <th>Rank</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Marks</th>
-                                    <th>Accuracy</th>
-                                    <th>Time</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {rankData.map((data, index) => {
-                                    if (userId === data.user_id) {
-                                        return (
-                                            <tr
-                                                id={data.id}
-                                                className="bg-success text-white shadow p-3"
-                                            >
-                                                <th scope="row">#{index + 1}</th>
-                                                <td>You</td>
-                                                <td>{data.user_email}</td>
-                                                <td>{data.marks}</td>
-                                                <td>{data.accuracy}%</td>
-                                                <td>{fancyTimeFormat(data.paper_time)}</td>
-                                            </tr>
-                                        );
-                                    } else {
-                                        return (
-                                            <tr id={data.id}>
-                                                <th scope="row">#{index + 1}</th>
-                                                <td>
-                                                    {data.user_firstname} {data.user_lastname}
-                                                </td>
-                                                <td>{data.user_email}</td>
-                                                <td>{data.marks}</td>
-                                                <td>{data.accuracy}%</td>
-                                                <td>{fancyTimeFormat(data.paper_time)}</td>
-                                            </tr>
-                                        );
-                                    }
-                                })}
-                            </tbody>
-                        </table>
+                    <div>
+                        <div className="col-8 offset-2 text-center py-5">
+                            <table className="table table-hover table-striped border border-secondary">
+                                <thead className="bg-dark text-white">
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Marks</th>
+                                        <th>Accuracy</th>
+                                        <th>Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {rankData.map((data, index) => {
+                                        if (userId === data.user_id) {
+                                            return (
+                                                <tr
+                                                    id={data.id}
+                                                    className="bg-success text-white shadow p-3"
+                                                >
+                                                    <th scope="row">#{index + 1}</th>
+                                                    <td>You</td>
+                                                    <td>{data.user_email}</td>
+                                                    <td>{data.marks}</td>
+                                                    <td>{data.accuracy}%</td>
+                                                    <td>{fancyTimeFormat(data.paper_time)}</td>
+                                                </tr>
+                                            );
+                                        } else {
+                                            return (
+                                                <tr id={data.id}>
+                                                    <th scope="row">#{index + 1}</th>
+                                                    <td>
+                                                        {data.user_firstname} {data.user_lastname}
+                                                    </td>
+                                                    <td>{data.user_email}</td>
+                                                    <td>{data.marks}</td>
+                                                    <td>{data.accuracy}%</td>
+                                                    <td>{fancyTimeFormat(data.paper_time)}</td>
+                                                </tr>
+                                            );
+                                        }
+                                    })}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 )}
         </div>

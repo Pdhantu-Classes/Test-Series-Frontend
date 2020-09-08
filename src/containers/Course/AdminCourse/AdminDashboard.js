@@ -14,6 +14,8 @@ const AdminDashBoard = () => {
   const [allPreMains, setAllPreMains] = useState(0);
   const [allMainsHindi, setAllMainsHindi] = useState(0);
   const [allMainsEnglish, setAllMainsEnglish] = useState(0);
+  const [allBatch1, setAllBatch1] = useState(0);
+  const [allBatch2, setAllBatch2] = useState(0);
   const [loading, setLoading] = useState(false);
 
 
@@ -28,6 +30,8 @@ const AdminDashBoard = () => {
         setAllPreMains(res.data.mains)
         setAllMainsHindi(res.data.mains_hindi)
         setAllMainsEnglish(res.data.mains_english)
+        setAllBatch1(res.data.batch_1)
+        setAllBatch2(res.data.batch_2)
         setLoading(false);
     })
     .catch(err=>console.log(err))
@@ -43,6 +47,29 @@ const AdminDashBoard = () => {
       </div>
       {!loading ? (
         <div className="container mt-5 pt-5 mb-5">
+          <div className="row text-center mt-5">
+            <div
+              className="col-lg-4 offset-lg-2 col-md-6 mt-5"
+            >
+              <div className="card bg-secondary">
+                <div className="card-body py-5 " style={{ height: "35vh" }}>
+                  <h3 className="text-white py-2">Batch-1</h3>
+                  <div className="display-2 text-white">{allBatch1}</div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              className="col-lg-4 col-md-6 offset-lg-1 mt-5"
+            >
+              <div className="card bg-info ">
+                <div className="card-body py-5" style={{ height: "35vh" }}>
+                  <h3 className="text-white py-2">Batch-2</h3>
+                  <div className="display-2 text-white">{allBatch2}</div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="row text-center">
             <div
               className="col-lg-4 offset-lg-2 col-md-6 mt-5"

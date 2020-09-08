@@ -7,8 +7,14 @@ export default function AdminUploadMaterial() {
 
     const handleChange = (id) =>{
         console.log(id);
-        window.localStorage.setItem("adminSectionId", id)
-        history.push('/adminCourse/choosePaper')
+        if(id === 3){
+          alert("Current Affairs")
+        }
+        else{
+          window.localStorage.setItem("adminSectionId", id)
+          history.push('/adminCourse/choosePaper')
+        }
+
 
     }
     return (
@@ -39,10 +45,12 @@ export default function AdminUploadMaterial() {
                 </div>
               </div>
               <div
-                className="col-lg-4 col-md-6  mt-5">
+                className="col-lg-4 col-md-6  mt-5"
+                onClick={() => {handleChange(3)}}
+                >
                 <div className="card bg-danger ">
                   <div className="card-body py-5" style={{ height: "35vh" }}>
-                    <div className="py-5 text-white" style={{fontSize:"45px"}}>Assignments</div>
+                    <div className="display-4 py-4 text-white" >Current Affairs</div>
                   </div>
                 </div>
               </div>

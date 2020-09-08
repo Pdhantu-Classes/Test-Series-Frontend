@@ -27,7 +27,8 @@ export const API_ENDPOINTS = {
     POST_RESPONSE_TEST_PRELIMS: `${base_url}/postResponseClassTestPrelims`,
     GET_RESPONSE_TEST_PRELIMS: `${base_url}/getResponsesClassTestPrelims`,
     GET_RANK_LIST:  `${base_url}/getRankMockPaper`,
-    CHECK_CLASS_TEST_ATTEMPTED: `${base_url}/checkClassTestAttempted`
+    CHECK_CLASS_TEST_ATTEMPTED: `${base_url}/checkClassTestAttempted`,
+    GET_BATCH: `${base_url}/getStudentBatch`
   },
   ADMIN: {
     ADMIN_LOGIN: `${base_url}/adminLogin`,

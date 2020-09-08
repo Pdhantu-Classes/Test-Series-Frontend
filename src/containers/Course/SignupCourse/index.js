@@ -121,6 +121,7 @@ function Signup() {
 
   const signUpForm = () => (
     <div>
+      <h3 className="text-center"> Register for Batch 2</h3>
       <div className='display-5 text-center text-danger'> Please Signup for Course here</div>
       <div className='display-5 text-center text-success'> **Please enter those email which is linked with your youtube account </div>
       <div className='display-5 text-center text-info'> **कृपया उन ईमेल को दर्ज करें जो आपके Youtube <br></br> खाते से लिंक हैं </div>

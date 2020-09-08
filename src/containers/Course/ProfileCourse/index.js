@@ -46,6 +46,7 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
   const [loadingSubmit, setLoadingSubmit] = useState();
   const [checkBox, setCheckBox] = useState(false);
+  const [batch, setBatch] = useState(null);
 
   useEffect(() => {
     setLoading(true);
@@ -72,6 +73,7 @@ const Profile = () => {
         setAddress(responseData.address);
         setPincode(responseData.pincode);
         setQualification(responseData.qualification);
+        setBatch(responseData.batch)
       });
   }, []);
 
@@ -130,7 +132,7 @@ const Profile = () => {
     setOccupations(e.target.value);
   };
 
-  const handleCheckBox = (e) =>{
+  const handleCheckBox = (e) => {
     e.preventDefault();
     setCheckBox(e.target.checked)
   }
@@ -153,10 +155,10 @@ const Profile = () => {
 
   const handleSubmit = () => {
     if (whatsapps && graduationYears
-       && courses && dobs && fathersNames 
-       && qualifications && occupations
-       && addresss && pincodes && genders 
-       && mediums && imageUrl) {
+      && courses && dobs && fathersNames
+      && qualifications && occupations
+      && addresss && pincodes && genders
+      && mediums && imageUrl) {
       setLoadingSubmit(true);
       let userDetails = {
         whatsapp: whatsapps,
@@ -176,7 +178,7 @@ const Profile = () => {
         .put(POST_USER_DETAILS.replace("<USER_ID>", userId), userDetails)
         .then((response) => {
           setLoadingSubmit(false);
-          window.localStorage.setItem("course",courses)
+          window.localStorage.setItem("course", courses)
           history.push("/user/home");
         })
         .catch((err) => console.log(err));
@@ -188,7 +190,7 @@ const Profile = () => {
   return (
     <>
       <UserNavBar />
-      <div style={{marginTop:"300px"}} className="mt-5 pt-5">
+      <div style={{ marginTop: "300px" }} className="mt-5 pt-5">
         {!loading ? (
           <div className="row mt-5 pt-3">
             <div className="col-md-3">
@@ -268,6 +270,18 @@ const Profile = () => {
                     className="form-control"
                     type="text"
                     value={email}
+                    disabled
+                  />
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label className="col-lg-3 control-label">Batch</label>
+                <div className="col-lg-8">
+                  <input
+                    className="form-control"
+                    type="text"
+                    value={"Batch-" + batch}
                     disabled
                   />
                 </div>
@@ -419,7 +433,7 @@ const Profile = () => {
                       value={pincodes}
                       onChange={handlePincode}
                       onInput={(e) =>
-                        (e.target.value = e.target.value.slice(0, 6))         
+                        (e.target.value = e.target.value.slice(0, 6))
                       }
                       placeholder="e.g., 491001"
                     />
@@ -574,13 +588,13 @@ const Profile = () => {
               </div>
               {
                 course ? null
-                :
+                  :
                   <div class="form-check">
-                    <input type="checkbox" className="form-check-input" checked={checkBox} onChange={handleCheckBox}/>
+                    <input type="checkbox" className="form-check-input" checked={checkBox} onChange={handleCheckBox} />
                     <label className="form-check-label w-75">I hereby declare that the information given in this application is true and
                     correct to the best of my knowledge and belief. In case any information
                     given in this application proves to be false or incorrect, I shall be
-                    responsible for the consequences. <br></br> 
+                    responsible for the consequences. <br></br>
                       मैं इस बात की घोषणा करता हूं कि इस एप्लिकेशन में दी गई जानकारी सही है और
                       मेरे ज्ञान और विश्वास के लिए सबसे अच्छा है। मामले में कोई जानकारी
                       इस एप्लिकेशन में दिए गए झूठे या गलत साबित होते हैं,तो मैं ज़िम्मेवार होऊंगा। </label>
@@ -599,14 +613,14 @@ const Profile = () => {
                     <div className="col-md-8">
                       {
                         checkBox ?
-                        <button className="btn btn-primary" onClick={handleSubmit}>
-                          Submit
-                        </button>
-                      :
-                        <button className="btn btn-primary" disabled>
+                          <button className="btn btn-primary" onClick={handleSubmit}>
                             Submit
                         </button>
-                      }              
+                          :
+                          <button className="btn btn-primary" disabled>
+                            Submit
+                        </button>
+                      }
                     </div>
                   </div>
                 )}
