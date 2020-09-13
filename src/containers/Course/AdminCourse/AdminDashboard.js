@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from "react";
 import http from 'axios'
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AdminNavBar from "../AdminCourse/AdminNavBar";
 import { API_ENDPOINTS } from '../../../core/constants/apiConstantCourse'
 
 const ADMIN_DASHBOARD = API_ENDPOINTS.ADMIN.ADMIN_DASHBOARD
 
 const AdminDashBoard = () => {
-  const history = useHistory();
-  const [allUser, setAllUser] = useState(0);
-  const [allPaidUser, setAllPaidUser] = useState(0);
-  const [allPrelims, setAllPrelims] = useState(0);
-  const [allPreMains, setAllPreMains] = useState(0);
-  const [allMainsHindi, setAllMainsHindi] = useState(0);
-  const [allMainsEnglish, setAllMainsEnglish] = useState(0);
+  const [allPaidUserBatch1, setAllPaidUserBatch1] = useState(0);
+  const [allPrelimsBatch1, setAllPrelimsBatch1] = useState(0);
+  const [allPreMainsBatch1, setAllPreMainsBatch1] = useState(0);
+  const [allMainsHindiBatch1, setAllMainsHindiBatch1] = useState(0);
+  const [allMainsEnglishBatch1, setAllMainsEnglishBatch1] = useState(0);
+  const [allPaidUserBatch2, setAllPaidUserBatch2] = useState(0);
+  const [allPrelimsBatch2, setAllPrelimsBatch2] = useState(0);
+  const [allPreMainsBatch2, setAllPreMainsBatch2] = useState(0);
+  const [allMainsHindiBatch2, setAllMainsHindiBatch2] = useState(0);
+  const [allMainsEnglishBatch2, setAllMainsEnglishBatch2] = useState(0);
   const [allBatch1, setAllBatch1] = useState(0);
   const [allBatch2, setAllBatch2] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -24,12 +27,16 @@ const AdminDashBoard = () => {
     http
     .get(ADMIN_DASHBOARD)
     .then(res=>{
-        setAllUser(res.data.total_user);
-        setAllPaidUser(res.data.paid_user);
-        setAllPrelims(res.data.prelims)
-        setAllPreMains(res.data.mains)
-        setAllMainsHindi(res.data.mains_hindi)
-        setAllMainsEnglish(res.data.mains_english)
+        setAllPaidUserBatch1(res.data.paid_user_batch1);
+        setAllPrelimsBatch1(res.data.prelims_batch1)
+        setAllPreMainsBatch1(res.data.mains_batch1)
+        setAllMainsHindiBatch1(res.data.mains_hindi_batch1)
+        setAllMainsEnglishBatch1(res.data.mains_english_batch1)
+        setAllPaidUserBatch2(res.data.paid_user_batch2);
+        setAllPrelimsBatch2(res.data.prelims_batch2)
+        setAllPreMainsBatch2(res.data.mains_batch2)
+        setAllMainsHindiBatch2(res.data.mains_hindi_batch2)
+        setAllMainsEnglishBatch2(res.data.mains_english_batch2)
         setAllBatch1(res.data.batch_1)
         setAllBatch2(res.data.batch_2)
         setLoading(false);
@@ -43,57 +50,33 @@ const AdminDashBoard = () => {
     <>
       <AdminNavBar />
       <div className="mt-5 pt-5 text-center">
-         <Link to="/adminCourse/allUsersList"><button className="btn btn-primary">All User List</button></Link> 
+         <Link to="/adminCourse/allUsersListBatch"><button className="btn btn-primary">All User List</button></Link> 
       </div>
       {!loading ? (
         <div className="container mt-5 pt-5 mb-5">
+
+          <div className="text-center mt-2">
+            <h3>Batch 1</h3>
+          </div>
+
           <div className="row text-center mt-5">
             <div
-              className="col-lg-4 offset-lg-2 col-md-6 mt-5"
+              className="col-lg-4 offset-lg-1 col-md-6 mt-5"
             >
               <div className="card bg-secondary">
                 <div className="card-body py-5 " style={{ height: "35vh" }}>
-                  <h3 className="text-white py-2">Batch-1</h3>
+                  <h3 className="text-white py-2">Total</h3>
                   <div className="display-2 text-white">{allBatch1}</div>
                 </div>
               </div>
             </div>
-
             <div
               className="col-lg-4 col-md-6 offset-lg-1 mt-5"
-            >
-              <div className="card bg-info ">
-                <div className="card-body py-5" style={{ height: "35vh" }}>
-                  <h3 className="text-white py-2">Batch-2</h3>
-                  <div className="display-2 text-white">{allBatch2}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="row text-center">
-            <div
-              className="col-lg-4 offset-lg-2 col-md-6 mt-5"
-              onClick={() => {
-                history.push("/adminCourse/allUser");
-              }}
-            >
-              <div className="card bg-warning ">
-                <div className="card-body py-5 " style={{ height: "35vh" }}>
-                  <h3 className="text-white py-2">All Users</h3>
-                  <div className="display-2 text-white">{allUser}</div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="col-lg-4 col-md-6 offset-lg-1 mt-5"
-              onClick={() => {
-                history.push("/adminCourse/paidUser");
-              }}
             >
               <div className="card bg-success ">
                 <div className="card-body py-5" style={{ height: "35vh" }}>
                   <h3 className="text-white py-2">Paid Users</h3>
-                  <div className="display-2 text-white">{allPaidUser}</div>
+                  <div className="display-2 text-white">{allPaidUserBatch1}</div>
                 </div>
               </div>
             </div>
@@ -102,12 +85,12 @@ const AdminDashBoard = () => {
 
           <div className="row text-center mt-5">
             <div
-              className="col-lg-4 offset-lg-2 col-md-6 mt-5"
+              className="col-lg-4 offset-lg-1 col-md-6 mt-5"
             >
               <div className="card bg-secondary">
                 <div className="card-body py-5 " style={{ height: "35vh" }}>
                   <h3 className="text-white py-2">Prelims</h3>
-                  <div className="display-2 text-white">{allPrelims}</div>
+                  <div className="display-2 text-white">{allPrelimsBatch1}</div>
                 </div>
               </div>
             </div>
@@ -118,7 +101,7 @@ const AdminDashBoard = () => {
               <div className="card bg-info ">
                 <div className="card-body py-5" style={{ height: "35vh" }}>
                   <h3 className="text-white py-2">Prelims+Mains</h3>
-                  <div className="display-2 text-white">{allPreMains}</div>
+                  <div className="display-2 text-white">{allPreMainsBatch1}</div>
                 </div>
               </div>
             </div>
@@ -126,12 +109,12 @@ const AdminDashBoard = () => {
 
           <div className="row text-center mt-5">
             <div
-              className="col-lg-4 offset-lg-2 col-md-6 mt-5"
+              className="col-lg-4 offset-lg-1 col-md-6 mt-5"
             >
               <div className="card bg-primary">
                 <div className="card-body py-5 " style={{ height: "35vh" }}>
                   <h3 className="text-white py-2">Mains(Hindi)</h3>
-                  <div className="display-2 text-white">{allMainsHindi}</div>
+                  <div className="display-2 text-white">{allMainsHindiBatch1}</div>
                 </div>
               </div>
             </div>
@@ -142,10 +125,83 @@ const AdminDashBoard = () => {
               <div className="card bg-danger ">
                 <div className="card-body py-5" style={{ height: "35vh" }}>
                   <h3 className="text-white py-2">Mains(English)</h3>
-                  <div className="display-2 text-white">{allMainsEnglish}</div>
+                  <div className="display-2 text-white">{allMainsEnglishBatch1}</div>
                 </div>
               </div>
             </div>
+          </div>
+
+          <div className="text-center mt-5">
+            <h3>Batch 2</h3>
+          </div>
+
+            <div className="row text-center mt-5">
+              <div
+                className="col-lg-4 col-md-6 offset-lg-1 mt-5"
+                >
+              <div className="card bg-info ">
+                <div className="card-body py-5" style={{ height: "35vh" }}>
+                  <h3 className="text-white py-2">Total</h3>
+                  <div className="display-2 text-white">{allBatch2}</div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="col-lg-4 col-md-6 offset-lg-1 mt-5"
+            >
+              <div className="card bg-info ">
+                <div className="card-body py-5" style={{ height: "35vh" }}>
+                  <h3 className="text-white py-2">Paid Users</h3>
+                  <div className="display-2 text-white">{allPaidUserBatch2}</div>
+                </div>
+              </div>
+            </div>     
+          </div>
+
+          <div className="row text-center mt-5">
+            <div
+                className="col-lg-4 col-md-6 offset-lg-1 mt-5"
+              >
+              <div className="card bg-info ">
+                <div className="card-body py-5" style={{ height: "35vh" }}>
+                  <h3 className="text-white py-2">Mains(Hindi)</h3>
+                  <div className="display-2 text-white">{allMainsHindiBatch2}</div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="col-lg-4 col-md-6 offset-lg-1 mt-5"
+            >
+              <div className="card bg-info ">
+                <div className="card-body py-5" style={{ height: "35vh" }}>
+                  <h3 className="text-white py-2">Prelims+Mains</h3>
+                  <div className="display-2 text-white">{allPreMainsBatch2}</div>
+                </div>
+              </div>
+            </div> 
+          </div>
+
+          <div className="row text-center mt-5">
+          <div
+              className="col-lg-4 col-md-6 offset-lg-1 mt-5"
+            >
+              <div className="card bg-info ">
+                <div className="card-body py-5" style={{ height: "35vh" }}>
+                  <h3 className="text-white py-2">Mains(English)</h3>
+                  <div className="display-2 text-white">{allMainsEnglishBatch2}</div>
+                </div>
+              </div>
+            </div>
+            <div
+                className="col-lg-4 col-md-6 offset-lg-1 mt-5"
+              >
+              <div className="card bg-info ">
+                <div className="card-body py-5" style={{ height: "35vh" }}>
+                  <h3 className="text-white py-2">Prelims</h3>
+                  <div className="display-2 text-white">{allPrelimsBatch2}</div>
+                </div>
+              </div>
+            </div>  
           </div>
 
         </div>

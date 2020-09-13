@@ -15,7 +15,11 @@ export default function AdminAllUserList() {
     useEffect(() => {
         setLoading(true)
 
-            http.get(ALL_USERS_LIST)
+            http.get(ALL_USERS_LIST, {
+                headers:{
+                    batch: window.localStorage.getItem("batch")
+                }
+            })
                 .then(res => {
                     setLoading(false)
                     setAllUserList(res.data.allUsers)

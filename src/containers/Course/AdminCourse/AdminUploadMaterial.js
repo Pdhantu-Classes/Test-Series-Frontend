@@ -8,11 +8,13 @@ export default function AdminUploadMaterial() {
     const handleChange = (id) =>{
         console.log(id);
         if(id === 3){
-          alert("Current Affairs")
+          // alert("Current Affairs")
+          history.push('/adminCourse/currentAffairs')
+
         }
         else{
           window.localStorage.setItem("adminSectionId", id)
-          history.push('/adminCourse/choosePaper')
+          history.push('/adminCourse/chooseBatchUpload')
         }
 
 

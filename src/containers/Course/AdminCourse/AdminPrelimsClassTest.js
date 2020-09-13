@@ -40,7 +40,11 @@ export default function AdminPrelimsClassTest() {
     useEffect(() => {
         setLoading(true)
         http
-            .get(GET_CLASS_TEST_PRELIMS)
+            .get(GET_CLASS_TEST_PRELIMS,{
+                headers:{
+                    batch: window.localStorage.getItem("batch")
+                }
+            })
             .then(res => {
                 setLoading(false)
                 setTopicsData(res.data.testData)
@@ -80,7 +84,8 @@ export default function AdminPrelimsClassTest() {
                 subject_name: subject,
                 no_of_questions: noOfQuestions,
                 paper_time: paperTime,
-                paper_date: paperDate
+                paper_date: paperDate,
+                batch:window.localStorage.getItem("batch")
             }
             http
                 .post(ADD_CLASS_TEST_PRELIMS, body)
@@ -245,7 +250,7 @@ export default function AdminPrelimsClassTest() {
                                             return (
                                                 <tr>
                                                     <td className="font-weight-bold">
-                                                        {index+1}
+                                                        {data.id}
                                                     </td>
                                                     <td>
                                                         {data.topic_name}

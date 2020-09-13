@@ -72,7 +72,7 @@ const AdminNavBar = () => {
               <Link
                 className="nav-link"
                 onClick={() => {
-                  history.push("/adminCourse/paidUserList");
+                  history.push("/adminCourse/allPaidUserListBatch");
                 }}
               >
                 Userlist

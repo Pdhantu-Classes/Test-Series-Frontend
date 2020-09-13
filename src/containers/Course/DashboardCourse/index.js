@@ -68,6 +68,10 @@ const UserDashBoard = () => {
   const handleClassTestPrelims = () => {
     history.push('/user/course/classTestPrelims')
   }
+
+  const handleCurrentAffairs = () => {
+    history.push('/user/course/currentAffairs')
+  }
   return (
     <div>
       <UserNavBar />
@@ -112,7 +116,7 @@ const UserDashBoard = () => {
 
                     <div
                       className="col-lg-4 col-md-6  mt-5">
-                      <div className="card bg-danger ">
+                      <div className="card bg-danger " onClick={handleCurrentAffairs}>
                         <div className="card-body py-5" style={{ height: "35vh" }}>
                           <div className="py-5 text-white" style={{ fontSize: "45px" }}>Current Affairs</div>
                         </div>
@@ -121,48 +125,48 @@ const UserDashBoard = () => {
                   </div>
                   :
                   isRegister && isBuy && batch === 2 ?
-                    <div className="display-4 text-info text-center">Class will Start at 17th September </div>
-                    //   <div className="row text-center">
-                    //   <div
-                    //     className="col-lg-4 col-md-6 mt-5"
-                    //     onClick={() => {handleChange(1)}}
-                    //   >
-                    //     <div className="card bg-info ">
-                    //       <div className="card-body py-5 " style={{ height: "35vh" }}>
-                    //         <div className="py-5 text-white" style={{fontSize:"45px"}}>Video/Live Class</div>
-                    //       </div>
-                    //     </div>
-                    //   </div>
-                    //   {
-                    //     courseId === 1 || courseId === 2 ?
-                    //     <div
-                    //       className="col-lg-4 col-md-6 mt-5" onClick={handleClassTestPrelims}>
-                    //       <div className="card bg-success ">
-                    //         <div className="card-body py-5" style={{ height: "35vh" }}>
-                    //         <div className="py-5 text-white" style={{fontSize:"45px"}}>Pdhantu Class Test</div>
-                    //         </div>
-                    //       </div>
-                    //   </div>
-                    //   :
-                    //   <div
-                    //     className="col-lg-4 col-md-6 mt-5">
-                    //     <div className="card bg-success ">
-                    //       <div className="card-body py-5" style={{ height: "35vh" }}>
-                    //       <div className="py-5 text-white" style={{fontSize:"45px"}}>Pdhantu Class Test</div>
-                    //     </div>
-                    //   </div>
-                    // </div>
-                    //   }
+                    <div className="row text-center">
+                      <div className="display-4 text-info">Class will Start at 14th September 5:30 PM </div>
+                      <div
+                        className="col-lg-4 col-md-6 mt-5"
+                        onClick={() => { handleChange(1) }}
+                      >
+                        <div className="card bg-info ">
+                          <div className="card-body py-5 " style={{ height: "35vh" }}>
+                            <div className="py-5 text-white" style={{ fontSize: "45px" }}>Video/Live Class</div>
+                          </div>
+                        </div>
+                      </div>
+                      {
+                        courseId === 1 || courseId === 2 ?
+                          <div
+                            className="col-lg-4 col-md-6 mt-5" onClick={handleClassTestPrelims}>
+                            <div className="card bg-success ">
+                              <div className="card-body py-5" style={{ height: "35vh" }}>
+                                <div className="py-5 text-white" style={{ fontSize: "45px" }}>Pdhantu Class Test</div>
+                              </div>
+                            </div>
+                          </div>
+                          :
+                          <div
+                            className="col-lg-4 col-md-6 mt-5">
+                            <div className="card bg-success ">
+                              <div className="card-body py-5" style={{ height: "35vh" }}>
+                                <div className="py-5 text-white" style={{ fontSize: "45px" }}>Pdhantu Class Test</div>
+                              </div>
+                            </div>
+                          </div>
+                      }
 
-                    //   <div
-                    //     className="col-lg-4 col-md-6  mt-5">
-                    //     <div className="card bg-danger ">
-                    //       <div className="card-body py-5" style={{ height: "35vh" }}>
-                    //         <div className="py-5 text-white" style={{fontSize:"45px"}}>Current Affairs</div>
-                    //       </div>
-                    //     </div>
-                    //   </div>
-                    // </div>
+                      <div
+                        className="col-lg-4 col-md-6  mt-5">
+                        <div className="card bg-danger" onClick={handleCurrentAffairs}>
+                          <div className="card-body py-5" style={{ height: "35vh" }}>
+                            <div className="py-5 text-white" style={{ fontSize: "45px" }}>Current Affairs</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     :
                     isRegister && !isBuy ?
                       <div className="display-4 text-info text-center"> Please buy the course </div>

@@ -83,6 +83,11 @@ import AdminClassTestRankList from "./containers/Course/AdminCourse/AdminClassTe
 import AdminAllUserList from "./containers/Course/AdminCourse/AdminAllUserList";
 import AllUsersList from './containers/Admin/AllUsersList'
 import ClassSchedule from "./pages/LandingPage/Components/NewWebsite/ClassSchedule";
+import AdminSelectBatchUserLists from "./containers/Course/AdminCourse/AdminSelectBatchUserLists";
+import AdminSelectBatchPaidUserLists from "./containers/Course/AdminCourse/AdminSelectBatchPaidUserLists";
+import AdminChooseBatchUpload from "./containers/Course/AdminCourse/AdminChooseBatchUpload";
+import AdminAddCurrentAffairs from "./containers/Course/AdminCourse/AdminAddCurrentAffairs";
+import CourseCurrentAffairs from "./containers/Course/CourseCurrentAffairs";
 
 const Routes = () => {
  
@@ -324,6 +329,10 @@ const Routes = () => {
           path="/user/course/classTestRank"
           render={() => (!isTokenVaild()? <Redirect to="/" /> : < ClassTestRank/>)}
         />
+        <Route
+          path="/user/course/currentAffairs"
+          render={() => (!isTokenVaild()? <Redirect to="/" /> : < CourseCurrentAffairs/>)}
+        />
 
         {/* ---------------------------------Admin Course--------------------------------------------- */}
         <Route path="/adminCourseLogin" component ={AdminLoginCourse}/>
@@ -345,6 +354,10 @@ const Routes = () => {
         <Route path="/adminCourse/editClassTestQuestions" component ={AdminEditTestQuestions}/>
         <Route path="/adminCourse/classTestRankList" component ={AdminClassTestRankList}/>
         <Route path="/adminCourse/allUsersList" component ={AdminAllUserList}/>
+        <Route path="/adminCourse/allUsersListBatch" component ={AdminSelectBatchUserLists}/>
+        <Route path="/adminCourse/allPaidUserListBatch" component ={AdminSelectBatchPaidUserLists}/>
+        <Route path="/adminCourse/chooseBatchUpload" component ={AdminChooseBatchUpload}/>
+        <Route path="/adminCourse/currentAffairs" component ={AdminAddCurrentAffairs}/>
       </Switch>
     </BrowserRouter>
   );

@@ -20,7 +20,7 @@ export const API_ENDPOINTS = {
     ORDER_DETAILS: `${base_url}/myOrders/<USER_ID>`,
     IS_PACKAGE_BUY: `${base_url}/isPackageBuy/<USER_ID>`,
     GET_SUBJECTS: `${base_url}/getSubjects`,
-    GET_TOPICS: `${base_url}/getTopics`,
+    GET_TOPICS: `${base_url}/getTopicsUsers`,
     GET_MEDIUM: `${base_url}/checkMedium`,
     GET_CLASS_TEST_TOPIC_PRELIMS: `${base_url}/getAllClassTestPrelims`,
     GET_QUESTIONS_TEST_PRELIMS: `${base_url}/getQuestionsClassTest/<PAPER_ID>`,
@@ -28,7 +28,8 @@ export const API_ENDPOINTS = {
     GET_RESPONSE_TEST_PRELIMS: `${base_url}/getResponsesClassTestPrelims`,
     GET_RANK_LIST:  `${base_url}/getRankMockPaper`,
     CHECK_CLASS_TEST_ATTEMPTED: `${base_url}/checkClassTestAttempted`,
-    GET_BATCH: `${base_url}/getStudentBatch`
+    GET_BATCH: `${base_url}/getStudentBatch`,
+    GET_CURRENT_AFFAIRS: `${base_url}/getCurrentAffairs`,
   },
   ADMIN: {
     ADMIN_LOGIN: `${base_url}/adminLogin`,
@@ -53,6 +54,8 @@ export const API_ENDPOINTS = {
     GET_QUESTIONS_TEST_PRELIMS: `${base_url}/getQuestionsByTestIdPrelims`,
     GET_QUESTION_BY_ID: `${base_url}/getQuestionsByIdPrelims`,
     EDIT_QUESTION_BY_ID:  `${base_url}/editQuestionsByIdPrelims`,
-    ALL_USERS_LIST: `${base_url}/allUsersList`
+    ALL_USERS_LIST: `${base_url}/allUsersList`,
+    GET_CURRENT_AFFAIRS: `${base_url}/getCurrentAffairs`,
+    ADD_CURRENT_AFFAIRS: `${base_url}/addCurrentAffairs`
   }
 }

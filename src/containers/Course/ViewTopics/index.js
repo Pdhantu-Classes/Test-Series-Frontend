@@ -30,7 +30,8 @@ export default function ViewTopics() {
                     http.get(GET_TOPICS,{
                         headers:{
                             course_id: 4,
-                            subject_id: SUBJECT_ID
+                            subject_id: SUBJECT_ID,
+                            user_id: getUserId()
                         }
                     })
                     .then(res=>{
@@ -44,7 +45,8 @@ export default function ViewTopics() {
                     http.get(GET_TOPICS,{
                         headers:{
                             course_id: COURSE_ID,
-                            subject_id: SUBJECT_ID
+                            subject_id: SUBJECT_ID,
+                            user_id: getUserId()
                         }
                     })
                     .then(res=>{
@@ -61,7 +63,8 @@ export default function ViewTopics() {
             http.get(GET_TOPICS,{
                 headers:{
                     course_id: COURSE_ID,
-                    subject_id: SUBJECT_ID
+                    subject_id: SUBJECT_ID,
+                    user_id: getUserId()
                 }
             })
             .then(res=>{

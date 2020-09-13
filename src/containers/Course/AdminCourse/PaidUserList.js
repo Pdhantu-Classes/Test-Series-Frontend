@@ -15,7 +15,11 @@ export default function PaidUserList() {
     useEffect(() => {
         setLoading(true)
 
-            http.get(PAID_USER_LIST)
+            http.get(PAID_USER_LIST,{
+                headers:{
+                    batch: window.localStorage.getItem("batch")
+                }
+            })
                 .then(res => {
                     setLoading(false)
                     setPaidUserList(res.data.user_data)
