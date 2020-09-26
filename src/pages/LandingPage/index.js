@@ -12,6 +12,7 @@ import ModuleLog from './Components/ModuleLog'
 import Banner from './Components/NewWebsite/Banner'
 import SubMenu from './Components/NewWebsite/SubMenu'
 import CGPSC from './Components/NewWebsite/CGPSC'
+import CgpscPrelims from './Components/CGPSCPrelims'
 
 function landingPage(){
     return(
@@ -21,8 +22,9 @@ function landingPage(){
        <Banner/>
        <SubMenu/>
         {/* <Showcase /> */}
-        <ModuleLog/>
+        <CgpscPrelims/>
         <CGPSC/>
+        <ModuleLog/>
         {/* <CgpscCourse/> */}
         <WhyUs />
         <Boxes />

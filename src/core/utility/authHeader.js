@@ -5,6 +5,11 @@ export const isTokenVaild = () => {
   return token == null ? false : true;
 };
 
+export const isTestTokenVaild = () => {
+  const token = window.localStorage.getItem("tokenTest");
+  return token == null ? false : true;
+};
+
 export const isAdminTokenValid = () => {
   const token = window.localStorage.getItem("adminToken");
   return token == null ? false : true;

@@ -20,7 +20,6 @@ ReactDOM.render(
   <React.StrictMode>
       <AlertProvider template={AlertTemplate} {...options}>
         <App />
-        {/* <AddNotice/> */}
       </AlertProvider>
   </React.StrictMode>,
   document.getElementById('root')

@@ -8,7 +8,7 @@ import ForgotPassword from './containers/ForgotPassword'
 import Profile from "./containers/User/Profile";
 import Orders from "./containers/User/Orders";
 import Home from "./containers/User/Home";
-import { isTokenVaild, isAdminTokenValid, getModule } from "./core/utility/authHeader";
+import { isTokenVaild, isAdminTokenValid, getModule, isTestTokenVaild } from "./core/utility/authHeader";
 import Dashboard from "./containers/User/UserDashborad";
 import MainLandingPage from "./MainLandingPage";
 import ViewDetails from "./containers/User/ViewDetails";
@@ -88,6 +88,42 @@ import AdminSelectBatchPaidUserLists from "./containers/Course/AdminCourse/Admin
 import AdminChooseBatchUpload from "./containers/Course/AdminCourse/AdminChooseBatchUpload";
 import AdminAddCurrentAffairs from "./containers/Course/AdminCourse/AdminAddCurrentAffairs";
 import CourseCurrentAffairs from "./containers/Course/CourseCurrentAffairs";
+
+
+import LoginTestSeries from '../src/containers/CgpscTestSeries/UserTestSeries/Login'
+import SignupTestSeries from '../src/containers/CgpscTestSeries/UserTestSeries/SignUp'
+import ForgetPasswordTestSeries from '../src/containers/CgpscTestSeries/UserTestSeries/ForgetPassword'
+import HomeTestSeries from '../src/containers/CgpscTestSeries/UserTestSeries/Home'
+import DashboardTestSeries from '../src/containers/CgpscTestSeries/UserTestSeries/Dashboard'
+import ProfileTestSeries from '../src/containers/CgpscTestSeries/UserTestSeries/Profile'
+import OrdersTestSeries from '../src/containers/CgpscTestSeries/UserTestSeries/Orders'
+// import AllTestTestSeries from './containers/CgpscTestSeries/UserTestSeries/AllTest'
+import TestScreenTestSeries from '../src/containers/CgpscTestSeries/UserTestSeries/TestScreen'
+import TestInstructionTestSeries from '../src/containers/CgpscTestSeries/UserTestSeries/TestInstruction'
+import TestResponseTestSeries from '../src/containers/CgpscTestSeries/UserTestSeries/TestResponse'
+import TestSubmitResponseTestSeries from '../src/containers/CgpscTestSeries/UserTestSeries/TestSubmitResponse'
+import TestRankTestSeries from '../src/containers/CgpscTestSeries/UserTestSeries/TestRank'
+import MyTestSeries from '../src/containers/CgpscTestSeries/UserTestSeries/MyTestSeries'
+
+
+import AdminSeriesLogin from './containers/CgpscTestSeries/AdminTestSeries/Login'
+import AdminSeriesDashboard from './containers/CgpscTestSeries/AdminTestSeries/AdminDashBoard'
+import AdminSeriesPaidUser from './containers/CgpscTestSeries/AdminTestSeries/PaidUsers'
+import AdminSeriesUnpaidUser from './containers/CgpscTestSeries/AdminTestSeries/UnPaidUsers'
+import AdminSeriesAllUser from './containers/CgpscTestSeries/AdminTestSeries/AllUser'
+import AdminSeriesAllUserList from './containers/CgpscTestSeries/AdminTestSeries/AllUsersList'
+import AdminSeriesUploadQuestion from './containers/CgpscTestSeries/AdminTestSeries/UploadQuestion'
+import AdminSeriesExcelUpload from './containers/CgpscTestSeries/AdminTestSeries/ExcelUploadQuestions'
+import AdminSeriesAllMock from './containers/CgpscTestSeries/AdminTestSeries/AllMock'
+import AdminSeriesShowQuestions from './containers/CgpscTestSeries/AdminTestSeries/ShowQuestions'
+import AdminSeriesEditQuestion from './containers/CgpscTestSeries/AdminTestSeries/EditQuestion'
+import AdminSeriesAddToPaymentList from './containers/CgpscTestSeries/AdminTestSeries/AddToPaymentList'
+import AdminSeriesQuestionPaperPdf from './containers/CgpscTestSeries/AdminTestSeries/UploadQuestionPaperPdf'
+import AdminSeriesViewRank from './containers/CgpscTestSeries/AdminTestSeries/ViewRank'
+import AdminSeriesViewMockStatus from './containers/CgpscTestSeries/AdminTestSeries/ViewMockStatus'
+import AdminSeriesViewMockStatusUsers from './containers/CgpscTestSeries/AdminTestSeries/ViewMockUsers'
+
+import TestSeriesSchedule from './pages/LandingPage/Components/TestSeriesSchedule'
 
 const Routes = () => {
  
@@ -265,6 +301,7 @@ const Routes = () => {
         <Route path='/features' component={Features} />
         <Route path='/admin/addNotice' component={AddNotice} />
         <Route path='/admin/addCurrentAffairs' component={AddCurrentAffairs} />
+        <Route path='/testSeriesSchedule' component={TestSeriesSchedule} />
 
 
 
@@ -358,6 +395,99 @@ const Routes = () => {
         <Route path="/adminCourse/allPaidUserListBatch" component ={AdminSelectBatchPaidUserLists}/>
         <Route path="/adminCourse/chooseBatchUpload" component ={AdminChooseBatchUpload}/>
         <Route path="/adminCourse/currentAffairs" component ={AdminAddCurrentAffairs}/>
+
+
+
+
+        {/*  ------------------------------ Test Series CGPSC ---------------------------------------  */}
+
+        <Route
+          path="/loginTestseries"
+          render={() =>
+            isTestTokenVaild() ? <Redirect to="/user/testseries/home" /> : <LoginTestSeries />}
+        />
+
+        <Route
+          path="/forgotPasswordTestseries"
+          render={() =>
+            isTestTokenVaild() ? <Redirect to="/user/testseries/home" /> : <ForgetPasswordTestSeries />}
+        />
+
+        <Route
+          path="/signupTestseries"
+          render={() =>
+            isTestTokenVaild()? <Redirect to="/user/testseries/home" /> : <SignupTestSeries />}
+        />
+
+        <Route
+          path="/user/testseries/home"
+          render={() => (isTestTokenVaild()? <HomeTestSeries/>:<Redirect to="/" />)}
+        />
+
+        <Route
+          path="/user/testseries/dashboard"
+          render={() => (isTestTokenVaild()? <MyTestSeries/>:<Redirect to="/" />)}
+        />
+
+      <Route
+          path="/user/testseries/myTestSeries"
+          render={() => (isTestTokenVaild()? <DashboardTestSeries/>:<Redirect to="/" />)}
+        />
+
+        <Route
+          path="/user/testseries/profile"
+          render={() => (isTestTokenVaild()? <ProfileTestSeries/>:<Redirect to="/" />)}
+        />
+
+        <Route
+          path="/user/testseries/orders"
+          render={() => (isTestTokenVaild()? <OrdersTestSeries/>:<Redirect to="/" />)}
+        />
+
+        <Route
+          path="/user/testseries/testscreen"
+          render={() => (!isTestTokenVaild()? <Redirect to="/" /> : <TestScreenTestSeries />)}
+        />
+
+         <Route
+          path="/user/testseries/testresponse"
+          render={() => (!isTestTokenVaild()? <Redirect to="/" /> : <TestResponseTestSeries />)}
+        />
+
+         <Route
+          path="/user/testseries/testrank"
+          render={() => (!isTestTokenVaild()? <Redirect to="/" /> : <TestRankTestSeries />)}
+        />
+
+        <Route
+          path="/user/testseries/testinstruction"
+          render={() => (!isTestTokenVaild()? <Redirect to="/" /> : <TestInstructionTestSeries />)}
+        />
+
+         <Route
+          path="/user/testseries/submitResponse"
+          render={() => (!isTokenVaild()? <Redirect to="/" /> : <TestSubmitResponseTestSeries />)}
+        />
+
+
+          {/*----------------------------------CGPSC Admin Routes --------------------------------- */}
+
+          <Route path="/admin/testseries/login" component={AdminSeriesLogin} />
+          <Route path="/admin/testseries/dashboard" component={AdminSeriesDashboard} />
+          <Route path="/admin/testseries/allUsers" component={AdminSeriesAllUser} />
+          <Route path="/admin/testseries/paidUsers" component={AdminSeriesPaidUser} />
+          <Route path="/admin/testseries/unPaidUsers" component={AdminSeriesUnpaidUser} />
+          <Route path="/admin/testseries/allMock" component={AdminSeriesAllMock} />
+          <Route path="/admin/testseries/uploadQuestion" component={AdminSeriesUploadQuestion} />
+          <Route path="/admin/testseries/dumpExcelQuestion" component={AdminSeriesExcelUpload} />
+          <Route path="/admin/testseries/showQuestions" component={AdminSeriesShowQuestions} />
+          <Route path="/admin/testseries/editQuestion" component={AdminSeriesEditQuestion} />
+          <Route path="/admin/testseries/mockStatus" component={AdminSeriesViewMockStatus} />
+          <Route path="/admin/testseries/viewRank" component={AdminSeriesViewRank} />
+          <Route path="/admin/testseries/addToPaymentList" component={AdminSeriesAddToPaymentList} />
+          <Route path="/admin/testseries/allUserList" component={AdminSeriesAllUserList} />
+          <Route path="/admin/testseries/UploadPaperPdf" component={AdminSeriesQuestionPaperPdf} />
+          <Route path="/admin/testseries/viewmockusers" component={AdminSeriesViewMockStatusUsers} />
       </Switch>
     </BrowserRouter>
   );

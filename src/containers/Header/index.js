@@ -32,12 +32,18 @@ const Menu = ({ history }) => {
           <div className="d-flex justify-content-center">
            
               <Link to='/signupSeries'><button className="btn btn-secondary" onClick={handleCloseSignIn}>
-                Test Series
+                Test Series CGACF
               </button></Link>
             
             <Link to="/signupCourse" >
-              <button className="btn btn-primary ml-5 " onClick={handleCloseSignIn}>
+              <button className="btn btn-primary ml-2 " onClick={handleCloseSignIn}>
                 Course
+              </button>
+            </Link>
+
+            <Link to="/signupTestseries">
+              <button className="btn btn-info ml-2 " onClick={handleCloseSignIn}>
+                Test Series CGPSC/GK
               </button>
             </Link>
           </div>
@@ -51,12 +57,17 @@ const Menu = ({ history }) => {
           <div className="d-flex justify-content-center">
             <Link to='/loginSeries'>
               <button className="btn btn-secondary" onClick={handleCloseSignUp}>
-                Test Series
+                Test Series CGACF
               </button>
             </Link>
             <Link to='/loginCourse'>
-              <button className="btn btn-primary ml-5 " onClick={handleCloseSignUp}>
+              <button className="btn btn-primary ml-2 " onClick={handleCloseSignUp}>
                 Course
+              </button>
+            </Link>
+            <Link to='/loginTestseries'>
+              <button className="btn btn-info ml-2" onClick={handleCloseSignUp}>
+                Test Series CGPSC/GK
               </button>
             </Link>
           </div>
