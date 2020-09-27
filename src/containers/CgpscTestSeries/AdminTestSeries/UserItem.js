@@ -51,7 +51,13 @@ const UserItem = ({ item }) => {
                         item.preparing_for === 1 ?
                         "CGPSC Prelims Test Series"
                         :
+                        item.preparing_for === 2 ?
                         "Chattisgarh GK Test Series"
+                        :
+                        item.preparing_for === 3 ?
+                        "CGPSC Prelims + Chattisgarh GK  Test Series"
+                        :
+                        null
                       }
                     </span>
               }
