@@ -132,7 +132,7 @@ export default function AdminManageUsers() {
                                 </select>
                             </div>
                             <div className="form-group offset-3 col-lg-5">
-                                <label className="col-lg-3 control-label">Batch</label>
+                                <label className="col-lg-3 control-label">Course</label>
                                 <select onChange={handleCourseChange} value={course}  className="form-control">
                                     <option value="1">Prelims</option>
                                     <option value="2">Pre+Mains</option>

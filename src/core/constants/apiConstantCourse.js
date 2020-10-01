@@ -45,6 +45,7 @@ export const API_ENDPOINTS = {
     GET_SUBJECTS: `${base_url}/getSubjects`,
     GET_TOPICS: `${base_url}/getTopics`,
     UPLOAD_TOPIC: `${base_url}/addTopicVideos`,
+    DELETE_TOPIC: `${base_url}/deleteVideoLacture`,
     PAID_USER_LIST: `${base_url}/paidUserLists`,
     UPLOAD_PDF: `${base_url}/uploadTopicPdf`,
     ADD_CLASS_TEST_PRELIMS: `${base_url}/addClassTestPrelims`,

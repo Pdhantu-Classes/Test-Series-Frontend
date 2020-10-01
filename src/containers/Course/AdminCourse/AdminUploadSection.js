@@ -7,6 +7,7 @@ import { API_ENDPOINTS } from '../../../core/constants/apiConstantCourse'
 
 const GET_TOPICS = API_ENDPOINTS.ADMIN.GET_TOPICS
 const UPLOAD_TOPIC = API_ENDPOINTS.ADMIN.UPLOAD_TOPIC
+const DELETE_TOPIC = API_ENDPOINTS.ADMIN.DELETE_TOPIC
 
 
 export default function AdminUploadSection() {
@@ -15,6 +16,7 @@ export default function AdminUploadSection() {
     const [subjectDetils, setSubjectDetails] = useState([])
     const [itemLists, setItemLists] = useState([])
     const [loading, setLoading] = useState(true)
+    const [isDeleteLoading, setIsDeleteLoading] = useState(false)
     const [topic, setTopic] = useState('')
     const [videoUrl, setVideoUrl] = useState('')
 
@@ -79,6 +81,22 @@ export default function AdminUploadSection() {
             .catch(err => console.log(err))
     }
 
+    const handleDelete = (id)=>{
+        setIsDeleteLoading(true)
+        const COURSE_ID = window.localStorage.getItem("adminCourseId")
+        let payload = {
+            topic_id:id,
+            course_id: Number(COURSE_ID)
+        }
+        http.post(DELETE_TOPIC,payload)
+            .then(res => {
+                setIsDeleteLoading(false)
+                alert(res.data.message)
+                window.location.reload()
+            })
+            .catch(err => console.log(err))
+    }
+
     return (
         <div>
             <AdminNavBar />
@@ -127,6 +145,16 @@ export default function AdminUploadSection() {
 
                         </div>
                         {
+                            isDeleteLoading ?
+                                <div className="d-flex justify-content-center mt-5 pt-5">
+                                    <div className="spinner-border mt-5 pt-2" role="status">
+                                        <span className="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                            :
+                                null
+                        }
+                        {
                             itemLists.length > 0 ?
                                 <div class="table-responsive col-10 offset-1 text-center mt-4">
                                     <table id="tablePreview" class="table table-bordered table-hover">
@@ -135,6 +163,7 @@ export default function AdminUploadSection() {
                                                 <th>Topics</th>
                                                 <th>Video Link</th>
                                                 <th>Pdf Notes</th>
+                                                <th>Delete</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -156,6 +185,7 @@ export default function AdminUploadSection() {
 
                                                             }
                                                         </td>
+                                                        <td><button className="btn btn-danger" onClick={()=>handleDelete(data.id)}>Delete</button></td>
                                                             
                                                     </tr>
 
