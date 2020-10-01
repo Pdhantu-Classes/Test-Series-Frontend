@@ -30,6 +30,7 @@ export const API_ENDPOINTS = {
     CHECK_CLASS_TEST_ATTEMPTED: `${base_url}/checkClassTestAttempted`,
     GET_BATCH: `${base_url}/getStudentBatch`,
     GET_CURRENT_AFFAIRS: `${base_url}/getCurrentAffairs`,
+    GET_CLASS_SCHEDULE: `${base_url}/getClassSchedule`
   },
   ADMIN: {
     ADMIN_LOGIN: `${base_url}/adminLogin`,
@@ -56,6 +57,10 @@ export const API_ENDPOINTS = {
     EDIT_QUESTION_BY_ID:  `${base_url}/editQuestionsByIdPrelims`,
     ALL_USERS_LIST: `${base_url}/allUsersList`,
     GET_CURRENT_AFFAIRS: `${base_url}/getCurrentAffairs`,
-    ADD_CURRENT_AFFAIRS: `${base_url}/addCurrentAffairs`
+    ADD_CURRENT_AFFAIRS: `${base_url}/addCurrentAffairs`,
+    GET_USER_DETAILS: `${base_url}/getUserbyEmail`,
+    EDIT_USER_DETAILS: `${base_url}/editUserDetails`,
+    UPLOAD_CLASS_SCHEDULE: `${base_url}/uploadClassSchedule`,
+    VIEW_CLASS_SCHEDULE: `${base_url}/getClassSchedule`
   }
 }

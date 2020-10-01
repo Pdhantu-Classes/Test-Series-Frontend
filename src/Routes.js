@@ -88,6 +88,8 @@ import AdminSelectBatchPaidUserLists from "./containers/Course/AdminCourse/Admin
 import AdminChooseBatchUpload from "./containers/Course/AdminCourse/AdminChooseBatchUpload";
 import AdminAddCurrentAffairs from "./containers/Course/AdminCourse/AdminAddCurrentAffairs";
 import CourseCurrentAffairs from "./containers/Course/CourseCurrentAffairs";
+import AdminManageUsers from './containers/Course/AdminCourse/AdminManageUsers'
+import AdminUploadClassSchedule from './containers/Course/AdminCourse/AdminUploadClassSchedule'
 
 
 import LoginTestSeries from '../src/containers/CgpscTestSeries/UserTestSeries/Login'
@@ -395,6 +397,8 @@ const Routes = () => {
         <Route path="/adminCourse/allPaidUserListBatch" component ={AdminSelectBatchPaidUserLists}/>
         <Route path="/adminCourse/chooseBatchUpload" component ={AdminChooseBatchUpload}/>
         <Route path="/adminCourse/currentAffairs" component ={AdminAddCurrentAffairs}/>
+        <Route path="/adminCourse/manageUsers" component ={AdminManageUsers}/>
+        <Route path="/adminCourse/uploadClassSchedule" component ={AdminUploadClassSchedule}/>
 
 
 

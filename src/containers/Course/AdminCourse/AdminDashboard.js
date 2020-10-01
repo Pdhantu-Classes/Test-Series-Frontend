@@ -5,6 +5,7 @@ import AdminNavBar from "../AdminCourse/AdminNavBar";
 import { API_ENDPOINTS } from '../../../core/constants/apiConstantCourse'
 
 const ADMIN_DASHBOARD = API_ENDPOINTS.ADMIN.ADMIN_DASHBOARD
+const VIEW_CLASS_SCHEDULE = API_ENDPOINTS.ADMIN.VIEW_CLASS_SCHEDULE
 
 const AdminDashBoard = () => {
   const [allPaidUserBatch1, setAllPaidUserBatch1] = useState(0);
@@ -20,6 +21,7 @@ const AdminDashBoard = () => {
   const [allBatch1, setAllBatch1] = useState(0);
   const [allBatch2, setAllBatch2] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
 
   useEffect(() => {
@@ -45,6 +47,18 @@ const AdminDashBoard = () => {
 
   }, []);
 
+  const handleViewClassSchedule = ()=>{
+    setIsLoading(true)
+    http
+        .get(VIEW_CLASS_SCHEDULE)
+        .then(res=>{
+            setIsLoading(false)
+            let pdf = res.data.pdf_link
+            window.location.href = pdf
+        })
+        .catch(err=> console.log(err))
+  }
+
 
   return (
     <>
@@ -52,14 +66,28 @@ const AdminDashBoard = () => {
       <div className="mt-5 pt-5 text-center">
          <Link to="/adminCourse/allUsersListBatch"><button className="btn btn-primary">All User List</button></Link> 
       </div>
-      {!loading ? (
-        <div className="container mt-5 pt-5 mb-5">
+      <div className="mt-3 text-center">
+         <Link to="/adminCourse/manageUsers"><button className="btn btn-secondary">Manage Users</button></Link> 
+      </div>
+      <div className="mt-3 text-center">
+         <Link to="/adminCourse/uploadClassSchedule"><button className="btn btn-success">Upload Class Schedule</button></Link> 
+      </div>
+      <div className="mt-3 text-center" onClick={handleViewClassSchedule}>
+  <button className="btn btn-info">
+    {
+      !isLoading? 'View Class Schedule' : 'Loading'
 
-          <div className="text-center mt-2">
+    }
+  </button>
+      </div>
+      {!loading ? (
+        <div className="container mt-5 mb-5">
+
+          <div className="text-center">
             <h3>Batch 1</h3>
           </div>
 
-          <div className="row text-center mt-5">
+          <div className="row text-center mt-3">
             <div
               className="col-lg-4 offset-lg-1 col-md-6 mt-5"
             >

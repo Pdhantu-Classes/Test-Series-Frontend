@@ -9,7 +9,7 @@ const AdminNavBar = () => {
 
   const handleLogout = () => {
     logoutAdmin();
-    history.push("/adminLoginSeries");
+    history.push("/admin/testseries/login");
   };
   return (
     <nav className="navbar navbar-expand-lg navbar-light fixed-top py-4">

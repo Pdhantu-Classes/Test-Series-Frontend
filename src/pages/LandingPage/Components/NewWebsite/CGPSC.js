@@ -1,12 +1,32 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import http from 'axios'
 import Modal from "react-bootstrap/Modal";
 import tag from '../assets/tag.svg'
+import { API_ENDPOINTS } from '../../../../core/constants/apiConstantCourse'
+const GET_CLASS_SCHEDULE = API_ENDPOINTS.USERS.GET_CLASS_SCHEDULE
+
+
+
 export default function CGPSC() {
 
     const [showModalCourse, setShowModalCourse] = useState(false);
     const handleCloseCourse = () => setShowModalCourse(false)
     const handleOpenCourse = () => setShowModalCourse(true)
+    const [isLoading, setIsLoading ] = useState(false)
+
+    const handleDownloadSchedule = ()=>{
+        setIsLoading(true)
+        http
+            .get(GET_CLASS_SCHEDULE)
+            .then(res=>{
+                setIsLoading(false)
+                let pdf = res.data.pdf_link
+                window.location.href = pdf
+            })
+            .catch(err=> console.log(err))
+    }
+
     return (
         <div className="container mt-5 pt-2 text-center">
             <Modal show={showModalCourse} onHide={handleCloseCourse}>
@@ -88,10 +108,14 @@ export default function CGPSC() {
                 </div>
                 <div className="col-md-3 mb-2 ">
                     <div className="card text-center bg-secondary text-white" style={{ background: 'linear-gradient(180deg, #6A93CB 0%, rgba(255, 252, 253, 0) 96.35%)', height: '20vh' }}>
-                    <Link to="/classSchedule"><div className="card-body">
-                            <h3 className="p-3 mt-3 text-white" >Class Schedule</h3>
+                        <div className="card-body"  onClick={handleDownloadSchedule}>
+                            {
+                                !isLoading ?
+                                    <h3 className="p-3 mt-3 text-white" >Class Schedule</h3>
+                                    :
+                                    <h4 className="p-3 mt-3 text-white" >Downloading...</h4>
+                            }                       
                         </div>
-                    </Link>
                     </div>
                 </div>
             </div>
