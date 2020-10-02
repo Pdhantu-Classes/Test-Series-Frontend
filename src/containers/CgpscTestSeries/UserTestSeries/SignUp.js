@@ -134,7 +134,7 @@ function Signup() {
 
   const signUpForm = () => (
     <div>
-      <div className='display-5 text-center text-danger'> Please Signup for gg Test Series here</div>
+      <div className='display-5 text-center text-danger'> Please Signup for Pre+CG GK Test Series here</div>
       <form>
         <div>
           <img
