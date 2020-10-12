@@ -35,6 +35,7 @@ const AllUser = () => {
   return (
     <>
       <AdminNav />
+      <div style={{marginTop:"100px"}}>
       <div className="float-right mr-5 mt-2">Showing {pageNo} out of {buttons}</div>
       {
         isLoading ?
@@ -114,6 +115,7 @@ const AllUser = () => {
             </div>
           </div>
       }
+      </div>
     </>
   );
 };

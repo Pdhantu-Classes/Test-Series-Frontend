@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
-import "../../../../css/LandingPage.css";
+// import "../../../../css/LandingPage.css";
 import { Link } from "react-router-dom";
 
 function Showcase() {

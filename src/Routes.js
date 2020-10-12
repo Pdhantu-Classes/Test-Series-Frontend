@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
-import LandingPage from "./pages/LandingPage";
+// import LandingPage from "./pages/LandingPage";
+import LandingPage from "./pages/NewLandingPage/components/Home";
 import Login from "./containers/Login";
 import Signup from "./containers/Signup";
 import ForgotPassword from './containers/ForgotPassword'

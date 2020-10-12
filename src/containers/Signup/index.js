@@ -120,8 +120,8 @@ function Signup() {
 
 
   const signUpForm = () => (
-    <div>
-      <div className='display-5 text-center text-danger'> Please Signup for Test Series here</div>
+    <div style={{marginTop:"100px"}}>
+      <div className='h5 text-center text-danger'> Please Signup for Test Series here</div>
       <form>
         <div>
           <img
@@ -140,7 +140,7 @@ function Signup() {
       </p>
         <hr></hr>
 
-        <div className="form-group ">
+        <div className="form-group-signup ">
           <div className="input-group ">
             <span className="input-group-addon mt-2 mr-2">
               <i className="fa fa-user"></i>
@@ -157,7 +157,7 @@ function Signup() {
           </div>
         </div>
 
-        <div className="form-group ">
+        <div className="form-group-signup ">
           <div className="input-group ">
             <span className="input-group-addon  mt-2 mr-2">
               <i className="fa fa-user"></i>
@@ -174,7 +174,7 @@ function Signup() {
           </div>
         </div>
 
-        <div className="form-group">
+        <div className="form-group-signup">
           <div className="input-group">
             <span className="input-group-addon  mt-2 mr-2">
               <i className="fa fa-envelope"></i>
@@ -191,7 +191,7 @@ function Signup() {
           </div>
         </div>
 
-        <div className="form-group">
+        <div className="form-group-signup">
           <div className="input-group">
             <span className="input-group-addon mt-2 mr-2">
               <i className="fa fa-mobile"></i>
@@ -209,7 +209,7 @@ function Signup() {
           </div>
         </div>
 
-        <div className="form-group">
+        <div className="form-group-signup">
           <div className="input-group">
             <span className="input-group-addon mt-2 mr-2">
               <i className="fa fa-lock"></i>
@@ -226,7 +226,7 @@ function Signup() {
           </div>
         </div>
 
-        <div className="form-group ">
+        <div className="form-group-signup ">
           <div className="input-group">
             <span className="input-group-addon mt-2 mr-2">
               <i className="fa fa-lock"></i>
@@ -244,7 +244,7 @@ function Signup() {
           </div>
         </div>
 
-        <div className="form-group">
+        <div className="form-group-signup">
           <button
             disabled={disable}
             onClick={clickSubmit}

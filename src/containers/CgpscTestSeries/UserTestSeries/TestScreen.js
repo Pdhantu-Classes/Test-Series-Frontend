@@ -477,7 +477,7 @@ export default function TestScreen(props) {
 
   return (
     <div>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} className="col-md-4 col-sm-6 col-xs-6 offset-md-4 offset-sm-0 offset-xs-0">
         <Modal.Header closeButton>
           <Modal.Title>Do you want to submit test ?</Modal.Title>
         </Modal.Header>
@@ -521,9 +521,9 @@ export default function TestScreen(props) {
               Time Remaining: {hours}hrs:{minutes}min:{second}sec
             </div>
           </div>
-          <div className="container-fluid">
+          <div className="container-fluid container-fluid-test">
 
-            <div className="row">
+            <div className="row row-test-screen">
               <div className="col-8 question-root jumbotron  ml-5">
                 <div>{showQuestion}</div>
                 <div>{showExtas}</div>
@@ -541,7 +541,7 @@ export default function TestScreen(props) {
                 <div className="grow mr-2">{buttons}</div>
               </div>
             </div>
-            <div className="d-flex justify-content-around row container mt-1">
+            <div className="d-flex justify-content-around row row-test-screen container mt-1">
               <div className=" ml-0 ">{prevButton()}</div>
               <div className="ml-5 ">{nextButton()}</div>
             </div>

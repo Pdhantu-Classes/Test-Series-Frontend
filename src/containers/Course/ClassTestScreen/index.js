@@ -509,9 +509,9 @@ export default function TestScreen(props) {
               Time Remaining: {hours}hrs:{minutes}min:{second}sec
             </div>
           </div>
-          <div className="container-fluid">
+          <div className="container-fluid container-fluid-test">
 
-            <div className="row">
+            <div className="row row-test-screen">
               <div className="col-8 question-root jumbotron  ml-5">
                 <div>{showQuestion}</div>
                 <div>{showExtas}</div>
@@ -529,7 +529,7 @@ export default function TestScreen(props) {
                 <div className="grow mr-2">{buttons}</div>
               </div>
             </div>
-            <div className="d-flex justify-content-around row container mt-1">
+            <div className="d-flex justify-content-around row row-test-screen container mt-1">
               <div className=" ml-0 ">{prevButton()}</div>
               <div className="ml-5 ">{nextButton()}</div>
             </div>

@@ -175,9 +175,9 @@ const Alltest = () => {
               </div>
             </div>
           </div>
-          <div class="card w-md-50 w-sm-75 bg-light mt-3 text-center">
+          <div class="card w-md-50 w-sm-75 bg-light mt-1 text-center">
             <div class="card-body">
-              <div class="card-title text-center display-4  mt-sm-3 pt-sm-3">
+              <div class="card-title text-center display-4 mt-sm-3 pt-sm-3">
                 Demo Test
               </div>
               <p class="card-text text-center">

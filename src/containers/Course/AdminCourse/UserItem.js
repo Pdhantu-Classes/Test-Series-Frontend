@@ -1,6 +1,7 @@
 import React from 'react'
 // import avatar from '../../../asset/avatar.svg'
 import { useHistory } from 'react-router-dom'
+import '../../../css/UserCard.css'
 const UserItem = ({ item }) => {
 
   const history = useHistory()
@@ -11,7 +12,7 @@ const UserItem = ({ item }) => {
     history.push("/adminCourse/userDetails")
   }
   return (
-    <div className='card mt-2'>
+    <div className='card card-user mt-2'>
       <div className='card'>
         <div className="py-2 card-front">
           <h5>{item.firstname} {item.lastname}</h5>

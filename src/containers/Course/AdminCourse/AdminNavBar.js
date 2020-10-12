@@ -13,7 +13,7 @@ const AdminNavBar = () => {
     history.push("/adminCourseLogin");
   };
   return (
-    <nav className="navbar navbar-expand-lg navbar-light fixed-top py-4">
+    <nav className="navbar navbar-headers navbar-expand-lg navbar-white fixed-top py-4">
       <div className="container-fluid">
         <Link to="/adminCourse/dashboard" className="navbar-brand">
           <img src={logo} width="50" height="50" alt="" />

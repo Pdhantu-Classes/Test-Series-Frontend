@@ -1,8 +1,9 @@
-.form-control, .form-control:focus, .input-group-addon {
+.form-control-signup, .form-control-signup:focus, .input-group-addon {
     border-color: #e1e1e1;
 }
-.form-control, .btn {        
+.form-control-signup, .btn {        
     border-radius: 3px;
+    margin-top: 5px;
 }
 .signup-form {
     width: 390px;
@@ -32,7 +33,7 @@
     font-weight: normal;
     font-size: 13px;
 }
-.signup-form .form-control {
+.signup-form .form-control-signup {
     min-height: 38px;
     box-shadow: none !important;
 }	

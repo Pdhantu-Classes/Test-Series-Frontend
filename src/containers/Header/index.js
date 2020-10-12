@@ -23,7 +23,8 @@ const Menu = ({ history }) => {
   const handleShowSignUp = () => setShowSignUp(true)
 
   return (
-    <nav className="navbar navbar-expand-md navbar-light fixed-top py-4">
+    
+    <nav className="navbar navbar-expand-md navbar-primary fixed-top">
        <Modal show={showSignIn} onHide={handleCloseSignIn}>
         <Modal.Header closeButton>
           <Modal.Title>Select Option</Modal.Title>

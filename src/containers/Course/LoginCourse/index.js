@@ -55,7 +55,7 @@ const Login = () => {
 
     const SignInForm = () => (
         <div>
-            <div className='display-5 text-center text-danger'> Please Login for Course here</div>
+            <div className='h5 text-center text-danger'> Please Login for Course here</div>
             <form>
 
                 <img

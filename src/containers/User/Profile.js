@@ -3,7 +3,7 @@ import http from 'axios'
 import { useHistory } from "react-router"
 import { useAlert } from 'react-alert'
 import { API_ENDPOINTS } from '../../core/constants/apiConstant'
-import '../../css/Profile.css'
+// import '../../css/Profile.css'
 import { getUserId } from '../../core/utility/authHeader'
 import UserNavBar from './UserNavBar'
 

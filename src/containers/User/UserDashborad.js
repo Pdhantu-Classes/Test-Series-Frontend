@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import http from "axios";
-import "../../css/LandingPage.css";
-import "../../css/DashBoard.css";
+// import "../../css/LandingPage.css";
+// import "../../css/DashBoard.css";
 import UserNavBar from "../User/UserNavBar";
 import Modal from "react-bootstrap/Modal";
 import { useHistory } from "react-router-dom";

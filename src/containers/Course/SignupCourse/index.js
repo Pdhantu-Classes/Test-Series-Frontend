@@ -122,9 +122,9 @@ function Signup() {
   const signUpForm = () => (
     <div>
       <h3 className="text-center"> Register for Batch 2</h3>
-      <div className='display-5 text-center text-danger'> Please Signup for Course here</div>
-      <div className='display-5 text-center text-success'> **Please enter those email which is linked with your youtube account </div>
-      <div className='display-5 text-center text-info'> **कृपया उन ईमेल को दर्ज करें जो आपके Youtube <br></br> खाते से लिंक हैं </div>
+      <div className='h5 text-center text-danger'> Please Signup for Course here</div>
+      <div className='h5 text-center text-success'> **Please enter those email which is linked with your youtube account </div>
+      <div className='h5 text-center text-info'> **कृपया उन ईमेल को दर्ज करें जो आपके Youtube <br></br> खाते से लिंक हैं </div>
 
 {/*  */}
       <form>
@@ -145,7 +145,7 @@ function Signup() {
       </p>
         <hr></hr>
 
-        <div className="form-group ">
+        <div className="form-group-signup ">
           <div className="input-group ">
             <span className="input-group-addon mt-2 mr-2">
               <i className="fa fa-user"></i>
@@ -162,7 +162,7 @@ function Signup() {
           </div>
         </div>
 
-        <div className="form-group ">
+        <div className="form-group-signup ">
           <div className="input-group ">
             <span className="input-group-addon  mt-2 mr-2">
               <i className="fa fa-user"></i>
@@ -179,7 +179,7 @@ function Signup() {
           </div>
         </div>
 
-        <div className="form-group">
+        <div className="form-group-signup">
           <div className="input-group">
             <span className="input-group-addon  mt-2 mr-2">
               <i className="fa fa-envelope"></i>
@@ -196,7 +196,7 @@ function Signup() {
           </div>
         </div>
 
-        <div className="form-group">
+        <div className="form-group-signup">
           <div className="input-group">
             <span className="input-group-addon mt-2 mr-2">
               <i className="fa fa-mobile"></i>
@@ -214,7 +214,7 @@ function Signup() {
           </div>
         </div>
 
-        <div className="form-group">
+        <div className="form-group-signup">
           <div className="input-group">
             <span className="input-group-addon mt-2 mr-2">
               <i className="fa fa-lock"></i>
@@ -231,7 +231,7 @@ function Signup() {
           </div>
         </div>
 
-        <div className="form-group ">
+        <div className="form-group-signup ">
           <div className="input-group">
             <span className="input-group-addon mt-2 mr-2">
               <i className="fa fa-lock"></i>
@@ -249,7 +249,7 @@ function Signup() {
           </div>
         </div>
 
-        <div className="form-group">
+        <div className="form-group-signup">
           <button
             disabled={disable}
             onClick={clickSubmit}

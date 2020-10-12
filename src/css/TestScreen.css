@@ -8,7 +8,7 @@
      margin-bottom: 10px;
     
 }
-.row{
+.row-test-screen{
     margin-left: 100px;
 }
 .question-root{
@@ -56,9 +56,9 @@
         min-width: 500px;
         margin-left: 0px;
     }
-    .container-fluid{
+    .container-fluid-test{
         width: 640px;
-    }.row{
+    }.row-test-screen{
         margin-left: 0;
     }
     .question-panel{
@@ -86,10 +86,10 @@
         min-width: 450px;
         margin-left: 0px;
     }
-    .container-fluid{
+    .container-fluid-test{
         width: 590px;
     }
-    .row{
+    .row-test-screen{
         margin-left: 0;
     }
     .question-panel{
@@ -121,11 +121,11 @@
         margin-left: 0px;
     }
 
-    .container-fluid{
+    .container-fluid-test{
         width: 590px;
     }
 
-    .row{
+    .row-test-screen{
         margin-left: 0;
     }
 
@@ -145,70 +145,6 @@
         margin-right: 40% !important;
     }
 }
-
-/* @media only screen and (max-width: 370px) {
-    .question-panel{
-        min-width: 500px;
-        height: 50px;
-        overflow-x: scroll;
-    } .grow{
-        display: grid;
-        grid-template-columns: repeat(150, 1fr);
-    }
-   
-    .question-root{
-        min-width:500px;
-      
-        
-    }
-    .row{
-        margin-left: 0;
-        padding: 0;
-    }
-
-} */
-/* @media only screen and (max-width: 411px) {
-    .question-panel{
-        min-width: 670px;
-        height: 50px;
-        overflow-x: scroll;
-    } .grow{
-        display: grid;
-        grid-template-columns: repeat(150, 1fr);
-    }
-    .question-root{
-        min-width: 630px;
-    }
-
-}
-@media only screen and (max-width: 414px) {
-    .question-panel{
-        min-width: 670px;
-        height: 50px;
-        overflow-x: scroll;
-    } .grow{
-        display: grid;
-        grid-template-columns: repeat(150, 1fr);
-    }
-    .question-root{
-        min-width: 630px;
-    }
-
-}
-@media only screen and (max-width: 768px) {
-    .question-panel{
-      
-        min-width: 230px;
-    } .grow{
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        overflow-y: scroll;
-    }
-    .question-root{
-       
-    }
-
-} */
 
   @media only screen and (min-width: 600px) {
     .image-responsive{

@@ -4,6 +4,7 @@ import jwtDecode from "jwt-decode";
 import { useHistory } from "react-router"
 import logo from '../../../asset/UI-Content/logo.jpeg'
 import avatar from '../../../asset/avatar.svg'
+import '../../../css/LandingPage.css'
 
 
 const NavBar = () => {
@@ -25,7 +26,7 @@ const NavBar = () => {
         history.push('/')
     }
     return (
-        <nav className="navbar navbar-expand-md navbar-light fixed-top py-4">
+        <nav className="navbar navbar-headers navbar-expand-md navbar-light fixed-top py-4">
             <div className='container'>
                 <Link to="/user/testseries/home" className='navbar-brand'>
                     <img src={logo} width="50" height="50" alt="" /><h3 className="d-inline align-middle">The Pdhantu Classes</h3>

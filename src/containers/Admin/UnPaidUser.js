@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import AdminNav from "./AdminNavBar";
 import { getUnpaidUser } from "../../containers/auth";
 import UserGrid from './UserGrid'
-import '../../css/UserCard.css'
+// import '../../css/UserCard.css'
 
 const UnPaidUser = () => {
   const [items, setItems] = useState([])

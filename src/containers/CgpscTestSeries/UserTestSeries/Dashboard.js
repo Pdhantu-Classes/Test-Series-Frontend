@@ -3,8 +3,8 @@ import http from "axios";
 import Modal from "react-bootstrap/Modal";
 import { useHistory } from "react-router-dom";
 import jwtDecode from "jwt-decode";
-import "../../../css/LandingPage.css";
-import "../../../css/DashBoard.css";
+// import "../../../css/LandingPage.css";
+// import "../../../css/DashBoard.css";
 import NavBar from "./Navbar";
 import { API_ENDPOINTS } from '../../../core/constants/apiConstantTestSeries'
 

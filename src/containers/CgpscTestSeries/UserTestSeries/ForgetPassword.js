@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import http from 'axios'
 import { Link } from 'react-router-dom'
-import '../../../css/Login.css'
+// import '../../../css/Login.css'
 import { API_ENDPOINTS } from '../../../core/constants/apiConstantTestSeries'
 
 

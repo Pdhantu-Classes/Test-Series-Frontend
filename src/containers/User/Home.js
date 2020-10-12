@@ -1,7 +1,7 @@
 import React from 'react';
 
-import '../../css/LandingPage.css'
-import '../../css/DashBoard.css';
+// import '../../css/LandingPage.css'
+// import '../../css/DashBoard.css';
 
 import Alltest from '../User/AllTest'
 

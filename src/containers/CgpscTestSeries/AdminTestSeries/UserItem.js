@@ -1,9 +1,10 @@
 import React from 'react'
 import avatar from '../../../asset/avatar.svg'
+import '../../../css/UserCard.css'
 
 const UserItem = ({ item }) => {
   return (
-    <div className='card mt-2'>
+    <div className='card card-user mt-2'>
       <div className='card-inner'>
         <div className='card-back bg-white mt--2'>
           {

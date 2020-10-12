@@ -1,14 +1,10 @@
-body {
-    margin-top: 105px; }
-  
-  .navbar {
-    box-shadow: 2px 2px 5px #3292a6;
-    opacity: 0.9;
-    background: #fff; }
-    .navbar .nav-item {
+  .navbar-headers{
+      box-shadow: 2px 2px 5px #3292a6;
+      opacity: 0.9;
+      background: #fff;
       font-size: 1.4rem;
-      padding-right: 20px; }
-  
+      padding-right: 20px;
+  }
   #showcase {
     position: relative;
     /* background: url("../asset/UI-Content/mountains.jpg"); */   

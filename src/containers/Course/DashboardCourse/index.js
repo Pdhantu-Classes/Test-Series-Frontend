@@ -126,7 +126,6 @@ const UserDashBoard = () => {
                   :
                   isRegister && isBuy && batch === 2 ?
                     <div className="row text-center">
-                      <div className="display-4 text-info">Class will Start at 14th September 5:30 PM </div>
                       <div
                         className="col-lg-4 col-md-6 mt-5"
                         onClick={() => { handleChange(1) }}

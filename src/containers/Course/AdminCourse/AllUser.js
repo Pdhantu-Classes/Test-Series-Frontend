@@ -3,6 +3,7 @@ import http from 'axios'
 import AdminNavBar from "../AdminCourse/AdminNavBar";
 import { API_ENDPOINTS } from '../../../core/constants/apiConstantCourse'
 import UserGrid from './UserGrid'
+import '../../../css/UserCard.css'
 
 const ALL_USERS = API_ENDPOINTS.ADMIN.ALL_USERS
 
@@ -60,7 +61,7 @@ export default function AllUser() {
           :
           <div>
             <div class="container text-center mt-5 pt-5">
-              <div className="mt-5 pt-3">
+              <div>
                 <UserGrid isLoading={isLoading} items={items} />
               </div>
             </div>

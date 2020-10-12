@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import '../../css/Pdf.css'
+// import '../../css/Pdf.css'
 import {API_ENDPOINTS} from '../../core/constants/apiConstant'
 import Axios from 'axios'
 

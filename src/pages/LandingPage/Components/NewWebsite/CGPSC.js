@@ -95,7 +95,7 @@ export default function CGPSC() {
                     <div className="card text-center  bg-danger  text-white " style={{ background: 'linear-gradient(180deg, #6A93CB 0%, rgba(255, 252, 253, 0) 96.35%)', height: '20vh' }}>
                         <div className="card-body" onClick={()=>handleOpenCourse(true)}>
                             <h3 className="p-3 mt-3">Fee Structure </h3>
-                        </div>
+                        </div>style={{textDecoration:"none"}}
                     </div>
                 </div>
                 <div className="col-md-3 mb-2 ">
