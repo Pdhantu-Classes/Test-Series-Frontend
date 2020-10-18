@@ -184,7 +184,7 @@ export default function Home() {
                 <div class="container">
                     <div class="row pt-5 mt-5 align-items-center">
                         <div class="col-12 col-md-12 pt-5">
-                            <h1 class="text-white display-4 font-weight-bold mb-2 pt-3">Admission Open in Batch-II</h1>
+                            <h1 class="text-white display-4 font-weight-bold mb-2 pt-3">Admission Open in Batch-III</h1>
                             <h2 class="h2 text-white mb-2">For CGPSC Online Course</h2>
                             <h2 class="h2 text-white mb-5 font-weight-bold">अभी Registration करे</h2>
                             <Link to="/signupTestseries" style={{textDecoration:"none"}}><span class="btn-light shadow rounded text-danger font-weight-bold p-3 text-decoration-none mb-4"
@@ -202,7 +202,7 @@ export default function Home() {
                 <div class="container">
                     <div class="row pt-5 align-items-center">
                         <div class="col-12 col-md-12 col-sm-12 col-lg-12">
-                            <h2 class="text-white font-weight-bold mt-5">Admission Open in Batch-II</h2>
+                            <h2 class="text-white font-weight-bold mt-5">Admission Open in Batch-III</h2>
                             <h4 class="h4 text-white mb-2">For CGPSC Online Course</h4>
                             <h2 class="h4 text-white mb-4 font-weight-bold">अभी Registration करे</h2>
                             <div class="col-md-4 mt-3 ">
@@ -322,6 +322,9 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
+
+                {/* ---------------------------------------Test Series Section------------------------------------ */}
+                
                 <div className="text-center mt-3">
                     <h3>
                         <span class="badge badge-primary">CGACF</span>
@@ -398,6 +401,9 @@ export default function Home() {
                 </div>
                 <div style={{ visibility: "hidden" }}>Hidden Text</div>
             </section>
+
+            {/* ---------------------------------------Course Section------------------------------------ */}
+
             <section id="cgpscCourse">
                 <div className="text-center">
                     <h3 className="font-weight-bold">COURSE</h3>
@@ -409,30 +415,12 @@ export default function Home() {
                 </div>
                 <div className="container mt-3 mb-5">
                     <div className="row">
-                        <div className="col-md-5 col-sm-12 col-xs-12 offset-md-1 offset-sm-0 mt-2">
-                            <div class="card shadow border border-danger" style={{ height: "580px" }}>
+
+                    <div className="col-md-5 col-sm-12 col-xs-12 mt-4 mb-3 batch-3-card">
+                            <div class="card shadow border border-success" style={{ height: "580px" }}>
                                 <img class="card-img-top mt-5" src={onlineClass} style={{ height: '150px' }} alt="cap3" />
                                 <div class="card-body">
-                                    <h5 class="card-title font-weight-bold" style={{ textDecoration: "underline" }}>Batch-I</h5>
-                                    <h6 class="badge badge-danger">Admission Closed</h6>
-                                    <div>
-                                        <h5>Prelims <span className="badge badge-info">₹2940</span></h5>
-                                        <h5>Prelims+Mains <span className="badge badge-info">₹6940</span> </h5>
-                                        <h5>Mains(हिंदी) <span className="badge badge-info">₹4940</span> </h5>
-                                        <h5>Mains(English) <span className="badge badge-info">₹4940</span> </h5>
-                                    </div>
-                                    <div className="text-center mt-4">
-                                        <span class="btn btn-danger btn-md font-weight-bold text-white mt-2 disabled" style={{ width: "75%" }}>Register Now </span>
-                                        <Link to="/loginCourse" style={{textDecoration:"none"}}> <span class="btn btn-primary btn-md font-weight-bold text-white mt-3" style={{ width: "75%" }}>Login </span></Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-5 col-sm-12 col-xs-12 mt-2">
-                            <div class="card shadow border border-danger" style={{ height: "580px" }}>
-                                <img class="card-img-top mt-5" src={onlineClass} style={{ height: '150px' }} alt="cap3" />
-                                <div class="card-body">
-                                    <h5 class="card-title font-weight-bold" style={{ textDecoration: "underline" }}>Batch-II</h5>
+                                    <h5 class="card-title font-weight-bold" style={{ textDecoration: "underline" }}>Batch-III</h5>
                                     <h6 class="badge badge-success">Admission Open</h6>
                                     <div>
                                         <h5>Prelims <span className="badge badge-info">₹2940</span></h5>
@@ -447,6 +435,36 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
+
+                        <div className="col-md-5 col-sm-12 col-xs-12 offset-md-1 offset-sm-0 mt-2">
+                            <div class="card shadow border border-danger" style={{ height: "580px" }}>
+                                <img class="card-img-top mt-5" src={onlineClass} style={{ height: '150px' }} alt="cap3" />
+                                <div class="card-body">
+                                    <h5 class="card-title font-weight-bold" style={{ textDecoration: "underline" }}>Batch-I</h5>
+                                    <h6 class="badge badge-danger">Admission Closed</h6>
+                                    <div className="text-center mt-4">
+                                        <span class="btn btn-danger btn-md font-weight-bold text-white mt-2 disabled" style={{ width: "75%" }}>Register Now </span>
+                                        <Link to="/loginCourse" style={{textDecoration:"none"}}> <span class="btn btn-primary btn-md font-weight-bold text-white mt-3" style={{ width: "75%" }}>Login </span></Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-md-5 col-sm-12 col-xs-12 mt-2">
+                            <div class="card shadow border border-danger" style={{ height: "580px" }}>
+                                <img class="card-img-top mt-5" src={onlineClass} style={{ height: '150px' }} alt="cap3" />
+                                <div class="card-body">
+                                    <h5 class="card-title font-weight-bold" style={{ textDecoration: "underline" }}>Batch-II</h5>
+                                    <h6 class="badge badge-danger">Admission Closed</h6>
+                                    <div className="text-center mt-3">
+                                   <span class="btn btn-danger btn-md font-weight-bold text-white mt-2 disabled"  style={{ width: "75%" }}>Register Now </span>
+                                    <Link to="/loginCourse" style={{textDecoration:"none"}}>   <span class="btn btn-primary btn-md font-weight-bold text-white mt-3" style={{ width: "75%" }}>Login </span></Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
                 <div className="container mt-5" >

@@ -71,7 +71,7 @@ export default function MyTestSeries() {
                                                 >
                                                     <div className="card bg-primary ">
                                                         <div className="card-body py-5 " style={{ height: "35vh" }}>
-                                                            <div className="py-4 text-white" style={{fontSize:"40px"}}>Current Affairs</div>
+                                                            <div className="py-5 text-white" style={{fontSize:"40px"}}>Current Affairs</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -87,7 +87,7 @@ export default function MyTestSeries() {
                                                     >
                                                         <div className="card bg-info ">
                                                             <div className="card-body py-5 " style={{ height: "35vh" }}>
-                                                                <div className="py-2 text-white" style={{fontSize:"40px"}}>Chhattisgarh GK Test Series </div>
+                                                                <div className="py-4 text-white" style={{fontSize:"40px"}}>Chhattisgarh GK Test Series </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -96,7 +96,7 @@ export default function MyTestSeries() {
                                                     >
                                                         <div className="card bg-primary ">
                                                             <div className="card-body py-5 " style={{ height: "35vh" }}>
-                                                                <div className="py-4 text-white" style={{fontSize:"40px"}}>Current Affairs</div>
+                                                                <div className="py-5 text-white" style={{fontSize:"40px"}}>Current Affairs</div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -112,7 +112,7 @@ export default function MyTestSeries() {
                                                     >
                                                         <div className="card bg-danger ">
                                                             <div className="card-body py-5 " style={{ height: "35vh" }}>
-                                                                <div className="py-2 text-white" style={{fontSize:"40px"}}>CGPSC Prelims Test Series</div>
+                                                                <div className="py-4 text-white" style={{fontSize:"40px"}}>CGPSC Prelims Test Series</div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -122,7 +122,7 @@ export default function MyTestSeries() {
                                                     >
                                                         <div className="card bg-info ">
                                                             <div className="card-body py-5 " style={{ height: "35vh" }}>
-                                                                <div className="py-2 text-white" style={{fontSize:"40px"}}>Chhattisgarh GK Test Series </div>
+                                                                <div className="py-4 text-white" style={{fontSize:"40px"}}>Chhattisgarh GK Test Series </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -131,7 +131,7 @@ export default function MyTestSeries() {
                                                     >
                                                         <div className="card bg-primary ">
                                                             <div className="card-body py-5 " style={{ height: "35vh" }}>
-                                                                <div className="py-4 text-white" style={{fontSize:"40px"}}>Current Affairs</div>
+                                                                <div className="py-5 text-white" style={{fontSize:"40px"}}>Current Affairs</div>
                                                             </div>
                                                         </div>
                                                     </div>

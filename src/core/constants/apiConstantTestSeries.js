@@ -20,7 +20,8 @@ export const API_ENDPOINTS = {
     IS_PACKAGE_BUY: `${base_url}/isPackageBuy/<USER_ID>`,
     MY_TEST_SERIES: `${base_url}/myTestSeries/<USER_ID>`,
     IS_USER_PAID: `${base_url}/checkValidUser`,
-    MY_TEST_SERIES_PACKAGE:`${base_url}/myTestSeriesPackage`
+    MY_TEST_SERIES_PACKAGE:`${base_url}/myTestSeriesPackage`,
+    DEMO_TEST: `${base_url}/getDemoTestStatus`
   },
   ADMIN: {
     ADMIN_LOGIN: `${base_url}/adminLogin`,

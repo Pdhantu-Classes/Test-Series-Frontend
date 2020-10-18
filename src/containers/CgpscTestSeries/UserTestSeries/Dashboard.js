@@ -68,7 +68,7 @@ const Dashboard = (props) => {
 
 
   const handleChangeMock = (id,paperTime,noQuestion) => {
-    console.log(id,noQuestion,paperTime)
+    // console.log(id,noQuestion,paperTime)
     window.localStorage.setItem("mock_paper_id", id);
     window.localStorage.setItem('noQuestion', noQuestion)
     window.localStorage.setItem('paperTime', paperTime)

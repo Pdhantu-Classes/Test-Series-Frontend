@@ -25,40 +25,55 @@ const UserDashBoard = () => {
     setLoading(true);
     http
       .get(IS_USER_REGISTER.replace("<USER_ID>", USER_ID))
-      .then((response) => {
-        setLoading(false)
-        const responseRegister = response.data.isValid;
+      .then((responseIsReg) => {
 
-        setIsRegister(responseRegister);
+        http
+        .get(IS_PACKAGE_BUY.replace("<USER_ID>", USER_ID))
+        .then((responseIsPkgBuy) => {
+          http
+            .get(GET_BATCH, {
+                  headers: {
+                      user_id: USER_ID
+                    }
+                })
+            .then((responseBatch) => {
+              setLoading(false);
+              const responseRegister = responseIsReg.data.isValid;
+              const responseData = responseIsPkgBuy.data.isValid;
+              setIsBuy(responseData);
+              setIsRegister(responseRegister);
+              setBatch(responseBatch.data.batch);
+            });
+        });
       });
     const COURSE_ID = window.localStorage.getItem("course")
     setCourseId(Number(COURSE_ID))
   }, []);
 
-  useEffect(() => {
-    const USER_ID = getUserId();
-    setLoading(true);
-    http.get(IS_PACKAGE_BUY.replace("<USER_ID>", USER_ID)).then((response) => {
-      setLoading(false);
-      const responseData = response.data.isValid;
-      setIsBuy(responseData);
-    });
-  }, []);
+  // useEffect(() => {
+  //   const USER_ID = getUserId();
+  //   setLoading(true);
+  //   http.get(IS_PACKAGE_BUY.replace("<USER_ID>", USER_ID)).then((response) => {
+  //     setLoading(false);
+  //     const responseData = response.data.isValid;
+  //     setIsBuy(responseData);
+  //   });
+  // }, []);
 
-  useEffect(() => {
-    const USER_ID = getUserId();
-    setLoading(true);
-    http
-      .get(GET_BATCH, {
-        headers: {
-          user_id: USER_ID
-        }
-      })
-      .then((response) => {
-        setLoading(false)
-        setBatch(response.data.batch);
-      });
-  }, []);
+  // useEffect(() => {
+  //   const USER_ID = getUserId();
+  //   setLoading(true);
+  //   http
+  //     .get(GET_BATCH, {
+  //       headers: {
+  //         user_id: USER_ID
+  //       }
+  //     })
+  //     .then((response) => {
+  //       setLoading(false)
+  //       setBatch(response.data.batch);
+  //     });
+  // }, []);
 
   const handleChange = (val) => {
     window.localStorage.setItem("sectionId", val)
@@ -165,6 +180,52 @@ const UserDashBoard = () => {
                           </div>
                         </div>
                       </div>
+                    </div>
+                    :
+                    isRegister && isBuy && batch === 3 ?
+                    <div className="text-center mt-3">
+                      <h3 className="text-secondary font-weight-bold">Class will Starts from 26 Oct at 5 PM</h3>
+                    <div className="row">
+                      <div
+                        className="col-lg-4 col-md-6 mt-5"
+                        onClick={() => { handleChange(1) }}
+                      >
+                        <div className="card bg-info ">
+                          <div className="card-body py-5 " style={{ height: "35vh" }}>
+                            <div className="py-5 text-white" style={{ fontSize: "45px" }}>Video/Live Class</div>
+                          </div>
+                        </div>
+                      </div>
+                      {
+                        courseId === 1 || courseId === 2 ?
+                          <div
+                            className="col-lg-4 col-md-6 mt-5" onClick={handleClassTestPrelims}>
+                            <div className="card bg-success ">
+                              <div className="card-body py-5" style={{ height: "35vh" }}>
+                                <div className="py-5 text-white" style={{ fontSize: "45px" }}>Pdhantu Class Test</div>
+                              </div>
+                            </div>
+                          </div>
+                          :
+                          <div
+                            className="col-lg-4 col-md-6 mt-5">
+                            <div className="card bg-success ">
+                              <div className="card-body py-5" style={{ height: "35vh" }}>
+                                <div className="py-5 text-white" style={{ fontSize: "45px" }}>Pdhantu Class Test</div>
+                              </div>
+                            </div>
+                          </div>
+                        }
+
+                      <div
+                        className="col-lg-4 col-md-6  mt-5">
+                        <div className="card bg-danger" onClick={handleCurrentAffairs}>
+                          <div className="card-body py-5" style={{ height: "35vh" }}>
+                            <div className="py-5 text-white" style={{ fontSize: "45px" }}>Current Affairs</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     </div>
                     :
                     isRegister && !isBuy ?

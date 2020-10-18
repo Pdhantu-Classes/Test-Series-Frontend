@@ -129,6 +129,7 @@ export default function AdminManageUsers() {
                                 <select onChange={handleBatchChange} value={batch}  className="form-control ">
                                     <option value="1">Batch 1</option>
                                     <option value="2">Batch 2</option>
+                                    <option value="3">Batch 3</option>
                                 </select>
                             </div>
                             <div className="form-group offset-3 col-lg-5">

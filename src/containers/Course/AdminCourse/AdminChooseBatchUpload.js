@@ -15,22 +15,26 @@ export default function AdminChooseBatchUpload() {
             </div>
 
             <div className="row text-center mt-5">
-                <div
-                    className="col-lg-4 offset-lg-1 col-md-6 mt-5"
-                >
+                <div className="col-lg-4 offset-lg-1 col-md-6 mt-5">
                     <div className="card bg-secondary" onClick={() => { handleClick(1) }}>
-                        <div className="card-body py-5 " style={{ height: "25vh" }}>
+                        <div className="card-body py-4 " style={{ height: "25vh" }}>
                             <div className="py-5 text-white" style={{ fontSize: "45px" }}>Batch-1</div>
                         </div>
                     </div>
                 </div>
 
-                <div
-                    className="col-lg-4 col-md-6 offset-lg-1 mt-5"
-                >
+                <div className="col-lg-4 col-md-6 offset-lg-1 mt-5">
                     <div className="card bg-success " onClick={() => { handleClick(2) }}>
-                        <div className="card-body py-5" style={{ height: "25vh" }}>
+                        <div className="card-body py-4" style={{ height: "25vh" }}>
                             <div className="py-5 text-white" style={{ fontSize: "45px" }}>Batch-2</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="col-lg-4 col-md-6 offset-lg-1 mt-5">
+                    <div className="card bg-danger " onClick={() => { handleClick(3) }}>
+                        <div className="card-body py-4" style={{ height: "25vh" }}>
+                            <div className="py-5 text-white" style={{ fontSize: "45px" }}>Batch-3</div>
                         </div>
                     </div>
                 </div>

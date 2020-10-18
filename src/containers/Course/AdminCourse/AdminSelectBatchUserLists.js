@@ -21,7 +21,7 @@ export default function AdminSelectBatchUserLists() {
                 >
                     <div className="card bg-secondary" onClick={() => { handleClick(1) }}>
                         <div className="card-body py-5 " style={{ height: "25vh" }}>
-                            <div className="py-5 text-white" style={{ fontSize: "45px" }}>Batch-1</div>
+                            <div className="py-4 text-white" style={{ fontSize: "45px" }}>Batch-1</div>
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,17 @@ export default function AdminSelectBatchUserLists() {
                 >
                     <div className="card bg-success " onClick={() => { handleClick(2) }}>
                         <div className="card-body py-5" style={{ height: "25vh" }}>
-                            <div className="py-5 text-white" style={{ fontSize: "45px" }}>Batch-2</div>
+                            <div className="py-4 text-white" style={{ fontSize: "45px" }}>Batch-2</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    className="col-lg-4 col-md-6 offset-lg-1 mt-5"
+                >
+                    <div className="card bg-danger " onClick={() => { handleClick(3) }}>
+                        <div className="card-body py-5" style={{ height: "25vh" }}>
+                            <div className="py-4 text-white" style={{ fontSize: "45px" }}>Batch-3</div>
                         </div>
                     </div>
                 </div>
