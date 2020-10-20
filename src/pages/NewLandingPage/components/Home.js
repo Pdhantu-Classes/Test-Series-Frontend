@@ -187,7 +187,7 @@ export default function Home() {
                             <h1 class="text-white display-4 font-weight-bold mb-2 pt-3">Admission Open in Batch-III</h1>
                             <h2 class="h2 text-white mb-2">For CGPSC Online Course</h2>
                             <h2 class="h2 text-white mb-5 font-weight-bold">अभी Registration करे</h2>
-                            <Link to="/signupTestseries" style={{textDecoration:"none"}}><span class="btn-light shadow rounded text-danger font-weight-bold p-3 text-decoration-none mb-4"
+                            <Link to="/signupCourse" style={{textDecoration:"none"}}><span class="btn-light shadow rounded text-danger font-weight-bold p-3 text-decoration-none mb-4"
                             >Register Now
                             </span></Link>
                             <h2 class="h2 text-white mb-5 mt-5 font-weight-bold">Prelims | Pre+Mains | Mains(Hindi+English Medium)</h2>
@@ -206,7 +206,7 @@ export default function Home() {
                             <h4 class="h4 text-white mb-2">For CGPSC Online Course</h4>
                             <h2 class="h4 text-white mb-4 font-weight-bold">अभी Registration करे</h2>
                             <div class="col-md-4 mt-3 ">
-                            <Link to="/signupTestseries" style={{textDecoration:"none"}}><span class="btn-light btn-sm shadow rounded text-danger font-weight-bold p-2 text-decoration-none"
+                            <Link to="/signupCourse" style={{textDecoration:"none"}}><span class="btn-light btn-sm shadow rounded text-danger font-weight-bold p-2 text-decoration-none"
                                 >Register Now
                                 </span>
                             </Link>
