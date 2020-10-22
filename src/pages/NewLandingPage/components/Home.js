@@ -719,7 +719,7 @@ export default function Home() {
                                 CONTACT US:
                             </div>
                             <div>
-                                <span><span className="font-weight-bold">Mobile:</span> +91-9907224624</span>
+                                <span><span className="font-weight-bold">Mobile:</span> +91-7999393665</span>
                             </div>
                             <div>
                                 <span><span className="font-weight-bold">Email:</span> pdhantu3@gmail.com</span>
