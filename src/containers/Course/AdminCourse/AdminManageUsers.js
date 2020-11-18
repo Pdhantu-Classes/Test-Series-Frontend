@@ -130,6 +130,7 @@ export default function AdminManageUsers() {
                                     <option value="1">Batch 1</option>
                                     <option value="2">Batch 2</option>
                                     <option value="3">Batch 3</option>
+                                    <option value="4">Batch 4</option>
                                 </select>
                             </div>
                             <div className="form-group offset-3 col-lg-5">

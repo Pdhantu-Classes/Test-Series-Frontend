@@ -34,55 +34,55 @@ export default function Home() {
     const handleCloseSignIn = () => setShowSignIn(false);
     const handleShowSignIn = () => setShowSignIn(true);
     const handleShowSignUp = () => setShowSignUp(true)
-    const [isLoading, setIsLoading ] = useState(false)
-    const [ name, setName ] = useState('')
-    const [ email, setEmail ] = useState('')
-    const [ message, setMessage ] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [message, setMessage] = useState('')
 
-    const handleDownloadSchedule = ()=>{
+    const handleDownloadSchedule = () => {
         setIsLoading(true)
         http
             .get(GET_CLASS_SCHEDULE)
-            .then(res=>{
+            .then(res => {
                 setIsLoading(false)
                 let pdf = res.data.pdf_link
                 window.location.href = pdf
             })
-            .catch(err=> console.log(err))
+            .catch(err => console.log(err))
     }
 
-    const handleDownloadSyllabus = ()=>{
+    const handleDownloadSyllabus = () => {
         window.location.href = "https://pdhantu-classes.s3.us-east-2.amazonaws.com/miscellaneous/cgpscPrelimsSyllabus.pdf"
     }
 
-    const handleClick = () =>{
-        if(name && email && message){
-          let mailformat = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
-          if(email.match(mailformat)){
-            let body= {
-              name:name,
-              email:email,
-              message:message
+    const handleClick = () => {
+        if (name && email && message) {
+            let mailformat = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
+            if (email.match(mailformat)) {
+                let body = {
+                    name: name,
+                    email: email,
+                    message: message
+                }
+                http
+                    .post(USER_QUERY, body)
+                    .then((res) => {
+                        alert.show("Success", { type: types.SUCCESS })
+                        setName('')
+                        setEmail('')
+                        setMessage('')
+                    })
+                    .catch((err) => console.log(err))
             }
-            http
-            .post(USER_QUERY,body)
-            .then ((res)=>{
-              alert.show("Success", { type: types.SUCCESS })
-              setName('')
-              setEmail('')
-              setMessage('')
-            })
-            .catch((err)=>console.log(err))
-          }
-          else{
-            alert.show("Enter Valid Email", { type: types.ERROR })
-          }
+            else {
+                alert.show("Enter Valid Email", { type: types.ERROR })
+            }
         }
-        else{
-          alert.show("Please fill all details",{ type:types.INFO })
+        else {
+            alert.show("Please fill all details", { type: types.INFO })
         }
-    
-      }
+
+    }
 
     return (
         <div style={{ textAlign: "center" }}>
@@ -144,7 +144,7 @@ export default function Home() {
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <a class="navbar-brand mx-auto" href="/" style={{ padding: "0.5rem 0" }}>
-                            <img src={logo} alt="Masai School" style={{ height: "25px" }} /><span style={{ fontSize: "25px" }}>The <span style={{ fontWeight: "bold", fontSize:"28px", color: "orange" }}>प</span>dhantu Classes</span>
+                            <img src={logo} alt="Masai School" style={{ height: "25px" }} /><span style={{ fontSize: "25px" }}>The <span style={{ fontWeight: "bold", fontSize: "28px", color: "orange" }}>प</span>dhantu Classes</span>
                         </a>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto ">
@@ -158,10 +158,10 @@ export default function Home() {
                                     </a>
                                 </li>
                                 <li role="presentation" class="nav-item">
-                                   <Link to="/notice"> <span class="nav-link font-weight-bold px-4 text-dark">Notice</span></Link>
+                                    <Link to="/notice"> <span class="nav-link font-weight-bold px-4 text-dark">Notice</span></Link>
                                 </li>
                                 <li role="presentation" class="nav-item">
-                                   <Link to="/current-affairs"><span class="nav-link font-weight-bold px-4 text-dark">Current Affairs</span></Link> 
+                                    <Link to="/current-affairs"><span class="nav-link font-weight-bold px-4 text-dark">Current Affairs</span></Link>
                                 </li>
                                 <li role="presentation" class="nav-item d-block d-sm-none">
                                     <span class="nav-link font-weight-bold px-4 text-danger" onClick={handleShowSignIn}>Signup</span>
@@ -184,10 +184,10 @@ export default function Home() {
                 <div class="container">
                     <div class="row pt-5 mt-5 align-items-center">
                         <div class="col-12 col-md-12 pt-5">
-                            <h1 class="text-white display-4 font-weight-bold mb-2 pt-3">Admission Open in Batch-III</h1>
+                            <h1 class="text-white display-4 font-weight-bold mb-2 pt-3">Admission Open in Batch-IV</h1>
                             <h2 class="h2 text-white mb-2">For CGPSC Online Course</h2>
                             <h2 class="h2 text-white mb-5 font-weight-bold">अभी Registration करे</h2>
-                            <Link to="/signupCourse" style={{textDecoration:"none"}}><span class="btn-light shadow rounded text-danger font-weight-bold p-3 text-decoration-none mb-4"
+                            <Link to="/signupCourse" style={{ textDecoration: "none" }}><span class="btn-light shadow rounded text-danger font-weight-bold p-3 text-decoration-none mb-4"
                             >Register Now
                             </span></Link>
                             <h2 class="h2 text-white mb-5 mt-5 font-weight-bold">Prelims | Pre+Mains | Mains(Hindi+English Medium)</h2>
@@ -202,14 +202,14 @@ export default function Home() {
                 <div class="container">
                     <div class="row pt-5 align-items-center">
                         <div class="col-12 col-md-12 col-sm-12 col-lg-12">
-                            <h2 class="text-white font-weight-bold mt-5">Admission Open in Batch-III</h2>
+                            <h2 class="text-white font-weight-bold mt-5">Admission Open in Batch-IV</h2>
                             <h4 class="h4 text-white mb-2">For CGPSC Online Course</h4>
                             <h2 class="h4 text-white mb-4 font-weight-bold">अभी Registration करे</h2>
                             <div class="col-md-4 mt-3 ">
-                            <Link to="/signupCourse" style={{textDecoration:"none"}}><span class="btn-light btn-sm shadow rounded text-danger font-weight-bold p-2 text-decoration-none"
+                                <Link to="/signupCourse" style={{ textDecoration: "none" }}><span class="btn-light btn-sm shadow rounded text-danger font-weight-bold p-2 text-decoration-none"
                                 >Register Now
                                 </span>
-                            </Link>
+                                </Link>
                             </div>
                             <h6 class=" text-white mb-3 mt-3 font-weight-bold">Prelims | Pre+Mains | Mains(Hindi+English)</h6>
                             <div className="h6 blink">
@@ -262,10 +262,10 @@ export default function Home() {
                                     <h5 class="card-title mt-3">CGPSC Prelims/Chhattisgarh GK Test Series</h5>
                                     <h6 class="badge badge-success">Registration Open</h6>
                                     <div className="text-center">
-                                    <Link to="/signupTestseries" style={{textDecoration:"none"}}><span class="btn btn-danger btn-md font-weight-bold text-white mt-2" style={{ width: "75%" }}>Register Now </span></Link>
-                                    <Link to="/loginTestseries" style={{textDecoration:"none"}}>  <span class="btn btn-primary btn-md font-weight-bold text-white mt-3" style={{ width: "75%" }}>Login </span> </Link>
-                                    <Link to="/testSeriesSchedule" style={{textDecoration:"none"}}>   <span class="btn btn-success btn-md font-weight-bold text-white mt-3" style={{ width: "75%" }}>Test Schedule </span></Link>
-                                    <span class="btn btn-info btn-md font-weight-bold text-white mt-3" style={{ width: "75%" }} onClick={handleDownloadSyllabus}>Full Syllabus </span>
+                                        <Link to="/signupTestseries" style={{ textDecoration: "none" }}><span class="btn btn-danger btn-md font-weight-bold text-white mt-2" style={{ width: "75%" }}>Register Now </span></Link>
+                                        <Link to="/loginTestseries" style={{ textDecoration: "none" }}>  <span class="btn btn-primary btn-md font-weight-bold text-white mt-3" style={{ width: "75%" }}>Login </span> </Link>
+                                        <Link to="/testSeriesSchedule" style={{ textDecoration: "none" }}>   <span class="btn btn-success btn-md font-weight-bold text-white mt-3" style={{ width: "75%" }}>Test Schedule </span></Link>
+                                        <span class="btn btn-info btn-md font-weight-bold text-white mt-3" style={{ width: "75%" }} onClick={handleDownloadSyllabus}>Full Syllabus </span>
                                     </div>
 
                                 </div>
@@ -324,7 +324,7 @@ export default function Home() {
                 </div>
 
                 {/* ---------------------------------------Test Series Section------------------------------------ */}
-                
+
                 <div className="text-center mt-3">
                     <h3>
                         <span class="badge badge-primary">CGACF</span>
@@ -339,9 +339,9 @@ export default function Home() {
                                     <h5 class="card-title">CGACF Test Series</h5>
                                     <h6 class="badge badge-danger">Test End</h6>
                                     <div className="text-center mt-4">
-                                    <Link to="/signupSeries" style={{textDecoration:"none"}}> <span class="btn btn-danger btn-md font-weight-bold text-white mt-2" style={{ width: "75%" }}>Register Now </span></Link>
-                                    <Link to="/loginSeries" style={{textDecoration:"none"}}> <span class="btn btn-primary btn-md font-weight-bold text-white mt-3" style={{ width: "75%" }}>Login </span></Link>
-                                    <Link to="/testViewDetails" style={{textDecoration:"none"}}>  <span class="btn btn-success btn-md font-weight-bold text-white mt-3" style={{ width: "75%" }}>Test Details </span></Link>
+                                        <Link to="/signupSeries" style={{ textDecoration: "none" }}> <span class="btn btn-danger btn-md font-weight-bold text-white mt-2" style={{ width: "75%" }}>Register Now </span></Link>
+                                        <Link to="/loginSeries" style={{ textDecoration: "none" }}> <span class="btn btn-primary btn-md font-weight-bold text-white mt-3" style={{ width: "75%" }}>Login </span></Link>
+                                        <Link to="/testViewDetails" style={{ textDecoration: "none" }}>  <span class="btn btn-success btn-md font-weight-bold text-white mt-3" style={{ width: "75%" }}>Test Details </span></Link>
                                     </div>
                                 </div>
                             </div>
@@ -416,7 +416,7 @@ export default function Home() {
                 <div className="container mt-3 mb-5">
                     <div className="row">
 
-                    <div className="col-md-5 col-sm-12 col-xs-12 mt-4 mb-3 batch-3-card">
+                        {/* <div className="col-md-5 col-sm-12 col-xs-12 mt-4 mb-3 batch-3-card">
                             <div class="card shadow border border-success" style={{ height: "580px" }}>
                                 <img class="card-img-top mt-5" src={onlineClass} style={{ height: '150px' }} alt="cap3" />
                                 <div class="card-body">
@@ -434,17 +434,23 @@ export default function Home() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className="col-md-5 col-sm-12 col-xs-12 offset-md-1 offset-sm-0 mt-2">
-                            <div class="card shadow border border-danger" style={{ height: "580px" }}>
+                            <div class="card shadow border border-success" style={{ height: "580px" }}>
                                 <img class="card-img-top mt-5" src={onlineClass} style={{ height: '150px' }} alt="cap3" />
                                 <div class="card-body">
-                                    <h5 class="card-title font-weight-bold" style={{ textDecoration: "underline" }}>Batch-I</h5>
-                                    <h6 class="badge badge-danger">Admission Closed</h6>
-                                    <div className="text-center mt-4">
-                                        <span class="btn btn-danger btn-md font-weight-bold text-white mt-2 disabled" style={{ width: "75%" }}>Register Now </span>
-                                        <Link to="/loginCourse" style={{textDecoration:"none"}}> <span class="btn btn-primary btn-md font-weight-bold text-white mt-3" style={{ width: "75%" }}>Login </span></Link>
+                                    <h5 class="card-title font-weight-bold" style={{ textDecoration: "underline" }}>Batch-IV</h5>
+                                    <h6 class="badge badge-success">Admission Open</h6>
+                                    <div>
+                                        <h5>Prelims <span className="badge badge-info">₹2940</span></h5>
+                                        <h5>Prelims+Mains <span className="badge badge-info">₹6940</span> </h5>
+                                        <h5>Mains(हिंदी) <span className="badge badge-info">₹4940</span> </h5>
+                                        <h5>Mains(English) <span className="badge badge-info">₹4940</span> </h5>
+                                    </div>
+                                    <div className="text-center mt-3">
+                                        <Link to="/signupCourse" style={{ textDecoration: "none" }}><span class="btn btn-danger btn-md font-weight-bold text-white mt-2" style={{ width: "75%" }}>Register Now </span></Link>
+                                        <Link to="/loginCourse" style={{ textDecoration: "none" }}>   <span class="btn btn-primary btn-md font-weight-bold text-white mt-3" style={{ width: "75%" }}>Login </span></Link>
                                     </div>
                                 </div>
                             </div>
@@ -454,11 +460,39 @@ export default function Home() {
                             <div class="card shadow border border-danger" style={{ height: "580px" }}>
                                 <img class="card-img-top mt-5" src={onlineClass} style={{ height: '150px' }} alt="cap3" />
                                 <div class="card-body">
-                                    <h5 class="card-title font-weight-bold" style={{ textDecoration: "underline" }}>Batch-II</h5>
+                                    <h5 class="card-title font-weight-bold" style={{ textDecoration: "underline" }}>Batch-III</h5>
                                     <h6 class="badge badge-danger">Admission Closed</h6>
                                     <div className="text-center mt-3">
-                                   <span class="btn btn-danger btn-md font-weight-bold text-white mt-2 disabled"  style={{ width: "75%" }}>Register Now </span>
-                                    <Link to="/loginCourse" style={{textDecoration:"none"}}>   <span class="btn btn-primary btn-md font-weight-bold text-white mt-3" style={{ width: "75%" }}>Login </span></Link>
+                                        <span class="btn btn-danger btn-md font-weight-bold text-white mt-2 disabled" style={{ width: "75%" }}>Register Now </span>
+                                        <Link to="/loginCourse" style={{ textDecoration: "none" }}>   <span class="btn btn-primary btn-md font-weight-bold text-white mt-3" style={{ width: "75%" }}>Login </span></Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-md-5 col-sm-12 col-xs-12 offset-md-1 offset-sm-0 mt-2">
+                            <div class="card shadow border border-danger" style={{ height: "580px" }}>
+                                <img class="card-img-top mt-5" src={onlineClass} style={{ height: '150px' }} alt="cap3" />
+                                <div class="card-body">
+                                    <h5 class="card-title font-weight-bold" style={{ textDecoration: "underline" }}>Batch-II</h5>
+                                    <h6 class="badge badge-danger">Admission Closed</h6>
+                                    <div className="text-center mt-4">
+                                        <span class="btn btn-danger btn-md font-weight-bold text-white mt-2 disabled" style={{ width: "75%" }}>Register Now </span>
+                                        <Link to="/loginCourse" style={{ textDecoration: "none" }}> <span class="btn btn-primary btn-md font-weight-bold text-white mt-3" style={{ width: "75%" }}>Login </span></Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-md-5 col-sm-12 col-xs-12 mt-2">
+                            <div class="card shadow border border-danger" style={{ height: "580px" }}>
+                                <img class="card-img-top mt-5" src={onlineClass} style={{ height: '150px' }} alt="cap3" />
+                                <div class="card-body">
+                                    <h5 class="card-title font-weight-bold" style={{ textDecoration: "underline" }}>Batch-I</h5>
+                                    <h6 class="badge badge-danger">Admission Closed</h6>
+                                    <div className="text-center mt-3">
+                                        <span class="btn btn-danger btn-md font-weight-bold text-white mt-2 disabled" style={{ width: "75%" }}>Register Now </span>
+                                        <Link to="/loginCourse" style={{ textDecoration: "none" }}>   <span class="btn btn-primary btn-md font-weight-bold text-white mt-3" style={{ width: "75%" }}>Login </span></Link>
                                     </div>
                                 </div>
                             </div>
@@ -471,31 +505,31 @@ export default function Home() {
                     <div className="row">
                         <div className="col-md-4 col-sm-12 col-xs-12 mt-3">
                             <div className="card shadow bg-info btn" style={{ height: "170px" }}>
-                            <Link to="/features" style={{textDecoration:"none"}}><div className="h4 align-items-center mt-5 pt-3 font-weight-bold text-white">
+                                <Link to="/features" style={{ textDecoration: "none" }}><div className="h4 align-items-center mt-5 pt-3 font-weight-bold text-white">
                                     Features
                                 </div>
-                            </Link>
+                                </Link>
                             </div>
                         </div>
                         <div className="col-md-4 col-sm-12 col-xs-12 mt-3">
                             <div className="card shadow btn" style={{ height: "170px", background: "#E0205A" }}>
-                            <Link to="/faculties" style={{textDecoration:"none"}}>
-                                <div className="h4 align-items-center mt-5 pt-3 font-weight-bold text-white">
-                                    Subjects & Faculties
+                                <Link to="/faculties" style={{ textDecoration: "none" }}>
+                                    <div className="h4 align-items-center mt-5 pt-3 font-weight-bold text-white">
+                                        Subjects & Faculties
                                 </div>
-                            </Link>
+                                </Link>
                             </div>
                         </div>
                         <div className="col-md-4 col-sm-12 col-xs-12 mt-3">
                             <div className="card shadow btn" style={{ height: "170px", background: "#6d49a7" }}>
-                            <div className="h4 align-items-center mt-5 pt-3 font-weight-bold text-white" onClick={handleDownloadSchedule}>
-                                {
-                                    !isLoading ?
-                                        <span>Class Schedule</span>
-                                        :
-                                        <span>Downloading...</span>
-                                }  
-                                </div>    
+                                <div className="h4 align-items-center mt-5 pt-3 font-weight-bold text-white" onClick={handleDownloadSchedule}>
+                                    {
+                                        !isLoading ?
+                                            <span>Class Schedule</span>
+                                            :
+                                            <span>Downloading...</span>
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -640,7 +674,7 @@ export default function Home() {
                                         className="form-control "
                                         placeholder="Full Name"
                                         value={name}
-                                        onChange={(e)=>{setName(e.target.value)}}
+                                        onChange={(e) => { setName(e.target.value) }}
                                     />
                                 </div>
                                 <div className="text-left ml-5 pl-4 h6 mt-3 font-weight-bold text-muted">
@@ -652,14 +686,14 @@ export default function Home() {
                                         className="form-control"
                                         placeholder="Email"
                                         value={email}
-                                        onChange={(e)=>{setEmail(e.target.value)}}
+                                        onChange={(e) => { setEmail(e.target.value) }}
                                     />
                                 </div>
                                 <div className="text-left ml-5 pl-4 h6 mt-3 font-weight-bold text-muted">
                                     MESSAGE
                                 </div>
                                 <div className="text-left ml-5 pl-4 mt-0 input-group mb-3 w-75">
-                                    <textarea class="form-control" aria-label="With textarea" value={message} onChange={(e)=>{setMessage(e.target.value)}}></textarea>
+                                    <textarea class="form-control" aria-label="With textarea" value={message} onChange={(e) => { setMessage(e.target.value) }}></textarea>
                                 </div>
                                 <div className="text-center mt-2 mb-5">
                                     <span class="btn btn-md btn-md font-weight-bold text-white mt-3" style={{ width: "180px", background: "#464545 " }} onClick={handleClick}>SEND MESSAGE </span>

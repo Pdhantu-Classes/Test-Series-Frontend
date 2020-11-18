@@ -23,9 +23,15 @@ const AdminDashBoard = () => {
   const [allPreMainsBatch3, setAllPreMainsBatch3] = useState(0);
   const [allMainsHindiBatch3, setAllMainsHindiBatch3] = useState(0);
   const [allMainsEnglishBatch3, setAllMainsEnglishBatch3] = useState(0);
+  const [allPaidUserBatch4, setAllPaidUserBatch4] = useState(0);
+  const [allPrelimsBatch4, setAllPrelimsBatch4] = useState(0);
+  const [allPreMainsBatch4, setAllPreMainsBatch4] = useState(0);
+  const [allMainsHindiBatch4, setAllMainsHindiBatch4] = useState(0);
+  const [allMainsEnglishBatch4, setAllMainsEnglishBatch4] = useState(0);
   const [allBatch1, setAllBatch1] = useState(0);
   const [allBatch2, setAllBatch2] = useState(0);
   const [allBatch3, setAllBatch3] = useState(0);
+  const [allBatch4, setAllBatch4] = useState(0);
   const [loading, setLoading] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -40,6 +46,7 @@ const AdminDashBoard = () => {
         setAllPreMainsBatch1(res.data.mains_batch1)
         setAllMainsHindiBatch1(res.data.mains_hindi_batch1)
         setAllMainsEnglishBatch1(res.data.mains_english_batch1)
+
         setAllPaidUserBatch2(res.data.paid_user_batch2);
         setAllPrelimsBatch2(res.data.prelims_batch2)
         setAllPreMainsBatch2(res.data.mains_batch2)
@@ -51,9 +58,17 @@ const AdminDashBoard = () => {
         setAllPreMainsBatch3(res.data.mains_batch3)
         setAllMainsHindiBatch3(res.data.mains_hindi_batch3)
         setAllMainsEnglishBatch3(res.data.mains_english_batch3)
+
+        setAllPaidUserBatch4(res.data.paid_user_batch4);
+        setAllPrelimsBatch4(res.data.prelims_batch4)
+        setAllPreMainsBatch4(res.data.mains_batch4)
+        setAllMainsHindiBatch4(res.data.mains_hindi_batch4)
+        setAllMainsEnglishBatch4(res.data.mains_english_batch4)
+
         setAllBatch1(res.data.batch_1)
         setAllBatch2(res.data.batch_2)
         setAllBatch3(res.data.batch_3)
+        setAllBatch3(res.data.batch_4)
         setLoading(false);
     })
     .catch(err=>console.log(err))
@@ -314,6 +329,79 @@ const AdminDashBoard = () => {
                 <div className="card-body py-5" style={{ height: "35vh" }}>
                   <h3 className="text-white py-2">Prelims</h3>
                   <div className="display-2 text-white">{allPrelimsBatch3}</div>
+                </div>
+              </div>
+            </div>  
+          </div>
+
+          <div className="text-center mt-5">
+            <h2 className="font-weight-bold"><u>Batch 4</u></h2>
+          </div>
+
+            <div className="row text-center mt-5">
+              <div
+                className="col-lg-4 col-md-6 offset-lg-1 mt-5"
+                >
+              <div className="card bg-info ">
+                <div className="card-body py-5" style={{ height: "35vh" }}>
+                  <h3 className="text-white py-2">Total</h3>
+                  <div className="display-2 text-white">{allBatch4}</div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="col-lg-4 col-md-6 offset-lg-1 mt-5"
+            >
+              <div className="card bg-danger ">
+                <div className="card-body py-5" style={{ height: "35vh" }}>
+                  <h3 className="text-white py-2">Paid Users</h3>
+                  <div className="display-2 text-white">{allPaidUserBatch4}</div>
+                </div>
+              </div>
+            </div>     
+          </div>
+
+          <div className="row text-center mt-5">
+            <div
+                className="col-lg-4 col-md-6 offset-lg-1 mt-5"
+              >
+              <div className="card bg-secondary ">
+                <div className="card-body py-5" style={{ height: "35vh" }}>
+                  <h3 className="text-white py-2">Mains(Hindi)</h3>
+                  <div className="display-2 text-white">{allMainsHindiBatch4}</div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="col-lg-4 col-md-6 offset-lg-1 mt-5"
+            >
+              <div className="card bg-warning ">
+                <div className="card-body py-5" style={{ height: "35vh" }}>
+                  <h3 className="text-white py-2">Prelims+Mains</h3>
+                  <div className="display-2 text-white">{allPreMainsBatch4}</div>
+                </div>
+              </div>
+            </div> 
+          </div>
+
+          <div className="row text-center mt-5">
+          <div
+              className="col-lg-4 col-md-6 offset-lg-1 mt-5"
+            >
+              <div className="card bg-danger ">
+                <div className="card-body py-5" style={{ height: "35vh" }}>
+                  <h3 className="text-white py-2">Mains(English)</h3>
+                  <div className="display-2 text-white">{allMainsEnglishBatch4}</div>
+                </div>
+              </div>
+            </div>
+            <div
+                className="col-lg-4 col-md-6 offset-lg-1 mt-5"
+              >
+              <div className="card bg-success ">
+                <div className="card-body py-5" style={{ height: "35vh" }}>
+                  <h3 className="text-white py-2">Prelims</h3>
+                  <div className="display-2 text-white">{allPrelimsBatch4}</div>
                 </div>
               </div>
             </div>  

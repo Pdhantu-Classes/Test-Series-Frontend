@@ -184,7 +184,52 @@ const UserDashBoard = () => {
                     :
                     isRegister && isBuy && batch === 3 ?
                     <div className="text-center mt-3">
-                      <h3 className="text-secondary font-weight-bold">Class will Starts from 26 Oct at 5 PM</h3>
+                    <div className="row">
+                      <div
+                        className="col-lg-4 col-md-6 mt-5"
+                        onClick={() => { handleChange(1) }}
+                      >
+                        <div className="card bg-info ">
+                          <div className="card-body py-5 " style={{ height: "35vh" }}>
+                            <div className="py-5 text-white" style={{ fontSize: "45px" }}>Video/Live Class</div>
+                          </div>
+                        </div>
+                      </div>
+                      {
+                        courseId === 1 || courseId === 2 ?
+                          <div
+                            className="col-lg-4 col-md-6 mt-5" onClick={handleClassTestPrelims}>
+                            <div className="card bg-success ">
+                              <div className="card-body py-5" style={{ height: "35vh" }}>
+                                <div className="py-5 text-white" style={{ fontSize: "45px" }}>Pdhantu Class Test</div>
+                              </div>
+                            </div>
+                          </div>
+                          :
+                          <div
+                            className="col-lg-4 col-md-6 mt-5">
+                            <div className="card bg-success ">
+                              <div className="card-body py-5" style={{ height: "35vh" }}>
+                                <div className="py-5 text-white" style={{ fontSize: "45px" }}>Pdhantu Class Test</div>
+                              </div>
+                            </div>
+                          </div>
+                        }
+
+                      <div
+                        className="col-lg-4 col-md-6  mt-5">
+                        <div className="card bg-danger" onClick={handleCurrentAffairs}>
+                          <div className="card-body py-5" style={{ height: "35vh" }}>
+                            <div className="py-5 text-white" style={{ fontSize: "45px" }}>Current Affairs</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                    :
+                    isRegister && isBuy && batch === 4 ?
+                    <div className="text-center mt-3">
+                      <h3 className="text-secondary font-weight-bold">Class will Starts from 2nd Dec at 5 PM</h3>
                     <div className="row">
                       <div
                         className="col-lg-4 col-md-6 mt-5"
