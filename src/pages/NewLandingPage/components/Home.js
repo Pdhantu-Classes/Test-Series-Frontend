@@ -3,7 +3,7 @@ import Modal from "react-bootstrap/Modal";
 import { Link } from 'react-router-dom'
 import http from 'axios'
 import { useAlert, types } from 'react-alert'
-import logo from '../assets/logo.jpeg'
+import logo from '../assets/logo.png'
 import onlineClass from '../assets/online-class.svg'
 import notes from '../assets/notebook.svg'
 import classTest from '../assets/test.svg'
@@ -144,7 +144,7 @@ export default function Home() {
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <a class="navbar-brand mx-auto" href="/" style={{ padding: "0.5rem 0" }}>
-                            <img src={logo} alt="Masai School" style={{ height: "25px" }} /><span style={{ fontSize: "25px" }}>The <span style={{ fontWeight: "bold", fontSize: "28px", color: "orange" }}>प</span>dhantu Classes</span>
+                            <img src={logo} alt="The Pdhantu Classes" style={{ height: "55px", marginTop:'-5px' }} /><span style={{ fontSize: "25px", marginLeft:'-10px' }}>The <span style={{ fontWeight: "bold", fontSize: "28px", color: "orange" }}>प</span>dhantu Classes</span>
                         </a>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto ">

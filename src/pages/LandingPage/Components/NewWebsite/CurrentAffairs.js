@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import http from 'axios'
 import { Link } from 'react-router-dom'
 import { API_ENDPOINTS } from '../../../../core/constants/apiConstant'
-import logo from '../../../NewLandingPage/assets/logo.jpeg'
+import logo from '../../../NewLandingPage/assets/logo.png'
 import '../../../NewLandingPage/css/Home.css'
 
 const GET_ACTIVE_CURRENT_AFFAIRS = API_ENDPOINTS.WEBSITE.GET_ACTIVE_CURRENT_AFFAIRS
@@ -32,7 +32,7 @@ export default function CurrentAffairs() {
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <a class="navbar-brand mx-auto" href="/" style={{ padding: "0.5rem 0" }}>
-                            <img src={logo} alt="Masai School" style={{ height: "25px" }} /><span style={{ fontSize: "25px" }}>The <span style={{ fontWeight: "bold", fontSize: "28px", color: "orange" }}>प</span>dhantu Classes</span>
+                            <img src={logo} alt="The Pdhantu Classes" style={{ height: "55px", marginTop:'-5px' }} /><span style={{ fontSize: "25px", marginLeft:'-10px' }}>The <span style={{ fontWeight: "bold", fontSize: "28px", color: "orange" }}>प</span>dhantu Classes</span>
                         </a>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto ">
