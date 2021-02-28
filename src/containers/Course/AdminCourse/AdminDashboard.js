@@ -68,7 +68,7 @@ const AdminDashBoard = () => {
         setAllBatch1(res.data.batch_1)
         setAllBatch2(res.data.batch_2)
         setAllBatch3(res.data.batch_3)
-        setAllBatch3(res.data.batch_4)
+        setAllBatch4(res.data.batch_4)
         setLoading(false);
     })
     .catch(err=>console.log(err))
