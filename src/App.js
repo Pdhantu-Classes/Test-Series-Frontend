@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import ReactGA from "react-ga";
-import Routes from "./Routes";
+import Routes from "./RoutesNew";
 
 function App() {
   useEffect(() => {
